@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">We begin by computing partial derivatives.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f_x(x,y) = -\frac{xh}{a\sqrt{x^2+y^2}} \text{ and }  f_y(x,y)=-\frac{yh}{a\sqrt{x^2+y^2}}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">Since we are integrating over the disk bounded by <span class="process-math">\(x^2+y^2=a^2\text{,}\)</span> we again use polar coordinates. Using the standard substitutions, our integrand becomes</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sqrt{1+ \left(\frac{hr\cos(\theta) }{a\sqrt{r^2}}\right)^2 + \left(\frac{hr\sin(\theta) }{a\sqrt{r^2}}\right)^2}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">This may look intimidating at first, but there are lots of simple simplifications to be done. It amazingly reduces to just</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sqrt{1+\frac{h^2}{a^2}} = \frac1a\sqrt{a^2+h^2}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">Our polar bounds are <span class="process-math">\(0\leq\theta\leq2\pi\)</span> and <span class="process-math">\(0\leq r\leq a\text{.}\)</span> Thus</div>
+<div class="displaymath process-math">
+\begin{align*}
+S \amp =  \int_0^{2\pi}\int_0^ar\frac1a\sqrt{a^2+h^2}\, dr\, d\theta\\
+\amp = \int_0^{2\pi} \left.\left(\frac12r^2\frac1a\sqrt{a^2+h^2}\right)\right|_0^ad\theta\\
+\amp =  \int_0^{2\pi} \frac12a\sqrt{a^2+h^2} \, d\theta\\
+\amp = \pi a\sqrt{a^2+h^2}\text{.}
+\end{align*}
+</div>
+</div> <div class="para">This matches the formula found in the back of this text.</div> <aside class="aside aside-like"><div class="para">Note that once again <span class="process-math">\(f_x\)</span> and <span class="process-math">\(f_y\)</span> are not continuous on the domain of <span class="process-math">\(f\text{,}\)</span> as both are undefined at <span class="process-math">\((0,0)\text{.}\)</span> (A similar problem occurred in the previous example.) Once again the resulting improper integral converges and the computation of the surface area is valid.</div></aside>
+</div></body>
+</html>

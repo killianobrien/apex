@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h3 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">9.8.4.1</span><span class="period">.</span>
+</h3>
+<div class="para logical">
+<div class="para">
+<a href="" class="xref" data-knowl="./knowl/fig_ts2.html" title="Table 9.8.5: Derivatives of \ln(x) evaluated at x=1">Figure 9.8.5</a> shows the <span class="process-math">\(n\)</span>th derivative of <span class="process-math">\(\ln(x)\)</span> evaluated at <span class="process-math">\(x=1\)</span> for <span class="process-math">\(n=0,\ldots,5\text{,}\)</span> along with an expression for the <span class="process-math">\(n\)</span>th term:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig_ts2.html">
+\begin{equation*}
+f^{(n)}(1) = (-1)^{n+1}(n-1)! \text{ for \(n\geq 1\). }
+\end{equation*}
+</div>
+</div> <div class="para">Remember that this is what distinguishes Taylor series from Taylor polynomials; we are very interested in finding a pattern for the <span class="process-math">\(n\)</span>th term, not just finding a finite set of coefficients for a polynomial.</div> <figure class="table table-like"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">9.8.5<span class="period">.</span></span><span class="space"> </span>Derivatives of <span class="process-math">\(\ln(x)\)</span> evaluated at <span class="process-math">\(x=1\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x) = \ln(x)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\Rightarrow\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(1) = 0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\fp(x) = 1/x\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\Rightarrow\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\fp(1) = 1\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\fp'(x) = -1/x^2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\Rightarrow\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\fp'(1) = -1\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\fp''(x) = 2/x^3\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\Rightarrow\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\fp''(1) = 2\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f^{(4)}(x) = -6/x^4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\Rightarrow\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f^{(4)}(1) = -6\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f^{(5)}(x) = 24/x^5\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\Rightarrow\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f^{(5)}(1) = 24\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\, \vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\, \vdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f^{(n)}(x) =\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\Rightarrow\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f^{(n)}(1) =\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\ds \frac{(-1)^{n+1}(n-1)!}{x^n}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((-1)^{n+1}(n-1)!\)</span></td>
+</tr>
+</table></div></figure> <div class="para logical">
+<div class="para">Since <span class="process-math">\(f(1) = \ln(1) = 0\text{,}\)</span> we skip the first term and start the summation with <span class="process-math">\(n=1\text{,}\)</span> giving the Taylor series for <span class="process-math">\(\ln(x)\text{,}\)</span> centered at <span class="process-math">\(x=1\text{,}\)</span> as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\infser (-1)^{n+1}(n-1)!\frac{1}{n!}(x-1)^n = \infser (-1)^{n+1}\frac{(x-1)^n}{n}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">We now determine the interval of convergence, using the Ratio Test.</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lim_{n\to\infty} \frac{\abs{(-1)^{n+2}\dfrac{(x-1)^{n+1}}{n+1}}}{\abs{(-1)^{n+1}\dfrac{(x-1)^n}{n}}} \amp = \lim_{n\to\infty} \abs{\frac{(x-1)^{n+1}}{(x-1)^n}}\frac{n}{n+1}\\
+\amp = \abs{x-1}\text{.}
+\end{align*}
+</div>
+</div> <div class="para">By the Ratio Test, we have convergence when <span class="process-math">\(\abs{x-1} \lt 1\text{:}\)</span> the radius of convergence is 1, and we have convergence on <span class="process-math">\((0,2)\text{.}\)</span> We now check the endpoints.</div> <div class="para logical">
+<div class="para">At <span class="process-math">\(x=0\text{,}\)</span> the series is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{n=1}^\infty (-1)^{n+1}\frac{(-1)^n}{n} = -\sum_{n=1}^\infty \frac1n\text{,}
+\end{equation*}
+</div>
+<div class="para">which diverges (it is the Harmonic Series times <span class="process-math">\((-1)\text{.}\)</span>)</div>
+</div> <div class="para logical">
+<div class="para">At <span class="process-math">\(x=2\text{,}\)</span> the series is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{n=1}^\infty (-1)^{n+1}\frac{(1)^n}{n} = \sum_{n=1}^\infty (-1)^{n+1}\frac{1}{n}\text{,}
+\end{equation*}
+</div>
+<div class="para">the Alternating Harmonic Series, which converges.</div>
+</div> <aside class="aside aside-like"><div class="para">It can be shown that <span class="process-math">\(\ln x\)</span> is equal to this Taylor series on <span class="process-math">\((0,2]\text{.}\)</span> From the work in <a href="" class="xref" data-knowl="./knowl/ex_ts2.html" title="Example 9.8.4: The Taylor series of f(x)=\ln(x) at x=1">Example 9.8.4</a>, this justifies our previous declaration that the Alternating Harmonic Series converges to <span class="process-math">\(\ln 2\text{.}\)</span>
+</div></aside> <div class="para">We have found the Taylor series of <span class="process-math">\(\ln x\)</span> centered at <span class="process-math">\(x=1\text{,}\)</span> and have determined the series converges on <span class="process-math">\((0,2]\text{.}\)</span> We cannot (yet) say that <span class="process-math">\(\ln x\)</span> is equal to this Taylor series on <span class="process-math">\((0,2]\text{.}\)</span>
+</div>
+</div>
+<span class="incontext"><a href="sec_taylor_series.html#solution-709" class="internal">in-context</a></span>
+</body>
+</html>

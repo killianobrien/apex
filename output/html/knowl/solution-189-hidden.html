@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">Recognize that we have the <span class="process-math">\(g(x)=\tan\mathopen{}\left(6x^3-7x\right)\mathclose{}\)</span> function “inside” the <span class="process-math">\(f(x)=x^5\)</span> function; that is, we have <span class="process-math">\(y = \left(\tan\mathopen{}\left(6x^3-7x\right)\mathclose{}\right)^5\text{.}\)</span> We begin using the <a href="" class="xref" data-knowl="./knowl/thm_gen_power_rule.html" title="Theorem 2.5.7: Generalized Power Rule">Generalized Power Rule</a>; in this first step, we do not fully compute the derivative. Rather, we are approaching this step-by-step.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_gen_power_rule.html">
+\begin{equation*}
+y' = 5\left(\tan\mathopen{}\left(6x^3-7x\right)\mathclose{}\right)^4\cdot g'(x)\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">We now find <span class="process-math">\(g'(x)\text{.}\)</span> We again need the <a href="" class="xref" data-knowl="./knowl/thm_chain_rule.html" title="Theorem 2.5.4: The Chain Rule">The Chain Rule</a>;</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_chain_rule.html">
+\begin{align*}
+g'(x) \amp = \sec^2\mathopen{}\left(6x^3-7x\right)\mathclose{}\cdot \lzoo{x}{6x^3-7x}.\\
+\amp = \sec^2\mathopen{}\left(6x^3-7x\right)\mathclose{}\cdot\left(18x^2-7\right)\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">Combine this with what we found above to give</div>
+<div class="displaymath process-math">
+\begin{align*}
+y' \amp = 5\left(\tan\mathopen{}\left(6x^3-7x\right)\mathclose{}\right)^4\cdot\sec^2\mathopen{}\left(6x^3-7x\right)\mathclose{}\cdot\left(18x^2-7\right)\\
+\amp = \left(90x^2-35\right)\sec^2\mathopen{}\left(6x^3-7x\right)\mathclose{}\tan^4\mathopen{}\left(6x^3-7x\right)\mathclose{}\text{.}
+\end{align*}
+</div>
+</div> <div class="para">This function is frankly a ridiculous function, possessing no real practical value. It is very difficult to graph, as the tangent function has many vertical asymptotes and <span class="process-math">\(6x^3-7x\)</span> grows so very fast. The important thing to learn from this is that the derivative can be found. In fact, it is not “hard”; one can take several simple steps and should be careful to keep track of how to apply each of these steps.</div>
+</div></body>
+</html>

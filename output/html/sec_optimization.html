@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>APEX Optimization</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://opentext.uleth.ca/apex-video/external/images/APEX.png">
+<meta property="book:title" content="APEX Calculus">
+<meta property="book:author" content="Gregory Hartman, Ph.D.">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="http://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<script type="application/json" class="js-hypothesis-config">{
+    "openSidebar": false,    "showHighlights": true,}</script><script src="https://hypothes.is/embed.js" async=""></script><script src="https://cdn.geogebra.org/apps/deployggb.js"></script><link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '5.0.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/runtime.6b31f4c5fa38d888.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/runestone.06446f602ba3689b.bundle.js"></script><link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.4.4/637.0fa6cababf056764.css">
+<link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.4.4/runestone.93e720e6c6581fb5.css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href="http://www.apexcalculus.com" target="_blank"><img src="external/images/APEX.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="apex-calculus.html"><span class="title">APEX Calculus</span></a></h1>
+<p class="byline">Gregory Hartman, Ph.D., Sean Fitzpatrick, Ph.D. (Editor), Alex Jordan, Ph.D. (Editor), Carly Vollet, M.S. (Editor)</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><button id="calculator-toggle" class="calculator-toggle button" title="Show calculator" aria-expanded="false" aria-controls="calculator-container"><span class="name">Calc</span></button><div id="calculator-container" class="calculator-container" style="display: none; z-index:100;"><div id="geogebra-calculator"></div></div>
+<script>
+var ggbApp = new GGBApplet({"appName": "graphing",
+    "width": 330,
+    "height": 600,
+    "showToolBar": true,
+    "showAlgebraInput": true,
+    "perspective": "G/A",
+    "algebraInputPosition": "bottom",
+    "scaleContainerClass": "calculator-container",
+    "allowUpscale": true,
+    "autoHeight": true,
+    "disableAutoScale": false},
+true);
+</script><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec_related_rates.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="chapter_deriv_apps.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec_differentials.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\highlight}[1]{{\color{blue}{#1}}}
+\newcommand{\apex}{\mbox{\hbox{A}\kern -1pt \lower -2pt\hbox{P}\kern -4pt \lower .7ex\hbox{E}\kern -1pt \hbox{X}}}
+\newcommand{\colorlinecolor}{blue!95!black!30}
+\newcommand{\bwlinecolor}{black!30}
+\newcommand{\thelinecolor}{\colorlinecolor}
+\newcommand{\colornamesuffix}{}
+\newcommand{\linestyle}{[thick, \thelinecolor]}
+\newcommand{\bmx}[1]{\left[\hskip -3pt\begin{array}{#1} }
+\newcommand{\emx}{\end{array}\hskip -3pt\right]}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\fp}{f'}
+\newcommand{\fpp}{f''}
+
+\newcommand{\lz}[2]{\frac{d#1}{d#2}}
+\newcommand{\lzn}[3]{\frac{d^{#1}#2}{d#3^{#1}}}
+\newcommand{\lzo}[1]{\frac{d}{d#1}}
+\newcommand{\lzoo}[2]{{\frac{d}{d#1}}{\left(#2\right)}}
+\newcommand{\lzon}[2]{\frac{d^{#1}}{d#2^{#1}}}
+\newcommand{\lzoa}[3]{\left.{\frac{d#1}{d#2}}\right|_{#3}}
+\newcommand{\plz}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\plzoa}[3]{\left.{\frac{\partial#1}{\partial#2}}\right|_{#3}}
+
+\newcommand{\inflim}[1][n]{\lim\limits_{#1 \to \infty}}
+
+\newcommand{\infser}[1][1]{\sum_{n=#1}^\infty}
+
+\newcommand{\Fp}{F\primeskip'}
+\newcommand{\Fpp}{F\primeskip''}
+\newcommand{\yp}{y\primeskip'}
+\newcommand{\gp}{g\primeskip'}
+\newcommand{\dx}{\Delta x}
+\newcommand{\dy}{\Delta y}
+\newcommand{\ddz}{\Delta z}
+\newcommand{\thet}{\theta}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\vnorm}[1]{\left\lVert\vec #1\right\rVert}
+\newcommand{\snorm}[1]{\left|\left|\,#1\,\right|\right|}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+\newcommand{\dotp}[2]{\vec #1 \cdot \vec #2}
+\newcommand{\proj}[2]{\text{proj}_{\,\vec #2}{\,\vec #1}}
+\newcommand{\crossp}[2]{\vec #1 \times \vec #2}
+\newcommand{\veci}{\vec i}
+\newcommand{\vecj}{\vec j}
+\newcommand{\veck}{\vec k}
+\newcommand{\vecu}{\vec u}
+\newcommand{\vecv}{\vec v}
+\newcommand{\vecw}{\vec w}
+\newcommand{\vecx}{\vec x}
+\newcommand{\vecy}{\vec y}
+\newcommand{\vrp}{\vec r\hskip0.75pt '}
+\newcommand{\vrpp}{\vec r\hskip0.75pt ''}
+\newcommand{\vsp}{\vec s\hskip0.75pt '}
+\newcommand{\vrt}{\vec r(t)}
+\newcommand{\vst}{\vec s(t)}
+\newcommand{\vvt}{\vec v(t)}
+\newcommand{\vat}{\vec a(t)}
+\newcommand{\px}{\partial x}
+\newcommand{\py}{\partial y}
+\newcommand{\pz}{\partial z}
+\newcommand{\pf}{\partial f}
+\newcommand{\unittangent}{\vec{{}T}}
+\newcommand{\unitnormal}{\vec{N}}
+\newcommand{\unittangentprime}{\vec{{}T}\hskip0.75pt '}
+\newcommand{\mathN}{\mathbb{N}}
+\newcommand{\surfaceS}{\mathcal{S}}
+\newcommand{\zerooverzero}{\ds \raisebox{8pt}{\text{``\ }}\frac{0}{0}\raisebox{8pt}{\textit{ ''}}}
+\newcommand{\deriv}[2]{\myds\frac{d}{dx}\left(#1\right)=#2}
+\newcommand{\myint}[2]{\myds\int #1\, dx= {\ds #2}}
+\newcommand{\primeskip}{\hskip.75pt}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\csch}{\operatorname{csch}}
+\newcommand{\curl}{\operatorname{curl}}
+\newcommand{\divv}{\operatorname{div}}
+\newcommand{\Hess}{\operatorname{Hess}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li>
+<div class="toc-item"><a href="frontmatter-1.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="acknowledgement.html" class="internal"><span class="title">Thanks</span></a></div></li>
+<li><div class="toc-item"><a href="apex-preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li><div class="toc-item"><a href="preface-history.html" class="internal"><span class="title">A Brief History of Calculus</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_limits.html" class="internal"><span class="codenumber">1</span> <span class="title">Limits</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_limit_intro.html" class="internal"><span class="codenumber">1.1</span> <span class="title">An Introduction To Limits</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_limit_intro.html#subsec_nolimit3" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Identifying When Limits Do Not Exist</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limit_intro.html#sec_diff_quot_intro" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Limits of Difference Quotients</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limit_intro.html#exercises-1" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limit_def.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Epsilon-Delta Definition of a Limit</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limit_def.html#exercises-2" class="internal"><span class="codenumber">1.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limit_analytically.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Finding Limits Analytically</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limit_analytically.html#exercises-3" class="internal"><span class="codenumber">1.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limits_one_sided.html" class="internal"><span class="codenumber">1.4</span> <span class="title">One-Sided Limits</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limits_one_sided.html#exercises-4" class="internal"><span class="codenumber">1.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_continuity.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuity</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_continuity.html#exercises-5" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limits_infty.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Limits Involving Infinity</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-3" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Vertical asymptotes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-4" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Indeterminate Forms</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-5" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Limits at Infinity and Horizontal Asymptotes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#exercises-6" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_derivatives.html" class="internal"><span class="codenumber">2</span> <span class="title">Derivatives</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_derivative.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Instantaneous Rates of Change: The Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_derivative.html#sec-deriv-intro" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Introduction</span></a></div></li>
+<li><div class="toc-item"><a href="sec_derivative.html#subsection-7" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Differentiability on Closed Intervals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_derivative.html#exercises-7" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_interp_deriv.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Interpretations of the Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-8" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Interpretation of the Derivative as Instantaneous Rate of Change</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-9" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Units of the Derivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-10" class="internal"><span class="codenumber">2.2.3</span> <span class="title">The Derivative and Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-11" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Interpretation of the Derivative as the Slope of the Tangent Line</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#exercises-8" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_basic_diff_rules.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Basic Differentiation Rules</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#subsection-12" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Higher Order Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#subsection-13" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Interpreting Higher Order Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#exercises-9" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_prod_quot_rules.html" class="internal"><span class="codenumber">2.4</span> <span class="title">The Product and Quotient Rules</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_prod_quot_rules.html#exercises-10" class="internal"><span class="codenumber">2.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_chainrule.html" class="internal"><span class="codenumber">2.5</span> <span class="title">The Chain Rule</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_chainrule.html#exercises-11" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_imp_deriv.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Implicit Differentiation</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-14" class="internal"><span class="codenumber">2.6.1</span> <span class="title">The method of implicit differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-15" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Implicit Differentiation and the Second Derivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-16" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Logarithmic Differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#exercises-12" class="internal"><span class="codenumber">2.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_deriv_inverse_function.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Derivatives of Inverse Functions</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_deriv_inverse_function.html#exercises-13" class="internal"><span class="codenumber">2.7</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_graphbehavior.html" class="internal"><span class="codenumber">3</span> <span class="title">The Graphical Behavior of Functions</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_extreme_values.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Extreme Values</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_extreme_values.html#exercises-14" class="internal"><span class="codenumber">3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_mvt.html" class="internal"><span class="codenumber">3.2</span> <span class="title">The Mean Value Theorem</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_mvt.html#exercises-15" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_incr_decr.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Increasing and Decreasing Functions</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_incr_decr.html#exercises-16" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_concavity.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Concavity and the Second Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_concavity.html#subsection-17" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Concavity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_concavity.html#subsection-18" class="internal"><span class="codenumber">3.4.2</span> <span class="title">The Second Derivative Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_concavity.html#exercises-17" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_sketch.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Curve Sketching</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_sketch.html#exercises-18" class="internal"><span class="codenumber">3.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_deriv_apps.html" class="internal"><span class="codenumber">4</span> <span class="title">Applications of the Derivative</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_newton.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Newton's Method</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_newton.html#exercises-19" class="internal"><span class="codenumber">4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_related_rates.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Related Rates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_related_rates.html#exercises-20" class="internal"><span class="codenumber">4.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="sec_optimization.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Optimization</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_optimization.html#exercises-21" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_differentials.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Differentials</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_differentials.html#exercises-22" class="internal"><span class="codenumber">4.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_integration.html" class="internal"><span class="codenumber">5</span> <span class="title">Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_antider.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Antiderivatives and Indefinite Integration</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_antider.html#exercises-23" class="internal"><span class="codenumber">5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_def_int.html" class="internal"><span class="codenumber">5.2</span> <span class="title">The Definite Integral</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_def_int.html#exercises-24" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_riemann.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Riemann Sums</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_riemann.html#fig_rie_notation" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Summation Notation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#subsection-20" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Riemann Sums</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#subsection-21" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Limits of Riemann Sums</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#exercises-25" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_FTC.html" class="internal"><span class="codenumber">5.4</span> <span class="title">The Fundamental Theorem of Calculus</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-22" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Fundamental Theorem of Calculus, Parts 1 and 2</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-23" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Understanding Motion with the Fundamental Theorem of Calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#sec-FTC-chain" class="internal"><span class="codenumber">5.4.3</span> <span class="title">The Fundamental Theorem of Calculus and the Chain Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#sec-FTC-ABC" class="internal"><span class="codenumber">5.4.4</span> <span class="title">Area Between Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-26" class="internal"><span class="codenumber">5.4.5</span> <span class="title">The Mean Value Theorem and Average Value</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#exercises-26" class="internal"><span class="codenumber">5.4.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_numerical_integration.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Numerical Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-27" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Left and Right Hand Rule Methods</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-28" class="internal"><span class="codenumber">5.5.2</span> <span class="title">The Trapezoidal Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-29" class="internal"><span class="codenumber">5.5.3</span> <span class="title">The Midpoint Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-30" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Simpson's Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-31" class="internal"><span class="codenumber">5.5.5</span> <span class="title">Summary and Error Analysis</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#exercises-27" class="internal"><span class="codenumber">5.5.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_anti_tech.html" class="internal"><span class="codenumber">6</span> <span class="title">Techniques of Antidifferentiation</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_substitution.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Substitution</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-32" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Integrals Involving Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-33" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Simplifying the Integrand</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-34" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Substitution and Inverse Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#sec-sub-def-int" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Substitution and Definite Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#exercises-28" class="internal"><span class="codenumber">6.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_IBP.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Integration by Parts</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_IBP.html#exercises-29" class="internal"><span class="codenumber">6.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_trigint.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Trigonometric Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-36" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Integrals of the form <span class="process-math">\(\int \sin^m(x) \cos^n(x) \, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-37" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Integrals of the form <span class="process-math">\(\int\sin(mx)\sin(nx)\, dx\text{,}\)</span> <span class="process-math">\(\int \cos(mx)\cos(nx)\, dx\text{,}\)</span> and <span class="process-math">\(\int \sin(mx)\cos(nx)\, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-38" class="internal"><span class="codenumber">6.3.3</span> <span class="title">Integrals of the form <span class="process-math">\(\int\tan^m(x) \sec^n(x) \, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#exercises-30" class="internal"><span class="codenumber">6.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_trig_sub.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Trigonometric Substitution</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_trig_sub.html#exercises-31" class="internal"><span class="codenumber">6.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_partial_fraction.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Partial Fraction Decomposition</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_partial_fraction.html#exercises-32" class="internal"><span class="codenumber">6.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_hyperbolic.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Hyperbolic Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_hyperbolic.html#sec-hyp-def" class="internal"><span class="codenumber">6.6.1</span> <span class="title">The Hyperbolic Functions and their Properties</span></a></div></li>
+<li><div class="toc-item"><a href="sec_hyperbolic.html#subsection-40" class="internal"><span class="codenumber">6.6.2</span> <span class="title">Inverse Hyperbolic Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_hyperbolic.html#exercises-33" class="internal"><span class="codenumber">6.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_lhopitals_rule.html" class="internal"><span class="codenumber">6.7</span> <span class="title">L'Hospital's Rule</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#sec_lhopital_statement" class="internal"><span class="codenumber">6.7.1</span> <span class="title">L'Hospital's Rule with indeterminate forms <span class="process-math">\(0/0\)</span> and <span class="process-math">\(\infty/\infty\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#subsection-42" class="internal"><span class="codenumber">6.7.2</span> <span class="title">Indeterminate Forms <span class="process-math">\(0\cdot\infty\)</span> and <span class="process-math">\(\infty-\infty\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#subsection-43" class="internal"><span class="codenumber">6.7.3</span> <span class="title">Indeterminate Forms  <span class="process-math">\(0^0\text{,}\)</span> <span class="process-math">\(1^\infty\)</span> and <span class="process-math">\(\infty^0\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#exercises-34" class="internal"><span class="codenumber">6.7.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_improper_integration.html" class="internal"><span class="codenumber">6.8</span> <span class="title">Improper Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-44" class="internal"><span class="codenumber">6.8.1</span> <span class="title">Improper Integrals with Infinite Bounds</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-45" class="internal"><span class="codenumber">6.8.2</span> <span class="title">Improper Integrals with Infinite Range</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-46" class="internal"><span class="codenumber">6.8.3</span> <span class="title">Understanding Convergence and Divergence</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#exercises-35" class="internal"><span class="codenumber">6.8.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_app_of_int.html" class="internal"><span class="codenumber">7</span> <span class="title">Applications of Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_ABC.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Area Between Curves</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_ABC.html#exercises-36" class="internal"><span class="codenumber">7.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_disk.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Volume by Cross-Sectional Area; Disk and Washer Methods</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_disk.html#exercises-37" class="internal"><span class="codenumber">7.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_shell_method.html" class="internal"><span class="codenumber">7.3</span> <span class="title">The Shell Method</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_shell_method.html#exercises-38" class="internal"><span class="codenumber">7.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_arc_length.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Arc Length and Surface Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_arc_length.html#subsec-arc-length" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_arc_length.html#sec_surface_area_revolution" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Surface Area of Solids of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_arc_length.html#exercises-39" class="internal"><span class="codenumber">7.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_work.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Work</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_work.html#sec_work_variable_force" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Work Done by a Variable Force</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#subsection-50" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Hooke's Law and Springs</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#subsection-51" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Pumping Fluids</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#exercises-40" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_fluid_force.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Fluid Forces</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_fluid_force.html#exercises-41" class="internal"><span class="codenumber">7.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_differential_equations.html" class="internal"><span class="codenumber">8</span> <span class="title">Differential Equations</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_Graphical_Numerical.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Graphical and Numerical Solutions to Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-52" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Introduction and Terminology</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-53" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Graphical Solutions to Differential Equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-54" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Numerical Solutions to Differential Equations: Euler's Method</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#exercises-42" class="internal"><span class="codenumber">8.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Separable.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Separable Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Separable.html#subsection-55" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Separation of Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Separable.html#exercises-43" class="internal"><span class="codenumber">8.2.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Linear.html" class="internal"><span class="codenumber">8.3</span> <span class="title">First Order Linear Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Linear.html#subsection-56" class="internal"><span class="codenumber">8.3.1</span> <span class="title">Solving First Order Linear Equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Linear.html#exercises-44" class="internal"><span class="codenumber">8.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Modeling.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Modeling with Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Modeling.html#subsection-57" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Models Involving Proportional Change</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Modeling.html#subsection-58" class="internal"><span class="codenumber">8.4.2</span> <span class="title">Rate-in Rate-out Problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Modeling.html#exercises-45" class="internal"><span class="codenumber">8.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_sequences_series.html" class="internal"><span class="codenumber">9</span> <span class="title">Sequences and Series</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_sequences.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Sequences</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_sequences.html#exercises-46" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_series.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Infinite Series</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_series.html#subsec-series-convergence" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Convergence of sequences</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#subsection-60" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Geometric Series</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#subsection-61" class="internal"><span class="codenumber">9.2.3</span> <span class="title"><span class="process-math">\(p\)</span>-Series</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#exercises-47" class="internal"><span class="codenumber">9.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_int_comp_tests.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integral and Comparison Tests</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-62" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Integral Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-63" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Direct Comparison Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-64" class="internal"><span class="codenumber">9.3.3</span> <span class="title">Limit Comparison Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#exercises-48" class="internal"><span class="codenumber">9.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_ratio_root_tests.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Ratio and Root Tests</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#subsection-65" class="internal"><span class="codenumber">9.4.1</span> <span class="title">Ratio Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#subsection-66" class="internal"><span class="codenumber">9.4.2</span> <span class="title">Root Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#exercises-49" class="internal"><span class="codenumber">9.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_alt_series.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Alternating Series and Absolute Convergence</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_alt_series.html#exercises-50" class="internal"><span class="codenumber">9.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_power_series.html" class="internal"><span class="codenumber">9.6</span> <span class="title">Power Series</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_power_series.html#exercises-51" class="internal"><span class="codenumber">9.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_taylor_poly.html" class="internal"><span class="codenumber">9.7</span> <span class="title">Taylor Polynomials</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_taylor_poly.html#exercises-52" class="internal"><span class="codenumber">9.7</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_taylor_series.html" class="internal"><span class="codenumber">9.8</span> <span class="title">Taylor Series</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_taylor_series.html#exercises-53" class="internal"><span class="codenumber">9.8</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_planar_curves.html" class="internal"><span class="codenumber">10</span> <span class="title">Curves in the Plane</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_conic_sections.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Conic Sections</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-parabola" class="internal"><span class="codenumber">10.1.1</span> <span class="title">Parabolas</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-ellipse" class="internal"><span class="codenumber">10.1.2</span> <span class="title">Ellipses</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-hyperbola" class="internal"><span class="codenumber">10.1.3</span> <span class="title">Hyperbolas</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#exercises-54" class="internal"><span class="codenumber">10.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_param_eqs.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Parametric Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsec-parametric-plot" class="internal"><span class="codenumber">10.2.1</span> <span class="title">Plotting parametric curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsection-71" class="internal"><span class="codenumber">10.2.2</span> <span class="title">Converting between rectangular and parametric equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsection-72" class="internal"><span class="codenumber">10.2.3</span> <span class="title">Special Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#exercises-55" class="internal"><span class="codenumber">10.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_par_calc.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Calculus and Parametric Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-73" class="internal"><span class="codenumber">10.3.1</span> <span class="title">Concavity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-74" class="internal"><span class="codenumber">10.3.2</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-75" class="internal"><span class="codenumber">10.3.3</span> <span class="title">Surface Area of a Solid of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#exercises-56" class="internal"><span class="codenumber">10.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_polar.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Introduction to Polar Coordinates</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_polar.html#subsection-76" class="internal"><span class="codenumber">10.4.1</span> <span class="title">Polar Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#subsection-77" class="internal"><span class="codenumber">10.4.2</span> <span class="title">Polar to Rectangular Conversion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#subsection-78" class="internal"><span class="codenumber">10.4.3</span> <span class="title">Polar Functions and Polar Graphs</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#exercises-57" class="internal"><span class="codenumber">10.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_polarcalc.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Calculus and Polar Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-79" class="internal"><span class="codenumber">10.5.1</span> <span class="title">Polar Functions and <span class="process-math">\(dy/dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-80" class="internal"><span class="codenumber">10.5.2</span> <span class="title">Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-81" class="internal"><span class="codenumber">10.5.3</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-82" class="internal"><span class="codenumber">10.5.4</span> <span class="title">Surface Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#exercises-58" class="internal"><span class="codenumber">10.5.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_vectors.html" class="internal"><span class="codenumber">11</span> <span class="title">Vectors</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_space_coord.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Introduction to Cartesian Coordinates in Space</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_space_coord.html#subsection-83" class="internal"><span class="codenumber">11.1.1</span> <span class="title">Measuring Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsection-84" class="internal"><span class="codenumber">11.1.2</span> <span class="title">Spheres</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#sec-planes-in-space" class="internal"><span class="codenumber">11.1.3</span> <span class="title">Introduction to Planes in Space</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-cylinders" class="internal"><span class="codenumber">11.1.4</span> <span class="title">Cylinders</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-surface-revolution" class="internal"><span class="codenumber">11.1.5</span> <span class="title">Surfaces of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-quadric" class="internal"><span class="codenumber">11.1.6</span> <span class="title">Quadric Surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#exercises-59" class="internal"><span class="codenumber">11.1.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vector_intro.html" class="internal"><span class="codenumber">11.2</span> <span class="title">An Introduction to Vectors</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_vector_intro.html#exercises-60" class="internal"><span class="codenumber">11.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_dot_product.html" class="internal"><span class="codenumber">11.3</span> <span class="title">The Dot Product</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_dot_product.html#subsection-89" class="internal"><span class="codenumber">11.3.1</span> <span class="title">Application to Work</span></a></div></li>
+<li><div class="toc-item"><a href="sec_dot_product.html#exercises-61" class="internal"><span class="codenumber">11.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_cross_product.html" class="internal"><span class="codenumber">11.4</span> <span class="title">The Cross Product</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_cross_product.html#subsection-90" class="internal"><span class="codenumber">11.4.1</span> <span class="title">Properties of the Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cross_product.html#subsection-91" class="internal"><span class="codenumber">11.4.2</span> <span class="title">Applications of the Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cross_product.html#exercises-62" class="internal"><span class="codenumber">11.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_lines.html" class="internal"><span class="codenumber">11.5</span> <span class="title">Lines</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_lines.html#subsec_lines_space_def" class="internal"><span class="codenumber">11.5.1</span> <span class="title">Lines in space</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#subsec-lines-compare" class="internal"><span class="codenumber">11.5.2</span> <span class="title">Parallel, Intersecting and Skew Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#subsection-94" class="internal"><span class="codenumber">11.5.3</span> <span class="title">Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#exercises-63" class="internal"><span class="codenumber">11.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_planes.html" class="internal"><span class="codenumber">11.6</span> <span class="title">Planes</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_planes.html#subsec_planes_distances" class="internal"><span class="codenumber">11.6.1</span> <span class="title">Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_planes.html#exercises-64" class="internal"><span class="codenumber">11.6.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap_vvf.html" class="internal"><span class="codenumber">12</span> <span class="title">Vector Valued Functions</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_vvf.html" class="internal"><span class="codenumber">12.1</span> <span class="title">Vector-Valued Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf.html#subsec-eval-vvf" class="internal"><span class="codenumber">12.1.1</span> <span class="title">Evaluating and Graphing Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#subsection-97" class="internal"><span class="codenumber">12.1.2</span> <span class="title">Algebra of Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#subsec_vvf_displacement" class="internal"><span class="codenumber">12.1.3</span> <span class="title">Displacement</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#exercises-65" class="internal"><span class="codenumber">12.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vvf_calc.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Calculus and Vector-Valued Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsec_vvf_limits" class="internal"><span class="codenumber">12.2.1</span> <span class="title">Limits of Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsec_vvf_continuity" class="internal"><span class="codenumber">12.2.2</span> <span class="title">Continuity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsection-101" class="internal"><span class="codenumber">12.2.3</span> <span class="title">Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsection-102" class="internal"><span class="codenumber">12.2.4</span> <span class="title">Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#exercises-66" class="internal"><span class="codenumber">12.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vvf_motion.html" class="internal"><span class="codenumber">12.3</span> <span class="title">The Calculus of Motion</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf_motion.html#subsec_vvf_projectile" class="internal"><span class="codenumber">12.3.1</span> <span class="title">Projectile Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_motion.html#subsection-104" class="internal"><span class="codenumber">12.3.2</span> <span class="title">Distance Traveled</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_motion.html#exercises-67" class="internal"><span class="codenumber">12.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_tan_norm.html" class="internal"><span class="codenumber">12.4</span> <span class="title">Unit Tangent and Normal Vectors</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-105" class="internal"><span class="codenumber">12.4.1</span> <span class="title">Unit Tangent Vector</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-106" class="internal"><span class="codenumber">12.4.2</span> <span class="title">Unit Normal Vector</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-107" class="internal"><span class="codenumber">12.4.3</span> <span class="title">Application to Acceleration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#exercises-68" class="internal"><span class="codenumber">12.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_curvature.html" class="internal"><span class="codenumber">12.5</span> <span class="title">The Arc Length Parameter and Curvature</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-108" class="internal"><span class="codenumber">12.5.1</span> <span class="title">The Arc Length Paramtrization</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-109" class="internal"><span class="codenumber">12.5.2</span> <span class="title">Curvature</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-110" class="internal"><span class="codenumber">12.5.3</span> <span class="title">Curvature and Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#exercises-69" class="internal"><span class="codenumber">12.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_multi.html" class="internal"><span class="codenumber">13</span> <span class="title">Functions of Several Variables</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_multi_intro.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Introduction to Multivariable Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-111" class="internal"><span class="codenumber">13.1.1</span> <span class="title">Graphing Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-112" class="internal"><span class="codenumber">13.1.2</span> <span class="title">Level Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-113" class="internal"><span class="codenumber">13.1.3</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-114" class="internal"><span class="codenumber">13.1.4</span> <span class="title">Level Surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#exercises-70" class="internal"><span class="codenumber">13.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_limit.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Limits and Continuity of Multivariable Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsec-multivariable-topology" class="internal"><span class="codenumber">13.2.1</span> <span class="title">Open and Closed Subsets in Higher Dimensions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-116" class="internal"><span class="codenumber">13.2.2</span> <span class="title">Limits</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-117" class="internal"><span class="codenumber">13.2.3</span> <span class="title">Continuity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-118" class="internal"><span class="codenumber">13.2.4</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#exercises-71" class="internal"><span class="codenumber">13.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_partial_derivatives.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Partial Derivatives</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-first-partial" class="internal"><span class="codenumber">13.3.1</span> <span class="title">First-order partial derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-tangent-plane" class="internal"><span class="codenumber">13.3.2</span> <span class="title">Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-second-partial" class="internal"><span class="codenumber">13.3.3</span> <span class="title">Second-order partial derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-122" class="internal"><span class="codenumber">13.3.4</span> <span class="title">Understanding Second Partial Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-123" class="internal"><span class="codenumber">13.3.5</span> <span class="title">Partial Derivatives and Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-124" class="internal"><span class="codenumber">13.3.6</span> <span class="title">Higher Order Partial Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#exercises-72" class="internal"><span class="codenumber">13.3.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_total_differential.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Differentiability and the Total Differential</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-total-differential-intro" class="internal"><span class="codenumber">13.4.1</span> <span class="title">The Total Differential</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-total-differential-approx" class="internal"><span class="codenumber">13.4.2</span> <span class="title">Approximating with the Total Differential</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-tangent-plane-approximation" class="internal"><span class="codenumber">13.4.3</span> <span class="title">Tangent Plane Approximation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-error-analysis-total-diff" class="internal"><span class="codenumber">13.4.4</span> <span class="title">Error/Sensitivity Analysis</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-differentiable-three-var" class="internal"><span class="codenumber">13.4.5</span> <span class="title">Differentiability of Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#exercises-73" class="internal"><span class="codenumber">13.4.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_chain.html" class="internal"><span class="codenumber">13.5</span> <span class="title">The Multivariable Chain Rule</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_chain.html#subsec-multi-chain-intro" class="internal"><span class="codenumber">13.5.1</span> <span class="title">Multivariable Chain Rule, Part I</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_chain.html#subsec-implicit-diff" class="internal"><span class="codenumber">13.5.2</span> <span class="title">Implicit Differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_chain.html#exercises-74" class="internal"><span class="codenumber">13.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_directional_derivative.html" class="internal"><span class="codenumber">13.6</span> <span class="title">Directional Derivatives</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_directional_derivative.html#subsection-132" class="internal"><span class="codenumber">13.6.1</span> <span class="title">Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_directional_derivative.html#subsection-133" class="internal"><span class="codenumber">13.6.2</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_directional_derivative.html#exercises-75" class="internal"><span class="codenumber">13.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_tangent.html" class="internal"><span class="codenumber">13.7</span> <span class="title">Tangent Lines, Normal Lines, and Tangent Planes</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsec-tangent-lines-surface" class="internal"><span class="codenumber">13.7.1</span> <span class="title">Tangent Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-135" class="internal"><span class="codenumber">13.7.2</span> <span class="title">Normal Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-136" class="internal"><span class="codenumber">13.7.3</span> <span class="title">Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-137" class="internal"><span class="codenumber">13.7.4</span> <span class="title">The Gradient and Normal Lines, Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#exercises-76" class="internal"><span class="codenumber">13.7.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_extreme_values.html" class="internal"><span class="codenumber">13.8</span> <span class="title">Extreme Values</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#subsec-multi-critical" class="internal"><span class="codenumber">13.8.1</span> <span class="title">Critical Points of Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#subsection-139" class="internal"><span class="codenumber">13.8.2</span> <span class="title">Constrained Optimization</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#exercises-77" class="internal"><span class="codenumber">13.8.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_mult_int.html" class="internal"><span class="codenumber">14</span> <span class="title">Multiple Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_iterated_integrals.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Iterated Integrals and Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsec-iterated" class="internal"><span class="codenumber">14.1.1</span> <span class="title">Iterated integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsection-141" class="internal"><span class="codenumber">14.1.2</span> <span class="title">Area of a plane region</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsec-changing-order" class="internal"><span class="codenumber">14.1.3</span> <span class="title">Changing Order of Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#exercises-78" class="internal"><span class="codenumber">14.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_double_int_volume.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Double Integration and Volume</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_double_int_volume.html#exercises-79" class="internal"><span class="codenumber">14.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_double_int_polar.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Double Integration with Polar Coordinates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_double_int_polar.html#exercises-80" class="internal"><span class="codenumber">14.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_center_of_mass.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Center of Mass</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_center_of_mass.html#subsection-143" class="internal"><span class="codenumber">14.4.1</span> <span class="title">Mass and Weight</span></a></div></li>
+<li><div class="toc-item"><a href="sec_center_of_mass.html#subsection-144" class="internal"><span class="codenumber">14.4.2</span> <span class="title">Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_center_of_mass.html#exercises-81" class="internal"><span class="codenumber">14.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_surface_area.html" class="internal"><span class="codenumber">14.5</span> <span class="title">Surface Area</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_surface_area.html#exercises-82" class="internal"><span class="codenumber">14.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_triple_int.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Volume Between Surfaces and Triple Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-145" class="internal"><span class="codenumber">14.6.1</span> <span class="title">Volume between surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-146" class="internal"><span class="codenumber">14.6.2</span> <span class="title">Triple Integration and Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-147" class="internal"><span class="codenumber">14.6.3</span> <span class="title">Mass and Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#exercises-83" class="internal"><span class="codenumber">14.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_cylindrical_spherical.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Triple Integration with Cylindrical and Spherical Coordinates</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#subsection-148" class="internal"><span class="codenumber">14.7.1</span> <span class="title">Cylindrical Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#subsection-149" class="internal"><span class="codenumber">14.7.2</span> <span class="title">Spherical Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#exercises-84" class="internal"><span class="codenumber">14.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_vector_calc.html" class="internal"><span class="codenumber">15</span> <span class="title">Vector Analysis</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_line_int_intro.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Introduction to Line Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsec-line-int-scalar" class="internal"><span class="codenumber">15.1.1</span> <span class="title">Line Integrals of Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsection-151" class="internal"><span class="codenumber">15.1.2</span> <span class="title">Properties of Line Integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsection-152" class="internal"><span class="codenumber">15.1.3</span> <span class="title">Mass and Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#exercises-85" class="internal"><span class="codenumber">15.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vector_fields.html" class="internal"><span class="codenumber">15.2</span> <span class="title">Vector Fields</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vector_fields.html#subsection-153" class="internal"><span class="codenumber">15.2.1</span> <span class="title">Vector Field Notation and Del Operator</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vector_fields.html#subsection-154" class="internal"><span class="codenumber">15.2.2</span> <span class="title">Divergence and Curl</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vector_fields.html#exercises-86" class="internal"><span class="codenumber">15.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_line_int_vf.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Line Integrals over Vector Fields</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsec-line-int-vector-eval" class="internal"><span class="codenumber">15.3.1</span> <span class="title">Evaluating Line Integrals over Vector Fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsection-156" class="internal"><span class="codenumber">15.3.2</span> <span class="title">Properties of Line Integrals Over Vector Fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsection-157" class="internal"><span class="codenumber">15.3.3</span> <span class="title">The Fundamental Theorem of Line Integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#exercises-87" class="internal"><span class="codenumber">15.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_greensthm.html" class="internal"><span class="codenumber">15.4</span> <span class="title">Flow, Flux, Green's Theorem and the Divergence Theorem</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-158" class="internal"><span class="codenumber">15.4.1</span> <span class="title">Flow and Flux</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-159" class="internal"><span class="codenumber">15.4.2</span> <span class="title">Green's Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-160" class="internal"><span class="codenumber">15.4.3</span> <span class="title">The Divergence Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#exercises-88" class="internal"><span class="codenumber">15.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_parametric_surfaces.html" class="internal"><span class="codenumber">15.5</span> <span class="title">Parametrized Surfaces and Surface Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#subsec-parametrized-surfaces" class="internal"><span class="codenumber">15.5.1</span> <span class="title">Parametrizing surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#subsection-162" class="internal"><span class="codenumber">15.5.2</span> <span class="title">Surface Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#exercises-89" class="internal"><span class="codenumber">15.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_surface_integral.html" class="internal"><span class="codenumber">15.6</span> <span class="title">Surface Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_surface_integral.html#subsec-surfint-scalar" class="internal"><span class="codenumber">15.6.1</span> <span class="title">Surface integrals of scalar fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_surface_integral.html#subsection-164" class="internal"><span class="codenumber">15.6.2</span> <span class="title">Flux</span></a></div></li>
+<li><div class="toc-item"><a href="sec_surface_integral.html#exercises-90" class="internal"><span class="codenumber">15.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_stokes_divergence.html" class="internal"><span class="codenumber">15.7</span> <span class="title">The Divergence Theorem and Stokes' Theorem</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-165" class="internal"><span class="codenumber">15.7.1</span> <span class="title">The Divergence Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-166" class="internal"><span class="codenumber">15.7.2</span> <span class="title">Stokes' Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-167" class="internal"><span class="codenumber">15.7.3</span> <span class="title">A Common Thread of Calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#exercises-91" class="internal"><span class="codenumber">15.7.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="backmatter-1.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="solutions-1.html" class="internal"><span class="codenumber">A</span> <span class="title">Answers to Odd Exercises</span></a></div></li>
+<li>
+<div class="toc-item"><a href="appendix-reference.html" class="internal"><span class="codenumber">B</span> <span class="title">Quick Reference</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="reference-derivatives.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Differentiation Formulas</span></a></div></li>
+<li><div class="toc-item"><a href="reference-integration.html" class="internal"><span class="codenumber">B.2</span> <span class="title">Integration Formulas</span></a></div></li>
+<li>
+<div class="toc-item"><a href="reference-trigonometry.html" class="internal"><span class="codenumber">B.3</span> <span class="title">Trigonometry Reference</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="reference-trigonometry.html#reference-trig-definitions" class="internal"><span class="codenumber">B.3.1</span> <span class="title">Definitions of the Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="reference-trigonometry.html#reference-trig-identities" class="internal"><span class="codenumber">B.3.2</span> <span class="title">Common Trigonometric Identities</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="reference-area-volume.html" class="internal"><span class="codenumber">B.4</span> <span class="title">Areas and Volumes</span></a></div></li>
+<li><div class="toc-item"><a href="reference-algebra.html" class="internal"><span class="codenumber">B.5</span> <span class="title">Algebra</span></a></div></li>
+<li><div class="toc-item"><a href="reference-formulas.html" class="internal"><span class="codenumber">B.6</span> <span class="title">Additional Formulas</span></a></div></li>
+<li><div class="toc-item"><a href="section-98.html" class="internal"><span class="codenumber">B.7</span> <span class="title">Summary of Tests for Series</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_optimization"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">4.3</span> <span class="title">Optimization</span>
+</h2>
+<figure class="figure figure-like" id="vid_deriv_apps_opt_prod_sum"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-137" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/nlLf3CcgblI?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.1<span class="period">.</span></span><span class="space"> </span>A simple optimization problem</figcaption></figure><div class="para" id="p-3921">In <a href="sec_extreme_values.html" class="internal" title="Section 3.1: Extreme Values">Section 3.1</a> we learned about extreme values — the largest and smallest values a function attains on an interval. We motivated our interest in such values by discussing how it made sense to want to know the highest/lowest values of a stock, or the fastest/slowest an object was moving. In this section we apply the concepts of extreme values to solve “word problems,” i.e., problems stated in terms of situations that require us to create the appropriate mathematical framework in which to solve the problem. </div>
+<div class="para" id="p-3922">We start with a classic example which is followed by a discussion of the topic of optimization.</div>
+<article class="example example-like" id="ex_opt1"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Optimization: perimeter and area.</span>
+</h3>
+<div class="para" id="p-3923">A man has <span class="process-math">\(100\)</span> feet of fencing, a large yard, and a small dog. He wants to create a rectangular enclosure for his dog with the fencing that provides the maximal area. What dimensions provide the maximal area?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-304" id="solution-304"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-304"><div class="solution solution-like">
+<div class="para" id="p-3924">One can likely guess the correct answer — that is great. We will proceed to show how calculus can provide this answer in a context that proves this answer is correct.</div> <div class="para" id="p-3925">It helps to make a sketch of the situation. Our enclosure is sketched twice in <a href="" class="xref" data-knowl="./knowl/fig_opt1b.html" title="Figure 4.3.3">Figure 4.3.3</a>, either with treetop grass and nice fence boards or as a simple rectangle. Either way, drawing a rectangle forces us to realize that we need to know the dimensions of this rectangle so we can create an area function — after all, we are trying to maximize the area.</div> <figure class="figure figure-like" id="fig_opt1b"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:47%;"><img src="generated/latex-image/img_opt1b.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:47%;"><img src="generated/latex-image/img_opt1b2.svg" role="img" class="contained"></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.3<span class="period">.</span></span><span class="space"> </span>A sketch of the enclosure in <a href="" class="xref" data-knowl="./knowl/ex_opt1.html" title="Example 4.3.2: Optimization: perimeter and area">Example 4.3.2</a>.</figcaption></figure> <div class="para logical" id="p-3926">
+<div class="para">We let <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> denote the lengths of the sides of the rectangle. Clearly,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{ Area } =xy\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical" id="p-3927">
+<div class="para">We do not yet know how to handle functions with two variables; we need to reduce this down to a single variable. We know more about the situation: the man has <span class="process-math">\(100\)</span> feet of fencing. By knowing the perimeter of the rectangle must be <span class="process-math">\(100\text{,}\)</span> we can create another equation:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{ Perimeter }  = 100 = 2x+2y\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical" id="p-3928">
+<div class="para">We now have two equations and two unknowns. In the latter equation, we solve for <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y = 50-x\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical" id="p-3929">
+<div class="para">Now substitute this expression for <span class="process-math">\(y\)</span> in the area equation:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{ Area }  = A(x) = x(50-x)\text{.}
+\end{equation*}
+</div>
+</div> <div class="para" id="p-3930">Note we now have an equation of one variable; we can truly call the Area a function of <span class="process-math">\(x\text{.}\)</span>
+</div> <div class="para" id="p-3931">This function only makes sense when <span class="process-math">\(0\leq x \leq 50\text{,}\)</span> otherwise we get negative values of area. So we find the extreme values of <span class="process-math">\(A(x)\)</span> on the interval <span class="process-math">\([0,50]\)</span> using <a href="" class="xref" data-knowl="./knowl/idea_extrema.html" title="Key Idea 3.1.18: Finding Extrema on a Closed Interval">Key Idea 3.1.18</a>.</div> <div class="para logical" id="p-3932">
+<div class="para">To find the critical points, we take the derivative of <span class="process-math">\(A(x)\)</span> and set it equal to <span class="process-math">\(0\text{,}\)</span> then solve for <span class="process-math">\(x\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="md-130">
+\begin{align*}
+A(x) \amp = x(50-x)\\
+\amp = 50x-x^2\\
+A'(x)   \amp = 50-2x
+\end{align*}
+</div>
+</div> <div class="para" id="p-3933">We solve <span class="process-math">\(50-2x=0\)</span> to find <span class="process-math">\(x=25\text{;}\)</span> this is the only critical point. We evaluate <span class="process-math">\(A(x)\)</span> at the endpoints of our interval and at this critical point to find the extreme values; in this case, all we care about is the maximum.</div> <div class="para" id="p-3934">Clearly <span class="process-math">\(A(0)=0\)</span> and <span class="process-math">\(A(50)=0\text{,}\)</span> whereas <span class="process-math">\(A(25) = 625\)</span><span class="quantity">ft<sup>2</sup></span>. This is the maximum. Since we earlier found <span class="process-math">\(y = 50-x\text{,}\)</span> we find that <span class="process-math">\(y\)</span> is also <span class="process-math">\(25\text{.}\)</span> Thus the dimensions of the rectangular enclosure with perimeter of <span class="quantity">100 ft</span>. with maximum area is a square, with sides of length <span class="quantity">25 ft</span>.</div>
+</div></div>
+</div></article><div class="para" id="p-3935">This example is very simplistic and a bit contrived. (After all, most people create a design then buy fencing to meet their needs, and not buy fencing and plan later.) But it models well the necessary process: create equations that describe a situation, reduce an equation to a single variable, then find the needed extreme value.</div>
+<div class="para" id="p-3936">“In real life,” problems are much more complex. The equations are often <em class="emphasis">not</em> reducible to a single variable (hence multi-variable calculus is needed) and the equations themselves may be difficult to form. Understanding the principles here will provide a good foundation for the mathematics you will likely encounter later.</div>
+<div class="para" id="p-3937">We outline here the basic process of solving these optimization problems.</div>
+<article class="insight remark-like" id="idea_optimization"><h3 class="heading">
+<span class="type">Key Idea</span><span class="space"> </span><span class="codenumber">4.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Solving Optimization Problems.</span>
+</h3> <div class="para logical" id="p-3938"><ol class="decimal">
+<li id="li-886"><div class="para" id="p-3939">Understand the problem. Clearly identify what quantity is to be maximized or minimized. Make a sketch if helpful.</div></li>
+<li id="li-887"><div class="para" id="p-3940">Create equations relevant to the context of the problem, using the information given. (One of these should describe the quantity to be optimized. We'll call this the <em class="emphasis">fundamental equation.</em>)</div></li>
+<li id="li-888"><div class="para" id="p-3941">If the fundamental equation defines the quantity to be optimized as a function of more than one variable, reduce it to a single variable function using substitutions derived from the other equations (we'll call these <dfn class="terminology">constraint</dfn> equations).</div></li>
+<li id="li-889"><div class="para" id="p-3942">Identify the domain of this function, keeping in mind the context of the problem.</div></li>
+<li id="li-890"><div class="para" id="p-3943">Find the extreme values of this function on the determined domain.</div></li>
+<li id="li-891"><div class="para" id="p-3944">Identify the values of all relevant quantities of the problem.</div></li>
+</ol></div></article><div class="para" id="p-3945">We will use <a href="" class="xref" data-knowl="./knowl/idea_optimization.html" title="Key Idea 4.3.4: Solving Optimization Problems">Key Idea 4.3.4</a> in a variety of examples.</div>
+<article class="example example-like" id="ex_opt2"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.5</span><span class="period">.</span><span class="space"> </span><span class="title">Optimization: perimeter and area.</span>
+</h3>
+<div class="para" id="p-3946">Here is another classic calculus problem: A woman has a 100 feet of fencing, a small dog, and a large yard that contains a stream (that is mostly straight). She wants to create a rectangular enclosure with maximal area that uses the stream as one side. (Apparently her dog won't swim away.) What dimensions provide the maximal area?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-video" data-refid="hk-solution-305" id="solution-305"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span><span class="space"> </span><span class="title">Video solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-305"><div class="solution solution-like"> <div class="video-box" style="width: 98%;padding-top: 55.125%; margin-left: 1%; margin-right: 1%;"><iframe id="vid_deriv_apps_opt_fence_river" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/wIs5N5HOCrc?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-306" id="solution-306"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-306"><div class="solution solution-like">
+<div class="para" id="p-3947">We will follow the steps outlined by <a href="" class="xref" data-knowl="./knowl/idea_optimization.html" title="Key Idea 4.3.4: Solving Optimization Problems">Key Idea 4.3.4</a>.</div> <div class="para logical" id="p-3948"><ol class="decimal">
+<li id="li-892">
+<div class="para" id="p-3949">We are maximizing <em class="emphasis">area</em>. A sketch of the region will help; <a href="" class="xref" data-knowl="./knowl/fig_opt2a.html" title="Figure 4.3.6">Figure 4.3.6</a> gives two sketches of the proposed enclosed area. A key feature of the sketches is to acknowledge that one side is not fenced.</div>
+<figure class="figure figure-like" id="fig_opt2a"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:47%;"><img src="generated/latex-image/img_opt2a.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:47%;"><img src="generated/latex-image/img_opt2b.svg" role="img" class="contained"></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.6<span class="period">.</span></span><span class="space"> </span>A sketch of the enclosure in <a href="" class="xref" data-knowl="./knowl/ex_opt2.html" title="Example 4.3.5: Optimization: perimeter and area">Example 4.3.5</a></figcaption></figure>
+</li>
+<li id="li-893">
+<div class="para logical" id="p-3950">
+<div class="para">We want to maximize the area; as in the example before,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{ Area }  = xy\text{.}
+\end{equation*}
+</div>
+<div class="para">This is our fundamental equation. This defines area as a function of two variables, so we need another equation to  reduce it to one variable.</div>
+</div>
+<div class="para logical" id="p-3951">
+<div class="para">We again appeal to the perimeter; here the perimeter is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex_opt1.html">
+\begin{equation*}
+\text{ Perimeter }  = 100 = x+2y\text{.}
+\end{equation*}
+</div>
+<div class="para">The perimeter is our constraint equation. Note how this is a different equation for perimeter than in <a href="" class="xref" data-knowl="./knowl/ex_opt1.html" title="Example 4.3.2: Optimization: perimeter and area">Example 4.3.2</a>, since one of the sides does not need to be fenced.</div>
+</div>
+</li>
+<li id="li-894"><div class="para logical" id="p-3952">
+<div class="para">We now reduce the fundamental equation to a single variable using our constraint equation. In the perimeter equation, solve for <span class="process-math">\(y\text{:}\)</span> <span class="process-math">\(y = 50 - x/2\text{.}\)</span> We can now write Area as</div>
+<div class="displaymath process-math" id="md-131">
+\begin{align*}
+\text{ Area }  = A(x) \amp= x(50-x/2)\\
+\amp = 50x - \frac12x^2\text{.}
+\end{align*}
+</div>
+<div class="para">Area is now defined as a function of one variable.</div>
+</div></li>
+<li id="li-895"><div class="para" id="p-3953">We want the area to be non-negative. Since <span class="process-math">\(A(x) = x(50-x/2)\text{,}\)</span> we want <span class="process-math">\(x\geq 0\)</span> and <span class="process-math">\(50-x/2\geq 0\text{.}\)</span> The latter inequality implies that <span class="process-math">\(x\leq100\text{,}\)</span> so <span class="process-math">\(0\leq x\leq 100\text{.}\)</span>
+</div></li>
+<li id="li-896">
+<div class="para" id="p-3954">We now find the extreme values. At the endpoints, the minimum is found, giving an area of <span class="process-math">\(0\text{.}\)</span>
+</div>
+<div class="para logical" id="p-3955">
+<div class="para">Find the critical points. We have <span class="process-math">\(A'(x) = 50-x\text{;}\)</span> setting this equal to 0 and solving for <span class="process-math">\(x\)</span> returns <span class="process-math">\(x=50\text{.}\)</span> This gives an area of</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A(50) = 50(25) = 1250\text{.}
+\end{equation*}
+</div>
+</div>
+</li>
+<li id="li-897"><div class="para" id="p-3956">We earlier set <span class="process-math">\(y = 50-x/2\text{;}\)</span> thus <span class="process-math">\(y = 25\text{.}\)</span> Thus our rectangle will have two sides of length <span class="process-math">\(25\)</span> and one side of length <span class="process-math">\(50\text{,}\)</span> with a total area of <span class="quantity">1250 ft<sup>2</sup></span>.</div></li>
+</ol></div>
+</div></div>
+</div></article><div class="para" id="p-3957">Keep in mind as we do these problems that we are practicing a <em class="emphasis">process</em>; that is, we are learning to turn a situation into a system of equations. These equations allow us to write a certain quantity as a function of one variable, which we then optimize.</div>
+<article class="example example-like" id="ex_opt3"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.7</span><span class="period">.</span><span class="space"> </span><span class="title">Optimization: minimizing cost.</span>
+</h3>
+<div class="para" id="p-3958">A power line needs to be run from a power station located on the beach to an offshore facility. <a href="" class="xref" data-knowl="./knowl/fig_opt3b.html" title="Figure 4.3.8">Figure 4.3.8</a> shows the distances between the power station to the facility.</div> <div class="para" id="p-3959">It costs <span class="process-math">\(\$50/\text{ ft }\)</span> to run a power line along the land, and <span class="process-math">\(\$130/\text{ ft }\)</span> to run a power line under water. How much of the power line should be run along the land to minimize the overall cost? What is the minimal cost?</div> <figure class="figure figure-like" id="fig_opt3b"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_opt3b.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.8<span class="period">.</span></span><span class="space"> </span>Running a power line from the power station to an offshore facility with minimal cost in <a href="" class="xref" data-knowl="./knowl/ex_opt3.html" title="Example 4.3.7: Optimization: minimizing cost">Example 4.3.7</a></figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-video" data-refid="hk-solution-307" id="solution-307"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span><span class="space"> </span><span class="title">Video solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-307"><div class="solution solution-like"> <div class="video-box" style="width: 98%;padding-top: 55.125%; margin-left: 1%; margin-right: 1%;"><iframe id="vid_deriv_apps_opt_power_line" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/qDK9rqloKRs?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-308" id="solution-308"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-308"><div class="solution solution-like">
+<div class="para" id="p-3960">We will follow the strategy of <a href="" class="xref" data-knowl="./knowl/idea_optimization.html" title="Key Idea 4.3.4: Solving Optimization Problems">Key Idea 4.3.4</a> implicitly, without specifically numbering steps.</div> <div class="para" id="p-3961">There are two immediate solutions that we could consider, each of which we will reject through “common sense.” First, we could minimize the distance by directly connecting the two locations with a straight line. However, this requires that all the wire be laid underwater, the most costly option. Second, we could minimize the underwater length by running a wire all <span class="quantity">5000 ft</span> along the beach, directly across from the offshore facility. This has the undesired effect of having the longest distance of all, probably ensuring a non-minimal cost.</div> <div class="para" id="p-3962">The optimal solution likely has the line being run along the ground for a while, then underwater, as the figure implies. We need to label our unknown distances — the distance run along the ground and the distance run underwater. Recognizing that the underwater distance can be measured as the hypotenuse of a right triangle, we choose to label the distances as shown in <a href="" class="xref" data-knowl="./knowl/fig_opt3c.html" title="Figure 4.3.9">Figure 4.3.9</a>.</div> <figure class="figure figure-like" id="fig_opt3c"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_opt3c.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.9<span class="period">.</span></span><span class="space"> </span>Labeling unknown distances in <a href="" class="xref" data-knowl="./knowl/ex_opt3.html" title="Example 4.3.7: Optimization: minimizing cost">Example 4.3.7</a></figcaption></figure> <div class="para logical" id="p-3963">
+<div class="para">By choosing <span class="process-math">\(x\)</span> as we did (instead of letting <span class="process-math">\(x\)</span> be the distance along the land), we make the expression under the square root simple. We now create the cost function.</div>
+<div class="displaymath process-math" id="md-132">
+\begin{alignat*}{3}
+\text{Cost} \amp ={}\amp\amp \text{land cost}              \amp\amp +\text{water cost}\\
+\amp\amp\amp   \$50\times \text{land distance} \amp\amp +\$130 \times \text{water distance}\\
+\amp\amp\amp   50(5000-x)                      \amp\amp +130\sqrt{x^2+1000^2}\text{.}
+\end{alignat*}
+</div>
+</div> <div class="para logical" id="p-3964">
+<div class="para">So we have <span class="process-math">\(c(x) = 50(5000-x)+ 130\sqrt{x^2+1000^2}\text{.}\)</span> This function only makes sense on the interval <span class="process-math">\([0,5000]\text{.}\)</span> While we are fairly certain the endpoints will not give a minimal cost, we still evaluate <span class="process-math">\(c(x)\)</span> at each to verify.</div>
+<div class="displaymath process-math" id="md-133">
+\begin{align*}
+c(0) \amp = 380{,}000\amp c(5000) \amp \approx 662{,}873\text{.}
+\end{align*}
+</div>
+<div class="para">(Notice that if <span class="process-math">\(x=0\text{,}\)</span> the line is run the full <span class="quantity">5000 ft</span> along land and a full <span class="quantity">1000 ft</span> under water. If <span class="process-math">\(x=5000\text{,}\)</span> the line is run the maximum distance underwater.)</div>
+</div> <div class="para logical" id="p-3965">
+<div class="para">We now find the critical values of <span class="process-math">\(c(x)\text{.}\)</span> We compute <span class="process-math">\(c'(x)\)</span> as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+c'(x) = -50+\frac{130x}{\sqrt{x^2+1000^2}}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical" id="p-3966">
+<div class="para">Recognize that this is never undefined. Setting <span class="process-math">\(c'(x)=0\)</span> and solving for <span class="process-math">\(x\text{,}\)</span> we have:</div>
+<div class="displaymath process-math" id="md-134">
+\begin{align*}
+-50+\frac{130x}{\sqrt{x^2+1000^2}} \amp = 0\\
+\frac{130x}{\sqrt{x^2+1000^2}}  \amp = 50\\
+\frac{130^2x^2}{x^2+1000^2} \amp = 50^2\\
+130^2x^2 \amp = 50^2(x^2+1000^2)\\
+130^2x^2-50^2x^2 \amp = 50^2\cdot1000^2\\
+(130^2-50^2)x^2 \amp = 50,000^2\\
+x^2 \amp = \frac{50,000^2}{130^2-50^2}\\
+x \amp = \frac{50,000}{\sqrt{130^2-50^2}}\\
+x \amp  = \frac{50,000}{120} =\frac{1250}3\approx 416.67\text{.}
+\end{align*}
+</div>
+</div> <div class="para" id="p-3967">Evaluating <span class="process-math">\(c(x)\)</span> at <span class="process-math">\(x=416.67\)</span> gives a minimal cost of about <span class="process-math">\(\$370{,}000\text{.}\)</span> The distance the power line is laid along land is <span class="process-math">\(5000-416.67 = 4583.33\)</span> ft., and the underwater distance is <span class="process-math">\(\sqrt{416.67^2+1000^2} \approx 1083\)</span> ft.</div>
+</div></div>
+</div></article><div class="para" id="p-3968">In the exercises you will see a variety of situations that require you to combine problem-solving skills with calculus. Focus on the <em class="emphasis">process</em>; learn how to form equations from situations that can be manipulated into what you need. Eschew memorizing how to do “this kind of problem” as opposed to “that kind of problem.” Learning a process will benefit one far longer than memorizing a specific technique.</div>
+<div class="para" id="vidint_deriv_apps_opt_box_no_top">Before you begin the exercises, here is one more example, presented in video form in <a href="" class="xref" data-knowl="./knowl/vid_deriv_apps_opt_box_no_top.html" title="Figure 4.3.10">Figure 4.3.10</a>.</div>
+<figure class="figure figure-like" id="vid_deriv_apps_opt_box_no_top"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-140" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/XJYDMZe8JUk?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.10<span class="period">.</span></span><span class="space"> </span>Optimizing construction of a box with no top</figcaption></figure><div class="para" id="p-3970">
+<a href="sec_differentials.html" class="internal" title="Section 4.4: Differentials">Section 4.4</a> introduces our final application of the derivative: <em class="emphasis">differentials</em>. Given <span class="process-math">\(y=f(x)\text{,}\)</span> they offer a method of approximating the change in <span class="process-math">\(y\)</span> after <span class="process-math">\(x\)</span> changes by a small amount.</div>
+<section class="exercises" id="exercises-21"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h3>
+<article class="subexercises" id="subexercises-51"><h4 class="heading"><span class="title">Terms and Concepts</span></h4>
+<article class="exercise exercise-like" id="exercise-657"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
+<div class="para" id="p-3971">
+<ul style="list-style:circle;">
+<li id="li-899"><div class="para" id="p-3973">True</div></li>
+<li id="li-900"><div class="para" id="p-3974">False</div></li>
+</ul> An “optimization problem” is essentially an “extreme values” problem in a “story problem” setting.</div></article><article class="exercise exercise-like" id="exercise-658"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+<div class="para" id="p-3976">
+<ul style="list-style:circle;">
+<li id="li-902"><div class="para" id="p-3978">True</div></li>
+<li id="li-903"><div class="para" id="p-3979">False</div></li>
+</ul> This section teaches one to find the extreme values of a function that has more than one variable.</div></article></article><article class="subexercises" id="subexercises-52"><h4 class="heading"><span class="title">Problems</span></h4>
+<article class="exercise exercise-like" id="exercise-659"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+<div class="para" id="p-3981">Find the maximum product of two numbers (not necessarily integers) that have a sum of 64.</div></article><article class="exercise exercise-like" id="exercise-660"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
+<div class="para" id="p-3983">Find the minimum sum of two positive numbers whose product is 440.</div></article><article class="exercise exercise-like" id="exercise-661"><h5 class="heading"><span class="codenumber">5<span class="period">.</span></span></h5>
+<div class="para" id="p-3985">Find the maximum sum of two positive numbers whose product is 460.</div></article><article class="exercise exercise-like" id="exercise-662"><h5 class="heading"><span class="codenumber">6<span class="period">.</span></span></h5>
+<div class="para" id="p-3988">Find the maximum sum of two numbers, each of which is less than or equal to <span class="process-math">\(350\text{,}\)</span> whose product is 490.</div></article><article class="exercise exercise-like" id="exercise-663"><h5 class="heading"><span class="codenumber">7<span class="period">.</span></span></h5>
+<div class="para" id="p-3990">Find the maximal area of a right triangle with hypotenuse of length <span class="process-math">\(5\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-664"><h5 class="heading"><span class="codenumber">8<span class="period">.</span></span></h5>
+<div class="para" id="p-3992">A rancher has <span class="process-math">\(1300\)</span> feet of fencing in which to construct adjacent, equally sized rectangular pens. What dimensions should these pens have to maximize the enclosed area?</div>  <div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="generated/webwork/images/webwork-602-image-1.png" class="contained"></div></article><article class="exercise exercise-like" id="exercise-665"><h5 class="heading"><span class="codenumber">9<span class="period">.</span></span></h5>
+<div class="para" id="p-3994">A standard soda can is roughly cylindrical and holds <span class="process-math">\({355\ {\rm cm^{3}}}\)</span> of liquid. What dimensions should the cylinder have to minimize the material needed to produce the can? Based on your dimensions, determine whether or not the standard can is produced to minimize the material costs.</div> <div class="para" id="p-3995">Discuss whether or not your calculation suggests that a real world soda can is designed to minimize the materials cost.</div></article><article class="exercise exercise-like" id="exercise-666"><h5 class="heading"><span class="codenumber">10<span class="period">.</span></span></h5>
+<div class="para" id="p-3998">Find the dimensions of a cylindrical can with a volume of <span class="process-math">\({206\ {\rm in^{3}}}\)</span> that minimizes the surface area.</div> <div class="para" id="p-3999">The “#10 can”is a standard sized can used by the restaurant industry that holds about <span class="process-math">\({206\ {\rm in^{3}}}\)</span> with a diameter of <span class="process-math">\(6\,\frac{3}{16}\,\text{in}\)</span> and height of <span class="process-math">\(7\,\text{in}\text{.}\)</span> Does it seem these dimensions where chosen with minimization in mind?</div> <div class="para" id="p-4000">Discuss whether or not your calculation suggests that a #10 can is designed to minimize the materials cost.</div></article><article class="exercise exercise-like" id="exercise-667"><h5 class="heading"><span class="codenumber">11<span class="period">.</span></span></h5>
+<div class="para" id="p-4003">A standard soda can is roughly cylindrical and holds <span class="process-math">\({355\ {\rm cm^{3}}}\)</span> of liquid. A real-world soda can has material on the top and bottom that is thicker than the material around the side. Assume that the top/bottom material is twice as thick as the material around the side. What dimensions should the cylinder have to minimize the material needed to produce the can? Based on your dimensions and the assumption about material thickness, determine whether or not the standard can is produced to minimize the material costs.</div> <div class="para" id="p-4004">Discuss whether or not your calculation suggests that a real world soda can is designed to minimize the materials cost.</div></article><article class="exercise exercise-like" id="exercise-668"><h5 class="heading"><span class="codenumber">12<span class="period">.</span></span></h5>
+<div class="para" id="p-4007">The United States Postal Service charges more for boxes whose combined length and girth exceeds <span class="process-math">\(108\)</span> inches. (The “length” of a package is the length of its longest side; the girth is the perimeter of the cross section, i.e., <span class="process-math">\(2w+2h\)</span>).</div> <div class="para" id="p-4008">What is the maximum volume of a package with a square cross section (<span class="process-math">\(w=h\)</span>) that does not exceed the <span class="process-math">\(108\)</span> inch standard?</div></article><article class="exercise exercise-like" id="exercise-669"><h5 class="heading"><span class="codenumber">13<span class="period">.</span></span></h5>
+<div class="para" id="p-4010">The strength <span class="process-math">\(S\)</span> of a wooden beam is directly proportional to its cross sectional width <span class="process-math">\(w\)</span> and the square of its height <span class="process-math">\(h\text{.}\)</span> that is, <span class="process-math">\(S = kwh^2\)</span> for some constant <span class="process-math">\(k\text{.}\)</span>
+</div>  <div class="image-box" style="width: 30%; margin-left: 35%; margin-right: 35%;"><img src="generated/webwork/images/webwork-607-image-1.png" class="contained"></div> <div class="para" id="p-4011">Given a circular log with diameter of <span class="process-math">\(12\)</span> inches, what sized beam can be cut from the log with maximum strength?</div></article><article class="exercise exercise-like" id="exercise-670"><h5 class="heading"><span class="codenumber">14<span class="period">.</span></span></h5>
+<div class="para" id="p-4013">A power line is to be run to an offshore facility in the manner described in Example 4.3.7. The offshore facility is <span class="process-math">\(3\)</span> miles at sea and <span class="process-math">\(5\)</span> miles along the shoreline from the power plant. It costs <span class="process-math">\({\$35{,}000}\)</span> per mile to lay a power line underground and <span class="process-math">\({\$80{,}000}\)</span> to run the line underwater.</div> <div class="para" id="p-4014">How much of the power line should be run underground? What is the minimum overall cost?</div></article><article class="exercise exercise-like" id="exercise-671"><h5 class="heading"><span class="codenumber">15<span class="period">.</span></span></h5>
+<div class="para" id="p-4017">A power line is to be run to an offshore facility in the manner described in Example 4.3.7. The offshore facility is <span class="process-math">\(5\)</span> miles at sea and <span class="process-math">\(2\)</span> miles along the shoreline from the power plant. It costs <span class="process-math">\({\$40{,}000}\)</span> per mile to lay a power line underground and <span class="process-math">\({\$80{,}000}\)</span> to run the line underwater.</div> <div class="para" id="p-4018">How much of the power line should be run underground? What is the minimum overall cost?</div></article><article class="exercise exercise-like" id="exercise-672"><h5 class="heading"><span class="codenumber">16<span class="period">.</span></span></h5>
+<div class="para" id="p-4021">A woman throws a stick into a lake for her dog to fetch; the stick is <span class="process-math">\(11\)</span> feet down the shore line and <span class="process-math">\(26\)</span> feet into the water from there. The dog may jump directly into the water and swim, or run along the shore line to get closer to the stick before swimming. The dog runs about <span class="process-math">\({18\ {\textstyle\frac{\rm\mathstrut ft}{\rm\mathstrut s}}}\)</span> and swims about <span class="process-math">\({1.3\ {\textstyle\frac{\rm\mathstrut ft}{\rm\mathstrut s}}}\text{.}\)</span>
+</div> <div class="para" id="p-4022">How far along the shore should the dog run to minimize the time it takes to get to the stick? (Hint: the figure from Example 4.3.7 can be useful.)</div></article><article class="exercise exercise-like" id="exercise-673"><h5 class="heading"><span class="codenumber">17<span class="period">.</span></span></h5>
+<div class="para" id="p-4024">A woman throws a stick into a lake for her dog to fetch; the stick is <span class="process-math">\(31\)</span> feet down the shore line and <span class="process-math">\(30\)</span> feet into the water from there. The dog may jump directly into the water and swim, or run along the shore line to get closer to the stick before swimming. The dog runs about <span class="process-math">\({21\ {\textstyle\frac{\rm\mathstrut ft}{\rm\mathstrut s}}}\)</span> and swims about <span class="process-math">\({2.2\ {\textstyle\frac{\rm\mathstrut ft}{\rm\mathstrut s}}}\text{.}\)</span>
+</div> <div class="para" id="p-4025">How far along the shore should the dog run to minimize the time it takes to get to the stick? (Google “calculus dog” to learn more about a dog’s ability to minimize times.)</div></article><article class="exercise exercise-like" id="exercise-674"><h5 class="heading"><span class="codenumber">18<span class="period">.</span></span></h5>
+<div class="para" id="p-4027">What are the dimensions of the rectangle with largest area that can be drawn inside the unit circle?</div></article></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec_related_rates.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec_differentials.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
+<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+</div>
+</body>
+</html>

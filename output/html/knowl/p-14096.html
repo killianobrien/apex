@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">To understand why <a href="" class="xref" data-knowl="./knowl/thm_gradient4.html" title="Theorem 13.7.18: The Gradient and Level Surfaces">Theorem 13.7.18</a> is true, recall the method of implicit differentiation given in <a href="sec_multi_chain.html#subsec-implicit-diff" class="internal" title="Subsection 13.5.2: Implicit Differentiation">Subsection 13.5.2</a>. A level surface <span class="process-math">\(f(x,y,z)=0\)</span> can be viewed as defining <span class="process-math">\(z=g(x,y)\)</span> implicitly. We found that the partial derivatives of <span class="process-math">\(z\)</span> with respect to <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> are then given by</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_gradient4.html ./knowl/subsec-implicit-diff.html">
+\begin{equation*}
+\plz{z}{x} = g_x(x,y) = -\frac{f_x(x,y,z)}{f_z(x,y,z)}\quad \plz{z}{y} = g_y(x,y) = -\frac{f_y(x,y,z)}{f_z(x,y,z)}\text{.}
+\end{equation*}
+</div>
+<div class="para">If we plug these values into the tangent plane equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_gradient4.html ./knowl/subsec-implicit-diff.html">
+\begin{equation*}
+z = g(a,b)+g_x(a,b)(x-a)+g_y(a,b)(y-b)
+\end{equation*}
+</div>
+<div class="para">we get, with <span class="process-math">\(c=g(a,b)\text{,}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_gradient4.html ./knowl/subsec-implicit-diff.html">
+\begin{equation*}
+z = c - \frac{f_x(a,b,c)}{f_z(a,b,c)}(x-a)-\frac{f_y(a,b,c)}{f_z(a,b,c)}(y-b)\text{.}
+\end{equation*}
+</div>
+<div class="para">If we move everything to the left-hand side of the equation and multiply through by <span class="process-math">\(f_z(a,b,c)\text{,}\)</span> we get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_gradient4.html ./knowl/subsec-implicit-diff.html">
+\begin{equation*}
+f_x(a,b,c)(x-a)+f_y(a,b,c)(y-b)+f_z(a,b,c)(z-c)=0\text{,}
+\end{equation*}
+</div>
+<div class="para">which is the equation of a plane with normal vector <span class="process-math">\(\nabla f(a,b,c)\text{.}\)</span>
+</div>
+</div>
+<span class="incontext"><a href="sec_multi_tangent.html#p-14096" class="internal">in-context</a></span>
+</body>
+</html>

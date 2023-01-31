@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>APEX The Divergence Theorem and Stokes' Theorem</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://opentext.uleth.ca/apex-calculus/external/images/APEX.png">
+<meta property="book:title" content="APEX Calculus">
+<meta property="book:author" content="Gregory Hartman, Ph.D.">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="http://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.geogebra.org/apps/deployggb.js"></script><link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '5.0.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/runtime.6b31f4c5fa38d888.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/runestone.06446f602ba3689b.bundle.js"></script><link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.4.4/637.0fa6cababf056764.css">
+<link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.4.4/runestone.93e720e6c6581fb5.css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href="http://www.apexcalculus.com" target="_blank"><img src="external/images/APEX.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="apex-calculus.html"><span class="title">APEX Calculus</span></a></h1>
+<p class="byline">Gregory Hartman, Ph.D., Sean Fitzpatrick, Ph.D. (Editor), Alex Jordan, Ph.D. (Editor), Carly Vollet, M.S. (Editor)</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><button id="calculator-toggle" class="calculator-toggle button" title="Show calculator" aria-expanded="false" aria-controls="calculator-container"><span class="name">Calc</span></button><div id="calculator-container" class="calculator-container" style="display: none; z-index:100;"><div id="geogebra-calculator"></div></div>
+<script>
+var ggbApp = new GGBApplet({"appName": "graphing",
+    "width": 330,
+    "height": 600,
+    "showToolBar": true,
+    "showAlgebraInput": true,
+    "perspective": "G/A",
+    "algebraInputPosition": "bottom",
+    "scaleContainerClass": "calculator-container",
+    "allowUpscale": true,
+    "autoHeight": true,
+    "disableAutoScale": false},
+true);
+</script><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec_surface_integral.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="chapter_vector_calc.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="backmatter-1.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\highlight}[1]{{\color{blue}{#1}}}
+\newcommand{\apex}{\mbox{\hbox{A}\kern -1pt \lower -2pt\hbox{P}\kern -4pt \lower .7ex\hbox{E}\kern -1pt \hbox{X}}}
+\newcommand{\colorlinecolor}{blue!95!black!30}
+\newcommand{\bwlinecolor}{black!30}
+\newcommand{\thelinecolor}{\colorlinecolor}
+\newcommand{\colornamesuffix}{}
+\newcommand{\linestyle}{[thick, \thelinecolor]}
+\newcommand{\bmx}[1]{\left[\hskip -3pt\begin{array}{#1} }
+\newcommand{\emx}{\end{array}\hskip -3pt\right]}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\fp}{f'}
+\newcommand{\fpp}{f''}
+
+\newcommand{\lz}[2]{\frac{d#1}{d#2}}
+\newcommand{\lzn}[3]{\frac{d^{#1}#2}{d#3^{#1}}}
+\newcommand{\lzo}[1]{\frac{d}{d#1}}
+\newcommand{\lzoo}[2]{{\frac{d}{d#1}}{\left(#2\right)}}
+\newcommand{\lzon}[2]{\frac{d^{#1}}{d#2^{#1}}}
+\newcommand{\lzoa}[3]{\left.{\frac{d#1}{d#2}}\right|_{#3}}
+\newcommand{\plz}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\plzoa}[3]{\left.{\frac{\partial#1}{\partial#2}}\right|_{#3}}
+
+\newcommand{\inflim}[1][n]{\lim\limits_{#1 \to \infty}}
+
+\newcommand{\infser}[1][1]{\sum_{n=#1}^\infty}
+
+\newcommand{\Fp}{F\primeskip'}
+\newcommand{\Fpp}{F\primeskip''}
+\newcommand{\yp}{y\primeskip'}
+\newcommand{\gp}{g\primeskip'}
+\newcommand{\dx}{\Delta x}
+\newcommand{\dy}{\Delta y}
+\newcommand{\ddz}{\Delta z}
+\newcommand{\thet}{\theta}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\vnorm}[1]{\left\lVert\vec #1\right\rVert}
+\newcommand{\snorm}[1]{\left|\left|\,#1\,\right|\right|}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+\newcommand{\dotp}[2]{\vec #1 \cdot \vec #2}
+\newcommand{\proj}[2]{\text{proj}_{\,\vec #2}{\,\vec #1}}
+\newcommand{\crossp}[2]{\vec #1 \times \vec #2}
+\newcommand{\veci}{\vec i}
+\newcommand{\vecj}{\vec j}
+\newcommand{\veck}{\vec k}
+\newcommand{\vecu}{\vec u}
+\newcommand{\vecv}{\vec v}
+\newcommand{\vecw}{\vec w}
+\newcommand{\vecx}{\vec x}
+\newcommand{\vecy}{\vec y}
+\newcommand{\vrp}{\vec r\hskip0.75pt '}
+\newcommand{\vrpp}{\vec r\hskip0.75pt ''}
+\newcommand{\vsp}{\vec s\hskip0.75pt '}
+\newcommand{\vrt}{\vec r(t)}
+\newcommand{\vst}{\vec s(t)}
+\newcommand{\vvt}{\vec v(t)}
+\newcommand{\vat}{\vec a(t)}
+\newcommand{\px}{\partial x}
+\newcommand{\py}{\partial y}
+\newcommand{\pz}{\partial z}
+\newcommand{\pf}{\partial f}
+\newcommand{\unittangent}{\vec{{}T}}
+\newcommand{\unitnormal}{\vec{N}}
+\newcommand{\unittangentprime}{\vec{{}T}\hskip0.75pt '}
+\newcommand{\mathN}{\mathbb{N}}
+\newcommand{\surfaceS}{\mathcal{S}}
+\newcommand{\zerooverzero}{\ds \raisebox{8pt}{\text{``\ }}\frac{0}{0}\raisebox{8pt}{\textit{ ''}}}
+\newcommand{\deriv}[2]{\myds\frac{d}{dx}\left(#1\right)=#2}
+\newcommand{\myint}[2]{\myds\int #1\, dx= {\ds #2}}
+\newcommand{\primeskip}{\hskip.75pt}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\csch}{\operatorname{csch}}
+\newcommand{\curl}{\operatorname{curl}}
+\newcommand{\divv}{\operatorname{div}}
+\newcommand{\Hess}{\operatorname{Hess}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li>
+<div class="toc-item"><a href="frontmatter-1.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="acknowledgement.html" class="internal"><span class="title">Thanks</span></a></div></li>
+<li><div class="toc-item"><a href="apex-preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li><div class="toc-item"><a href="preface-history.html" class="internal"><span class="title">A Brief History of Calculus</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_limits.html" class="internal"><span class="codenumber">1</span> <span class="title">Limits</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_limit_intro.html" class="internal"><span class="codenumber">1.1</span> <span class="title">An Introduction To Limits</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_limit_intro.html#subsec_nolimit3" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Identifying When Limits Do Not Exist</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limit_intro.html#sec_diff_quot_intro" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Limits of Difference Quotients</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limit_intro.html#exercises-1" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limit_def.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Epsilon-Delta Definition of a Limit</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limit_def.html#exercises-2" class="internal"><span class="codenumber">1.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limit_analytically.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Finding Limits Analytically</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limit_analytically.html#exercises-3" class="internal"><span class="codenumber">1.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limits_one_sided.html" class="internal"><span class="codenumber">1.4</span> <span class="title">One-Sided Limits</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limits_one_sided.html#exercises-4" class="internal"><span class="codenumber">1.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_continuity.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuity</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_continuity.html#exercises-5" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limits_infty.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Limits Involving Infinity</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-3" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Vertical asymptotes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-4" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Indeterminate Forms</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-5" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Limits at Infinity and Horizontal Asymptotes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#exercises-6" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_derivatives.html" class="internal"><span class="codenumber">2</span> <span class="title">Derivatives</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_derivative.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Instantaneous Rates of Change: The Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_derivative.html#sec-deriv-intro" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Introduction</span></a></div></li>
+<li><div class="toc-item"><a href="sec_derivative.html#subsection-7" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Differentiability on Closed Intervals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_derivative.html#exercises-7" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_interp_deriv.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Interpretations of the Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-8" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Interpretation of the Derivative as Instantaneous Rate of Change</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-9" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Units of the Derivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-10" class="internal"><span class="codenumber">2.2.3</span> <span class="title">The Derivative and Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-11" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Interpretation of the Derivative as the Slope of the Tangent Line</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#exercises-8" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_basic_diff_rules.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Basic Differentiation Rules</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#subsection-12" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Higher Order Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#subsection-13" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Interpreting Higher Order Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#exercises-9" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_prod_quot_rules.html" class="internal"><span class="codenumber">2.4</span> <span class="title">The Product and Quotient Rules</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_prod_quot_rules.html#exercises-10" class="internal"><span class="codenumber">2.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_chainrule.html" class="internal"><span class="codenumber">2.5</span> <span class="title">The Chain Rule</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_chainrule.html#exercises-11" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_imp_deriv.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Implicit Differentiation</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-14" class="internal"><span class="codenumber">2.6.1</span> <span class="title">The method of implicit differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-15" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Implicit Differentiation and the Second Derivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-16" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Logarithmic Differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#exercises-12" class="internal"><span class="codenumber">2.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_deriv_inverse_function.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Derivatives of Inverse Functions</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_deriv_inverse_function.html#exercises-13" class="internal"><span class="codenumber">2.7</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_graphbehavior.html" class="internal"><span class="codenumber">3</span> <span class="title">The Graphical Behavior of Functions</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_extreme_values.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Extreme Values</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_extreme_values.html#exercises-14" class="internal"><span class="codenumber">3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_mvt.html" class="internal"><span class="codenumber">3.2</span> <span class="title">The Mean Value Theorem</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_mvt.html#exercises-15" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_incr_decr.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Increasing and Decreasing Functions</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_incr_decr.html#exercises-16" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_concavity.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Concavity and the Second Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_concavity.html#subsection-17" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Concavity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_concavity.html#subsection-18" class="internal"><span class="codenumber">3.4.2</span> <span class="title">The Second Derivative Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_concavity.html#exercises-17" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_sketch.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Curve Sketching</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_sketch.html#exercises-18" class="internal"><span class="codenumber">3.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_deriv_apps.html" class="internal"><span class="codenumber">4</span> <span class="title">Applications of the Derivative</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_newton.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Newton's Method</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_newton.html#exercises-19" class="internal"><span class="codenumber">4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_related_rates.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Related Rates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_related_rates.html#exercises-20" class="internal"><span class="codenumber">4.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_optimization.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Optimization</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_optimization.html#exercises-21" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_differentials.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Differentials</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_differentials.html#exercises-22" class="internal"><span class="codenumber">4.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_integration.html" class="internal"><span class="codenumber">5</span> <span class="title">Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_antider.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Antiderivatives and Indefinite Integration</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_antider.html#exercises-23" class="internal"><span class="codenumber">5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_def_int.html" class="internal"><span class="codenumber">5.2</span> <span class="title">The Definite Integral</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_def_int.html#exercises-24" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_riemann.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Riemann Sums</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_riemann.html#fig_rie_notation" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Summation Notation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#subsection-20" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Riemann Sums</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#subsection-21" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Limits of Riemann Sums</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#exercises-25" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_FTC.html" class="internal"><span class="codenumber">5.4</span> <span class="title">The Fundamental Theorem of Calculus</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-22" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Fundamental Theorem of Calculus, Parts 1 and 2</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-23" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Understanding Motion with the Fundamental Theorem of Calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#sec-FTC-chain" class="internal"><span class="codenumber">5.4.3</span> <span class="title">The Fundamental Theorem of Calculus and the Chain Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#sec-FTC-ABC" class="internal"><span class="codenumber">5.4.4</span> <span class="title">Area Between Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-26" class="internal"><span class="codenumber">5.4.5</span> <span class="title">The Mean Value Theorem and Average Value</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#exercises-26" class="internal"><span class="codenumber">5.4.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_numerical_integration.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Numerical Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-27" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Left and Right Hand Rule Methods</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-28" class="internal"><span class="codenumber">5.5.2</span> <span class="title">The Trapezoidal Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-29" class="internal"><span class="codenumber">5.5.3</span> <span class="title">The Midpoint Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-30" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Simpson's Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-31" class="internal"><span class="codenumber">5.5.5</span> <span class="title">Summary and Error Analysis</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#exercises-27" class="internal"><span class="codenumber">5.5.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_anti_tech.html" class="internal"><span class="codenumber">6</span> <span class="title">Techniques of Antidifferentiation</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_substitution.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Substitution</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-32" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Integrals Involving Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-33" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Simplifying the Integrand</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-34" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Substitution and Inverse Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#sec-sub-def-int" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Substitution and Definite Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#exercises-28" class="internal"><span class="codenumber">6.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_IBP.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Integration by Parts</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_IBP.html#exercises-29" class="internal"><span class="codenumber">6.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_trigint.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Trigonometric Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-36" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Integrals of the form <span class="process-math">\(\int \sin^m(x) \cos^n(x) \, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-37" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Integrals of the form <span class="process-math">\(\int\sin(mx)\sin(nx)\, dx\text{,}\)</span> <span class="process-math">\(\int \cos(mx)\cos(nx)\, dx\text{,}\)</span> and <span class="process-math">\(\int \sin(mx)\cos(nx)\, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-38" class="internal"><span class="codenumber">6.3.3</span> <span class="title">Integrals of the form <span class="process-math">\(\int\tan^m(x) \sec^n(x) \, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#exercises-30" class="internal"><span class="codenumber">6.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_trig_sub.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Trigonometric Substitution</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_trig_sub.html#exercises-31" class="internal"><span class="codenumber">6.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_partial_fraction.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Partial Fraction Decomposition</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_partial_fraction.html#exercises-32" class="internal"><span class="codenumber">6.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_hyperbolic.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Hyperbolic Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_hyperbolic.html#sec-hyp-def" class="internal"><span class="codenumber">6.6.1</span> <span class="title">The Hyperbolic Functions and their Properties</span></a></div></li>
+<li><div class="toc-item"><a href="sec_hyperbolic.html#subsection-40" class="internal"><span class="codenumber">6.6.2</span> <span class="title">Inverse Hyperbolic Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_hyperbolic.html#exercises-33" class="internal"><span class="codenumber">6.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_lhopitals_rule.html" class="internal"><span class="codenumber">6.7</span> <span class="title">L'Hospital's Rule</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#sec_lhopital_statement" class="internal"><span class="codenumber">6.7.1</span> <span class="title">L'Hospital's Rule with indeterminate forms <span class="process-math">\(0/0\)</span> and <span class="process-math">\(\infty/\infty\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#subsection-42" class="internal"><span class="codenumber">6.7.2</span> <span class="title">Indeterminate Forms <span class="process-math">\(0\cdot\infty\)</span> and <span class="process-math">\(\infty-\infty\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#subsection-43" class="internal"><span class="codenumber">6.7.3</span> <span class="title">Indeterminate Forms  <span class="process-math">\(0^0\text{,}\)</span> <span class="process-math">\(1^\infty\)</span> and <span class="process-math">\(\infty^0\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#exercises-34" class="internal"><span class="codenumber">6.7.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_improper_integration.html" class="internal"><span class="codenumber">6.8</span> <span class="title">Improper Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-44" class="internal"><span class="codenumber">6.8.1</span> <span class="title">Improper Integrals with Infinite Bounds</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-45" class="internal"><span class="codenumber">6.8.2</span> <span class="title">Improper Integrals with Infinite Range</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-46" class="internal"><span class="codenumber">6.8.3</span> <span class="title">Understanding Convergence and Divergence</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#exercises-35" class="internal"><span class="codenumber">6.8.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_app_of_int.html" class="internal"><span class="codenumber">7</span> <span class="title">Applications of Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_ABC.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Area Between Curves</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_ABC.html#exercises-36" class="internal"><span class="codenumber">7.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_disk.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Volume by Cross-Sectional Area; Disk and Washer Methods</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_disk.html#exercises-37" class="internal"><span class="codenumber">7.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_shell_method.html" class="internal"><span class="codenumber">7.3</span> <span class="title">The Shell Method</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_shell_method.html#exercises-38" class="internal"><span class="codenumber">7.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_arc_length.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Arc Length and Surface Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_arc_length.html#subsec-arc-length" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_arc_length.html#sec_surface_area_revolution" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Surface Area of Solids of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_arc_length.html#exercises-39" class="internal"><span class="codenumber">7.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_work.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Work</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_work.html#sec_work_variable_force" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Work Done by a Variable Force</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#subsection-50" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Hooke's Law and Springs</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#subsection-51" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Pumping Fluids</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#exercises-40" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_fluid_force.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Fluid Forces</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_fluid_force.html#exercises-41" class="internal"><span class="codenumber">7.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_differential_equations.html" class="internal"><span class="codenumber">8</span> <span class="title">Differential Equations</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_Graphical_Numerical.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Graphical and Numerical Solutions to Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-52" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Introduction and Terminology</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-53" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Graphical Solutions to Differential Equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-54" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Numerical Solutions to Differential Equations: Euler's Method</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#exercises-42" class="internal"><span class="codenumber">8.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Separable.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Separable Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Separable.html#subsection-55" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Separation of Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Separable.html#exercises-43" class="internal"><span class="codenumber">8.2.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Linear.html" class="internal"><span class="codenumber">8.3</span> <span class="title">First Order Linear Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Linear.html#subsection-56" class="internal"><span class="codenumber">8.3.1</span> <span class="title">Solving First Order Linear Equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Linear.html#exercises-44" class="internal"><span class="codenumber">8.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Modeling.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Modeling with Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Modeling.html#subsection-57" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Models Involving Proportional Change</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Modeling.html#subsection-58" class="internal"><span class="codenumber">8.4.2</span> <span class="title">Rate-in Rate-out Problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Modeling.html#exercises-45" class="internal"><span class="codenumber">8.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_sequences_series.html" class="internal"><span class="codenumber">9</span> <span class="title">Sequences and Series</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_sequences.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Sequences</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_sequences.html#exercises-46" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_series.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Infinite Series</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_series.html#subsec-series-convergence" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Convergence of sequences</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#subsection-60" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Geometric Series</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#subsection-61" class="internal"><span class="codenumber">9.2.3</span> <span class="title"><span class="process-math">\(p\)</span>-Series</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#exercises-47" class="internal"><span class="codenumber">9.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_int_comp_tests.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integral and Comparison Tests</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-62" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Integral Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-63" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Direct Comparison Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-64" class="internal"><span class="codenumber">9.3.3</span> <span class="title">Limit Comparison Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#exercises-48" class="internal"><span class="codenumber">9.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_ratio_root_tests.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Ratio and Root Tests</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#subsection-65" class="internal"><span class="codenumber">9.4.1</span> <span class="title">Ratio Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#subsection-66" class="internal"><span class="codenumber">9.4.2</span> <span class="title">Root Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#exercises-49" class="internal"><span class="codenumber">9.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_alt_series.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Alternating Series and Absolute Convergence</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_alt_series.html#exercises-50" class="internal"><span class="codenumber">9.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_power_series.html" class="internal"><span class="codenumber">9.6</span> <span class="title">Power Series</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_power_series.html#exercises-51" class="internal"><span class="codenumber">9.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_taylor_poly.html" class="internal"><span class="codenumber">9.7</span> <span class="title">Taylor Polynomials</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_taylor_poly.html#exercises-52" class="internal"><span class="codenumber">9.7</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_taylor_series.html" class="internal"><span class="codenumber">9.8</span> <span class="title">Taylor Series</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_taylor_series.html#exercises-53" class="internal"><span class="codenumber">9.8</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_planar_curves.html" class="internal"><span class="codenumber">10</span> <span class="title">Curves in the Plane</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_conic_sections.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Conic Sections</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-parabola" class="internal"><span class="codenumber">10.1.1</span> <span class="title">Parabolas</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-ellipse" class="internal"><span class="codenumber">10.1.2</span> <span class="title">Ellipses</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-hyperbola" class="internal"><span class="codenumber">10.1.3</span> <span class="title">Hyperbolas</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#exercises-54" class="internal"><span class="codenumber">10.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_param_eqs.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Parametric Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsec-parametric-plot" class="internal"><span class="codenumber">10.2.1</span> <span class="title">Plotting parametric curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsection-71" class="internal"><span class="codenumber">10.2.2</span> <span class="title">Converting between rectangular and parametric equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsection-72" class="internal"><span class="codenumber">10.2.3</span> <span class="title">Special Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#exercises-55" class="internal"><span class="codenumber">10.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_par_calc.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Calculus and Parametric Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-73" class="internal"><span class="codenumber">10.3.1</span> <span class="title">Concavity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-74" class="internal"><span class="codenumber">10.3.2</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-75" class="internal"><span class="codenumber">10.3.3</span> <span class="title">Surface Area of a Solid of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#exercises-56" class="internal"><span class="codenumber">10.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_polar.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Introduction to Polar Coordinates</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_polar.html#subsection-76" class="internal"><span class="codenumber">10.4.1</span> <span class="title">Polar Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#subsection-77" class="internal"><span class="codenumber">10.4.2</span> <span class="title">Polar to Rectangular Conversion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#subsection-78" class="internal"><span class="codenumber">10.4.3</span> <span class="title">Polar Functions and Polar Graphs</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#exercises-57" class="internal"><span class="codenumber">10.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_polarcalc.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Calculus and Polar Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-79" class="internal"><span class="codenumber">10.5.1</span> <span class="title">Polar Functions and <span class="process-math">\(dy/dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-80" class="internal"><span class="codenumber">10.5.2</span> <span class="title">Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-81" class="internal"><span class="codenumber">10.5.3</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-82" class="internal"><span class="codenumber">10.5.4</span> <span class="title">Surface Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#exercises-58" class="internal"><span class="codenumber">10.5.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_vectors.html" class="internal"><span class="codenumber">11</span> <span class="title">Vectors</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_space_coord.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Introduction to Cartesian Coordinates in Space</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_space_coord.html#subsection-83" class="internal"><span class="codenumber">11.1.1</span> <span class="title">Measuring Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsection-84" class="internal"><span class="codenumber">11.1.2</span> <span class="title">Spheres</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#sec-planes-in-space" class="internal"><span class="codenumber">11.1.3</span> <span class="title">Introduction to Planes in Space</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-cylinders" class="internal"><span class="codenumber">11.1.4</span> <span class="title">Cylinders</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-surface-revolution" class="internal"><span class="codenumber">11.1.5</span> <span class="title">Surfaces of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-quadric" class="internal"><span class="codenumber">11.1.6</span> <span class="title">Quadric Surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#exercises-59" class="internal"><span class="codenumber">11.1.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vector_intro.html" class="internal"><span class="codenumber">11.2</span> <span class="title">An Introduction to Vectors</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_vector_intro.html#exercises-60" class="internal"><span class="codenumber">11.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_dot_product.html" class="internal"><span class="codenumber">11.3</span> <span class="title">The Dot Product</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_dot_product.html#subsection-89" class="internal"><span class="codenumber">11.3.1</span> <span class="title">Application to Work</span></a></div></li>
+<li><div class="toc-item"><a href="sec_dot_product.html#exercises-61" class="internal"><span class="codenumber">11.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_cross_product.html" class="internal"><span class="codenumber">11.4</span> <span class="title">The Cross Product</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_cross_product.html#subsection-90" class="internal"><span class="codenumber">11.4.1</span> <span class="title">Properties of the Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cross_product.html#subsection-91" class="internal"><span class="codenumber">11.4.2</span> <span class="title">Applications of the Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cross_product.html#exercises-62" class="internal"><span class="codenumber">11.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_lines.html" class="internal"><span class="codenumber">11.5</span> <span class="title">Lines</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_lines.html#subsec_lines_space_def" class="internal"><span class="codenumber">11.5.1</span> <span class="title">Lines in space</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#subsec-lines-compare" class="internal"><span class="codenumber">11.5.2</span> <span class="title">Parallel, Intersecting and Skew Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#subsection-94" class="internal"><span class="codenumber">11.5.3</span> <span class="title">Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#exercises-63" class="internal"><span class="codenumber">11.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_planes.html" class="internal"><span class="codenumber">11.6</span> <span class="title">Planes</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_planes.html#subsec_planes_distances" class="internal"><span class="codenumber">11.6.1</span> <span class="title">Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_planes.html#exercises-64" class="internal"><span class="codenumber">11.6.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap_vvf.html" class="internal"><span class="codenumber">12</span> <span class="title">Vector Valued Functions</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_vvf.html" class="internal"><span class="codenumber">12.1</span> <span class="title">Vector-Valued Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf.html#subsec-eval-vvf" class="internal"><span class="codenumber">12.1.1</span> <span class="title">Evaluating and Graphing Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#subsection-97" class="internal"><span class="codenumber">12.1.2</span> <span class="title">Algebra of Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#subsec_vvf_displacement" class="internal"><span class="codenumber">12.1.3</span> <span class="title">Displacement</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#exercises-65" class="internal"><span class="codenumber">12.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vvf_calc.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Calculus and Vector-Valued Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsec_vvf_limits" class="internal"><span class="codenumber">12.2.1</span> <span class="title">Limits of Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsec_vvf_continuity" class="internal"><span class="codenumber">12.2.2</span> <span class="title">Continuity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsection-101" class="internal"><span class="codenumber">12.2.3</span> <span class="title">Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsection-102" class="internal"><span class="codenumber">12.2.4</span> <span class="title">Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#exercises-66" class="internal"><span class="codenumber">12.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vvf_motion.html" class="internal"><span class="codenumber">12.3</span> <span class="title">The Calculus of Motion</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf_motion.html#subsec_vvf_projectile" class="internal"><span class="codenumber">12.3.1</span> <span class="title">Projectile Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_motion.html#subsection-104" class="internal"><span class="codenumber">12.3.2</span> <span class="title">Distance Traveled</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_motion.html#exercises-67" class="internal"><span class="codenumber">12.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_tan_norm.html" class="internal"><span class="codenumber">12.4</span> <span class="title">Unit Tangent and Normal Vectors</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-105" class="internal"><span class="codenumber">12.4.1</span> <span class="title">Unit Tangent Vector</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-106" class="internal"><span class="codenumber">12.4.2</span> <span class="title">Unit Normal Vector</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-107" class="internal"><span class="codenumber">12.4.3</span> <span class="title">Application to Acceleration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#exercises-68" class="internal"><span class="codenumber">12.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_curvature.html" class="internal"><span class="codenumber">12.5</span> <span class="title">The Arc Length Parameter and Curvature</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-108" class="internal"><span class="codenumber">12.5.1</span> <span class="title">The Arc Length Paramtrization</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-109" class="internal"><span class="codenumber">12.5.2</span> <span class="title">Curvature</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-110" class="internal"><span class="codenumber">12.5.3</span> <span class="title">Curvature and Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#exercises-69" class="internal"><span class="codenumber">12.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_multi.html" class="internal"><span class="codenumber">13</span> <span class="title">Functions of Several Variables</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_multi_intro.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Introduction to Multivariable Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-111" class="internal"><span class="codenumber">13.1.1</span> <span class="title">Graphing Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-112" class="internal"><span class="codenumber">13.1.2</span> <span class="title">Level Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-113" class="internal"><span class="codenumber">13.1.3</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-114" class="internal"><span class="codenumber">13.1.4</span> <span class="title">Level Surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#exercises-70" class="internal"><span class="codenumber">13.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_limit.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Limits and Continuity of Multivariable Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsec-multivariable-topology" class="internal"><span class="codenumber">13.2.1</span> <span class="title">Open and Closed Subsets in Higher Dimensions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-116" class="internal"><span class="codenumber">13.2.2</span> <span class="title">Limits</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-117" class="internal"><span class="codenumber">13.2.3</span> <span class="title">Continuity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-118" class="internal"><span class="codenumber">13.2.4</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#exercises-71" class="internal"><span class="codenumber">13.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_partial_derivatives.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Partial Derivatives</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-first-partial" class="internal"><span class="codenumber">13.3.1</span> <span class="title">First-order partial derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-tangent-plane" class="internal"><span class="codenumber">13.3.2</span> <span class="title">Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-second-partial" class="internal"><span class="codenumber">13.3.3</span> <span class="title">Second-order partial derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-122" class="internal"><span class="codenumber">13.3.4</span> <span class="title">Understanding Second Partial Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-123" class="internal"><span class="codenumber">13.3.5</span> <span class="title">Partial Derivatives and Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-124" class="internal"><span class="codenumber">13.3.6</span> <span class="title">Higher Order Partial Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#exercises-72" class="internal"><span class="codenumber">13.3.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_total_differential.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Differentiability and the Total Differential</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-total-differential-intro" class="internal"><span class="codenumber">13.4.1</span> <span class="title">The Total Differential</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-total-differential-approx" class="internal"><span class="codenumber">13.4.2</span> <span class="title">Approximating with the Total Differential</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-tangent-plane-approximation" class="internal"><span class="codenumber">13.4.3</span> <span class="title">Tangent Plane Approximation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-error-analysis-total-diff" class="internal"><span class="codenumber">13.4.4</span> <span class="title">Error/Sensitivity Analysis</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-differentiable-three-var" class="internal"><span class="codenumber">13.4.5</span> <span class="title">Differentiability of Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#exercises-73" class="internal"><span class="codenumber">13.4.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_chain.html" class="internal"><span class="codenumber">13.5</span> <span class="title">The Multivariable Chain Rule</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_chain.html#subsec-multi-chain-intro" class="internal"><span class="codenumber">13.5.1</span> <span class="title">Multivariable Chain Rule, Part I</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_chain.html#subsec-implicit-diff" class="internal"><span class="codenumber">13.5.2</span> <span class="title">Implicit Differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_chain.html#exercises-74" class="internal"><span class="codenumber">13.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_directional_derivative.html" class="internal"><span class="codenumber">13.6</span> <span class="title">Directional Derivatives</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_directional_derivative.html#subsection-132" class="internal"><span class="codenumber">13.6.1</span> <span class="title">Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_directional_derivative.html#subsection-133" class="internal"><span class="codenumber">13.6.2</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_directional_derivative.html#exercises-75" class="internal"><span class="codenumber">13.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_tangent.html" class="internal"><span class="codenumber">13.7</span> <span class="title">Tangent Lines, Normal Lines, and Tangent Planes</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsec-tangent-lines-surface" class="internal"><span class="codenumber">13.7.1</span> <span class="title">Tangent Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-135" class="internal"><span class="codenumber">13.7.2</span> <span class="title">Normal Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-136" class="internal"><span class="codenumber">13.7.3</span> <span class="title">Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-137" class="internal"><span class="codenumber">13.7.4</span> <span class="title">The Gradient and Normal Lines, Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#exercises-76" class="internal"><span class="codenumber">13.7.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_extreme_values.html" class="internal"><span class="codenumber">13.8</span> <span class="title">Extreme Values</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#subsec-multi-critical" class="internal"><span class="codenumber">13.8.1</span> <span class="title">Critical Points of Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#subsection-139" class="internal"><span class="codenumber">13.8.2</span> <span class="title">Constrained Optimization</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#exercises-77" class="internal"><span class="codenumber">13.8.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_mult_int.html" class="internal"><span class="codenumber">14</span> <span class="title">Multiple Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_iterated_integrals.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Iterated Integrals and Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsec-iterated" class="internal"><span class="codenumber">14.1.1</span> <span class="title">Iterated integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsection-141" class="internal"><span class="codenumber">14.1.2</span> <span class="title">Area of a plane region</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsec-changing-order" class="internal"><span class="codenumber">14.1.3</span> <span class="title">Changing Order of Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#exercises-78" class="internal"><span class="codenumber">14.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_double_int_volume.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Double Integration and Volume</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_double_int_volume.html#exercises-79" class="internal"><span class="codenumber">14.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_double_int_polar.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Double Integration with Polar Coordinates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_double_int_polar.html#exercises-80" class="internal"><span class="codenumber">14.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_center_of_mass.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Center of Mass</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_center_of_mass.html#subsection-143" class="internal"><span class="codenumber">14.4.1</span> <span class="title">Mass and Weight</span></a></div></li>
+<li><div class="toc-item"><a href="sec_center_of_mass.html#subsection-144" class="internal"><span class="codenumber">14.4.2</span> <span class="title">Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_center_of_mass.html#exercises-81" class="internal"><span class="codenumber">14.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_surface_area.html" class="internal"><span class="codenumber">14.5</span> <span class="title">Surface Area</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_surface_area.html#exercises-82" class="internal"><span class="codenumber">14.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_triple_int.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Volume Between Surfaces and Triple Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-145" class="internal"><span class="codenumber">14.6.1</span> <span class="title">Volume between surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-146" class="internal"><span class="codenumber">14.6.2</span> <span class="title">Triple Integration and Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-147" class="internal"><span class="codenumber">14.6.3</span> <span class="title">Mass and Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#exercises-83" class="internal"><span class="codenumber">14.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_cylindrical_spherical.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Triple Integration with Cylindrical and Spherical Coordinates</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#subsection-148" class="internal"><span class="codenumber">14.7.1</span> <span class="title">Cylindrical Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#subsection-149" class="internal"><span class="codenumber">14.7.2</span> <span class="title">Spherical Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#exercises-84" class="internal"><span class="codenumber">14.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_vector_calc.html" class="internal"><span class="codenumber">15</span> <span class="title">Vector Analysis</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_line_int_intro.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Introduction to Line Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsec-line-int-scalar" class="internal"><span class="codenumber">15.1.1</span> <span class="title">Line Integrals of Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsection-151" class="internal"><span class="codenumber">15.1.2</span> <span class="title">Properties of Line Integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsection-152" class="internal"><span class="codenumber">15.1.3</span> <span class="title">Mass and Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#exercises-85" class="internal"><span class="codenumber">15.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vector_fields.html" class="internal"><span class="codenumber">15.2</span> <span class="title">Vector Fields</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vector_fields.html#subsection-153" class="internal"><span class="codenumber">15.2.1</span> <span class="title">Vector Field Notation and Del Operator</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vector_fields.html#subsection-154" class="internal"><span class="codenumber">15.2.2</span> <span class="title">Divergence and Curl</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vector_fields.html#exercises-86" class="internal"><span class="codenumber">15.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_line_int_vf.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Line Integrals over Vector Fields</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsec-line-int-vector-eval" class="internal"><span class="codenumber">15.3.1</span> <span class="title">Evaluating Line Integrals over Vector Fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsection-156" class="internal"><span class="codenumber">15.3.2</span> <span class="title">Properties of Line Integrals Over Vector Fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsection-157" class="internal"><span class="codenumber">15.3.3</span> <span class="title">The Fundamental Theorem of Line Integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#exercises-87" class="internal"><span class="codenumber">15.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_greensthm.html" class="internal"><span class="codenumber">15.4</span> <span class="title">Flow, Flux, Green's Theorem and the Divergence Theorem</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-158" class="internal"><span class="codenumber">15.4.1</span> <span class="title">Flow and Flux</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-159" class="internal"><span class="codenumber">15.4.2</span> <span class="title">Green's Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-160" class="internal"><span class="codenumber">15.4.3</span> <span class="title">The Divergence Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#exercises-88" class="internal"><span class="codenumber">15.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_parametric_surfaces.html" class="internal"><span class="codenumber">15.5</span> <span class="title">Parametrized Surfaces and Surface Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#subsec-parametrized-surfaces" class="internal"><span class="codenumber">15.5.1</span> <span class="title">Parametrizing surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#subsection-162" class="internal"><span class="codenumber">15.5.2</span> <span class="title">Surface Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#exercises-89" class="internal"><span class="codenumber">15.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_surface_integral.html" class="internal"><span class="codenumber">15.6</span> <span class="title">Surface Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_surface_integral.html#subsec-surfint-scalar" class="internal"><span class="codenumber">15.6.1</span> <span class="title">Surface integrals of scalar fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_surface_integral.html#subsection-164" class="internal"><span class="codenumber">15.6.2</span> <span class="title">Flux</span></a></div></li>
+<li><div class="toc-item"><a href="sec_surface_integral.html#exercises-90" class="internal"><span class="codenumber">15.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="sec_stokes_divergence.html" class="internal"><span class="codenumber">15.7</span> <span class="title">The Divergence Theorem and Stokes' Theorem</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-165" class="internal"><span class="codenumber">15.7.1</span> <span class="title">The Divergence Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-166" class="internal"><span class="codenumber">15.7.2</span> <span class="title">Stokes' Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-167" class="internal"><span class="codenumber">15.7.3</span> <span class="title">A Common Thread of Calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#exercises-91" class="internal"><span class="codenumber">15.7.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="backmatter-1.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="solutions-1.html" class="internal"><span class="codenumber">A</span> <span class="title">Answers to Odd Exercises</span></a></div></li>
+<li>
+<div class="toc-item"><a href="appendix-reference.html" class="internal"><span class="codenumber">B</span> <span class="title">Quick Reference</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="reference-derivatives.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Differentiation Formulas</span></a></div></li>
+<li><div class="toc-item"><a href="reference-integration.html" class="internal"><span class="codenumber">B.2</span> <span class="title">Integration Formulas</span></a></div></li>
+<li>
+<div class="toc-item"><a href="reference-trigonometry.html" class="internal"><span class="codenumber">B.3</span> <span class="title">Trigonometry Reference</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="reference-trigonometry.html#reference-trig-definitions" class="internal"><span class="codenumber">B.3.1</span> <span class="title">Definitions of the Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="reference-trigonometry.html#reference-trig-identities" class="internal"><span class="codenumber">B.3.2</span> <span class="title">Common Trigonometric Identities</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="reference-area-volume.html" class="internal"><span class="codenumber">B.4</span> <span class="title">Areas and Volumes</span></a></div></li>
+<li><div class="toc-item"><a href="reference-algebra.html" class="internal"><span class="codenumber">B.5</span> <span class="title">Algebra</span></a></div></li>
+<li><div class="toc-item"><a href="reference-formulas.html" class="internal"><span class="codenumber">B.6</span> <span class="title">Additional Formulas</span></a></div></li>
+<li><div class="toc-item"><a href="section-98.html" class="internal"><span class="codenumber">B.7</span> <span class="title">Summary of Tests for Series</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_stokes_divergence"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">15.7</span> <span class="title">The Divergence Theorem and Stokes' Theorem</span>
+</h2>
+<section class="subsection" id="subsection-165"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">15.7.1</span> <span class="title">The Divergence Theorem</span>
+</h3>
+<div class="para" id="p-16209">
+<a href="" class="xref" data-knowl="./knowl/thm_divergence1.html" title="Theorem 15.4.13: The Divergence Theorem (in the plane)">Theorem 15.4.13</a> gives the Divergence Theorem in the plane, which states that the flux of a vector field across a closed <em class="emphasis">curve</em> equals the sum of the divergences over the region enclosed by the curve. Recall that the flux was measured via a line integral, and the sum of the divergences was measured through a double integral.</div>
+<div class="para" id="p-16210">We now consider the three-dimensional version of the Divergence Theorem. It states, in words, that the flux across a closed <em class="emphasis">surface</em> equals the sum of the divergences over the domain enclosed by the surface. Since we are in space (versus the plane), we measure flux via a surface integral, and the sums of divergences will be measured through a triple integral.</div>
+<article class="theorem theorem-like" id="thm_divergence2"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">15.7.1</span><span class="period">.</span><span class="space"> </span><span class="title">The Divergence Theorem (in space).</span>
+</h4>
+<div class="para logical" id="p-16211">
+<div class="para">Let <span class="process-math">\(D\)</span> be a closed domain in space whose boundary is an orientable, piecewise smooth surface <span class="process-math">\(\surfaceS\)</span> with outer unit normal vector <span class="process-math">\(\vec n\text{,}\)</span> and let <span class="process-math">\(\vec F\)</span> be a vector field whose components are differentiable on <span class="process-math">\(D\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\iint_\surfaceS \vec F\cdot\vec n\, dS =\iiint_D \divv \vec F\, dV\text{.}
+\end{equation*}
+</div>
+</div></article><aside class="aside aside-like" id="aside-102"><div class="para" id="p-16212">
+<em class="emphasis">Note:</em> the term “outer unit normal vector” used in <a href="" class="xref" data-knowl="./knowl/thm_divergence2.html" title="Theorem 15.7.1: The Divergence Theorem (in space)">Theorem 15.7.1</a> means <span class="process-math">\(\vec n\)</span> points to the outside of <span class="process-math">\(\surfaceS\text{.}\)</span> </div></aside><article class="example example-like" id="ex_divthm_space2"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">15.7.2</span><span class="period">.</span><span class="space"> </span><span class="title">Using the Divergence Theorem in space.</span>
+</h4>
+<div class="para" id="p-16213">Let <span class="process-math">\(D\)</span> be the domain in space bounded by the planes <span class="process-math">\(z=0\)</span> and <span class="process-math">\(z=2x\text{,}\)</span> along with the cylinder <span class="process-math">\(x=1-y^2\text{,}\)</span> as graphed in <a href="" class="xref" data-knowl="./knowl/fig_divthm_space2.html" title="Figure 15.7.3">Figure 15.7.3</a>, let <span class="process-math">\(\surfaceS\)</span> be the boundary of <span class="process-math">\(D\text{,}\)</span> and let <span class="process-math">\(\vec F = \langle x+y,y^2, 2z\rangle\text{.}\)</span>
+</div> <figure class="figure figure-like" id="fig_divthm_space2"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;">
+<div class="asymptote-box" style="padding-top: 100%"><iframe src="generated/asymptote/img_divthm_space2_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_divthm_space2_3D.html">Link to full-sized image</a></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">15.7.3<span class="period">.</span></span><span class="space"> </span>The surfaces used in  <a href="" class="xref" data-knowl="./knowl/ex_divthm_space2.html" title="Example 15.7.2: Using the Divergence Theorem in space">Example 15.7.2</a></figcaption></figure> <div class="para" id="p-16214">Verify the Divergence Theorem by finding the total outward flux of <span class="process-math">\(\vec F\)</span> across <span class="process-math">\(\surfaceS\text{,}\)</span> and show this is equal to <span class="process-math">\(\iiint_D \divv\vec F\, dV\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1562" id="solution-1562"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1562"><div class="solution solution-like">
+<div class="para" id="p-16215">The surface <span class="process-math">\(\surfaceS\)</span> is piecewise smooth, comprising surfaces <span class="process-math">\(\surfaceS_1\text{,}\)</span> which is part of the plane <span class="process-math">\(z=2x\text{,}\)</span> surface <span class="process-math">\(\surfaceS_2\text{,}\)</span> which is part of the cylinder <span class="process-math">\(x=1-y^2\text{,}\)</span> and surface <span class="process-math">\(\surfaceS_3\text{,}\)</span> which is part of the plane <span class="process-math">\(z=0\text{.}\)</span> To find the total outward flux across <span class="process-math">\(\surfaceS\text{,}\)</span> we need to compute the outward flux across each of these three surfaces.</div> <div class="para logical" id="p-16216">
+<div class="para">We leave it to the reader to confirm that surfaces <span class="process-math">\(\surfaceS_1\text{,}\)</span> <span class="process-math">\(\surfaceS_2\)</span> and <span class="process-math">\(\surfaceS_3\)</span> can be parametrized by <span class="process-math">\(\vec r_1\text{,}\)</span> <span class="process-math">\(\vec r_2\)</span> and <span class="process-math">\(\vec r_3\)</span> respectively as</div>
+<div class="displaymath process-math" id="md-750">
+\begin{align*}
+\vec r_1(u,v) \amp = \la v(1-u^2), u, 2v(1-u^2)\ra,\\
+\vec r_2(u,v) \amp = \la (1-u^2), u, 2v(1-u^2)\ra,\\
+\vec r_3(u,v) \amp = \la v(1-u^2), u, 0\ra\text{,}
+\end{align*}
+</div>
+<div class="para">where <span class="process-math">\(-1\leq u\leq 1\)</span> and <span class="process-math">\(0\leq v\leq 1\)</span> for all three functions.</div>
+</div> <div class="para" id="p-16217">We compute a unit normal vector <span class="process-math">\(\vec n\)</span> for each as <span class="process-math">\(\frac{\vec r_u\times\vec r_v}{\snorm{\vec r_u\times\vec r_v}}\text{,}\)</span> though recall that as we are integrating <span class="process-math">\(\vec F\cdot \vec n\, dS\text{,}\)</span> we actually only use <span class="process-math">\(\vec r_u\times\vec r_v\text{.}\)</span> Finally, in previous flux computations, it did not matter which direction <span class="process-math">\(\vec n\)</span> pointed as long as we made note of its direction. When using the Divergence Theorem, we need <span class="process-math">\(\vec n\)</span> to point to the outside of the closed surface, so in practice this means we'll either use <span class="process-math">\(\vec r_u\times\vec r_v\)</span> or <span class="process-math">\(\vec r_v\times\vec r_u\text{,}\)</span> depending on which points outside of the closed surface <span class="process-math">\(\surfaceS\text{.}\)</span>
+</div> <div class="para" id="p-16218">We leave it to the reader to confirm the following cross products and integrations are correct.</div> <div class="para logical" id="p-16219">
+<div class="para">For <span class="process-math">\(\surfaceS_1\text{,}\)</span> we need to use <span class="process-math">\(\vec r_{1v}\times\vec r_{1u} = \langle 2(u^2-1),0,1-u^2\rangle\text{.}\)</span> (Note the <span class="process-math">\(z\)</span>-component is nonnegative as <span class="process-math">\(u\leq 1\text{,}\)</span> therefore this vector always points up, meaning <em class="emphasis">to the outside</em>, of <span class="process-math">\(\surfaceS\text{.}\)</span>) The flux across <span class="process-math">\(\surfaceS_1\)</span> is:</div>
+<div class="displaymath process-math" id="md-751">
+\begin{align*}
+\text{ Flux across }\surfaceS_1:\,   \amp = \iint_{\surfaceS_1} \vec F\cdot \vec n_1\, dS\\
+\amp = \int_0^1\int_{-1}^1 \vec F\big(\vec r_1(u,v)\big)\cdot \big(\vec r_{1v}\times\vec r_{1u}\big)\, du\, dv\\
+\amp = \int_0^1\int_{-1}^1 \la v(1-u^2)+u, u^2,4v(1-u^2)\ra \cdot \la 2(u^2-1),0,1-u^2\ra\, du\, dv\\
+\amp = \int_0^1\int_{-1}^1 \big(2u^4v+2u^3-4u^2v-2u+2v\big)\, du\, dv\\
+\amp = \frac{16}{15}\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical" id="p-16220">
+<div class="para">For <span class="process-math">\(\surfaceS_2\text{,}\)</span> we use <span class="process-math">\(\vec r_{2u}\times\vec r_{2v} = \langle 2(1-u^2), 4u(1-u^2),0\rangle\text{.}\)</span> (Note the <span class="process-math">\(x\)</span>-component is always nonnegative, meaning this vector points outside <span class="process-math">\(\surfaceS\text{.}\)</span>) The flux across <span class="process-math">\(\surfaceS_2\)</span> is:</div>
+<div class="displaymath process-math" id="md-752">
+\begin{align*}
+\text{ Flux across } \surfaceS_2:\,  \amp = \iint_{\surfaceS_2} \vec F\cdot \vec n_2\, dS\\
+\amp = \int_0^1\int_{-1}^1 \vec F\big(\vec r_2(u,v)\big)\cdot \big(\vec r_{2u}\times\vec r_{2v}\big)\, du\, dv\\
+\amp = \int_0^1\int_{-1}^1 \la 1-u^2+u, u^2, 4v(1-u^2)\ra \cdot \la 2(1-u^2), 4u(1-u^2),0\ra\, du\, dv\\
+\amp = \int_0^1\int_{-1}^1 \big(4u^5-2u^4-2u^3+4u^2-2u-2\big)\, du\, dv\\
+\amp = \frac{32}{15}\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical" id="p-16221">
+<div class="para">For <span class="process-math">\(\surfaceS_3\text{,}\)</span> we use <span class="process-math">\(\vec r_{3u}\times\vec r_{3v} = \langle 0,0,u^2-1\rangle\text{.}\)</span> (Note the <span class="process-math">\(z\)</span>-component is never positive, meaning this vector points down, outside of <span class="process-math">\(\surfaceS\text{.}\)</span>) The flux across <span class="process-math">\(\surfaceS_3\)</span> is:</div>
+<div class="displaymath process-math" id="md-753">
+\begin{align*}
+\text{ Flux across } \surfaceS_3:\,  \amp = \iint_{\surfaceS_3} \vec F\cdot \vec n_3\, dS\\
+\amp = \int_0^1\int_{-1}^1 \vec F\big(\vec r_3(u,v)\big)\cdot \big(\vec r_{3u}\times\vec r_{3v}\big)\, du\, dv\\
+\amp = \int_0^1\int_{-1}^1 \la v(1-u^2)+u,u^2,0\ra \cdot \la 0,0,u^2-1\ra\, du\, dv\\
+\amp = \int_0^1\int_{-1}^1 0\, du\, dv\\
+\amp = 0\text{.}
+\end{align*}
+</div>
+</div> <div class="para" id="p-16222">Thus the total outward flux, measured by surface integrals across all three component surfaces of <span class="process-math">\(\surfaceS\text{,}\)</span> is <span class="process-math">\(16/15+32/15+0 = 48/15 = 16/5 = 3.2\text{.}\)</span> We now find the total outward flux by integrating <span class="process-math">\(\divv \vec F\)</span> over <span class="process-math">\(D\text{.}\)</span>
+</div> <div class="para logical" id="p-16223">
+<div class="para">Following the steps outlined in <a href="sec_triple_int.html" class="internal" title="Section 14.6: Volume Between Surfaces and Triple Integration">Section 14.6</a>, we see the bounds of <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> and <span class="process-math">\(z\)</span> can be set as (thinking “surface to surface, curve to curve, point to point”):</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_triple_int.html">
+\begin{equation*}
+0\leq z\leq 2x; 0\leq x\leq 1-y^2; -1\leq y\leq 1\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical" id="p-16224">
+<div class="para">With <span class="process-math">\(\divv \vec F = 1+2y+2 = 2y+3\text{,}\)</span> we find the total outward flux of <span class="process-math">\(\vec F\)</span> over <span class="process-math">\(\surfaceS\)</span> as:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{ Flux = }  \iiint_D\divv \vec F\, dV = \int_{-1}^1\int_0^{1-y^2}\int_0^{2x}\big(2y+3\big)\, dz\, dx\, dy = 16/5\text{,}
+\end{equation*}
+</div>
+<div class="para">the same result we obtained previously.</div>
+</div>
+</div></div>
+</div></article><div class="para" id="p-16225">In <a href="" class="xref" data-knowl="./knowl/ex_divthm_space2.html" title="Example 15.7.2: Using the Divergence Theorem in space">Example 15.7.2</a> we see that the total outward flux of a vector field across a closed surface can be found two different ways because of the Divergence Theorem. One computation took far less work to obtain. In that particular case, since <span class="process-math">\(\surfaceS\)</span> was comprised of three separate surfaces, it was far simpler to compute one triple integral than three surface integrals (each of which required partial derivatives and a cross product). In practice, if outward flux needs to be measured, one would choose only one method. We will use both methods in this section simply to reinforce the truth of the Divergence Theorem.</div>
+<div class="para" id="p-16226">We practice again in the following example.</div>
+<article class="example example-like" id="ex_divthm_space1"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">15.7.4</span><span class="period">.</span><span class="space"> </span><span class="title">Using the Divergence Theorem in space.</span>
+</h4>
+<div class="para" id="p-16227">Let <span class="process-math">\(\surfaceS\)</span> be the surface formed by the paraboloid <span class="process-math">\(z=1-x^2-y^2\text{,}\)</span> <span class="process-math">\(z\geq 0\text{,}\)</span> and the unit disk centered at the origin in the <span class="process-math">\(xy\)</span>-plane, graphed in <a href="" class="xref" data-knowl="./knowl/fig_divthm_space1.html" title="Figure 15.7.5">Figure 15.7.5</a>, and let <span class="process-math">\(\vec F = \langle 0,0,z\rangle\text{.}\)</span> (This surface and vector field were used in <a href="" class="xref" data-knowl="./knowl/ex_surfflux2.html" title="Example 15.6.7: Flux across surfaces with shared boundaries">Example 15.6.7</a>.)</div> <figure class="figure figure-like" id="fig_divthm_space1"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;">
+<div class="asymptote-box" style="padding-top: 100%"><iframe src="generated/asymptote/img_divthm_space1_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_divthm_space1_3D.html">Link to full-sized image</a></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">15.7.5<span class="period">.</span></span><span class="space"> </span>The surfaces used in  <a href="" class="xref" data-knowl="./knowl/ex_divthm_space1.html" title="Example 15.7.4: Using the Divergence Theorem in space">Example 15.7.4</a></figcaption></figure> <div class="para" id="p-16228">Verify the Divergence Theorem; find the total outward flux across <span class="process-math">\(\surfaceS\)</span> and evaluate the triple integral of <span class="process-math">\(\divv \vec F\text{,}\)</span> showing that these two quantities are equal.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1563" id="solution-1563"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1563"><div class="solution solution-like">
+<div class="para" id="p-16229">We find the flux across <span class="process-math">\(\surfaceS\)</span> first. As <span class="process-math">\(\surfaceS\)</span> is piecewise-smooth, we decompose it into smooth components <span class="process-math">\(\surfaceS_1\text{,}\)</span> the disk, and <span class="process-math">\(\surfaceS_2\text{,}\)</span> the paraboloid, and find the flux across each.</div> <div class="para" id="p-16230">In <a href="" class="xref" data-knowl="./knowl/ex_surfflux2.html" title="Example 15.6.7: Flux across surfaces with shared boundaries">Example 15.6.7</a>, we found the flux across <span class="process-math">\(\surfaceS_1\)</span> is 0. We also found that the flux across <span class="process-math">\(\surfaceS_2\)</span> is <span class="process-math">\(\pi/2\text{.}\)</span> (In that example, the normal vector had a positive <span class="process-math">\(z\)</span> component hence was an outer normal.) Thus the total outward flux is <span class="process-math">\(0+\pi/2 = \pi/2\text{.}\)</span>
+</div> <div class="para logical" id="p-16231">
+<div class="para">We now compute <span class="process-math">\(\iiint_D \divv \vec F\, dV\text{.}\)</span> We can describe <span class="process-math">\(D\)</span> as the domain bounded by (think “surface to surface, curve to curve, point to point”):</div>
+<div class="displaymath process-math">
+\begin{equation*}
+0\leq z\leq 1-x^2-y^2,  -\sqrt{1-x^2}\leq y\leq \sqrt{1-x^2}, -1\leq x\leq 1\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical" id="p-16232">
+<div class="para">This description of <span class="process-math">\(D\)</span> is not very easy to integrate. With polar, we can do better. Let <span class="process-math">\(R\)</span> represent the unit disk, which can be described in polar simply as <span class="process-math">\(r\text{,}\)</span> where <span class="process-math">\(0\leq r\leq 1\)</span> and <span class="process-math">\(0\leq \theta\leq 2\pi\text{.}\)</span> With <span class="process-math">\(x=r\cos \theta\)</span> and <span class="process-math">\(y=r\sin\theta\text{,}\)</span> the surface <span class="process-math">\(\surfaceS_2\)</span> becomes</div>
+<div class="displaymath process-math">
+\begin{equation*}
+z=1-x^2-y^2 \Rightarrow 1-(r\cos\theta)^2-(r\sin\theta)^2 \Rightarrow 1-r^2\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical" id="p-16233">
+<div class="para">Thus <span class="process-math">\(D\)</span> can be described as the domain bounded by:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+0\leq z\leq 1-r^2, 0\leq r\leq 1, 0\leq \theta\leq 2\pi\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical" id="p-16234">
+<div class="para">With <span class="process-math">\(\divv \vec F = 1\text{,}\)</span> we can integrate, recalling that <span class="process-math">\(dV = r\, dz\, dr\, d\theta\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\iiint_D\divv \vec F\, dV = \int_0^{2\pi}\int_0^1\int_0^{1-r^2} r\, dz\, dr\, d\theta = \frac{\pi}2\text{,}
+\end{equation*}
+</div>
+<div class="para">which matches our flux computation above.</div>
+</div>
+</div></div>
+</div></article><article class="example example-like" id="ex_divthm_space3"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">15.7.6</span><span class="period">.</span><span class="space"> </span><span class="title">A “paradox” of the Divergence Theorem and Gauss's Law.</span>
+</h4>
+<div class="para" id="p-16235">The magnitude of many physical quantities (such as light intensity or electromagnetic and gravitational forces) follow an “inverse square law”: the magnitude of the quantity at a point is inversely proportional to the square of the distance to the source of the quantity. </div> <div class="para logical" id="p-16236">
+<div class="para">Let a point light source be placed at the origin and let <span class="process-math">\(\vec F\)</span> be the vector field which describes the intensity and direction of the emanating light. At a point <span class="process-math">\((x,y,z)\text{,}\)</span> the unit vector describing the direction of the light passing through that point is <span class="process-math">\(\langle x,y,z\rangle/\sqrt{x^2+y^2+z^2}\text{.}\)</span> As the intensity of light follows the inverse square law, the magnitude of <span class="process-math">\(\vec F\)</span> at <span class="process-math">\((x,y,z)\)</span> is <span class="process-math">\(k/(x^2+y^2+z^2)\)</span> for some constant <span class="process-math">\(k\text{.}\)</span> Taken together,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vec F(x,y,z) = \frac{k}{(x^2+y^2+z^2)^{3/2}}\langle x,y,z\rangle\text{.}
+\end{equation*}
+</div>
+</div> <div class="para" id="p-16237">Consider the cube, centered at the origin, with sides of length <span class="process-math">\(2a\)</span> for some <span class="process-math">\(a \gt 0\)</span> (hence corners of the cube lie at <span class="process-math">\((a,a,a)\text{,}\)</span> <span class="process-math">\((-a,-a,-a)\text{,}\)</span> etc., as shown in <a href="" class="xref" data-knowl="./knowl/fig_divthm_space3.html" title="Figure 15.7.7">Figure 15.7.7</a>). Find the flux across the six faces of the cube and compare this to <span class="process-math">\(\iint_D \divv\vec F\, dV\text{.}\)</span>
+</div> <figure class="figure figure-like" id="fig_divthm_space3"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;">
+<div class="asymptote-box" style="padding-top: 100%"><iframe src="generated/asymptote/img_divthm_space3_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_divthm_space3_3D.html">Link to full-sized image</a></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">15.7.7<span class="period">.</span></span><span class="space"> </span>The cube used in  <a href="" class="xref" data-knowl="./knowl/ex_divthm_space3.html" title="Example 15.7.6: A &quot;paradox&quot; of the Divergence Theorem and Gauss's Law">Example 15.7.6</a></figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1564" id="solution-1564"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1564"><div class="solution solution-like">
+<div class="para" id="p-16238">Let <span class="process-math">\(\surfaceS_1\)</span> be the “top” face of the cube, which can be parametrized by <span class="process-math">\(\vec r(u,v) = \langle u,v,a\rangle\)</span> for <span class="process-math">\(-a\leq u\leq a\text{,}\)</span> <span class="process-math">\(-a\leq v\leq a\text{.}\)</span> We leave it to the reader to confirm that <span class="process-math">\(\vec r_u\times \vec r_v = \langle 0,0,1\rangle\text{,}\)</span> which points outside of the cube.</div> <div class="para logical" id="p-16239">
+<div class="para">The flux across this face is:</div>
+<div class="displaymath process-math" id="md-754">
+\begin{align*}
+\text{ Flux }  \amp = \iint_{\surfaceS_1} \vec F\cdot \vec n\, dS\\
+\amp = \int_{-a}^a\int_{-a}^a \vec F\big(\vec r(u,v)\big)\cdot \big(\vec r_u\times \vec r_v\big)\, du\, dv\\
+\amp = \int_{-a}^a\int_{-a}^a \frac{k\ a}{(u^2+v^2+a^2)^{3/2}}\, du\, dv.\\
+\end{align*}
+<p class="intertext">This double integral is <em class="emphasis">not</em> trivial to compute, requiring multiple trigonometric substitutions. This example is not meant to stress integration techniques, so we leave it to the reader to confirm the result is</p>
+\begin{align*}
+\amp = \frac{2k\pi}3\text{.}
+\end{align*}
+</div>
+</div> <div class="para" id="p-16240">Note how the result is independent of <span class="process-math">\(a\text{;}\)</span> no matter the size of the cube, the flux through the top surface is always <span class="process-math">\(2k\pi/3\text{.}\)</span>
+</div> <div class="para" id="p-16241">An argument of symmetry shows that the flux through each of the six faces is <span class="process-math">\(2k\pi/3\text{,}\)</span> thus the total flux through the faces of the cube is <span class="process-math">\(6\times2k\pi/3 = 4k\pi\text{.}\)</span>
+</div> <div class="para logical" id="p-16242">
+<div class="para">It takes a bit of algebra, but we can show that <span class="process-math">\(\divv\vec F = 0\text{.}\)</span> Thus the Divergence Theorem would seem to imply that the total flux through the faces of the cube should be</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{ Flux } =\iiint_D \divv \vec F\, dV = \iiint_D 0\, dV = 0\text{,}
+\end{equation*}
+</div>
+<div class="para">but clearly this does not match the result from above. What went wrong?</div>
+</div> <div class="para" id="p-16243">Revisit the statement of the Divergence Theorem. One of the conditions is that the components of <span class="process-math">\(\vec F\)</span> must be differentiable on the domain enclosed by the surface. In our case, <span class="process-math">\(\vec F\)</span> is <em class="emphasis">not</em> differentiable at the origin — it is not even defined! As <span class="process-math">\(\vec F\)</span> does not satisfy the conditions of the Divergence Theorem, it does not apply, and we cannot expect <span class="process-math">\(\iint_\surfaceS \vec F\cdot\vec n\, dA = \iiint_D \divv\vec F\, dV\text{.}\)</span>
+</div> <div class="para" id="p-16244">Since <span class="process-math">\(\vec F\)</span> is differentiable everywhere except the origin, the Divergence Theorem does apply over any domain that does not include the origin. Let <span class="process-math">\(\surfaceS_2\)</span> be any surface that encloses the cube used before, and let <span class="process-math">\(\hat D\)</span> be the domain <em class="emphasis">between</em> the cube and <span class="process-math">\(\surfaceS_2\text{;}\)</span> note how <span class="process-math">\(\hat D\)</span> does not include the origin and so the Divergence Theorem does apply over this domain. The total outward flux over <span class="process-math">\(\hat D\)</span> is thus <span class="process-math">\(\iint_{\hat D}\divv \vec F\, dV = 0\text{,}\)</span> which means the amount of flux coming out of <span class="process-math">\(\surfaceS_2\)</span> is the same as the amount of flux coming out of the cube. The conclusion: the flux across <em class="emphasis">any</em> surface enclosing the origin will be <span class="process-math">\(4k\pi\text{.}\)</span>
+</div> <div class="para logical" id="p-16245">
+<div class="para">This has an important consequence in electrodynamics. Let <span class="process-math">\(q\)</span> be a point charge at the origin. The electric field generated by this point charge is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vec E = \frac{q}{4\pi \epsilon_0}\frac{\la x,y,z\ra}{(x^2+y^2+z^2)^{3/2}}\text{,}
+\end{equation*}
+</div>
+<div class="para">i.e., it is <span class="process-math">\(\vec F\)</span> with <span class="process-math">\(k = q/(4\pi \epsilon_0)\text{,}\)</span> where <span class="process-math">\(\epsilon_0\)</span> is a physical constant (the “permittivity of free space”). Gauss's Law states that the outward flux of <span class="process-math">\(\vec E\)</span> across any surface enclosing the origin is <span class="process-math">\(q/\epsilon_0\text{.}\)</span>
+</div>
+</div>
+</div></div>
+</div></article><div class="para" id="p-16246">Our interest in the Divergence Theorem is twofold. First, its truth alone is interesting: to study the behavior of a vector field across a closed surface, one can examine properties of that field within the surface. Secondly, it offers an alternative way of computing flux. When there are multiple methods of computing a desired quantity, one has power to select the easiest computation as illustrated next.</div>
+<article class="example example-like" id="ex_divthm_space4"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">15.7.8</span><span class="period">.</span><span class="space"> </span><span class="title">Using the Divergence Theorem to compute flux.</span>
+</h4>
+<div class="para" id="p-16247">Let <span class="process-math">\(\surfaceS\)</span> be the cube bounded by the planes <span class="process-math">\(x=\pm 1\text{,}\)</span> <span class="process-math">\(y=\pm 1\text{,}\)</span> <span class="process-math">\(z=\pm 1\text{,}\)</span> and let <span class="process-math">\(\vec F = \langle x^2y,2yz,x^2z^3\rangle\text{.}\)</span> Compute the outward flux of <span class="process-math">\(\vec F\)</span> over <span class="process-math">\(\surfaceS\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1565" id="solution-1565"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1565"><div class="solution solution-like">
+<div class="para logical" id="p-16248">
+<div class="para">We compute <span class="process-math">\(\divv \vec F = 2xy+2z+3x^2z^2\text{.}\)</span> By the Divergence Theorem, the outward flux is the triple integral over the domain <span class="process-math">\(D\)</span> enclosed by <span class="process-math">\(\surfaceS\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{ Outward flux: }  \int_{-1}^1\int_{-1}^1\int_{-1}^1(2xy+2z+3x^2z^2)\, dz\, dy\, dx = \frac83\text{.}
+\end{equation*}
+</div>
+</div> <div class="para" id="p-16249">The direct flux computation requires six surface integrals, one for each face of the cube. The Divergence Theorem offers a much more simple computation.</div>
+</div></div>
+</div></article></section><section class="subsection" id="subsection-166"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">15.7.2</span> <span class="title">Stokes' Theorem</span>
+</h3>
+<div class="para" id="p-16250">Just as the spatial Divergence Theorem of this section is an extension of the planar Divergence Theorem, Stokes' Theorem is the spatial extension of Green's Theorem. Recall that Green's Theorem states that the circulation of a vector field around a closed curve in the plane is equal to the sum of the curl of the field over the region enclosed by the curve. Stokes' Theorem effectively makes the same statement: given a closed curve that lies on a surface <span class="process-math">\(\surfaceS\text{,}\)</span> the circulation of a vector field around that curve is the same as the sum of “the curl of the field” across the enclosed surface. We use quotes around “the curl of the field” to signify that this statement is not quite correct, as we do not sum <span class="process-math">\(\curl \vec F\text{,}\)</span> but <span class="process-math">\(\curl \vec F\cdot\vec n\text{,}\)</span> where <span class="process-math">\(\vec n\)</span> is a unit vector normal to <span class="process-math">\(\surfaceS\text{.}\)</span> That is, we sum the portion of <span class="process-math">\(\curl \vec F\)</span> that is orthogonal to <span class="process-math">\(\surfaceS\)</span> at a point.</div>
+<div class="para" id="p-16251">Green's Theorem dictated that the curve was to be traversed counterclockwise when measuring circulation. Stokes' Theorem will follow a right hand rule: when the thumb of one's right hand points in the direction of <span class="process-math">\(\vec n\text{,}\)</span> the path <span class="process-math">\(C\)</span> will be traversed in the direction of the curling fingers of the hand (this is equivalent to traversing counterclockwise in the plane).</div>
+<article class="theorem theorem-like" id="thm_stokes_thm"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">15.7.9</span><span class="period">.</span><span class="space"> </span><span class="title">Stokes' Theorem.</span>
+</h4>
+<div class="para logical" id="p-16252">
+<div class="para">Let <span class="process-math">\(\surfaceS\)</span> be a piecewise smooth, orientable surface whose boundary is a piecewise smooth curve <span class="process-math">\(C\text{,}\)</span> let <span class="process-math">\(\vec n\)</span> be a unit vector normal to <span class="process-math">\(\surfaceS\text{,}\)</span> let <span class="process-math">\(C\)</span> be traversed with respect to <span class="process-math">\(\vec n\)</span> according to the right hand rule, and let the components of <span class="process-math">\(\vec F\)</span> have continuous first partial derivatives over <span class="process-math">\(\surfaceS\text{.}\)</span> Then </div>
+<div class="displaymath process-math">
+\begin{equation*}
+\oint_C \vec F\cdot \, d\vec r = \iint_\surfaceS (\curl\vec F)\cdot \vec n\, dS\text{.}
+\end{equation*}
+</div>
+</div></article><div class="para logical" id="p-16253">
+<div class="para">In general, the best approach to evaluating the surface integral in Stokes' Theorem is to parametrize the surface <span class="process-math">\(\surfaceS\)</span> with a function <span class="process-math">\(\vec r(u,v)\text{.}\)</span> We can find a unit normal vector <span class="process-math">\(\vec n\)</span> as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vec n = \frac{\vec r_u\times\vec r_v}{\snorm{\vec r_u\times\vec r_v}}\text{.}
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="p-16254">
+<div class="para">Since <span class="process-math">\(dS = \snorm{\vec r_u\times\vec r_v}\, dA\text{,}\)</span> the surface integral in practice is evaluated as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\iint_\surfaceS (\curl \vec F)\cdot (\vec r_u\times\vec r_v)\, dA\text{,}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\vec r_u\times\vec r_v\)</span> may be replaced by <span class="process-math">\(\vec r_v\times\vec r_u\)</span> to properly match the direction of this vector with the orientation of the parametrization of <span class="process-math">\(C\text{.}\)</span>
+</div>
+</div>
+<article class="example example-like" id="ex_stokes1"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">15.7.10</span><span class="period">.</span><span class="space"> </span><span class="title">Verifying Stokes' Theorem.</span>
+</h4>
+<div class="para" id="p-16255">Considering the planar surface <span class="process-math">\(f(x,y) = 7-2x-2y\text{,}\)</span> let <span class="process-math">\(C\)</span> be the curve in space that lies on this surface above the circle of radius 1 and centered at <span class="process-math">\((1,1)\)</span> in the <span class="process-math">\(xy\)</span>-plane, let <span class="process-math">\(\surfaceS\)</span> be the planar region enclosed by <span class="process-math">\(C\text{,}\)</span> as illustrated in <a href="" class="xref" data-knowl="./knowl/fig_stokes1.html" title="Figure 15.7.11">Figure 15.7.11</a>, and let <span class="process-math">\(\vec F = \langle x+y,2y, y^2\rangle\text{.}\)</span> Verify Stoke's Theorem by showing <span class="process-math">\(\oint_C \vec F\cdot \, d\vec r = \iint_\surfaceS (\curl\vec F)\cdot \vec n\, dS\text{.}\)</span>
+</div> <figure class="figure figure-like" id="fig_stokes1"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;">
+<div class="asymptote-box" style="padding-top: 100%"><iframe src="generated/asymptote/fig_stokes1_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/fig_stokes1_3D.html">Link to full-sized image</a></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">15.7.11<span class="period">.</span></span><span class="space"> </span>As given in <a href="" class="xref" data-knowl="./knowl/ex_stokes1.html" title="Example 15.7.10: Verifying Stokes' Theorem">Example 15.7.10</a>, the surface <span class="process-math">\(\surfaceS\)</span> is the portion of the plane bounded by the curve</figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1566" id="solution-1566"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1566"><div class="solution solution-like">
+<div class="para" id="p-16256">We begin by parametrizing <span class="process-math">\(C\)</span> and then find the circulation. A unit circle centered at <span class="process-math">\((1,1)\)</span> can be parametrized with <span class="process-math">\(x=\cos t+1\text{,}\)</span> <span class="process-math">\(y=\sin t+1\)</span> on <span class="process-math">\(0\leq t\leq 2\pi\text{;}\)</span> to put this curve on the surface <span class="process-math">\(f\text{,}\)</span> make the <span class="process-math">\(z\)</span> component equal <span class="process-math">\(f(x,y)\text{:}\)</span> <span class="process-math">\(z = 7-2(\cos t+1)-2(\sin t+1) = 3-2\cos t - 2\sin t\text{.}\)</span> All together, we parametrize <span class="process-math">\(C\)</span> with <span class="process-math">\(\vec r(t) = \la \cos t+1, \sin t+1, 3-2\cos t-2\sin t\ra\text{.}\)</span>
+</div> <div class="para logical" id="p-16257">
+<div class="para">The circulation of <span class="process-math">\(\vec F\)</span> around <span class="process-math">\(C\)</span> is</div>
+<div class="displaymath process-math" id="md-755">
+\begin{align*}
+\oint_C\vec F\cdot \, d\vec r \amp = \int_0^{2\pi}\vec F\big(\vec r(t)\big)\cdot \vrp(t)\, dt\\
+\amp = \int_0^{2\pi}\big(2\sin^3t-2\cos t\sin^2t+3\sin^2t-3\cos t\sin t\big)\, dt\\
+\amp = 3\pi\text{.}
+\end{align*}
+</div>
+</div> <div class="para" id="p-16258">We now parametrize <span class="process-math">\(\surfaceS\text{.}\)</span> (We reuse the letter “r” for our surface as this is our custom.) Based on the parametrization of <span class="process-math">\(C\)</span> above, we describe <span class="process-math">\(\surfaceS\)</span> with <span class="process-math">\(\vec r(u,v) = \la v\cos u+1, v\sin u+1, 3-2v\cos u-2v\sin u\ra\text{,}\)</span> where <span class="process-math">\(0\leq u\leq 2\pi\)</span> and <span class="process-math">\(0\leq v\leq 1\text{.}\)</span>
+</div> <div class="para" id="p-16259">We leave it to the reader to confirm that <span class="process-math">\(\vec r_u\times \vec r_v = \langle 2v,2v,v\rangle\text{.}\)</span> As <span class="process-math">\(0\leq v\leq 1\text{,}\)</span> this vector always has a non-negative <span class="process-math">\(z\)</span>-component, which the right-hand rule requires given the orientation of <span class="process-math">\(C\)</span> used above. We also leave it to the reader to confirm <span class="process-math">\(\curl\vec F = \langle 2y,0,-1\rangle\text{.}\)</span>
+</div> <div class="para logical" id="p-16260">
+<div class="para">The surface integral of Stokes' Theorem is thus</div>
+<div class="displaymath process-math" id="md-756">
+\begin{align*}
+\iint_\surfaceS (\curl\vec F)\cdot \vec n\, dS \amp = \iint_\surfaceS (\curl\vec F)\cdot (\vec r_u\times \vec r_v)\, dA\\
+\amp = \int_0^1\int_0^{2\pi} \langle 2v\sin u+2,0,-1\rangle\cdot\langle 2v,2v,v\rangle\, du\, dv\\
+\amp = 3\pi\text{,}
+\end{align*}
+</div>
+<div class="para">which matches our previous result.</div>
+</div>
+</div></div>
+</div></article><div class="para" id="p-16261">One of the interesting results of Stokes' Theorem is that if two surfaces <span class="process-math">\(\surfaceS_1\)</span> and <span class="process-math">\(\surfaceS_2\)</span> share the same boundary, then <span class="process-math">\(\iint_{\surfaceS_1} (\curl \vec F)\cdot \vec n\, dS = \iint_{\surfaceS_2} (\curl \vec F)\cdot \vec n\, dS\text{.}\)</span> That is, the value of these two surface integrals is somehow independent of the interior of the surface. We demonstrate this principle in the next example.</div>
+<article class="example example-like" id="ex_stokes2"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">15.7.12</span><span class="period">.</span><span class="space"> </span><span class="title">Stokes' Theorem and surfaces that share a boundary.</span>
+</h4>
+<div class="para" id="p-16262">Let <span class="process-math">\(C\)</span> be the curve given in <a href="" class="xref" data-knowl="./knowl/ex_stokes1.html" title="Example 15.7.10: Verifying Stokes' Theorem">Example 15.7.10</a> and note that it lies on the surface <span class="process-math">\(z = 6-x^2-y^2\text{.}\)</span> Let <span class="process-math">\(\surfaceS\)</span> be the region of this surface bounded by <span class="process-math">\(C\text{,}\)</span> and let <span class="process-math">\(\vec F = \langle x+y,2y,y^2\rangle\)</span> as in the previous example. Compute <span class="process-math">\(\iint_\surfaceS (\curl\vec F)\cdot \vec n\, dS\)</span> to show it equals the result found in the previous example.</div> <figure class="figure figure-like" id="fig_stokes2"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="fig_stokes2a_3D"><div class="asymptote-box" style="padding-top: 100%"><iframe src="generated/asymptote/img_stokes2a_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_stokes2a_3D.html">Link to full-sized image</a></div>
+<figcaption><span class="codenumber">(a)</span><span class="space"> </span></figcaption></figure></div>
+<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="fig_stokes2b_3D"><div class="asymptote-box" style="padding-top: 100%"><iframe src="generated/asymptote/img_stokes2b_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_stokes2b_3D.html">Link to full-sized image</a></div>
+<figcaption><span class="codenumber">(b)</span><span class="space"> </span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">15.7.13<span class="period">.</span></span><span class="space"> </span>As given in <a href="" class="xref" data-knowl="./knowl/ex_stokes2.html" title="Example 15.7.12: Stokes' Theorem and surfaces that share a boundary">Example 15.7.12</a>, the surface \surfaceS is the portion of the plane bounded by the curve</figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1567" id="solution-1567"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1567"><div class="solution solution-like">
+<div class="para" id="p-16263">We begin by demonstrating that <span class="process-math">\(C\)</span> lies on the surface <span class="process-math">\(z=6-x^2-y^2\text{.}\)</span> We can parametrize the <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> components of <span class="process-math">\(C\)</span> with <span class="process-math">\(x=\cos t+1\text{,}\)</span> <span class="process-math">\(y=\sin t+1\)</span> as before. Lifting these components to the surface <span class="process-math">\(f\)</span> gives the <span class="process-math">\(z\)</span> component as <span class="process-math">\(z = 6-x^2-y^2 = 6-(\cos t+1)^2-(\sin t+1)^2 = 3-2\cos t-2\sin t\text{,}\)</span> which is the same <span class="process-math">\(z\)</span> component as found in <a href="" class="xref" data-knowl="./knowl/ex_stokes1.html" title="Example 15.7.10: Verifying Stokes' Theorem">Example 15.7.10</a>. Thus the curve <span class="process-math">\(C\)</span> lies on the surface <span class="process-math">\(z=6-x^2-y^2\text{,}\)</span> as illustrated in <a href="" class="xref" data-knowl="./knowl/fig_stokes2.html" title="Figure 15.7.13">Figure 15.7.13</a>.</div> <div class="para" id="p-16264">Since <span class="process-math">\(C\)</span> and <span class="process-math">\(\vec F\)</span> are the same as in the previous example, we already know that <span class="process-math">\(\oint_C\vec F\cdot\, d\vec r = 3\pi\text{.}\)</span> We confirm that this is also the value of <span class="process-math">\(\iint_\surfaceS (\curl\vec F)\cdot \vec n\, dS\text{.}\)</span>
+</div> <div class="para logical" id="p-16265">
+<div class="para">We parametrize <span class="process-math">\(\surfaceS\)</span> with</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vec r(u,v) = \langle v\cos u+1,v\sin u+1, 6-(v\cos u+1)^2-(v\sin u+1)^2\rangle\text{,}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(0\leq u\leq 2\pi\)</span> and <span class="process-math">\(0\leq v\leq 1\text{,}\)</span> and leave it to the reader to confirm that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vec r_u\times \vec r_v = \la 2v\big(v\cos u+1\big), 2v\big(v\sin u+1\big),v\ra\text{,}
+\end{equation*}
+</div>
+<div class="para">which also conforms to the right-hand rule with regard to the orientation of <span class="process-math">\(C\text{.}\)</span> With <span class="process-math">\(\curl \vec F = \langle 2y,0,-1\rangle\)</span> as before, we have</div>
+<div class="displaymath process-math" id="md-757">
+\begin{align*}
+\amp\iint_\surfaceS (\curl\vec F)\cdot \vec n\, dS\\
+\quad\quad\amp = \int_0^1\int_0^{2\pi} \la 2v\sin u+2,0,-1\ra\cdot \la 2v\big(v\cos u+1\big), 2v\big(v\sin u+1\big),v\ra\, du\, dv \\
+\quad\quad\amp =3\pi\text{.}
+\end{align*}
+</div>
+</div> <div class="para" id="p-16266">Even though the surfaces used in this example and in <a href="" class="xref" data-knowl="./knowl/ex_stokes1.html" title="Example 15.7.10: Verifying Stokes' Theorem">Example 15.7.10</a> are very different, because they share the same boundary, Stokes' Theorem guarantees they have equal “sum of curls” across their respective surfaces.</div>
+</div></div>
+</div></article></section><section class="subsection" id="subsection-167"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">15.7.3</span> <span class="title">A Common Thread of Calculus</span>
+</h3>
+<div class="para" id="p-16267">We have threefold interest in each of the major theorems of this chapter: the Fundamental Theorem of Line Integrals, Green's, Stokes' and the Divergence Theorems. First, we find the beauty of their truth interesting. Second, each provides two methods of computing a desired quantity, sometimes offering a simpler method of computation.</div>
+<div class="para" id="p-16268">There is yet one more reason of interest in the major theorems of this chapter. These important theorems also all share an important principle with the Fundamental Theorem of Calculus, introduced in <a href="chapter_integration.html" class="internal" title="Chapter 5: Integration">Chapter 5</a>.</div>
+<div class="para logical" id="p-16269">
+<div class="para">Revisit this fundamental theorem, adopting the notation used heavily in this chapter. Let <span class="process-math">\(I\)</span> be the interval <span class="process-math">\([a,b]\)</span> and let <span class="process-math">\(y=F(x)\)</span> be differentiable on <span class="process-math">\(I\text{,}\)</span> with <span class="process-math">\(F\,'(x) = f(x)\text{.}\)</span> The Fundamental Theorem of Calculus states that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_I f(x)\, dx = F(b) - F(a)\text{.}
+\end{equation*}
+</div>
+</div>
+<div class="para" id="p-16270">That is, the sum of the rates of change of a function <span class="process-math">\(F\)</span> over an interval <span class="process-math">\(I\)</span> can also be calculated with a certain sum of <span class="process-math">\(F\)</span> itself on the boundary of <span class="process-math">\(I\)</span> (in this case, at the points <span class="process-math">\(x=a\)</span> and <span class="process-math">\(x=b\)</span>).</div>
+<div class="para logical" id="p-16271">
+<div class="para">Each of the named theorems above can be expressed in similar terms. Consider the Fundamental Theorem of Line Integrals: given a function <span class="process-math">\(f(x,y)\text{,}\)</span> the gradient <span class="process-math">\(\nabla f\)</span> is a type of rate of change of <span class="process-math">\(f\text{.}\)</span> Given a curve <span class="process-math">\(C\)</span> with initial and terminal points <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span> respectively, this fundamental theorem states that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_C \nabla f\, ds = f(B) - f(A)\text{,}
+\end{equation*}
+</div>
+<div class="para">where again the sum of a rate of change of <span class="process-math">\(f\)</span> along a curve <span class="process-math">\(C\)</span> can also be evaluated by a certain sum of <span class="process-math">\(f\)</span> at the boundary of <span class="process-math">\(C\)</span> (i.e., the points <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span>).</div>
+</div>
+<div class="para logical" id="p-16272">
+<div class="para">Green's Theorem is essentially a special case of Stokes' Theorem, so we consider just Stokes' Theorem here. Recalling that the curl of a vector field <span class="process-math">\(\vec F\)</span> is a measure of a rate of change of <span class="process-math">\(\vec F\text{,}\)</span> Stokes' Theorem states that over a surface <span class="process-math">\(\surfaceS\)</span> bounded by a closed curve <span class="process-math">\(C\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\iint_\surfaceS \big(\curl \vec F\big)\cdot \vec n\, dS = \oint_C \vec F\cdot d\vec r\text{,}
+\end{equation*}
+</div>
+<div class="para">i.e., the sum of a rate of change of <span class="process-math">\(\vec F\)</span> can be calculated with a certain sum of <span class="process-math">\(\vec F\)</span> itself over the boundary of <span class="process-math">\(\surfaceS\text{.}\)</span> In this case, the latter sum is also an infinite sum, requiring an integral.</div>
+</div>
+<div class="para" id="p-16273">Finally, the Divergence Theorems state that the sum of divergences of a vector field (another measure of a rate of change of <span class="process-math">\(\vec F\)</span>) over a region can also be computed with a certain sum of <span class="process-math">\(\vec F\)</span> over the boundary of that region. When the region is planar, the latter sum of <span class="process-math">\(\vec F\)</span> is an integral; when the region is spatial, the latter sum of <span class="process-math">\(\vec F\)</span> is a double integral.</div>
+<div class="para" id="p-16274">The common thread among these theorems: the sum of a rate of change of a function over a region can be computed as another sum of the function itself on the boundary of the region. While very general, this is a very powerful and important statement.</div></section><section class="exercises" id="exercises-91"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">15.7.4</span> <span class="title">Exercises</span>
+</h3>
+<article class="subexercises" id="subexercises-192"><h4 class="heading"><span class="title">Terms and Concepts</span></h4>
+<article class="exercise exercise-like" id="exercise-2975"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
+<div class="para" id="p-16275">What are the differences between the Divergence Theorems of <a href="sec_greensthm.html" class="internal" title="Section 15.4: Flow, Flux, Green's Theorem and the Divergence Theorem">Section 15.4</a> and this section?</div></article><article class="exercise exercise-like" id="exercise-2976"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+<div class="para" id="p-16277">What property of a vector field does the Divergence Theorem relate to flux?</div></article><article class="exercise exercise-like" id="exercise-2977"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+<div class="para" id="p-16279">What property of a vector field does Stokes' Theorem relate to circulation?</div></article><article class="exercise exercise-like" id="exercise-2978"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
+<div class="para" id="p-16281">Stokes' Theorem is the spatial version of what other theorem?</div></article></article><article class="subexercises" id="subexercises-193"><h4 class="heading"><span class="title">Problems</span></h4>
+<div class="exercisegroup" id="exercisegroup-381">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-468"><div class="para" id="p-16283">In the following exercises, a closed surface <span class="process-math">\(\surfaceS\)</span> enclosing a domain <span class="process-math">\(D\)</span> and a vector field <span class="process-math">\(\vec F\)</span> are given. Verify the Divergence Theorem on <span class="process-math">\(\surfaceS\text{;}\)</span> that is, show <span class="process-math">\(\iint_\surfaceS \vec F\cdot \vec n\, dS = \iiint_D\divv \vec F\, dV\text{.}\)</span>
+</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-2979"><h6 class="heading"><span class="codenumber">5<span class="period">.</span></span></h6>
+<div class="para" id="p-16284">
+<span class="process-math">\(\surfaceS\)</span> is the surface bounding the domain <span class="process-math">\(D\)</span> enclosed by the plane <span class="process-math">\(z=2-x/2-2y/3\)</span> and the coordinate planes in the first octant; <span class="process-math">\(\vec F = \langle x^2,y^2,x\rangle\text{.}\)</span>
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<div class="asymptote-box" style="padding-top: 100%"><iframe src="generated/asymptote/img_14_07_ex_05_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_14_07_ex_05_3D.html">Link to full-sized image</a></div>
+</div></article><article class="exercise exercise-like" id="exercise-2980"><h6 class="heading"><span class="codenumber">6<span class="period">.</span></span></h6>
+<div class="para" id="p-16288">
+<span class="process-math">\(\surfaceS\)</span> is the surface bounding the domain <span class="process-math">\(D\)</span> enclosed by the cylinder <span class="process-math">\(x^2+y^2=1\)</span> and the planes <span class="process-math">\(z=-3\)</span> and <span class="process-math">\(z=3\text{;}\)</span> <span class="process-math">\(\vec F = \langle -x,y,z\rangle\text{.}\)</span>
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<div class="asymptote-box" style="padding-top: 99.5049504950495%"><iframe src="generated/asymptote/img_14_07_ex_06_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_14_07_ex_06_3D.html">Link to full-sized image</a></div>
+</div></article><article class="exercise exercise-like" id="exercise-2981"><h6 class="heading"><span class="codenumber">7<span class="period">.</span></span></h6>
+<div class="para" id="p-16292">
+<span class="process-math">\(\surfaceS\)</span> is the surface bounding the domain <span class="process-math">\(D\)</span> enclosed by <span class="process-math">\(z=xy(3-x)(3-y)\)</span> and the plane <span class="process-math">\(z=0\text{;}\)</span> <span class="process-math">\(\vec F = \langle 3x,4y,5z+1\rangle\text{.}\)</span>
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<div class="asymptote-box" style="padding-top: 100%"><iframe src="generated/asymptote/img_14_07_ex_07_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_14_07_ex_07_3D.html">Link to full-sized image</a></div>
+</div></article><article class="exercise exercise-like" id="exercise-2982"><h6 class="heading"><span class="codenumber">8<span class="period">.</span></span></h6>
+<div class="para" id="p-16296">
+<span class="process-math">\(\surfaceS\)</span> is the surface composed of <span class="process-math">\(\surfaceS_1\text{,}\)</span> the paraboloid <span class="process-math">\(z=4-x^2-y^2\)</span> for <span class="process-math">\(z\geq 0\text{,}\)</span> and <span class="process-math">\(\surfaceS_2\text{,}\)</span> the disk of radius 2 centered at the origin; <span class="process-math">\(\vec F = \langle x,y,z^2\rangle\text{.}\)</span>
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<div class="asymptote-box" style="padding-top: 99.5049504950495%"><iframe src="generated/asymptote/img_14_07_ex_08_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_14_07_ex_08_3D.html">Link to full-sized image</a></div>
+</div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exercisegroup-382">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-469"><div class="para" id="p-16300">In the following exercises, a closed curve <span class="process-math">\(C\)</span> that is the boundary of a surface <span class="process-math">\(\surfaceS\)</span> is given along with a vector field <span class="process-math">\(\vec F\text{.}\)</span> Verify Stokes' Theorem on <span class="process-math">\(C\text{;}\)</span> that is, show <span class="process-math">\(\oint_C \vec F\cdot d\vec r = \iint_\surfaceS\big(\curl \vec F\,\big)\cdot\vec n\, dS\text{.}\)</span>
+</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-2983"><h6 class="heading"><span class="codenumber">9<span class="period">.</span></span></h6>
+<div class="para" id="p-16301">
+<span class="process-math">\(C\)</span> is the curve parametrized by <span class="process-math">\(\vec r(t) = \langle \cos t, \sin t, 1\rangle\)</span> and <span class="process-math">\(\surfaceS\)</span> is the portion of <span class="process-math">\(z=x^2+y^2\)</span> enclosed by <span class="process-math">\(C\text{;}\)</span> <span class="process-math">\(\vec F = \langle z,-x,y\rangle\text{.}\)</span>
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<div class="asymptote-box" style="padding-top: 100.497512437811%"><iframe src="generated/asymptote/img_14_07_ex_09_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_14_07_ex_09_3D.html">Link to full-sized image</a></div>
+</div></article><article class="exercise exercise-like" id="exercise-2984"><h6 class="heading"><span class="codenumber">10<span class="period">.</span></span></h6>
+<div class="para" id="p-16304">
+<span class="process-math">\(C\)</span> is the curve parametrized by <span class="process-math">\(\vec r(t) = \langle \cos t, \sin t, e^{-1}\rangle\)</span> and <span class="process-math">\(\surfaceS\)</span> is the portion of <span class="process-math">\(z=e^{-x^2-y^2}\)</span> enclosed by <span class="process-math">\(C\text{;}\)</span> <span class="process-math">\(\vec F = \langle -y,x,1\rangle\text{.}\)</span>
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<div class="asymptote-box" style="padding-top: 100%"><iframe src="generated/asymptote/img_14_07_ex_10_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_14_07_ex_10_3D.html">Link to full-sized image</a></div>
+</div></article><article class="exercise exercise-like" id="exercise-2985"><h6 class="heading"><span class="codenumber">11<span class="period">.</span></span></h6>
+<div class="para" id="p-16307">
+<span class="process-math">\(C\)</span> is the curve that follows the triangle with vertices at <span class="process-math">\((0,0,2)\text{,}\)</span> <span class="process-math">\((4,0,0)\)</span> and <span class="process-math">\((0,3,0)\text{,}\)</span> traversing the the vertices in that order and returning to <span class="process-math">\((0,0,2)\text{,}\)</span> and <span class="process-math">\(\surfaceS\)</span> is the portion of the plane <span class="process-math">\(z=2-x/2-2y/3\)</span> enclosed by <span class="process-math">\(C\text{;}\)</span> <span class="process-math">\(\vec F = \langle y,-z,y\rangle\text{.}\)</span>
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<div class="asymptote-box" style="padding-top: 100%"><iframe src="generated/asymptote/img_14_07_ex_11_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_14_07_ex_11_3D.html">Link to full-sized image</a></div>
+</div></article><article class="exercise exercise-like" id="exercise-2986"><h6 class="heading"><span class="codenumber">12<span class="period">.</span></span></h6>
+<div class="para" id="p-16310">
+<span class="process-math">\(C\)</span> is the curve whose <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> coordinates follow the parabola <span class="process-math">\(y=1-x^2\)</span> from <span class="process-math">\(x=1\)</span> to <span class="process-math">\(x=-1\text{,}\)</span> then follow the line from <span class="process-math">\((-1,0)\)</span> back to <span class="process-math">\((1,0)\text{,}\)</span> where the <span class="process-math">\(z\)</span> coordinates of <span class="process-math">\(C\)</span> are determined by <span class="process-math">\(f(x,y) = 2x^2+y^2\text{,}\)</span> and <span class="process-math">\(\surfaceS\)</span> is the portion of <span class="process-math">\(z=2x^2+y^2\)</span> enclosed by <span class="process-math">\(C\text{;}\)</span> <span class="process-math">\(\vec F = \langle y^2+z,x,x^2-y\rangle\text{.}\)</span>
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<div class="asymptote-box" style="padding-top: 100.497512437811%"><iframe src="generated/asymptote/img_14_07_ex_12_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_14_07_ex_12_3D.html">Link to full-sized image</a></div>
+</div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exercisegroup-383">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-470"><div class="para" id="p-16313">In the following exercises, a closed surface <span class="process-math">\(\surfaceS\)</span> and a vector field <span class="process-math">\(\vec F\)</span> are given. Find the outward flux of <span class="process-math">\(\vec F\)</span> over <span class="process-math">\(\surfaceS\)</span> either through direct computation or through the Divergence Theorem.</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-2987"><h6 class="heading"><span class="codenumber">13<span class="period">.</span></span></h6>
+<div class="para" id="p-16314">
+<span class="process-math">\(\surfaceS\)</span> is the surface formed by the intersections of <span class="process-math">\(z=0\)</span> and <span class="process-math">\(z=(x^2-1)(y^2-1)\text{;}\)</span> <span class="process-math">\(\vec F = \langle x^2+1,yz,xz^2\rangle\text{.}\)</span>
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<div class="asymptote-box" style="padding-top: 100%"><iframe src="generated/asymptote/img_14_07_ex_13_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_14_07_ex_13_3D.html">Link to full-sized image</a></div>
+</div></article><article class="exercise exercise-like" id="exercise-2988"><h6 class="heading"><span class="codenumber">14<span class="period">.</span></span></h6>
+<div class="para" id="p-16316">
+<span class="process-math">\(\surfaceS\)</span> is the surface formed by the intersections of the planes <span class="process-math">\(z=\frac12(3-x)\text{,}\)</span> <span class="process-math">\(x=1\text{,}\)</span> <span class="process-math">\(y=0\text{,}\)</span> <span class="process-math">\(y=2\)</span> and <span class="process-math">\(z=0\text{;}\)</span> <span class="process-math">\(\vec F = \langle x,y^2,z\rangle\text{.}\)</span>
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<div class="asymptote-box" style="padding-top: 100%"><iframe src="generated/asymptote/img_14_07_ex_14_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_14_07_ex_14_3D.html">Link to full-sized image</a></div>
+</div></article><article class="exercise exercise-like" id="exercise-2989"><h6 class="heading"><span class="codenumber">15<span class="period">.</span></span></h6>
+<div class="para" id="p-16318">
+<span class="process-math">\(\surfaceS\)</span> is the surface formed by the intersections of the planes <span class="process-math">\(z=2y\text{,}\)</span> <span class="process-math">\(y=4-x^2\)</span> and <span class="process-math">\(z=0\text{;}\)</span> <span class="process-math">\(\vec F = \langle xz,0,xz\rangle\text{.}\)</span>
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<div class="asymptote-box" style="padding-top: 100.497512437811%"><iframe src="generated/asymptote/img_14_07_ex_15_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_14_07_ex_15_3D.html">Link to full-sized image</a></div>
+</div></article><article class="exercise exercise-like" id="exercise-2990"><h6 class="heading"><span class="codenumber">16<span class="period">.</span></span></h6>
+<div class="para" id="p-16320">
+<span class="process-math">\(\surfaceS\)</span> is the surface formed by the intersections of the cylinder <span class="process-math">\(z=1-x^2\)</span> and the planes <span class="process-math">\(y=-2\text{,}\)</span> <span class="process-math">\(y=2\)</span> and <span class="process-math">\(z=0\text{;}\)</span> <span class="process-math">\(\vec F = \langle 0,y^3,0\rangle\text{.}\)</span>
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<div class="asymptote-box" style="padding-top: 100%"><iframe src="generated/asymptote/img_14_07_ex_16_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_14_07_ex_16_3D.html">Link to full-sized image</a></div>
+</div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exercisegroup-384">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-471"><div class="para" id="p-16322">In the following exercises, a closed curve <span class="process-math">\(C\)</span> that is the boundary of a surface <span class="process-math">\(\surfaceS\)</span> is given along with a vector field <span class="process-math">\(\vec F\text{.}\)</span> Find the circulation of <span class="process-math">\(\vec F\)</span> around <span class="process-math">\(C\)</span> either through direct computation or through Stokes' Theorem.</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-2991"><h6 class="heading"><span class="codenumber">17<span class="period">.</span></span></h6>
+<div class="para" id="p-16323">
+<span class="process-math">\(C\)</span> is the curve whose <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-values are determined by the three sides of a triangle with vertices at <span class="process-math">\((-1,0)\text{,}\)</span> <span class="process-math">\((1,0)\)</span> and <span class="process-math">\((0,1)\text{,}\)</span> traversed in that order, and the <span class="process-math">\(z\)</span>-values are determined by the function <span class="process-math">\(z=xy\text{;}\)</span> <span class="process-math">\(\vec F = \langle z-y^2,x,z\rangle\text{.}\)</span>
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<div class="asymptote-box" style="padding-top: 100%"><iframe src="generated/asymptote/img_14_07_ex_17_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_14_07_ex_17_3D.html">Link to full-sized image</a></div>
+</div></article><article class="exercise exercise-like" id="exercise-2992"><h6 class="heading"><span class="codenumber">18<span class="period">.</span></span></h6>
+<div class="para" id="p-16325">
+<span class="process-math">\(C\)</span> is the curve whose <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-values are given by <span class="process-math">\(\vec r(t) = \langle 2\cos t,2\sin t\rangle\)</span> and the <span class="process-math">\(z\)</span>-values are determined by the function <span class="process-math">\(z=x^2+y^3-3y+1\text{;}\)</span> <span class="process-math">\(\vec F = \langle -y,x,z\rangle\text{.}\)</span>
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<div class="asymptote-box" style="padding-top: 100%"><iframe src="generated/asymptote/img_14_07_ex_18_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_14_07_ex_18_3D.html">Link to full-sized image</a></div>
+</div></article><article class="exercise exercise-like" id="exercise-2993"><h6 class="heading"><span class="codenumber">19<span class="period">.</span></span></h6>
+<div class="para" id="p-16327">
+<span class="process-math">\(C\)</span> is the curve whose <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-values are given by <span class="process-math">\(\vec r(t) = \langle \cos t,3\sin t\rangle\)</span> and the <span class="process-math">\(z\)</span>-values are determined by the function <span class="process-math">\(z=5-2x-y\text{;}\)</span> <span class="process-math">\(\vec F = \langle -\frac13y,3x,\frac23y-3x\rangle\text{.}\)</span>
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<div class="asymptote-box" style="padding-top: 100.497512437811%"><iframe src="generated/asymptote/img_14_07_ex_19_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_14_07_ex_19_3D.html">Link to full-sized image</a></div>
+</div></article><article class="exercise exercise-like" id="exercise-2994"><h6 class="heading"><span class="codenumber">20<span class="period">.</span></span></h6>
+<div class="para" id="p-16329">
+<span class="process-math">\(C\)</span> is the curve whose <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-values are sides of the square with vertices at <span class="process-math">\((1,1)\text{,}\)</span> <span class="process-math">\((-1,1)\text{,}\)</span> <span class="process-math">\((-1,-1)\)</span> and <span class="process-math">\((1,-1)\text{,}\)</span> traversed in that order, and the <span class="process-math">\(z\)</span>-values are determined by the function <span class="process-math">\(z=10-5x-2y\text{;}\)</span> <span class="process-math">\(\vec F = \langle 5y^2,2y^2,y^2\rangle\text{.}\)</span>
+</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<div class="asymptote-box" style="padding-top: 100%"><iframe src="generated/asymptote/img_14_07_ex_20_3D.html" class="asymptote"></iframe></div>
+<div style="text-align: center;"><a href="https://opentext.uleth.ca/apex-calculus/generated/asymptote/img_14_07_ex_20_3D.html">Link to full-sized image</a></div>
+</div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exercisegroup-385">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-472"><div class="para" id="p-16331">The following exercises are designed to challenge your understanding and require no computation.</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-2995"><h6 class="heading"><span class="codenumber">21<span class="period">.</span></span></h6>
+<div class="para" id="p-16332">Let <span class="process-math">\(\surfaceS\)</span> be any closed surface enclosing a domain <span class="process-math">\(D\text{.}\)</span> Consider <span class="process-math">\(\vec F_1 = \langle x,0,0\rangle\)</span> and <span class="process-math">\(\vec F_2=\langle y,y^2,z-2yz\rangle\text{.}\)</span>
+</div> <div class="para" id="p-16333">These fields are clearly very different. Why is it that the total outward flux of each field across <span class="process-math">\(\surfaceS\)</span> is the same?</div></article><article class="exercise exercise-like" id="exercise-2996"><h6 class="heading"><span class="codenumber">22<span class="period">.</span></span></h6>
+<div class="para logical" id="p-16335"><ol class="lower-alpha">
+<li id="li-2876"><div class="para" id="p-16336">Green's Theorem can be used to find the area of a region enclosed by a curve by evaluating a line integral with the appropriate choice of vector field <span class="process-math">\(\vec F\text{.}\)</span> What condition on <span class="process-math">\(\vec F\)</span> makes this possible?</div></li>
+<li id="li-2877"><div class="para" id="p-16337">Likewise, Stokes' Theorem can be used to find the surface area of a region enclosed by a curve in space by evaluating a line integral with the appropriate choice of vector field <span class="process-math">\(\vec F\text{.}\)</span> What condition on <span class="process-math">\(\vec F\)</span> makes this possible?</div></li>
+</ol></div></article><article class="exercise exercise-like" id="exercise-2997"><h6 class="heading"><span class="codenumber">23<span class="period">.</span></span></h6>
+<div class="para" id="p-16341">The Divergence Theorem establishes equality between a particular double integral and a particular triple integral. What types of circumstances would lead one to choose to evaluate the triple integral over the double integral?</div></article><article class="exercise exercise-like" id="exercise-2998"><h6 class="heading"><span class="codenumber">24<span class="period">.</span></span></h6>
+<div class="para" id="p-16343">Stokes' Theorem establishes equality between a particular line integral and a particular double integral. What types of circumstances would lead one to choose to evaluate the double integral over the line integral?</div></article>
+</div>
+</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec_surface_integral.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter-1.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
+<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+</div>
+</body>
+</html>

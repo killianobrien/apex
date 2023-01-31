@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">We have a product of three functions while the <a href="" class="xref" data-knowl="./knowl/thm_ProductRule.html" title="Theorem 2.4.1: Product Rule">Product Rule</a> only specifies how to handle a product of two functions. Our method of handling this problem is to simply group the latter two functions together, and consider <span class="process-math">\(y = x^3\cdot\left[\ln(x) \cos(x) \right]\text{.}\)</span> Following the <a href="" class="xref" data-knowl="./knowl/thm_ProductRule.html" title="Theorem 2.4.1: Product Rule">Product Rule</a>, we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_ProductRule.html ./knowl/thm_ProductRule.html">
+\begin{align*}
+\yp \amp = \lzoo{x}{x^3}\ln(x) \cos(x) + (x^3)\lzoo{x}{\ln(x) \cos(x)}\\
+\end{align*}
+<p class="intertext">To evaluate <span class="process-math">\(\lzoo{x}{\ln(x) \cos(x)}\text{,}\)</span> we apply the Product Rule again:</p>
+\begin{align*}
+\yp \amp = 3x^2\left[\ln(x) \cos(x) \right] + (x^3)\left[\frac1x\cos(x) + \ln(x) (-\sin(x) )\right]\\
+\amp = 3x^2\ln(x) \cos(x) + x^3\frac{1}{x}\cos(x) + x^3\ln(x) (-\sin(x) )\text{.}
+\end{align*}
+</div>
+</div> <div class="para">Recognize the pattern in our answer above: when applying the <a href="" class="xref" data-knowl="./knowl/thm_ProductRule.html" title="Theorem 2.4.1: Product Rule">Product Rule</a> to a product of three functions, there are three terms added together in the final derivative. Each term contains only one derivative of one of the original functions, and each function's derivative shows up in only one term. It is straightforward to extend this pattern to finding the derivative of a product of four or more functions.</div> <div class="para logical">
+<div class="para">Ultimately though, we would simplify our final computation to:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\yp=3x^2\ln(x)\cos(x) + x^2\cos(x) + -x^3\ln(x)\sin(x)
+\end{equation*}
+</div>
+<div class="para">If you check this answer with a <abbr class="initialism">CAS</abbr>, it may factor and give the answer:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\yp=-x^2\left[x\ln(x)\sin(x) + \cos(x) + 3\ln(x)\cos(x)\right]
+\end{equation*}
+</div>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><div class="para logical">
+<div class="para">We begin by proving the formula for the simplied form for the partial sums. Consider the <span class="process-math">\(n\)</span>th partial sum of the geometric series, <span class="process-math">\(S_n=\sum_{i=0}^n r^i\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_geom_series_a.html ./knowl/thm_geom_series.html">
+\begin{align*}
+S_n \amp = 1+r+r^2+\cdots+r^{n-2}+r^{n-1}\\
+\end{align*}
+<p class="intertext">Multiply both sides by <span class="process-math">\(r\text{:}\)</span></p>
+\begin{align*}
+r\cdot S_n \amp = r+r^2+r^3+\dots+r^{n-1}+r^{n}\\
+\end{align*}
+<p class="intertext">Now subtract the second line from the first and solve for <span class="process-math">\(S_n\text{:}\)</span></p>
+\begin{align*}
+S_n-r\cdot S_n \amp = 1-r^n\\
+S_n(1-r) \amp = 1-r^{n}\\
+S_n \amp = \frac{1-r^{n}}{1-r}\text{.}
+\end{align*}
+</div>
+<div class="para">We have shown <a href="" class="xref" data-knowl="./knowl/thm_geom_series_a.html" title="Item 1">Part 1</a> of <a href="" class="xref" data-knowl="./knowl/thm_geom_series.html" title="Theorem 9.2.5: Geometric Series Test">Geometric Series Test</a>.</div>
+</div> <div class="para logical">
+<div class="para">Now, examining the partial sums, we consider five cases to determine when <span class="process-math">\(S_n\)</span> converges:</div>
+<ol class="decimal">
+<li><div class="para">If <span class="process-math">\(\abs{r}\lt 1\text{,}\)</span> then <span class="process-math">\(r^n \to 0\)</span> as <span class="process-math">\(n \to \infty\text{,}\)</span> so we have <span class="process-math">\(\inflim S_n=\frac{1-0}{1-r}=\frac{1}{1-r}\text{,}\)</span> a convergent sequence of partial sums.</div></li>
+<li><div class="para logical">
+<div class="para">If <span class="process-math">\(r \gt 1\text{,}\)</span> then <span class="process-math">\(r^n \to \infty\)</span> as <span class="process-math">\(n \to \infty\text{,}\)</span> so</div>
+<div class="displaymath process-math">
+\begin{equation*}
+S_n = \frac{1-r^n}{1-r}=\frac{r^n}{r-1}-\frac{1}{r-1}
+\end{equation*}
+</div>
+<div class="para">diverges to infinity. (Note that <span class="process-math">\(r-1\)</span> is a positive constant.)</div>
+</div></li>
+<li><div class="para">If <span class="process-math">\(r \lt -1\text{,}\)</span> then <span class="process-math">\(r^n\)</span> will oscillate between large positive and large negative values as <span class="process-math">\(n\)</span> increases. The same will be true of <span class="process-math">\(S_n\text{,}\)</span> so <span class="process-math">\(\inflim S_n\)</span> does not exist.</div></li>
+<li><div class="para">If <span class="process-math">\(r=1\text{,}\)</span> then <span class="process-math">\(S_n = \frac{1-1^{n+1}}{1-1}\)</span> is undefined. However, examining <span class="process-math">\(S_n = 1+r+r^2+\dots+r^n\)</span> for <span class="process-math">\(r=1\text{,}\)</span> we can see that the partial sums simplify to <span class="process-math">\(S_n=n\text{,}\)</span> and this sequence diverges to <span class="process-math">\(\infty\text{.}\)</span>
+</div></li>
+<li><div class="para">If <span class="process-math">\(r=-1\text{,}\)</span> then <span class="process-math">\(S_n = \frac{1-(-1)^{n}}{2}\text{.}\)</span> For even values of <span class="process-math">\(n\text{,}\)</span> the partial sums are always <span class="process-math">\(0\text{.}\)</span> For odd values of <span class="process-math">\(n\text{,}\)</span> the partial sums are always <span class="process-math">\(1\text{.}\)</span> So the sequence of partial sums diverges.</div></li>
+</ol>
+<div class="para">Therefore, a geometric series converges if and only if <span class="process-math">\(\abs{r} \lt 1\text{.}\)</span>
+</div>
+</div></article></body>
+</html>

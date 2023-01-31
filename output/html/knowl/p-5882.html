@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">We have used substitution on problems similar to this problem in <a href="sec_substitution.html" class="internal" title="Section 6.1: Substitution">Section 6.1</a> . If we let <span class="process-math">\(u=\sin(x)\text{,}\)</span> then <span class="process-math">\(du=\cos(x)\,dx\text{,}\)</span> and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_substitution.html">
+\begin{equation*}
+\int \sin^3(x)\cos(x)\,dx = \int u^3 \,du = \frac{u^4}{4}+C = \frac14 \sin^4(x)+C\text{.}
+\end{equation*}
+</div>
+<div class="para">But what if, for some reason, we wanted to let <span class="process-math">\(u=\cos(x)\)</span> instead? Unfortunately, we have <span class="process-math">\(\sin^3(x)\)</span> as part of our integrand, not just <span class="process-math">\(\sin(x)\text{.}\)</span> The solution to this problem is to replace some of our powers of sine (two of them to be exact) with expressions that involve cosine. We will use the Pythagorean Identity <span class="process-math">\(\sin^2(x)=1-\cos^2(x)\text{.}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_substitution.html">
+\begin{align*}
+\int\sin^3(x) \cos(x) \, dx \amp =\int\sin(x)\cdot \sin^2(x) \cos(x) \, dx\\
+\amp =\int\sin(x)\left(1-\cos^2(x)\right) \cos(x) \, dx\text{.}
+\end{align*}
+</div>
+</div>
+<span class="incontext"><a href="sec_trigint.html#p-5882" class="internal">in-context</a></span>
+</body>
+</html>

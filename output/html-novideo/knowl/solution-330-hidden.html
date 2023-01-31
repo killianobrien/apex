@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">We have used substitution on problems similar to this problem in <a href="sec_substitution.html" class="internal" title="Section 6.1: Substitution">Section 6.1</a> . If we let <span class="process-math">\(u=\sin(x)\text{,}\)</span> then <span class="process-math">\(du=\cos(x)\,dx\text{,}\)</span> and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_substitution.html">
+\begin{equation*}
+\int \sin^3(x)\cos(x)\,dx = \int u^3 \,du = \frac{u^4}{4}+C = \frac14 \sin^4(x)+C\text{.}
+\end{equation*}
+</div>
+<div class="para">But what if, for some reason, we wanted to let <span class="process-math">\(u=\cos(x)\)</span> instead? Unfortunately, we have <span class="process-math">\(\sin^3(x)\)</span> as part of our integrand, not just <span class="process-math">\(\sin(x)\text{.}\)</span> The solution to this problem is to replace some of our powers of sine (two of them to be exact) with expressions that involve cosine. We will use the Pythagorean Identity <span class="process-math">\(\sin^2(x)=1-\cos^2(x)\text{.}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_substitution.html">
+\begin{align*}
+\int\sin^3(x) \cos(x) \, dx \amp =\int\sin(x)\cdot \sin^2(x) \cos(x) \, dx\\
+\amp =\int\sin(x)\left(1-\cos^2(x)\right) \cos(x) \, dx\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">Now we let <span class="process-math">\(u=\cos(x)\)</span> so that <span class="process-math">\(-du=\sin(x)\,dx\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int\sin^3(x) \cos(x) \, dx \amp =\int\sin(x)\left(1-\cos^2(x)\right) \cos(x) \, dx\\
+\amp =\int -\left(1-u^2\right)u\,du\\
+\amp =\int -\left(u-u^3\right)\,du\\
+\amp =-\frac{u^2}{2}+\frac{u^4}{4}+C\\
+\amp =-\frac{\cos^2(x)}{2}+\frac{\cos^4(x)}{4}+C\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">This looks like a very different answer, so you might wonder if we went wrong somewhere. But in fact, the two answers are equivalent, in the sense that they differ by a constant! (So the “<span class="process-math">\(+C\)</span>” is different in each case, if you like.) Notice that</div>
+<div class="displaymath process-math">
+\begin{align*}
+\frac14\sin^4(x) \amp = \frac14(1-\cos^2(x))^2\\
+\amp = \frac14-\frac12\cos^2(x)+\frac14\cos^4(x)\text{,}
+\end{align*}
+</div>
+<div class="para">so the difference between the two answers is the constant <span class="process-math">\(\frac14\)</span> .</div>
+</div>
+</div></body>
+</html>

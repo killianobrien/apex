@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h3 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">6.2.15.2</span><span class="period">.</span>
+</h3>
+<div class="para logical">
+<div class="para">The same sneaky trick we used above works here. Let <span class="process-math">\(u=\arctan x\)</span> and <span class="process-math">\(dv=dx\text{.}\)</span> Then <span class="process-math">\(du=1/(1+x^2)\,dx\)</span> and <span class="process-math">\(v=x\text{.}\)</span> The Integration by Parts formula gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \arctan x \,dx = x\arctan x - \int \frac x{1+x^2}\,dx\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">The integral on the right can be solved by substitution. Taking <span class="process-math">\(w=1+x^2\text{,}\)</span> we get <span class="process-math">\(dw=2x\,dx\text{.}\)</span> The integral then becomes</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \arctan x \,dx = x\arctan x - \frac12\int \frac 1{w}\,dw\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">The integral on the right evaluates to <span class="process-math">\(\ln\abs{w}+C\text{,}\)</span> which becomes <span class="process-math">\(\ln(1+x^2)+C\)</span> (we can drop the absolute values as <span class="process-math">\(1+x^2\)</span> is always positive). Therefore, the answer is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \arctan x\, dx = x\arctan x - \frac12\ln(1+x^2) + C\text{.}
+\end{equation*}
+</div>
+</div>
+</div>
+<span class="incontext"><a href="sec_IBP.html#solution-421" class="internal">in-context</a></span>
+</body>
+</html>

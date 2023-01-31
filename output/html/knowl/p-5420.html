@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">This may seem like it came out of left field, but it works beautifully. Consider:</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int \sec(x) \, dx	\amp =	\int \sec(x) \cdot \frac{\sec(x) + \tan(x) }{\sec(x) + \tan(x) }\, dx\\
+\amp = \int \frac{\sec^2(x) + \sec(x) \tan(x) }{\sec(x) + \tan(x) }\, dx.\\
+\end{align*}
+<p class="intertext">Now let <span class="process-math">\(u = \sec(x) +\tan(x)\text{;}\)</span> this means <span class="process-math">\(du = (\sec(x) \tan(x) + \sec^2(x) )\, dx\text{,}\)</span> which is our numerator. Thus:</p>
+\begin{align*}
+\amp = \int \frac{du}{u}\\
+\amp = \ln\abs{u} + C\\
+\amp = \ln\abs{\sec(x) +\tan(x) } + C\text{.}
+\end{align*}
+</div>
+</div>
+<span class="incontext"><a href="sec_substitution.html#p-5420" class="internal">in-context</a></span>
+</body>
+</html>

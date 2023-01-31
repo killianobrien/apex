@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">13.3.4.1</span><span class="period">.</span>
+</h4>
+<div class="para logical"><ol class="decimal">
+<li><div class="para logical">
+<div class="para">We have <span class="process-math">\(f(x,y) = x^3y^2+ 5y^2-x+7\text{.}\)</span> Begin with <span class="process-math">\(f_x(x,y)\text{.}\)</span> Keep <span class="process-math">\(y\)</span> fixed, treating it as a constant or coefficient, as appropriate:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f_x(x,y) = 3x^2y^2-1\text{.}
+\end{equation*}
+</div>
+<div class="para">Note how the <span class="process-math">\(5y^2\)</span> and <span class="process-math">\(7\)</span> terms go to zero. To compute <span class="process-math">\(f_y(x,y)\text{,}\)</span> we hold <span class="process-math">\(x\)</span> fixed:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f_y(x,y) = 2x^3y+10y\text{.}
+\end{equation*}
+</div>
+<div class="para">Note how the <span class="process-math">\(-x\)</span> and <span class="process-math">\(7\)</span> terms go to zero.</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">We have <span class="process-math">\(f(x,y) = \cos(xy^2)+\sin(x)\text{.}\)</span> Begin with <span class="process-math">\(f_x(x,y)\text{.}\)</span> We need to apply the Chain Rule with the cosine term; <span class="process-math">\(y^2\)</span> is the coefficient of the <span class="process-math">\(x\)</span>-term inside the cosine function.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f_x(x,y) = -\sin(xy^2)(y^2)+\cos(x) = -y^2\sin(xy^2)+\cos(x)\text{.}
+\end{equation*}
+</div>
+<div class="para">To find <span class="process-math">\(f_y(x,y)\text{,}\)</span> note that <span class="process-math">\(x\)</span> is the coefficient of the <span class="process-math">\(y^2\)</span> term inside of the cosine term; also note that since <span class="process-math">\(x\)</span> is fixed, <span class="process-math">\(\sin(x)\)</span> is also fixed, and we treat it as a constant.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f_y(x,y) = -\sin(xy^2)(2xy) = -2xy\sin(xy^2)\text{.}
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">We have <span class="process-math">\(f(x,y) = e^{x^2y^3}\sqrt{x^2+1}\text{.}\)</span> Beginning with <span class="process-math">\(f_x(x,y)\text{,}\)</span> note how we need to apply the Product Rule.</div>
+<div class="displaymath process-math">
+\begin{align*}
+f_x(x,y) \amp = e^{x^2y^3}(2xy^3)\sqrt{x^2+1} + e^{x^2y^3}\frac12\big(x^2+1\big)^{-1/2}(2x)\\
+\amp = 2xy^3e^{x^2y^3}\sqrt{x^2+1}+\frac{xe^{x^2y^3}}{\sqrt{x^2+1}}\text{.}
+\end{align*}
+</div>
+<div class="para">Note that when finding <span class="process-math">\(f_y(x,y)\)</span> we do not have to apply the Product Rule; since <span class="process-math">\(\sqrt{x^2+1}\)</span> does not contain <span class="process-math">\(y\text{,}\)</span> we treat it as fixed and hence becomes a coefficient of the <span class="process-math">\(e^{x^2y^3}\)</span> term.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f_y(x,y) = e^{x^2y^3}(3x^2y^2)\sqrt{x^2+1} = 3x^2y^2e^{x^2y^3}\sqrt{x^2+1}\text{.}
+\end{equation*}
+</div>
+</div></li>
+</ol></div>
+</div>
+<span class="incontext"><a href="sec_partial_derivatives.html#solution-1207" class="internal">in-context</a></span>
+</body>
+</html>

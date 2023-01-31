@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">6.2.15.1</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">The integrand contains a composition of functions, leading us to think Substitution would be beneficial. Letting <span class="process-math">\(u=\ln(x)\text{,}\)</span> we have <span class="process-math">\(du = 1/x\, dx\text{.}\)</span> This seems problematic, as we do not have a <span class="process-math">\(1/x\)</span> in the integrand. But consider:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+du = \frac 1x\, dx \quad \Rightarrow \quad x\cdot du = dx\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">Since <span class="process-math">\(u = \ln(x)\text{,}\)</span> we can use inverse functions and conclude that <span class="process-math">\(x = e^u\text{.}\)</span> Therefore we have that</div>
+<div class="displaymath process-math">
+\begin{align*}
+dx \amp = x\cdot du\\
+\amp = e^u\, du\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">We can thus replace <span class="process-math">\(\ln(x)\)</span> with <span class="process-math">\(u\)</span> and <span class="process-math">\(dx\)</span> with <span class="process-math">\(e^u\, du\text{.}\)</span> Thus we rewrite our integral as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \cos(\ln(x))\, dx = \int e^u\cos u \, du\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">We evaluated this integral on the right in <a href="" class="xref" data-knowl="./knowl/ex_ibp4.html" title="Example 6.2.9: Integrating using Integration by Parts">Example 6.2.9</a>. (This integral can also be found in a table of integrals). Using the result there, we have:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex_ibp4.html">
+\begin{align*}
+\int \cos(\ln(x) )\, dx \amp = \int e^u\cos(u) \, du\\
+\amp = \frac12e^u\big(\sin(u) + \cos(u) \big) + C\\
+\amp = \frac12e^{\ln(x) } \big(\sin(\ln(x) ) + \cos(\ln(x) )\big)+C\\
+\amp = \frac12x \big(\sin(\ln(x) ) + \cos(\ln(x) )\big)+C\text{.}
+\end{align*}
+</div>
+</div>
+</div>
+<span class="incontext"><a href="sec_IBP.html#solution-325" class="internal">in-context</a></span>
+</body>
+</html>

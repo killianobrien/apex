@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical"><ol class="decimal">
+<li><div class="para logical">
+<div class="para">If <span class="process-math">\(m\)</span> is odd, then <span class="process-math">\(m=2k+1\)</span> for some integer <span class="process-math">\(k\text{.}\)</span> Rewrite</div>
+<div class="displaymath process-math">
+\begin{align*}
+\sin^m(x) \amp = \sin^{2k+1}(x)\\
+\amp  = \sin^{2k}(x) \sin(x)\\
+\amp = (\sin^2(x) )^k\sin(x)\\
+\amp = (1-\cos^2(x) )^k\sin(x)\text{.}
+\end{align*}
+</div>
+<div class="para">Then</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int \sin^m(x) \cos^n(x) \, dx \amp = \int (1-\cos^2(x) )^k\sin(x) \cos^n(x) \, dx\\
+\amp = -\int (1-u^2)^ku^n\,du\text{,}
+\end{align*}
+</div>
+<div class="para">where <span class="process-math">\(u = \cos(x)\)</span> and <span class="process-math">\(du = -\sin(x) \, dx\text{.}\)</span>
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">If <span class="process-math">\(n\)</span> is odd, then using substitutions similar to that outlined above (replacing all of the even powers of <span class="process-math">\(cosine\)</span> using a Pythagorean identity) we have:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \sin^m(x) \cos^n(x) \, dx = \int u^m(1-u^2)^k\,du\text{,}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(u = \sin(x)\)</span> and <span class="process-math">\(du = \cos(x) \, dx\text{.}\)</span>
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">If both <span class="process-math">\(m\)</span> and <span class="process-math">\(n\)</span> are even, use the power-reducing identities:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cos^2(x) = \frac{1+\cos(2x)}{2}  \text{ and }  \sin^2(x) = \frac{1-\cos(2x)}2
+\end{equation*}
+</div>
+<div class="para">to reduce the degree of the integrand. Expand the result and apply the principles of this Key Idea again.</div>
+</div></li>
+</ol></div>
+<span class="incontext"><a href="sec_trigint.html#p-5862" class="internal">in-context</a></span>
+</body>
+</html>

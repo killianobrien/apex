@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">The Riemann sum corresponding to the Right Hand Rule is (followed by simplifications):</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int_{-1}^5 x^3\, dx   \amp \approx \sum_{i=1}^n f(x_{i})\Delta x\\
+\amp = \sum_{i=1}^n f(-1+i\Delta x)\Delta x\\
+\amp = \sum_{i=1}^n (-1+i\Delta x)^3\Delta x\\
+\amp = \sum_{i=1}^n \big((i\Delta x)^3 -3(i\Delta x)^2 + 3i\Delta x -1\big)\Delta x  \text{ (now distribute \(\Delta x\)) }\\
+\amp = \sum_{i=1}^n \big(i^3\Delta x^4 - 3i^2\Delta x^3 + 3i\Delta x^2 -\Delta x\big)  \text{ (now split up summation) }\\
+\amp = \Delta x^4 \sum_{i=1}^ni^3 -3\Delta x^3 \sum_{i=1}^n i^2+ 3\Delta x^2 \sum_{i=1}^n i - \sum_{i=1}^n \Delta x\\
+\amp = \Delta x^4 \left(\frac{n(n+1)}{2}\right)^2 -3\Delta x^3 \frac{n(n+1)(2n+1)}{6}+ 3\Delta x^2 \frac{n(n+1)}{2} - n\Delta x\\
+\end{align*}
+<p class="intertext">(use <span class="process-math">\(\Delta x = 6/n\)</span>)</p>
+\begin{align*}
+\amp = \frac{1296}{n^4}\cdot\frac{n^2(n+1)^2}{4} - 3\frac{216}{n^3}\cdot\frac{n(n+1)(2n+1)}{6} + 3\frac{36}{n^2}\frac{n(n+1)}2 -6\\
+\end{align*}
+<p class="intertext">(now do a sizable amount of algebra to simplify)</p>
+\begin{align*}
+\amp =156 + \frac{378}n + \frac{216}{n^2}
+\end{align*}
+</div>
+</div>
+<span class="incontext"><a href="sec_riemann.html#p-4719" class="internal">in-context</a></span>
+</body>
+</html>

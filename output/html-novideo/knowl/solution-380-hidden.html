@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para">This integral will require the use of Integration by Parts. Let <span class="process-math">\(u = \ln(x)\)</span> and <span class="process-math">\(dv = 1/x^2\, dx\text{.}\)</span> Then</div> <figure class="figure figure-like"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_impint2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.8.9<span class="period">.</span></span><span class="space"> </span>A graph of <span class="process-math">\(f(x) = \frac{\ln(x) }{x^2}\)</span> in <a href="" class="xref" data-knowl="./knowl/ex_impint2.html" title="Example 6.8.8: Improper integration and L'Hospital's Rule">Example 6.8.8</a></figcaption></figure> <div class="para logical"><div class="displaymath process-math">
+\begin{align*}
+\int_1^\infty\frac{\ln(x) }{x^2}\, dx \amp = \lim_{b\to\infty}\int_1^b\frac{\ln(x) }{x^2}\, dx\\
+\amp =  \lim_{b\to\infty}\left(-\frac{\ln(x) }{x}\Big|_1^b +\int_1^b \frac{1}{x^2} \, dx \right)\\
+\amp =  \lim_{b\to\infty} \left.\left(-\frac{\ln(x) }{x} -\frac1x\right)\right|_1^b\\
+\amp =	\lim_{b\to\infty} \left(-\frac{\ln(b) }{b}-\frac1b - \left(-\ln(1) -1\right)\right).\\
+\end{align*}
+<p class="intertext">The <span class="process-math">\(1/b\)</span> and <span class="process-math">\(\ln(1)\)</span> terms go to 0, leaving <span class="process-math">\(\lim\limits_{b\to\infty} -\frac{\ln(b) }b + 1\text{.}\)</span> We need to evaluate <span class="process-math">\(\lim\limits_{b\to\infty} \frac{\ln(b) }{b}\)</span> with l'Hospital's Rule. We have:</p>
+\begin{align*}
+\lim_{b\to\infty}\frac{\ln(b) }b \amp \stackrel{\,\text{ by LHR }  \,}{=} \lim_{b\to\infty} \frac{1/b}{1}\\
+\amp = 0.\\
+\end{align*}
+<p class="intertext">Thus the improper integral evaluates as:</p>
+\begin{align*}
+\int_1^\infty\frac{\ln(x) }{x^2}\, dx \amp = 1\text{.}
+\end{align*}
+</div></div>
+</div></body>
+</html>

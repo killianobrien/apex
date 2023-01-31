@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">In order to use the rules we already have, we must first expand each function as</div>
+<div class="displaymath process-math">
+\begin{align*}
+F_1(x)\amp = 1 - 2x + x^2\\
+F_2(x)\amp = 1 - 3x + 3x^2 - x^3\\
+F_3(x)\amp = 1 - 4x + 6x^2 - 4x^3 + x^4
+\end{align*}
+</div>
+<div class="para">It is not hard to see that:</div>
+<div class="displaymath process-math">
+\begin{align*}
+F_1'(x)\amp = -2 + 2x\\
+F_2'(x)\amp = -3 + 6x - 3x^2\\
+F_3'(x)\amp = -4 + 12x - 12x^2 + 4x^3
+\end{align*}
+</div>
+<div class="para">An interesting fact is that these can be rewritten as:</div>
+<div class="displaymath process-math">
+\begin{align*}
+F_1'(x)\amp = -2(1-x)\\
+F_2'(x)\amp = -3(1-x)^2\\
+F_3'(x)\amp = -4(1-x)^3
+\end{align*}
+</div>
+</div> <div class="para">A pattern might jump out at you; note how the we end up multiplying by the old power and the new power is reduced by 1. We also always multiply by <span class="process-math">\((-1)\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">Recognize that each of these functions is a composition, letting <span class="process-math">\(g(x) = 1-x\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+F_1(x)\amp = f_1(g(x)),\amp\amp  \text{ where }  f_1(x) = x^2,\\
+F_2(x)\amp = f_2(g(x)),\amp\amp  \text{ where }  f_2(x) = x^3,\\
+F_3(x)\amp = f_3(g(x)),\amp\amp  \text{ where }  f_3(x) = x^4\text{.}
+\end{align*}
+</div>
+</div> <div class="para">We'll come back to this example after giving the formal statements of the Chain Rule; for now, we are just illustrating a pattern.</div>
+</div></body>
+</html>

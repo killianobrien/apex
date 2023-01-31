@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">We solve by following the steps in <a href="" class="xref" data-knowl="./knowl/idea_solving_linear.html" title="Key Idea 8.3.3: Solving First Order Linear Equations">Key Idea 8.3.3</a>. Unlike the process for solving separable equations, we need not worry about losing constant solutions. The answer we find <em class="emphasis">will</em> be the general solution to the differential equation. We first write the equation in the form</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/idea_solving_linear.html">
+\begin{equation*}
+\frac{dy}{dx} - xy = 0\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">By identifying <span class="process-math">\(p(x) = -x\text{,}\)</span> we can compute the integrating factor</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mu(x) = e^{\int -x\,dx} = e^{-\frac{1}{2}x^2}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">Multiplying both side of the differential equation by <span class="process-math">\(\mu(x)\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+e^{-\frac{1}{2}x^2}\left( \frac{dy}{dx} - xy\right) = 0\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">The left hand side of the differential equation condenses to yield</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx} \left ( e^{-\frac{1}{2}x^2}y\right ) = 0\text{.}
+\end{equation*}
+</div>
+</div> <aside class="aside aside-like"><div class="para">The step where the left hand side of the differential equation condenses to the derivative of a product can feel a bit magical. The reality is that we choose <span class="process-math">\(\mu(x)\)</span> so that we can get exactly this condensing behavior. It's not magic, it's math! If you're still skeptical, try using the Product Rule and Implicit Differentiation to evaluate <span class="process-math">\(\displaystyle \frac{d}{dx}\left (e^{-\frac{1}{2}x^2}y\right)\text{,}\)</span> and verify that it becomes <span class="process-math">\(e^{-\frac{1}{2}x^2}\left(\displaystyle \frac{dy}{dx} - xy\right)\text{.}\)</span>
+</div></aside> <div class="para logical">
+<div class="para">We integrate both sides with respect to <span class="process-math">\(x\)</span> to find the implicit solution</div>
+<div class="displaymath process-math">
+\begin{equation*}
+e^{-\frac{1}{2}x^2}y = C\text{,}
+\end{equation*}
+</div>
+<div class="para">or the explicit solution</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y  = Ce^{\frac{1}{2}x^2}\text{.}
+\end{equation*}
+</div>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h6 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">9.8.13.1</span><span class="period">.</span>
+</h6>
+<div class="para logical">
+<div class="para">Given a value <span class="process-math">\(x\text{,}\)</span> the magnitude of the error term <span class="process-math">\(R_n(x)\)</span> is bounded by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{R_n(x)} \leq \frac{\max\abs{\,f^{(n+1)}(z)}}{(n+1)!}\abs{x^{(n+1)}}\text{,}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(z\)</span> is between <span class="process-math">\(0\)</span> and <span class="process-math">\(x\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">If <span class="process-math">\(x \gt 0\text{,}\)</span> then <span class="process-math">\(z\lt x\)</span> and <span class="process-math">\(f^{(n+1)}(z) =e^z\lt e^x\text{.}\)</span> If <span class="process-math">\(x\lt 0\text{,}\)</span> then <span class="process-math">\(x\lt z\lt 0\)</span> and <span class="process-math">\(f^{(n+1)}(z) =e^z\lt 1\text{.}\)</span> So given a fixed <span class="process-math">\(x\)</span> value, let <span class="process-math">\(M = \max\{e^x,1\}\text{;}\)</span> <span class="process-math">\(f^{(n)}(z)\lt M\text{.}\)</span> This allows us to state</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{R_n(x)} \leq \frac{M}{(n+1)!}\abs{x^{(n+1)}}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">For any <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(\lim\limits_{n\to\infty} \frac{M}{(n+1)!}\abs{x^{(n+1)}}= 0\text{.}\)</span> Thus by the Squeeze Theorem, we conclude that <span class="process-math">\(\lim\limits_{n\to\infty} R_n(x) = 0\)</span> for all <span class="process-math">\(x\text{,}\)</span> and hence</div>
+<div class="displaymath process-math">
+\begin{equation*}
+e^x = \infser[0] \frac{x^{n}}{n!} \text{ for all \(x\) }\text{.}
+\end{equation*}
+</div>
+</div>
+</div>
+<span class="incontext"><a href="sec_taylor_series.html#solution-935" class="internal">in-context</a></span>
+</body>
+</html>

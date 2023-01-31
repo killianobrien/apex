@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>APEX Extreme Values</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://opentext.uleth.ca/apex-video/external/images/APEX.png">
+<meta property="book:title" content="APEX Calculus">
+<meta property="book:author" content="Gregory Hartman, Ph.D.">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="http://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<script type="application/json" class="js-hypothesis-config">{
+    "openSidebar": false,    "showHighlights": true,}</script><script src="https://hypothes.is/embed.js" async=""></script><script src="https://cdn.geogebra.org/apps/deployggb.js"></script><link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '5.0.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/runtime.6b31f4c5fa38d888.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/runestone.06446f602ba3689b.bundle.js"></script><link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.4.4/637.0fa6cababf056764.css">
+<link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.4.4/runestone.93e720e6c6581fb5.css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href="http://www.apexcalculus.com" target="_blank"><img src="external/images/APEX.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="apex-calculus.html"><span class="title">APEX Calculus</span></a></h1>
+<p class="byline">Gregory Hartman, Ph.D., Sean Fitzpatrick, Ph.D. (Editor), Alex Jordan, Ph.D. (Editor), Carly Vollet, M.S. (Editor)</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><button id="calculator-toggle" class="calculator-toggle button" title="Show calculator" aria-expanded="false" aria-controls="calculator-container"><span class="name">Calc</span></button><div id="calculator-container" class="calculator-container" style="display: none; z-index:100;"><div id="geogebra-calculator"></div></div>
+<script>
+var ggbApp = new GGBApplet({"appName": "graphing",
+    "width": 330,
+    "height": 600,
+    "showToolBar": true,
+    "showAlgebraInput": true,
+    "perspective": "G/A",
+    "algebraInputPosition": "bottom",
+    "scaleContainerClass": "calculator-container",
+    "allowUpscale": true,
+    "autoHeight": true,
+    "disableAutoScale": false},
+true);
+</script><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="chapter_graphbehavior.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="chapter_graphbehavior.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec_mvt.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\highlight}[1]{{\color{blue}{#1}}}
+\newcommand{\apex}{\mbox{\hbox{A}\kern -1pt \lower -2pt\hbox{P}\kern -4pt \lower .7ex\hbox{E}\kern -1pt \hbox{X}}}
+\newcommand{\colorlinecolor}{blue!95!black!30}
+\newcommand{\bwlinecolor}{black!30}
+\newcommand{\thelinecolor}{\colorlinecolor}
+\newcommand{\colornamesuffix}{}
+\newcommand{\linestyle}{[thick, \thelinecolor]}
+\newcommand{\bmx}[1]{\left[\hskip -3pt\begin{array}{#1} }
+\newcommand{\emx}{\end{array}\hskip -3pt\right]}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\fp}{f'}
+\newcommand{\fpp}{f''}
+
+\newcommand{\lz}[2]{\frac{d#1}{d#2}}
+\newcommand{\lzn}[3]{\frac{d^{#1}#2}{d#3^{#1}}}
+\newcommand{\lzo}[1]{\frac{d}{d#1}}
+\newcommand{\lzoo}[2]{{\frac{d}{d#1}}{\left(#2\right)}}
+\newcommand{\lzon}[2]{\frac{d^{#1}}{d#2^{#1}}}
+\newcommand{\lzoa}[3]{\left.{\frac{d#1}{d#2}}\right|_{#3}}
+\newcommand{\plz}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\plzoa}[3]{\left.{\frac{\partial#1}{\partial#2}}\right|_{#3}}
+
+\newcommand{\inflim}[1][n]{\lim\limits_{#1 \to \infty}}
+
+\newcommand{\infser}[1][1]{\sum_{n=#1}^\infty}
+
+\newcommand{\Fp}{F\primeskip'}
+\newcommand{\Fpp}{F\primeskip''}
+\newcommand{\yp}{y\primeskip'}
+\newcommand{\gp}{g\primeskip'}
+\newcommand{\dx}{\Delta x}
+\newcommand{\dy}{\Delta y}
+\newcommand{\ddz}{\Delta z}
+\newcommand{\thet}{\theta}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\vnorm}[1]{\left\lVert\vec #1\right\rVert}
+\newcommand{\snorm}[1]{\left|\left|\,#1\,\right|\right|}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+\newcommand{\dotp}[2]{\vec #1 \cdot \vec #2}
+\newcommand{\proj}[2]{\text{proj}_{\,\vec #2}{\,\vec #1}}
+\newcommand{\crossp}[2]{\vec #1 \times \vec #2}
+\newcommand{\veci}{\vec i}
+\newcommand{\vecj}{\vec j}
+\newcommand{\veck}{\vec k}
+\newcommand{\vecu}{\vec u}
+\newcommand{\vecv}{\vec v}
+\newcommand{\vecw}{\vec w}
+\newcommand{\vecx}{\vec x}
+\newcommand{\vecy}{\vec y}
+\newcommand{\vrp}{\vec r\hskip0.75pt '}
+\newcommand{\vrpp}{\vec r\hskip0.75pt ''}
+\newcommand{\vsp}{\vec s\hskip0.75pt '}
+\newcommand{\vrt}{\vec r(t)}
+\newcommand{\vst}{\vec s(t)}
+\newcommand{\vvt}{\vec v(t)}
+\newcommand{\vat}{\vec a(t)}
+\newcommand{\px}{\partial x}
+\newcommand{\py}{\partial y}
+\newcommand{\pz}{\partial z}
+\newcommand{\pf}{\partial f}
+\newcommand{\unittangent}{\vec{{}T}}
+\newcommand{\unitnormal}{\vec{N}}
+\newcommand{\unittangentprime}{\vec{{}T}\hskip0.75pt '}
+\newcommand{\mathN}{\mathbb{N}}
+\newcommand{\surfaceS}{\mathcal{S}}
+\newcommand{\zerooverzero}{\ds \raisebox{8pt}{\text{``\ }}\frac{0}{0}\raisebox{8pt}{\textit{ ''}}}
+\newcommand{\deriv}[2]{\myds\frac{d}{dx}\left(#1\right)=#2}
+\newcommand{\myint}[2]{\myds\int #1\, dx= {\ds #2}}
+\newcommand{\primeskip}{\hskip.75pt}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\csch}{\operatorname{csch}}
+\newcommand{\curl}{\operatorname{curl}}
+\newcommand{\divv}{\operatorname{div}}
+\newcommand{\Hess}{\operatorname{Hess}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li>
+<div class="toc-item"><a href="frontmatter-1.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="acknowledgement.html" class="internal"><span class="title">Thanks</span></a></div></li>
+<li><div class="toc-item"><a href="apex-preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li><div class="toc-item"><a href="preface-history.html" class="internal"><span class="title">A Brief History of Calculus</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_limits.html" class="internal"><span class="codenumber">1</span> <span class="title">Limits</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_limit_intro.html" class="internal"><span class="codenumber">1.1</span> <span class="title">An Introduction To Limits</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_limit_intro.html#subsec_nolimit3" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Identifying When Limits Do Not Exist</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limit_intro.html#sec_diff_quot_intro" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Limits of Difference Quotients</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limit_intro.html#exercises-1" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limit_def.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Epsilon-Delta Definition of a Limit</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limit_def.html#exercises-2" class="internal"><span class="codenumber">1.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limit_analytically.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Finding Limits Analytically</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limit_analytically.html#exercises-3" class="internal"><span class="codenumber">1.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limits_one_sided.html" class="internal"><span class="codenumber">1.4</span> <span class="title">One-Sided Limits</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limits_one_sided.html#exercises-4" class="internal"><span class="codenumber">1.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_continuity.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuity</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_continuity.html#exercises-5" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limits_infty.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Limits Involving Infinity</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-3" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Vertical asymptotes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-4" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Indeterminate Forms</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-5" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Limits at Infinity and Horizontal Asymptotes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#exercises-6" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_derivatives.html" class="internal"><span class="codenumber">2</span> <span class="title">Derivatives</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_derivative.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Instantaneous Rates of Change: The Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_derivative.html#sec-deriv-intro" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Introduction</span></a></div></li>
+<li><div class="toc-item"><a href="sec_derivative.html#subsection-7" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Differentiability on Closed Intervals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_derivative.html#exercises-7" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_interp_deriv.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Interpretations of the Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-8" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Interpretation of the Derivative as Instantaneous Rate of Change</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-9" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Units of the Derivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-10" class="internal"><span class="codenumber">2.2.3</span> <span class="title">The Derivative and Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-11" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Interpretation of the Derivative as the Slope of the Tangent Line</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#exercises-8" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_basic_diff_rules.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Basic Differentiation Rules</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#subsection-12" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Higher Order Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#subsection-13" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Interpreting Higher Order Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#exercises-9" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_prod_quot_rules.html" class="internal"><span class="codenumber">2.4</span> <span class="title">The Product and Quotient Rules</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_prod_quot_rules.html#exercises-10" class="internal"><span class="codenumber">2.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_chainrule.html" class="internal"><span class="codenumber">2.5</span> <span class="title">The Chain Rule</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_chainrule.html#exercises-11" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_imp_deriv.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Implicit Differentiation</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-14" class="internal"><span class="codenumber">2.6.1</span> <span class="title">The method of implicit differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-15" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Implicit Differentiation and the Second Derivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-16" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Logarithmic Differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#exercises-12" class="internal"><span class="codenumber">2.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_deriv_inverse_function.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Derivatives of Inverse Functions</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_deriv_inverse_function.html#exercises-13" class="internal"><span class="codenumber">2.7</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_graphbehavior.html" class="internal"><span class="codenumber">3</span> <span class="title">The Graphical Behavior of Functions</span></a></div>
+<ul class="structural">
+<li class="active">
+<div class="toc-item"><a href="sec_extreme_values.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Extreme Values</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_extreme_values.html#exercises-14" class="internal"><span class="codenumber">3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_mvt.html" class="internal"><span class="codenumber">3.2</span> <span class="title">The Mean Value Theorem</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_mvt.html#exercises-15" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_incr_decr.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Increasing and Decreasing Functions</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_incr_decr.html#exercises-16" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_concavity.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Concavity and the Second Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_concavity.html#subsection-17" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Concavity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_concavity.html#subsection-18" class="internal"><span class="codenumber">3.4.2</span> <span class="title">The Second Derivative Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_concavity.html#exercises-17" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_sketch.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Curve Sketching</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_sketch.html#exercises-18" class="internal"><span class="codenumber">3.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_deriv_apps.html" class="internal"><span class="codenumber">4</span> <span class="title">Applications of the Derivative</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_newton.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Newton's Method</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_newton.html#exercises-19" class="internal"><span class="codenumber">4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_related_rates.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Related Rates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_related_rates.html#exercises-20" class="internal"><span class="codenumber">4.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_optimization.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Optimization</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_optimization.html#exercises-21" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_differentials.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Differentials</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_differentials.html#exercises-22" class="internal"><span class="codenumber">4.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_integration.html" class="internal"><span class="codenumber">5</span> <span class="title">Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_antider.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Antiderivatives and Indefinite Integration</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_antider.html#exercises-23" class="internal"><span class="codenumber">5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_def_int.html" class="internal"><span class="codenumber">5.2</span> <span class="title">The Definite Integral</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_def_int.html#exercises-24" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_riemann.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Riemann Sums</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_riemann.html#fig_rie_notation" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Summation Notation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#subsection-20" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Riemann Sums</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#subsection-21" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Limits of Riemann Sums</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#exercises-25" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_FTC.html" class="internal"><span class="codenumber">5.4</span> <span class="title">The Fundamental Theorem of Calculus</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-22" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Fundamental Theorem of Calculus, Parts 1 and 2</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-23" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Understanding Motion with the Fundamental Theorem of Calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#sec-FTC-chain" class="internal"><span class="codenumber">5.4.3</span> <span class="title">The Fundamental Theorem of Calculus and the Chain Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#sec-FTC-ABC" class="internal"><span class="codenumber">5.4.4</span> <span class="title">Area Between Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-26" class="internal"><span class="codenumber">5.4.5</span> <span class="title">The Mean Value Theorem and Average Value</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#exercises-26" class="internal"><span class="codenumber">5.4.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_numerical_integration.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Numerical Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-27" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Left and Right Hand Rule Methods</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-28" class="internal"><span class="codenumber">5.5.2</span> <span class="title">The Trapezoidal Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-29" class="internal"><span class="codenumber">5.5.3</span> <span class="title">The Midpoint Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-30" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Simpson's Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-31" class="internal"><span class="codenumber">5.5.5</span> <span class="title">Summary and Error Analysis</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#exercises-27" class="internal"><span class="codenumber">5.5.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_anti_tech.html" class="internal"><span class="codenumber">6</span> <span class="title">Techniques of Antidifferentiation</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_substitution.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Substitution</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-32" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Integrals Involving Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-33" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Simplifying the Integrand</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-34" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Substitution and Inverse Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#sec-sub-def-int" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Substitution and Definite Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#exercises-28" class="internal"><span class="codenumber">6.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_IBP.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Integration by Parts</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_IBP.html#exercises-29" class="internal"><span class="codenumber">6.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_trigint.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Trigonometric Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-36" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Integrals of the form <span class="process-math">\(\int \sin^m(x) \cos^n(x) \, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-37" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Integrals of the form <span class="process-math">\(\int\sin(mx)\sin(nx)\, dx\text{,}\)</span> <span class="process-math">\(\int \cos(mx)\cos(nx)\, dx\text{,}\)</span> and <span class="process-math">\(\int \sin(mx)\cos(nx)\, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-38" class="internal"><span class="codenumber">6.3.3</span> <span class="title">Integrals of the form <span class="process-math">\(\int\tan^m(x) \sec^n(x) \, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#exercises-30" class="internal"><span class="codenumber">6.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_trig_sub.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Trigonometric Substitution</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_trig_sub.html#exercises-31" class="internal"><span class="codenumber">6.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_partial_fraction.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Partial Fraction Decomposition</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_partial_fraction.html#exercises-32" class="internal"><span class="codenumber">6.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_hyperbolic.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Hyperbolic Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_hyperbolic.html#sec-hyp-def" class="internal"><span class="codenumber">6.6.1</span> <span class="title">The Hyperbolic Functions and their Properties</span></a></div></li>
+<li><div class="toc-item"><a href="sec_hyperbolic.html#subsection-40" class="internal"><span class="codenumber">6.6.2</span> <span class="title">Inverse Hyperbolic Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_hyperbolic.html#exercises-33" class="internal"><span class="codenumber">6.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_lhopitals_rule.html" class="internal"><span class="codenumber">6.7</span> <span class="title">L'Hospital's Rule</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#sec_lhopital_statement" class="internal"><span class="codenumber">6.7.1</span> <span class="title">L'Hospital's Rule with indeterminate forms <span class="process-math">\(0/0\)</span> and <span class="process-math">\(\infty/\infty\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#subsection-42" class="internal"><span class="codenumber">6.7.2</span> <span class="title">Indeterminate Forms <span class="process-math">\(0\cdot\infty\)</span> and <span class="process-math">\(\infty-\infty\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#subsection-43" class="internal"><span class="codenumber">6.7.3</span> <span class="title">Indeterminate Forms  <span class="process-math">\(0^0\text{,}\)</span> <span class="process-math">\(1^\infty\)</span> and <span class="process-math">\(\infty^0\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#exercises-34" class="internal"><span class="codenumber">6.7.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_improper_integration.html" class="internal"><span class="codenumber">6.8</span> <span class="title">Improper Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-44" class="internal"><span class="codenumber">6.8.1</span> <span class="title">Improper Integrals with Infinite Bounds</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-45" class="internal"><span class="codenumber">6.8.2</span> <span class="title">Improper Integrals with Infinite Range</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-46" class="internal"><span class="codenumber">6.8.3</span> <span class="title">Understanding Convergence and Divergence</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#exercises-35" class="internal"><span class="codenumber">6.8.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_app_of_int.html" class="internal"><span class="codenumber">7</span> <span class="title">Applications of Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_ABC.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Area Between Curves</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_ABC.html#exercises-36" class="internal"><span class="codenumber">7.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_disk.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Volume by Cross-Sectional Area; Disk and Washer Methods</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_disk.html#exercises-37" class="internal"><span class="codenumber">7.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_shell_method.html" class="internal"><span class="codenumber">7.3</span> <span class="title">The Shell Method</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_shell_method.html#exercises-38" class="internal"><span class="codenumber">7.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_arc_length.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Arc Length and Surface Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_arc_length.html#subsec-arc-length" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_arc_length.html#sec_surface_area_revolution" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Surface Area of Solids of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_arc_length.html#exercises-39" class="internal"><span class="codenumber">7.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_work.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Work</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_work.html#sec_work_variable_force" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Work Done by a Variable Force</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#subsection-50" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Hooke's Law and Springs</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#subsection-51" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Pumping Fluids</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#exercises-40" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_fluid_force.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Fluid Forces</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_fluid_force.html#exercises-41" class="internal"><span class="codenumber">7.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_differential_equations.html" class="internal"><span class="codenumber">8</span> <span class="title">Differential Equations</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_Graphical_Numerical.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Graphical and Numerical Solutions to Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-52" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Introduction and Terminology</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-53" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Graphical Solutions to Differential Equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-54" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Numerical Solutions to Differential Equations: Euler's Method</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#exercises-42" class="internal"><span class="codenumber">8.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Separable.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Separable Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Separable.html#subsection-55" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Separation of Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Separable.html#exercises-43" class="internal"><span class="codenumber">8.2.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Linear.html" class="internal"><span class="codenumber">8.3</span> <span class="title">First Order Linear Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Linear.html#subsection-56" class="internal"><span class="codenumber">8.3.1</span> <span class="title">Solving First Order Linear Equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Linear.html#exercises-44" class="internal"><span class="codenumber">8.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Modeling.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Modeling with Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Modeling.html#subsection-57" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Models Involving Proportional Change</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Modeling.html#subsection-58" class="internal"><span class="codenumber">8.4.2</span> <span class="title">Rate-in Rate-out Problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Modeling.html#exercises-45" class="internal"><span class="codenumber">8.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_sequences_series.html" class="internal"><span class="codenumber">9</span> <span class="title">Sequences and Series</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_sequences.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Sequences</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_sequences.html#exercises-46" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_series.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Infinite Series</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_series.html#subsec-series-convergence" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Convergence of sequences</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#subsection-60" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Geometric Series</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#subsection-61" class="internal"><span class="codenumber">9.2.3</span> <span class="title"><span class="process-math">\(p\)</span>-Series</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#exercises-47" class="internal"><span class="codenumber">9.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_int_comp_tests.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integral and Comparison Tests</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-62" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Integral Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-63" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Direct Comparison Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-64" class="internal"><span class="codenumber">9.3.3</span> <span class="title">Limit Comparison Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#exercises-48" class="internal"><span class="codenumber">9.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_ratio_root_tests.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Ratio and Root Tests</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#subsection-65" class="internal"><span class="codenumber">9.4.1</span> <span class="title">Ratio Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#subsection-66" class="internal"><span class="codenumber">9.4.2</span> <span class="title">Root Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#exercises-49" class="internal"><span class="codenumber">9.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_alt_series.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Alternating Series and Absolute Convergence</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_alt_series.html#exercises-50" class="internal"><span class="codenumber">9.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_power_series.html" class="internal"><span class="codenumber">9.6</span> <span class="title">Power Series</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_power_series.html#exercises-51" class="internal"><span class="codenumber">9.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_taylor_poly.html" class="internal"><span class="codenumber">9.7</span> <span class="title">Taylor Polynomials</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_taylor_poly.html#exercises-52" class="internal"><span class="codenumber">9.7</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_taylor_series.html" class="internal"><span class="codenumber">9.8</span> <span class="title">Taylor Series</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_taylor_series.html#exercises-53" class="internal"><span class="codenumber">9.8</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_planar_curves.html" class="internal"><span class="codenumber">10</span> <span class="title">Curves in the Plane</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_conic_sections.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Conic Sections</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-parabola" class="internal"><span class="codenumber">10.1.1</span> <span class="title">Parabolas</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-ellipse" class="internal"><span class="codenumber">10.1.2</span> <span class="title">Ellipses</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-hyperbola" class="internal"><span class="codenumber">10.1.3</span> <span class="title">Hyperbolas</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#exercises-54" class="internal"><span class="codenumber">10.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_param_eqs.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Parametric Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsec-parametric-plot" class="internal"><span class="codenumber">10.2.1</span> <span class="title">Plotting parametric curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsection-71" class="internal"><span class="codenumber">10.2.2</span> <span class="title">Converting between rectangular and parametric equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsection-72" class="internal"><span class="codenumber">10.2.3</span> <span class="title">Special Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#exercises-55" class="internal"><span class="codenumber">10.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_par_calc.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Calculus and Parametric Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-73" class="internal"><span class="codenumber">10.3.1</span> <span class="title">Concavity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-74" class="internal"><span class="codenumber">10.3.2</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-75" class="internal"><span class="codenumber">10.3.3</span> <span class="title">Surface Area of a Solid of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#exercises-56" class="internal"><span class="codenumber">10.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_polar.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Introduction to Polar Coordinates</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_polar.html#subsection-76" class="internal"><span class="codenumber">10.4.1</span> <span class="title">Polar Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#subsection-77" class="internal"><span class="codenumber">10.4.2</span> <span class="title">Polar to Rectangular Conversion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#subsection-78" class="internal"><span class="codenumber">10.4.3</span> <span class="title">Polar Functions and Polar Graphs</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#exercises-57" class="internal"><span class="codenumber">10.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_polarcalc.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Calculus and Polar Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-79" class="internal"><span class="codenumber">10.5.1</span> <span class="title">Polar Functions and <span class="process-math">\(dy/dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-80" class="internal"><span class="codenumber">10.5.2</span> <span class="title">Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-81" class="internal"><span class="codenumber">10.5.3</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-82" class="internal"><span class="codenumber">10.5.4</span> <span class="title">Surface Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#exercises-58" class="internal"><span class="codenumber">10.5.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_vectors.html" class="internal"><span class="codenumber">11</span> <span class="title">Vectors</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_space_coord.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Introduction to Cartesian Coordinates in Space</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_space_coord.html#subsection-83" class="internal"><span class="codenumber">11.1.1</span> <span class="title">Measuring Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsection-84" class="internal"><span class="codenumber">11.1.2</span> <span class="title">Spheres</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#sec-planes-in-space" class="internal"><span class="codenumber">11.1.3</span> <span class="title">Introduction to Planes in Space</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-cylinders" class="internal"><span class="codenumber">11.1.4</span> <span class="title">Cylinders</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-surface-revolution" class="internal"><span class="codenumber">11.1.5</span> <span class="title">Surfaces of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-quadric" class="internal"><span class="codenumber">11.1.6</span> <span class="title">Quadric Surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#exercises-59" class="internal"><span class="codenumber">11.1.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vector_intro.html" class="internal"><span class="codenumber">11.2</span> <span class="title">An Introduction to Vectors</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_vector_intro.html#exercises-60" class="internal"><span class="codenumber">11.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_dot_product.html" class="internal"><span class="codenumber">11.3</span> <span class="title">The Dot Product</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_dot_product.html#subsection-89" class="internal"><span class="codenumber">11.3.1</span> <span class="title">Application to Work</span></a></div></li>
+<li><div class="toc-item"><a href="sec_dot_product.html#exercises-61" class="internal"><span class="codenumber">11.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_cross_product.html" class="internal"><span class="codenumber">11.4</span> <span class="title">The Cross Product</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_cross_product.html#subsection-90" class="internal"><span class="codenumber">11.4.1</span> <span class="title">Properties of the Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cross_product.html#subsection-91" class="internal"><span class="codenumber">11.4.2</span> <span class="title">Applications of the Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cross_product.html#exercises-62" class="internal"><span class="codenumber">11.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_lines.html" class="internal"><span class="codenumber">11.5</span> <span class="title">Lines</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_lines.html#subsec_lines_space_def" class="internal"><span class="codenumber">11.5.1</span> <span class="title">Lines in space</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#subsec-lines-compare" class="internal"><span class="codenumber">11.5.2</span> <span class="title">Parallel, Intersecting and Skew Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#subsection-94" class="internal"><span class="codenumber">11.5.3</span> <span class="title">Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#exercises-63" class="internal"><span class="codenumber">11.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_planes.html" class="internal"><span class="codenumber">11.6</span> <span class="title">Planes</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_planes.html#subsec_planes_distances" class="internal"><span class="codenumber">11.6.1</span> <span class="title">Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_planes.html#exercises-64" class="internal"><span class="codenumber">11.6.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap_vvf.html" class="internal"><span class="codenumber">12</span> <span class="title">Vector Valued Functions</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_vvf.html" class="internal"><span class="codenumber">12.1</span> <span class="title">Vector-Valued Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf.html#subsec-eval-vvf" class="internal"><span class="codenumber">12.1.1</span> <span class="title">Evaluating and Graphing Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#subsection-97" class="internal"><span class="codenumber">12.1.2</span> <span class="title">Algebra of Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#subsec_vvf_displacement" class="internal"><span class="codenumber">12.1.3</span> <span class="title">Displacement</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#exercises-65" class="internal"><span class="codenumber">12.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vvf_calc.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Calculus and Vector-Valued Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsec_vvf_limits" class="internal"><span class="codenumber">12.2.1</span> <span class="title">Limits of Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsec_vvf_continuity" class="internal"><span class="codenumber">12.2.2</span> <span class="title">Continuity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsection-101" class="internal"><span class="codenumber">12.2.3</span> <span class="title">Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsection-102" class="internal"><span class="codenumber">12.2.4</span> <span class="title">Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#exercises-66" class="internal"><span class="codenumber">12.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vvf_motion.html" class="internal"><span class="codenumber">12.3</span> <span class="title">The Calculus of Motion</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf_motion.html#subsec_vvf_projectile" class="internal"><span class="codenumber">12.3.1</span> <span class="title">Projectile Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_motion.html#subsection-104" class="internal"><span class="codenumber">12.3.2</span> <span class="title">Distance Traveled</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_motion.html#exercises-67" class="internal"><span class="codenumber">12.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_tan_norm.html" class="internal"><span class="codenumber">12.4</span> <span class="title">Unit Tangent and Normal Vectors</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-105" class="internal"><span class="codenumber">12.4.1</span> <span class="title">Unit Tangent Vector</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-106" class="internal"><span class="codenumber">12.4.2</span> <span class="title">Unit Normal Vector</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-107" class="internal"><span class="codenumber">12.4.3</span> <span class="title">Application to Acceleration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#exercises-68" class="internal"><span class="codenumber">12.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_curvature.html" class="internal"><span class="codenumber">12.5</span> <span class="title">The Arc Length Parameter and Curvature</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-108" class="internal"><span class="codenumber">12.5.1</span> <span class="title">The Arc Length Paramtrization</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-109" class="internal"><span class="codenumber">12.5.2</span> <span class="title">Curvature</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-110" class="internal"><span class="codenumber">12.5.3</span> <span class="title">Curvature and Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#exercises-69" class="internal"><span class="codenumber">12.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_multi.html" class="internal"><span class="codenumber">13</span> <span class="title">Functions of Several Variables</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_multi_intro.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Introduction to Multivariable Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-111" class="internal"><span class="codenumber">13.1.1</span> <span class="title">Graphing Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-112" class="internal"><span class="codenumber">13.1.2</span> <span class="title">Level Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-113" class="internal"><span class="codenumber">13.1.3</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-114" class="internal"><span class="codenumber">13.1.4</span> <span class="title">Level Surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#exercises-70" class="internal"><span class="codenumber">13.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_limit.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Limits and Continuity of Multivariable Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsec-multivariable-topology" class="internal"><span class="codenumber">13.2.1</span> <span class="title">Open and Closed Subsets in Higher Dimensions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-116" class="internal"><span class="codenumber">13.2.2</span> <span class="title">Limits</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-117" class="internal"><span class="codenumber">13.2.3</span> <span class="title">Continuity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-118" class="internal"><span class="codenumber">13.2.4</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#exercises-71" class="internal"><span class="codenumber">13.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_partial_derivatives.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Partial Derivatives</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-first-partial" class="internal"><span class="codenumber">13.3.1</span> <span class="title">First-order partial derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-tangent-plane" class="internal"><span class="codenumber">13.3.2</span> <span class="title">Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-second-partial" class="internal"><span class="codenumber">13.3.3</span> <span class="title">Second-order partial derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-122" class="internal"><span class="codenumber">13.3.4</span> <span class="title">Understanding Second Partial Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-123" class="internal"><span class="codenumber">13.3.5</span> <span class="title">Partial Derivatives and Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-124" class="internal"><span class="codenumber">13.3.6</span> <span class="title">Higher Order Partial Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#exercises-72" class="internal"><span class="codenumber">13.3.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_total_differential.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Differentiability and the Total Differential</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-total-differential-intro" class="internal"><span class="codenumber">13.4.1</span> <span class="title">The Total Differential</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-total-differential-approx" class="internal"><span class="codenumber">13.4.2</span> <span class="title">Approximating with the Total Differential</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-tangent-plane-approximation" class="internal"><span class="codenumber">13.4.3</span> <span class="title">Tangent Plane Approximation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-error-analysis-total-diff" class="internal"><span class="codenumber">13.4.4</span> <span class="title">Error/Sensitivity Analysis</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-differentiable-three-var" class="internal"><span class="codenumber">13.4.5</span> <span class="title">Differentiability of Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#exercises-73" class="internal"><span class="codenumber">13.4.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_chain.html" class="internal"><span class="codenumber">13.5</span> <span class="title">The Multivariable Chain Rule</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_chain.html#subsec-multi-chain-intro" class="internal"><span class="codenumber">13.5.1</span> <span class="title">Multivariable Chain Rule, Part I</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_chain.html#subsec-implicit-diff" class="internal"><span class="codenumber">13.5.2</span> <span class="title">Implicit Differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_chain.html#exercises-74" class="internal"><span class="codenumber">13.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_directional_derivative.html" class="internal"><span class="codenumber">13.6</span> <span class="title">Directional Derivatives</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_directional_derivative.html#subsection-132" class="internal"><span class="codenumber">13.6.1</span> <span class="title">Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_directional_derivative.html#subsection-133" class="internal"><span class="codenumber">13.6.2</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_directional_derivative.html#exercises-75" class="internal"><span class="codenumber">13.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_tangent.html" class="internal"><span class="codenumber">13.7</span> <span class="title">Tangent Lines, Normal Lines, and Tangent Planes</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsec-tangent-lines-surface" class="internal"><span class="codenumber">13.7.1</span> <span class="title">Tangent Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-135" class="internal"><span class="codenumber">13.7.2</span> <span class="title">Normal Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-136" class="internal"><span class="codenumber">13.7.3</span> <span class="title">Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-137" class="internal"><span class="codenumber">13.7.4</span> <span class="title">The Gradient and Normal Lines, Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#exercises-76" class="internal"><span class="codenumber">13.7.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_extreme_values.html" class="internal"><span class="codenumber">13.8</span> <span class="title">Extreme Values</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#subsec-multi-critical" class="internal"><span class="codenumber">13.8.1</span> <span class="title">Critical Points of Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#subsection-139" class="internal"><span class="codenumber">13.8.2</span> <span class="title">Constrained Optimization</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#exercises-77" class="internal"><span class="codenumber">13.8.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_mult_int.html" class="internal"><span class="codenumber">14</span> <span class="title">Multiple Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_iterated_integrals.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Iterated Integrals and Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsec-iterated" class="internal"><span class="codenumber">14.1.1</span> <span class="title">Iterated integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsection-141" class="internal"><span class="codenumber">14.1.2</span> <span class="title">Area of a plane region</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsec-changing-order" class="internal"><span class="codenumber">14.1.3</span> <span class="title">Changing Order of Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#exercises-78" class="internal"><span class="codenumber">14.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_double_int_volume.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Double Integration and Volume</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_double_int_volume.html#exercises-79" class="internal"><span class="codenumber">14.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_double_int_polar.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Double Integration with Polar Coordinates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_double_int_polar.html#exercises-80" class="internal"><span class="codenumber">14.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_center_of_mass.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Center of Mass</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_center_of_mass.html#subsection-143" class="internal"><span class="codenumber">14.4.1</span> <span class="title">Mass and Weight</span></a></div></li>
+<li><div class="toc-item"><a href="sec_center_of_mass.html#subsection-144" class="internal"><span class="codenumber">14.4.2</span> <span class="title">Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_center_of_mass.html#exercises-81" class="internal"><span class="codenumber">14.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_surface_area.html" class="internal"><span class="codenumber">14.5</span> <span class="title">Surface Area</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_surface_area.html#exercises-82" class="internal"><span class="codenumber">14.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_triple_int.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Volume Between Surfaces and Triple Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-145" class="internal"><span class="codenumber">14.6.1</span> <span class="title">Volume between surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-146" class="internal"><span class="codenumber">14.6.2</span> <span class="title">Triple Integration and Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-147" class="internal"><span class="codenumber">14.6.3</span> <span class="title">Mass and Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#exercises-83" class="internal"><span class="codenumber">14.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_cylindrical_spherical.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Triple Integration with Cylindrical and Spherical Coordinates</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#subsection-148" class="internal"><span class="codenumber">14.7.1</span> <span class="title">Cylindrical Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#subsection-149" class="internal"><span class="codenumber">14.7.2</span> <span class="title">Spherical Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#exercises-84" class="internal"><span class="codenumber">14.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_vector_calc.html" class="internal"><span class="codenumber">15</span> <span class="title">Vector Analysis</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_line_int_intro.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Introduction to Line Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsec-line-int-scalar" class="internal"><span class="codenumber">15.1.1</span> <span class="title">Line Integrals of Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsection-151" class="internal"><span class="codenumber">15.1.2</span> <span class="title">Properties of Line Integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsection-152" class="internal"><span class="codenumber">15.1.3</span> <span class="title">Mass and Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#exercises-85" class="internal"><span class="codenumber">15.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vector_fields.html" class="internal"><span class="codenumber">15.2</span> <span class="title">Vector Fields</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vector_fields.html#subsection-153" class="internal"><span class="codenumber">15.2.1</span> <span class="title">Vector Field Notation and Del Operator</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vector_fields.html#subsection-154" class="internal"><span class="codenumber">15.2.2</span> <span class="title">Divergence and Curl</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vector_fields.html#exercises-86" class="internal"><span class="codenumber">15.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_line_int_vf.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Line Integrals over Vector Fields</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsec-line-int-vector-eval" class="internal"><span class="codenumber">15.3.1</span> <span class="title">Evaluating Line Integrals over Vector Fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsection-156" class="internal"><span class="codenumber">15.3.2</span> <span class="title">Properties of Line Integrals Over Vector Fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsection-157" class="internal"><span class="codenumber">15.3.3</span> <span class="title">The Fundamental Theorem of Line Integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#exercises-87" class="internal"><span class="codenumber">15.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_greensthm.html" class="internal"><span class="codenumber">15.4</span> <span class="title">Flow, Flux, Green's Theorem and the Divergence Theorem</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-158" class="internal"><span class="codenumber">15.4.1</span> <span class="title">Flow and Flux</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-159" class="internal"><span class="codenumber">15.4.2</span> <span class="title">Green's Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-160" class="internal"><span class="codenumber">15.4.3</span> <span class="title">The Divergence Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#exercises-88" class="internal"><span class="codenumber">15.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_parametric_surfaces.html" class="internal"><span class="codenumber">15.5</span> <span class="title">Parametrized Surfaces and Surface Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#subsec-parametrized-surfaces" class="internal"><span class="codenumber">15.5.1</span> <span class="title">Parametrizing surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#subsection-162" class="internal"><span class="codenumber">15.5.2</span> <span class="title">Surface Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#exercises-89" class="internal"><span class="codenumber">15.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_surface_integral.html" class="internal"><span class="codenumber">15.6</span> <span class="title">Surface Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_surface_integral.html#subsec-surfint-scalar" class="internal"><span class="codenumber">15.6.1</span> <span class="title">Surface integrals of scalar fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_surface_integral.html#subsection-164" class="internal"><span class="codenumber">15.6.2</span> <span class="title">Flux</span></a></div></li>
+<li><div class="toc-item"><a href="sec_surface_integral.html#exercises-90" class="internal"><span class="codenumber">15.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_stokes_divergence.html" class="internal"><span class="codenumber">15.7</span> <span class="title">The Divergence Theorem and Stokes' Theorem</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-165" class="internal"><span class="codenumber">15.7.1</span> <span class="title">The Divergence Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-166" class="internal"><span class="codenumber">15.7.2</span> <span class="title">Stokes' Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-167" class="internal"><span class="codenumber">15.7.3</span> <span class="title">A Common Thread of Calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#exercises-91" class="internal"><span class="codenumber">15.7.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="backmatter-1.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="solutions-1.html" class="internal"><span class="codenumber">A</span> <span class="title">Answers to Odd Exercises</span></a></div></li>
+<li>
+<div class="toc-item"><a href="appendix-reference.html" class="internal"><span class="codenumber">B</span> <span class="title">Quick Reference</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="reference-derivatives.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Differentiation Formulas</span></a></div></li>
+<li><div class="toc-item"><a href="reference-integration.html" class="internal"><span class="codenumber">B.2</span> <span class="title">Integration Formulas</span></a></div></li>
+<li>
+<div class="toc-item"><a href="reference-trigonometry.html" class="internal"><span class="codenumber">B.3</span> <span class="title">Trigonometry Reference</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="reference-trigonometry.html#reference-trig-definitions" class="internal"><span class="codenumber">B.3.1</span> <span class="title">Definitions of the Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="reference-trigonometry.html#reference-trig-identities" class="internal"><span class="codenumber">B.3.2</span> <span class="title">Common Trigonometric Identities</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="reference-area-volume.html" class="internal"><span class="codenumber">B.4</span> <span class="title">Areas and Volumes</span></a></div></li>
+<li><div class="toc-item"><a href="reference-algebra.html" class="internal"><span class="codenumber">B.5</span> <span class="title">Algebra</span></a></div></li>
+<li><div class="toc-item"><a href="reference-formulas.html" class="internal"><span class="codenumber">B.6</span> <span class="title">Additional Formulas</span></a></div></li>
+<li><div class="toc-item"><a href="section-98.html" class="internal"><span class="codenumber">B.7</span> <span class="title">Summary of Tests for Series</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_extreme_values"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.1</span> <span class="title">Extreme Values</span>
+</h2>
+<div class="para" id="p-2832">Given any quantity described by a function, we are often interested in the largest and/or smallest values that quantity attains. For instance, if a function describes the speed of an object, it seems reasonable to want to know the fastest/slowest the object traveled. If a function describes the value of a stock, we might want to know the highest/lowest values the stock attained over the past year. We call such values <em class="emphasis">extreme values.</em>
+</div>
+<article class="definition definition-like" id="def_extreme_values"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Extreme Values.</span>
+</h3> <div class="para logical" id="p-2833">
+<div class="para">Let <span class="process-math">\(f\)</span> be defined on an interval <span class="process-math">\(I\)</span> containing <span class="process-math">\(c\text{.}\)</span> </div>
+<ol class="decimal">
+<li id="li-720"><div class="para" id="p-2834">
+<span class="process-math">\(f(c)\)</span> is the <em class="emphasis">minimum</em> (also, <em class="emphasis">absolute minimum</em>) of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\)</span> if <span class="process-math">\(f(c) \leq f(x)\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\(I\text{.}\)</span>
+</div></li>
+<li id="li-721"><div class="para" id="p-2835">
+<span class="process-math">\(f(c)\)</span> is the <em class="emphasis">maximum</em> (also, <em class="emphasis">absolute maximum</em>) of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\)</span> if <span class="process-math">\(f(c) \geq f(x)\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\(I\text{.}\)</span>
+</div></li>
+</ol>
+</div> <div class="para" id="p-2836">The maximum and minimum values are the <dfn class="terminology">extreme values</dfn>, or <dfn class="terminology">extrema</dfn>, of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\text{.}\)</span> </div></article><aside class="aside aside-like" id="aside-14"><div class="para" id="p-2837">
+<em class="emphasis">Note:</em> The extreme values of a function are “<span class="process-math">\(y\)</span>” values, values the function attains, not the input values. However we often say there is an extreme value <em class="emphasis">at</em> certain input values. For example, “<span class="process-math">\(\sin(x)\)</span> has a maximum <em class="emphasis">at</em> <span class="process-math">\(\pi/2\text{,}\)</span> and the maximum of <span class="process-math">\(\sin(x)\)</span> <em class="emphasis">is</em> <span class="process-math">\(1\text{.}\)</span>”</div></aside><figure class="figure figure-like" id="vid_graphs_extreme_val_abs_extrema"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-99" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/srE7xUmQtCQ?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.2<span class="period">.</span></span><span class="space"> </span>Video presentation of <a href="" class="xref" data-knowl="./knowl/def_extreme_values.html" title="Definition 3.1.1: Extreme Values">Definition 3.1.1</a></figcaption></figure><div class="para" id="p-2838">Consider <a href="" class="xref" data-knowl="./knowl/fig_extreme.html" title="Figure 3.1.3">Figure 3.1.3</a>. The function displayed in <a href="" class="xref" data-knowl="./knowl/fig_extreme1.html" title="Figure 3.1.3.(a)">Figure 3.1.3.(a)</a> has a maximum, but no minimum, as the interval over which the function is defined is open. In <a href="" class="xref" data-knowl="./knowl/fig_extreme2.html" title="Figure 3.1.3.(b)">Figure 3.1.3.(b)</a>, the function has a minimum, but no maximum; there is a discontinuity in the “natural” place for the maximum to occur. Finally, the function shown in <a href="" class="xref" data-knowl="./knowl/fig_extreme3.html" title="Figure 3.1.3.(c)">Figure 3.1.3.(c)</a>has both a maximum and a minimum; note that the function is continuous and the interval on which it is defined is closed.</div>
+<figure class="figure figure-like" id="fig_extreme"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:31%;"><figure class="figure figure-like" id="fig_extreme1"><img src="generated/latex-image/img_extreme1.svg" role="img" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span></figcaption></figure></div>
+<div class="sbspanel top" style="width:31%;"><figure class="figure figure-like" id="fig_extreme2"><img src="generated/latex-image/img_extreme2.svg" role="img" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span></figcaption></figure></div>
+<div class="sbspanel top" style="width:31%;"><figure class="figure figure-like" id="fig_extreme3"><img src="generated/latex-image/img_extreme3.svg" role="img" class="contained"><figcaption><span class="codenumber">(c)</span><span class="space"> </span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.3<span class="period">.</span></span><span class="space"> </span>Graphs of functions with and without extreme values</figcaption></figure><div class="para" id="p-2839">It is possible for discontinuous functions defined on an open interval to have both a maximum and minimum value, but we have just seen examples where they did not. On the other hand, continuous functions on a closed interval <em class="emphasis">always</em> have a maximum and minimum value.</div>
+<article class="theorem theorem-like" id="thm_extreme_val"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">The Extreme Value Theorem.</span>
+</h3>
+<div class="para" id="p-2840">Let <span class="process-math">\(f\)</span> be a continuous function defined on a closed interval <span class="process-math">\(I=[a,b]\text{.}\)</span> Then <span class="process-math">\(f\)</span> has both a maximum and minimum value on <span class="process-math">\(I\text{.}\)</span> </div></article><figure class="figure figure-like" id="vid_graphs_extreme_val_EVT"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-100" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/GIcjxu8dTnY?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.5<span class="period">.</span></span><span class="space"> </span>Video presentation of <a href="" class="xref" data-knowl="./knowl/thm_extreme_val.html" title="Theorem 3.1.4: The Extreme Value Theorem">Theorem 3.1.4</a></figcaption></figure><div class="para" id="p-2841">This theorem states that <span class="process-math">\(f\)</span> has extreme values, but it does not offer any advice about how/where to find these values. The process can seem to be fairly easy, as the next example illustrates. After the example, we will draw on lessons learned to form a more general and powerful method for finding extreme values.</div>
+<article class="example example-like" id="ex_extval1"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">Approximating extreme values.</span>
+</h3>
+<div class="para" id="p-2842">Consider <span class="process-math">\(f(x) = 2x^3-9x^2\)</span> on <span class="process-math">\(I=[-1,5]\text{,}\)</span> as graphed in <a href="" class="xref" data-knowl="./knowl/fig_extval1.html" title="Figure 3.1.7">Figure 3.1.7</a>. Approximate the extreme values of <span class="process-math">\(f\text{.}\)</span>
+</div> <figure class="figure figure-like" id="fig_extval1"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_extval1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.7<span class="period">.</span></span><span class="space"> </span>A graph of <span class="process-math">\(f(x) = 2x^3-9x^2\)</span> as in <a href="" class="xref" data-knowl="./knowl/ex_extval1.html" title="Example 3.1.6: Approximating extreme values">Example 3.1.6</a></figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-223" id="solution-223"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-223"><div class="solution solution-like"><div class="para" id="p-2843">The graph is drawn in such a way to draw attention to certain points. It certainly seems that the smallest <span class="process-math">\(y\)</span>-value is <span class="process-math">\(-27\text{,}\)</span> found when <span class="process-math">\(x=3\text{.}\)</span> It also seems that the largest <span class="process-math">\(y\)</span>-value is <span class="process-math">\(25\text{,}\)</span> found at the endpoint of <span class="process-math">\(I\text{,}\)</span> <span class="process-math">\(x=5\text{.}\)</span> We use the word <em class="emphasis">seems</em>, for by the graph alone we cannot be sure the smallest value is not less than <span class="process-math">\(-27\text{.}\)</span> Since the problem asks for an approximation, we approximate the extreme values to be <span class="process-math">\(25\)</span> and <span class="process-math">\(-27\text{.}\)</span>
+</div></div></div>
+</div></article><div class="para" id="p-2844">Notice how the minimum value came at “the bottom of a hill,” and the maximum value came at an endpoint. Also note that while <span class="process-math">\(0\)</span> is not an extreme value, it would be if we narrowed our interval to <span class="process-math">\([-1,4]\text{.}\)</span> The idea that the point <span class="process-math">\((0,0)\)</span> is the location of an extreme value for some interval is important, leading us to a definition of a <em class="emphasis">relative maximum</em>. In short, a “relative max” is a <span class="process-math">\(y\)</span>-value that's the largest <span class="process-math">\(y\)</span>-value “nearby.”</div>
+<article class="definition definition-like" id="def_rel_ext"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Relative Minimum and Relative Maximum.</span>
+</h3> <div class="para logical" id="p-2845">
+<div class="para">Let <span class="process-math">\(f\)</span> be defined on an interval <span class="process-math">\(I\)</span> containing <span class="process-math">\(c\text{.}\)</span>
+</div>
+<ol class="decimal">
+<li id="li-722"><div class="para" id="p-2846">If there is a <span class="process-math">\(\delta \gt 0\)</span> such that <span class="process-math">\(f(c) \leq f(x)\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\(I\)</span> where <span class="process-math">\(\abs{x-c}\lt \delta\text{,}\)</span> then <span class="process-math">\(f(c)\)</span> is a <dfn class="terminology">relative minimum</dfn> of <span class="process-math">\(f\text{.}\)</span> We also say that <span class="process-math">\(f\)</span> has a relative minimum at <span class="process-math">\((c,f(c))\text{.}\)</span> </div></li>
+<li id="li-723"><div class="para" id="p-2847">If there is a <span class="process-math">\(\delta \gt 0\)</span> such that <span class="process-math">\(f(c) \geq f(x)\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\(I\)</span> where <span class="process-math">\(\abs{x-c}\lt \delta\text{,}\)</span> then <span class="process-math">\(f(c)\)</span> is a <dfn class="terminology">relative maximum</dfn> of <span class="process-math">\(f\text{.}\)</span> We also say that <span class="process-math">\(f\)</span> has a relative maximum at <span class="process-math">\((c,f(c))\text{.}\)</span> </div></li>
+</ol>
+</div> <div class="para" id="p-2848">The relative maximum and minimum values comprise the <dfn class="terminology">relative extrema</dfn> of <span class="process-math">\(f\text{.}\)</span>
+</div></article><aside class="aside aside-like" id="aside-15"><h3 class="heading"><span class="title">Alternative Vocabulary.</span></h3>
+<div class="para" id="p-2849">The terms <em class="emphasis">local minimum</em> and <em class="emphasis">local maximum</em> are often used as synonyms for <em class="emphasis">relative minimum</em> and <em class="emphasis">relative maximum</em>.</div>
+<div class="para" id="p-2850">As it makes intuitive sense that an absolute maximum is also a relative maximum, <a href="" class="xref" data-knowl="./knowl/def_rel_ext.html" title="Definition 3.1.8: Relative Minimum and Relative Maximum">Definition 3.1.8</a> allows a relative maximum to occur at an interval's endpoint.</div></aside><figure class="figure figure-like" id="vid_graphs_extreme_val_rel_extrema"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-101" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/nBZTnxn0vqQ?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.9<span class="period">.</span></span><span class="space"> </span>Video presentation of <a href="" class="xref" data-knowl="./knowl/def_rel_ext.html" title="Definition 3.1.8: Relative Minimum and Relative Maximum">Definition 3.1.8</a></figcaption></figure><div class="para" id="p-2851">We briefly practice using these definitions.</div>
+<article class="example example-like" id="ex_extval2"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.10</span><span class="period">.</span><span class="space"> </span><span class="title">Approximating relative extrema.</span>
+</h3>
+<div class="para" id="p-2852">Consider <span class="process-math">\(f(x) = (3x^4-4x^3-12x^2+5)/5\text{,}\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/fig_extval2.html" title="Figure 3.1.11">Figure 3.1.11</a>. Approximate the relative extrema of <span class="process-math">\(f\text{.}\)</span> At each of these points, evaluate <span class="process-math">\(\fp\text{.}\)</span>
+</div> <figure class="figure figure-like" id="fig_extval2"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_extval2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.11<span class="period">.</span></span><span class="space"> </span>A graph of <span class="process-math">\(f(x) = (3x^4-4x^3-12x^2+5)/5\)</span> as in <a href="" class="xref" data-knowl="./knowl/ex_extval2.html" title="Example 3.1.10: Approximating relative extrema">Example 3.1.10</a></figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-224" id="solution-224"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-224"><div class="solution solution-like">
+<div class="para" id="p-2853">We still do not have the tools to exactly find the relative extrema, but the graph does allow us to make reasonable approximations. It seems <span class="process-math">\(f\)</span> has relative minima at <span class="process-math">\(x=-1\)</span> and <span class="process-math">\(x=2\text{,}\)</span> with values of <span class="process-math">\(f(-1)=0\)</span> and <span class="process-math">\(f(2) = -5.4\text{.}\)</span> It also seems that <span class="process-math">\(f\)</span> has a relative maximum at the point <span class="process-math">\((0,1)\text{.}\)</span>
+</div> <div class="para" id="p-2854">We approximate the relative minima to be <span class="process-math">\(0\)</span> and <span class="process-math">\(-5.4\text{;}\)</span> we approximate the relative maximum to be <span class="process-math">\(1\text{.}\)</span>
+</div> <div class="para" id="p-2855">It is straightforward to evaluate <span class="process-math">\(\fp(x) =\frac{1}{5}\left(12x^3-12x^2-24x\right)\)</span> at <span class="process-math">\(x=0, 1\)</span> and <span class="process-math">\(2\text{.}\)</span> In each case, <span class="process-math">\(\fp(x) = 0\text{.}\)</span>
+</div>
+</div></div>
+</div></article><article class="example example-like" id="ex_extval3"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.12</span><span class="period">.</span><span class="space"> </span><span class="title">Approximating relative extrema.</span>
+</h3>
+<div class="para" id="p-2856">Approximate the relative extrema of <span class="process-math">\(f(x) = (x-1)^{2/3}+2\text{,}\)</span> shown in <a href="" class="xref" data-knowl="./knowl/fig_extval3.html" title="Figure 3.1.13">Figure 3.1.13</a>. At each of these points, evaluate <span class="process-math">\(\fp\text{.}\)</span>
+</div> <figure class="figure figure-like" id="fig_extval3"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_extval3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.13<span class="period">.</span></span><span class="space"> </span>A graph of <span class="process-math">\(f(x) = (x-1)^{2/3}+2\)</span> as in <a href="" class="xref" data-knowl="./knowl/ex_extval3.html" title="Example 3.1.12: Approximating relative extrema">Example 3.1.12</a></figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-225" id="solution-225"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-225"><div class="solution solution-like">
+<div class="para" id="p-2857">The figure implies that <span class="process-math">\(f\)</span> does not have any relative maxima, but has a relative minimum at <span class="process-math">\((1,2)\text{.}\)</span> In fact, the graph suggests that not only is this point a relative minimum, <span class="process-math">\(y=f(1)=2\)</span> is <em class="emphasis">the</em> minimum value of the function.</div> <div class="para" id="p-2858">We compute <span class="process-math">\(\fp(x) = \frac23(x-1)^{-1/3}\text{.}\)</span> When <span class="process-math">\(x=1\text{,}\)</span> <span class="process-math">\(\fp\)</span> is undefined.</div>
+</div></div>
+</div></article><div class="para" id="p-2859">What can we learn from the previous two examples? We were able to visually approximate relative extrema, and at each such point, the derivative was either <span class="process-math">\(0\)</span> or it was not defined. This observation holds for all functions, leading to a definition and a theorem.</div>
+<article class="definition definition-like" id="def_criticalnum"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.14</span><span class="period">.</span><span class="space"> </span><span class="title">Critical Numbers and Critical Points.</span>
+</h3> <div class="para" id="p-2860">Let <span class="process-math">\(f\)</span> be defined at <span class="process-math">\(c\text{.}\)</span> The value <span class="process-math">\(c\)</span> is a <dfn class="terminology">critical number</dfn> (or <dfn class="terminology">critical value</dfn>) of <span class="process-math">\(f\)</span> if <span class="process-math">\(\fp(c)=0\)</span> or <span class="process-math">\(\fp(c)\)</span> is not defined. </div> <div class="para" id="p-2861">If <span class="process-math">\(c\)</span> is a critical number of <span class="process-math">\(f\text{,}\)</span> then the point <span class="process-math">\((c,f(c))\)</span> is a <dfn class="terminology">critical point</dfn> of <span class="process-math">\(f\text{.}\)</span>
+</div></article><aside class="aside aside-like" id="aside-16"><div class="para" id="p-2862">In this text we use “critical number” and “critical value” interchangeably. Other textbooks reserve the term <em class="emphasis">critical value</em> for the function value <span class="process-math">\(f(c)\text{,}\)</span> when <span class="process-math">\(c\)</span> is a critical number.</div></aside><article class="theorem theorem-like" id="thm_criticalpts"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.15</span><span class="period">.</span><span class="space"> </span><span class="title">Relative Extrema and Critical Points.</span>
+</h3>
+<div class="para" id="p-2863">Let a function <span class="process-math">\(f\)</span> be defined on an open interval <span class="process-math">\(I\)</span> containing <span class="process-math">\(c\text{,}\)</span> and let <span class="process-math">\(f\)</span> have a relative extremum at the point <span class="process-math">\((c,f(c))\text{.}\)</span> Then <span class="process-math">\(c\)</span> is a critical number of <span class="process-math">\(f\text{.}\)</span>
+</div></article><figure class="figure figure-like" id="vid_graphs_extreme_val_crit_pnts"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-102" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/WsBGpi006X0?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.16<span class="period">.</span></span><span class="space"> </span>Video presentation of <a href="" class="xref" data-knowl="./knowl/def_criticalnum.html" title="Definition 3.1.14: Critical Numbers and Critical Points">Definition 3.1.14</a> and <a href="" class="xref" data-knowl="./knowl/thm_criticalpts.html" title="Theorem 3.1.15: Relative Extrema and Critical Points">Theorem 3.1.15</a></figcaption></figure><div class="para" id="p-2864">Be careful to understand that this theorem states “Relative extrema on open intervals occur at critical points.” It does not say “All critical numbers produce relative extrema.” For instance, consider <span class="process-math">\(f(x) = x^3\text{.}\)</span> Since <span class="process-math">\(\fp(x) = 3x^2\text{,}\)</span> it is straightforward to determine that <span class="process-math">\(x=0\)</span> is a critical number of <span class="process-math">\(f\text{.}\)</span> However, <span class="process-math">\(f\)</span> has no relative extrema, as illustrated in <a href="" class="xref" data-knowl="./knowl/fig_extreme4.html" title="Figure 3.1.17">Figure 3.1.17</a>.</div>
+<figure class="figure figure-like" id="fig_extreme4"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_extreme4.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.17<span class="period">.</span></span><span class="space"> </span>A graph of <span class="process-math">\(f(x)=x^3\)</span> which has a critical value of <span class="process-math">\(x=0\text{,}\)</span> but no relative extrema</figcaption></figure><div class="para" id="p-2865">
+<a href="" class="xref" data-knowl="./knowl/thm_extreme_val.html" title="Theorem 3.1.4: The Extreme Value Theorem">Theorem 3.1.4</a> states that a continuous function on a closed interval will have both an absolute maximum and an absolute minimum. Common sense tells us “extrema occur either at the endpoints or somewhere in between.” It is easy to check for extrema at endpoints, but there are infinitely many points to check that are “in between.” <a href="" class="xref" data-knowl="./knowl/thm_criticalpts.html" title="Theorem 3.1.15: Relative Extrema and Critical Points">Theorem 3.1.15</a> tells us we need only check at the critical points that are in between the endpoints. We combine these concepts to offer a strategy for finding extrema.</div>
+<article class="insight remark-like" id="idea_extrema"><h3 class="heading">
+<span class="type">Key Idea</span><span class="space"> </span><span class="codenumber">3.1.18</span><span class="period">.</span><span class="space"> </span><span class="title">Finding Extrema on a Closed Interval.</span>
+</h3> <div class="para logical" id="p-2866">
+<div class="para">Let <span class="process-math">\(f\)</span> be a continuous function defined on a closed interval <span class="process-math">\([a,b]\text{.}\)</span> To find the maximum and minimum values of <span class="process-math">\(f\)</span> on <span class="process-math">\([a,b]\text{:}\)</span> </div>
+<ol class="decimal">
+<li id="li-724"><div class="para" id="p-2867">Evaluate <span class="process-math">\(f\)</span> at the endpoints <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> of the interval.</div></li>
+<li id="li-725"><div class="para" id="p-2868">Find the critical numbers of <span class="process-math">\(f\)</span> in <span class="process-math">\([a,b]\text{.}\)</span>
+</div></li>
+<li id="li-726"><div class="para" id="p-2869">Evaluate <span class="process-math">\(f\)</span> at each critical number.</div></li>
+<li id="li-727"><div class="para" id="p-2870">The absolute maximum of <span class="process-math">\(f\)</span> is the largest of these values, and the absolute minimum of <span class="process-math">\(f\)</span> is the least of these values.</div></li>
+</ol>
+</div></article><div class="para" id="p-2871">We practice these ideas in the next examples.</div>
+<article class="example example-like" id="ex_extval4"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.19</span><span class="period">.</span><span class="space"> </span><span class="title">Finding extreme values.</span>
+</h3>
+<div class="para" id="p-2872">Find the extreme values of <span class="process-math">\(f(x) = 2x^3+3x^2-12x\)</span> on <span class="process-math">\([0,3]\text{,}\)</span> graphed in <a href="" class="xref" data-knowl="./knowl/fig_extval4.html" title="Figure 3.1.20">Figure 3.1.20</a>.</div> <figure class="figure figure-like" id="fig_extval4"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_extval4.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.20<span class="period">.</span></span><span class="space"> </span>A graph of <span class="process-math">\(f(x) = 2x^3+3x^2-12x\)</span> on <span class="process-math">\([0,3]\)</span> as in <a href="" class="xref" data-knowl="./knowl/ex_extval4.html" title="Example 3.1.19: Finding extreme values">Example 3.1.19</a></figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-video" data-refid="hk-solution-226" id="solution-226"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span><span class="space"> </span><span class="title">Video solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-226"><div class="solution solution-like"> <div class="video-box" style="width: 98%;padding-top: 55.125%; margin-left: 1%; margin-right: 1%;"><iframe id="vid_graphs_extreme_val_ex_1" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/LyhHlreZvhc?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-227" id="solution-227"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-227"><div class="solution solution-like">
+<div class="para logical" id="p-2873">
+<div class="para">We follow the steps outlined in <a href="" class="xref" data-knowl="./knowl/idea_extrema.html" title="Key Idea 3.1.18: Finding Extrema on a Closed Interval">Key Idea 3.1.18</a>. We first evaluate <span class="process-math">\(f\)</span> at the endpoints:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/idea_extrema.html" id="md-103">
+\begin{align*}
+f(0)\amp=0\amp f(3)\amp=45\text{.}
+\end{align*}
+</div>
+</div> <div class="para" id="p-2874">Next, we find the critical values of <span class="process-math">\(f\)</span> on <span class="process-math">\([0,3]\text{.}\)</span> <span class="process-math">\(\fp(x) = 6x^2+6x-12 = 6(x+2)(x-1)\text{;}\)</span> therefore the critical values of <span class="process-math">\(f\)</span> are <span class="process-math">\(x=-2\)</span> and <span class="process-math">\(x=1\text{.}\)</span> Since <span class="process-math">\(x=-2\)</span> does not lie in the interval <span class="process-math">\([0,3]\text{,}\)</span> we ignore it. Evaluating <span class="process-math">\(f\)</span> at the only critical number in our interval gives: <span class="process-math">\(f(1) = -7\text{.}\)</span>
+</div> <div class="para" id="p-2875">
+<a href="" class="xref" data-knowl="./knowl/table_ext4.html" title="Table 3.1.21: Finding the extreme values of f(x)= 2x^3+3x^2-12x in Example 3.1.19">Figure 3.1.21</a> gives <span class="process-math">\(f\)</span> evaluated at the “important” <span class="process-math">\(x\)</span> values in <span class="process-math">\([0,3]\text{.}\)</span> We can easily see the maximum and minimum values of <span class="process-math">\(f\text{:}\)</span> the maximum value is <span class="process-math">\(45\)</span> and the minimum value is <span class="process-math">\(-7\text{.}\)</span>
+</div> <figure class="table table-like" id="table_ext4"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">3.1.21<span class="period">.</span></span><span class="space"> </span>Finding the extreme values of <span class="process-math">\(f(x)= 2x^3+3x^2-12x\)</span> in Example 3.1.19</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r0 l0 t0 lines"><span class="process-math">\(x\)</span></td>
+<td class="l m b2 r0 l0 t0 lines"><span class="process-math">\(f(x)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-7\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(45\)</span></td>
+</tr>
+</table></div></figure>
+</div></div>
+</div></article><div class="para" id="p-2876">Note that all this was done without the aid of a graph; this work followed an analytic algorithm and did not depend on any visualization. <a href="" class="xref" data-knowl="./knowl/fig_extval4.html" title="Figure 3.1.20">Figure 3.1.20</a> shows <span class="process-math">\(f\)</span> and we can confirm our answer, but it is important to understand that these answers can be found without graphical assistance.</div>
+<div class="para" id="p-2877">We practice again.</div>
+<article class="example example-like" id="ex_extval5"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.22</span><span class="period">.</span><span class="space"> </span><span class="title">Finding extreme values.</span>
+</h3>
+<div class="para logical" id="p-2878">
+<div class="para">Find the maximum and minimum values of <span class="process-math">\(f\)</span> on <span class="process-math">\([-4,2]\text{,}\)</span> where</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x) = \begin{cases}(x-1)^2 \amp  x\leq 0 \\ x+1 \amp  x \gt 0\end{cases}\text{.}
+\end{equation*}
+</div>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-video" data-refid="hk-solution-228" id="solution-228"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span><span class="space"> </span><span class="title">Video solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-228"><div class="solution solution-like"> <div class="video-box" style="width: 98%;padding-top: 55.125%; margin-left: 1%; margin-right: 1%;"><iframe id="vid_graphs_extreme_val_ex_2" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/zn--ShSSMqk?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image has-tabular" data-refid="hk-solution-229" id="solution-229"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-229"><div class="solution solution-like">
+<div class="para" id="p-2879">Here <span class="process-math">\(f\)</span> is piecewise-defined, but we can still apply <a href="" class="xref" data-knowl="./knowl/idea_extrema.html" title="Key Idea 3.1.18: Finding Extrema on a Closed Interval">Key Idea 3.1.18</a> as it is continuous on <span class="process-math">\([-4,2]\)</span> (one should check to verify that <span class="process-math">\(\lim\limits_{x\to 0}f(x) =f(0)\)</span>).</div> <div class="para logical" id="p-2880">
+<div class="para">Evaluating <span class="process-math">\(f\)</span> at the endpoints gives:</div>
+<div class="displaymath process-math" id="md-104">
+\begin{align*}
+f(-4)\amp=25\amp f(2)\amp=3\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical" id="p-2881">
+<div class="para">We now find the critical numbers of <span class="process-math">\(f\text{.}\)</span> We have to define <span class="process-math">\(\fp\)</span> in a piecewise manner; it is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\fp(x) =\begin{cases}2(x-1) \amp  x \lt  0 \\ 1 \amp  x \gt 0\end{cases}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para" id="p-2882">Note that while <span class="process-math">\(f\)</span> is defined for all of <span class="process-math">\([-4,2]\text{,}\)</span> <span class="process-math">\(\fp\)</span> is not, as the derivative of <span class="process-math">\(f\)</span> does not exist when <span class="process-math">\(x=0\text{.}\)</span> (From the left, the derivative approaches <span class="process-math">\(-2\text{;}\)</span> from the right the derivative is <span class="process-math">\(1\text{.}\)</span>) Thus one critical number of <span class="process-math">\(f\)</span> is <span class="process-math">\(x=0\text{.}\)</span>
+</div> <div class="para" id="p-2883">We now set <span class="process-math">\(\fp(x) = 0\text{.}\)</span> When <span class="process-math">\(x \gt 0\text{,}\)</span> <span class="process-math">\(\fp(x)\)</span> is never 0. When <span class="process-math">\(x\lt 0\text{,}\)</span> <span class="process-math">\(\fp(x)\)</span> is also never 0, so we find no critical values from setting <span class="process-math">\(\fp(x)=0\text{.}\)</span>
+</div> <div class="para" id="p-2884">So we have three important <span class="process-math">\(x\)</span>-values to consider: <span class="process-math">\(x= -4, 2\)</span> and <span class="process-math">\(0\text{.}\)</span> Evaluating <span class="process-math">\(f\)</span> at each gives, respectively, <span class="process-math">\(25\text{,}\)</span> <span class="process-math">\(3\)</span> and <span class="process-math">\(1\text{,}\)</span> shown in <a href="" class="xref" data-knowl="./knowl/table_ext5.html" title="Table 3.1.23: Finding the extreme values of a piecewise-defined function in Example 3.1.22">Figure 3.1.23</a>. Thus the absolute minimum of <span class="process-math">\(f\)</span> is 1, the absolute maximum of <span class="process-math">\(f\)</span> is <span class="process-math">\(25\text{.}\)</span> Our answer is confirmed by the graph of <span class="process-math">\(f\)</span> in <a href="" class="xref" data-knowl="./knowl/fig_extval5.html" title="Figure 3.1.24">Figure 3.1.24</a>.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel fixed-width bottom" style="width:47%;"><figure class="table table-like" id="table_ext5"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">3.1.23<span class="period">.</span></span><span class="space"> </span>Finding the extreme values of a piecewise-defined function in Example 3.1.22</figcaption><table class="tabular">
+<tr>
+<td class="l m b2 r0 l0 t0 lines"><span class="process-math">\(x\)</span></td>
+<td class="l m b2 r0 l0 t0 lines"><span class="process-math">\(f(x)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(25\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+</table></figure></div>
+<div class="sbspanel bottom" style="width:47%;"><figure class="figure figure-like" id="fig_extval5"><img src="generated/latex-image/img_extval5.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.24<span class="period">.</span></span><span class="space"> </span>A graph of <span class="process-math">\(f(x)\)</span> on <span class="process-math">\([-4,2]\)</span> as in <a href="" class="xref" data-knowl="./knowl/ex_extval5.html" title="Example 3.1.22: Finding extreme values">Example 3.1.22</a></figcaption></figure></div>
+</div></div>
+</div></div>
+</div></article><article class="example example-like" id="ex_extval6"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.25</span><span class="period">.</span><span class="space"> </span><span class="title">Finding extreme values.</span>
+</h3>
+<div class="para" id="p-2885">Find the extrema of <span class="process-math">\(f(x) = \cos\mathopen{}\left(x^2\right)\mathclose{}\)</span> on <span class="process-math">\([-2,2]\text{,}\)</span> graphed in <a href="" class="xref" data-knowl="./knowl/fig_extval6.html" title="Figure 3.1.27">Figure 3.1.27</a>.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-video" data-refid="hk-solution-230" id="solution-230"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span><span class="space"> </span><span class="title">Video solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-230"><div class="solution solution-like"> <div class="video-box" style="width: 98%;padding-top: 55.125%; margin-left: 1%; margin-right: 1%;"><iframe id="vid_graphs_extreme_val_ex_3" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/sT_3kVSsbz4?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image has-tabular" data-refid="hk-solution-231" id="solution-231"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-231"><div class="solution solution-like">
+<div class="para" id="p-2886">We again use <a href="" class="xref" data-knowl="./knowl/idea_extrema.html" title="Key Idea 3.1.18: Finding Extrema on a Closed Interval">Key Idea 3.1.18</a>. Evaluating <span class="process-math">\(f\)</span> at the endpoints of the interval gives: <span class="process-math">\(f(-2) = f(2) = \cos(4) \approx -0.6536\text{.}\)</span> We now find the critical values of <span class="process-math">\(f\text{.}\)</span>
+</div> <div class="para" id="p-2887">Applying the <a href="" class="xref" data-knowl="./knowl/thm_chain_rule.html" title="Theorem 2.5.4: The Chain Rule">The Chain Rule</a>, we find <span class="process-math">\(\fp(x) = -2x\sin\mathopen{}\left(x^2\right)\mathclose{}\text{.}\)</span> Set <span class="process-math">\(\fp(x) = 0\)</span> and solve for <span class="process-math">\(x\)</span> to find the critical values of <span class="process-math">\(f\text{.}\)</span>
+</div> <div class="para" id="p-2888">We have <span class="process-math">\(\fp(x) = 0\)</span> when <span class="process-math">\(x = 0\)</span> and when <span class="process-math">\(\sin\mathopen{}\left(x^2\right)\mathclose{}\text{.}\)</span> In general, <span class="process-math">\(\sin(t) = 0\)</span> when <span class="process-math">\(t = \ldots -2\pi, -\pi, 0, \pi, \ldots\)</span> Thus <span class="process-math">\(\sin\mathopen{}\left(x^2\right)\mathclose{} = 0\)</span> when <span class="process-math">\(x^2 = 0, \pi, 2\pi, \ldots\)</span> (<span class="process-math">\(x^2\)</span> is always nonnegative so we ignore <span class="process-math">\(-\pi\text{,}\)</span> etc.) So <span class="process-math">\(\sin\mathopen{}\left(x^2\right)\mathclose{}=0\)</span> when <span class="process-math">\(x= 0, \pm \sqrt{\pi}, \pm\sqrt{2\pi}, \ldots\text{.}\)</span> The only values to fall in the given interval of <span class="process-math">\([-2,2]\)</span> are <span class="process-math">\(0\)</span> and <span class="process-math">\(\pm\sqrt{\pi}\text{,}\)</span> where <span class="process-math">\(\sqrt{\pi} \approx 1.77\text{.}\)</span>
+</div> <div class="para" id="p-2889">We again construct a table of important values in <a href="" class="xref" data-knowl="./knowl/table_ext6.html" title="Table 3.1.26: Finding the extrema of f(x)= \cos\mathopen{}\left(x^2\right)\mathclose{} in Example 3.1.25">Figure 3.1.26</a>. In this example we have five values to consider: <span class="process-math">\(x= 0, \pm 2, \pm\sqrt{\pi}\text{.}\)</span> From the table it is clear that the maximum value of <span class="process-math">\(f\)</span> on <span class="process-math">\([-2,2]\)</span> is <span class="process-math">\(1\text{;}\)</span> the minimum value is <span class="process-math">\(-1\text{.}\)</span> The graph in <a href="" class="xref" data-knowl="./knowl/fig_extval6.html" title="Figure 3.1.27">Figure 3.1.27</a> confirms our results.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel fixed-width bottom" style="width:47%;"><figure class="table table-like" id="table_ext6"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">3.1.26<span class="period">.</span></span><span class="space"> </span>Finding the extrema of <span class="process-math">\(f(x)= \cos\mathopen{}\left(x^2\right)\mathclose{}\)</span> in Example 3.1.25</figcaption><table class="tabular">
+<tr>
+<td class="l m b2 r0 l0 t0 lines"><span class="process-math">\(x\)</span></td>
+<td class="l m b2 r0 l0 t0 lines"><span class="process-math">\(f(x)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-0.65\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-\sqrt{\pi}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-1\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\sqrt{\pi}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-1\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-0.65\)</span></td>
+</tr>
+</table></figure></div>
+<div class="sbspanel bottom" style="width:47%;"><figure class="figure figure-like" id="fig_extval6"><img src="generated/latex-image/img_extval6.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.27<span class="period">.</span></span><span class="space"> </span>A graph of <span class="process-math">\(f(x)=\cos\mathopen{}\left(x^2\right)\mathclose{}\)</span> on <span class="process-math">\([-2,2]\)</span> as in <a href="" class="xref" data-knowl="./knowl/ex_extval6.html" title="Example 3.1.25: Finding extreme values">Example 3.1.25</a></figcaption></figure></div>
+</div></div>
+</div></div>
+</div></article><div class="para" id="p-2890">We consider one more example.</div>
+<article class="example example-like" id="ex_extval7"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.28</span><span class="period">.</span><span class="space"> </span><span class="title">Finding extreme values.</span>
+</h3>
+<div class="para" id="p-2891">Find the extreme values of <span class="process-math">\(f(x) = \sqrt{1-x^2}\text{,}\)</span> graphed in <a href="" class="xref" data-knowl="./knowl/fig_extval7.html" title="Figure 3.1.29">Figure 3.1.29</a>(a).</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image has-tabular" data-refid="hk-solution-232" id="solution-232"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-232"><div class="solution solution-like">
+<div class="para" id="p-2892">A closed interval is not given, so we find the extreme values of <span class="process-math">\(f\)</span> on its domain. <span class="process-math">\(f\)</span> is defined whenever <span class="process-math">\(1-x^2\geq 0\text{;}\)</span> thus the domain of <span class="process-math">\(f\)</span> is <span class="process-math">\([-1,1]\text{.}\)</span> Evaluating <span class="process-math">\(f\)</span> at either endpoint returns 0.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel bottom" style="width:47%;"><figure class="figure figure-like" id="fig_extval7"><img src="generated/latex-image/img_extval7.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.29<span class="period">.</span></span><span class="space"> </span>A graph of <span class="process-math">\(f(x)=\sqrt{1-x^2}\)</span> on <span class="process-math">\([-1,1]\)</span> as in <a href="" class="xref" data-knowl="./knowl/ex_extval7.html" title="Example 3.1.28: Finding extreme values">Example 3.1.28</a></figcaption></figure></div>
+<div class="sbspanel fixed-width bottom" style="width:47%;"><figure class="table table-like" id="table_ext7"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">3.1.30<span class="period">.</span></span><span class="space"> </span>Finding the extrema of the half-circle in Example 3.1.28</figcaption><table class="tabular">
+<tr>
+<td class="l m b2 r0 l0 t0 lines"><span class="process-math">\(x\)</span></td>
+<td class="l m b2 r0 l0 t0 lines"><span class="process-math">\(f(x)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+</tr>
+</table></figure></div>
+</div></div> <div class="para" id="p-2893">Using the <a href="" class="xref" data-knowl="./knowl/thm_chain_rule.html" title="Theorem 2.5.4: The Chain Rule">The Chain Rule</a>, we find <span class="process-math">\(\fp(x) = -x\big/\sqrt{1-x^2}\text{.}\)</span> The critical points of <span class="process-math">\(f\)</span> are found when <span class="process-math">\(\fp(x) = 0\)</span> or when <span class="process-math">\(\fp\)</span> is undefined. It is straightforward to find that <span class="process-math">\(\fp(x) = 0\)</span> when <span class="process-math">\(x=0\text{,}\)</span> and <span class="process-math">\(\fp\)</span> is undefined when <span class="process-math">\(x=\pm 1\text{,}\)</span> the endpoints of the interval (which <em class="emphasis">are</em> in the domain of <span class="process-math">\(f\text{.}\)</span>) The table of important values is given in <a href="" class="xref" data-knowl="./knowl/table_ext7.html" title="Table 3.1.30: Finding the extrema of the half-circle in Example 3.1.28">Figure 3.1.30</a>. The maximum value is <span class="process-math">\(1\text{,}\)</span> and the minimum value is <span class="process-math">\(0\text{.}\)</span>
+</div>
+</div></div>
+</div></article><aside class="aside aside-like" id="aside-17"><h3 class="heading"><span class="title">Circle Revisited.</span></h3>
+<div class="para" id="p-2894">We implicitly found the derivative of <span class="process-math">\(x^2+y^2=1\text{,}\)</span> the unit circle, in <a href="sec_imp_deriv.html" class="internal" title="Section 2.6: Implicit Differentiation">Section 2.6</a> <a href="" class="xref" data-knowl="./knowl/ex_implicit7.html" title="Example 2.6.11: Finding slopes of tangent lines to a circle">Example 2.6.11</a> as <span class="process-math">\(\lz{y}{x} = -x/y\text{.}\)</span> In <a href="" class="xref" data-knowl="./knowl/ex_extval7.html" title="Example 3.1.28: Finding extreme values">Example 3.1.28</a>, half of the unit circle is given as <span class="process-math">\(y=f(x) = \sqrt{1-x^2}\text{.}\)</span>
+</div>
+<div class="para" id="p-2895">We found <span class="process-math">\(\fp(x) = -x\big/\sqrt{1-x^2}\text{.}\)</span> Recognize that the denominator of this fraction is <span class="process-math">\(y\text{;}\)</span> that is, we again found <span class="process-math">\(\fp(x) = \lz{y}{x} = -x/y\text{.}\)</span>
+</div></aside><div class="para" id="p-2896">We have seen that continuous functions on closed intervals always have a maximum and minimum value, and we have also developed a technique to find these values. In <a href="sec_mvt.html" class="internal" title="Section 3.2: The Mean Value Theorem">Section 3.2</a>, we further our study of the information we can glean from “nice” functions with the Mean Value Theorem. On a closed interval, we can find the <em class="emphasis">average rate of change</em> of a function (as we did at the beginning of <a href="chapter_derivatives.html" class="internal" title="Chapter 2: Derivatives">Chapter 2</a>). We will see that differentiable functions always have a point at which their <em class="emphasis">instantaneous</em> rate of change is same as the <em class="emphasis">average</em> rate of change. This is surprisingly useful, as we'll see.</div>
+<section class="exercises" id="exercises-14"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h3>
+<article class="subexercises" id="subexercises-36"><h4 class="heading"><span class="title">Terms and Concepts</span></h4>
+<article class="exercise exercise-like" id="exercise-461"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
+<div class="para" id="p-2897">Describe what an “extreme value” of a function is in your own words.</div></article><article class="exercise exercise-like" id="exercise-462"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+<div class="para" id="p-2899">Sketch the graph of a function <span class="process-math">\(f\)</span> on <span class="process-math">\((-1,1)\)</span> that has both a maximum and minimum value.</div></article><article class="exercise exercise-like" id="exercise-463"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+<div class="para" id="p-2901">Describe the difference between absolute and relative maxima in your own words.</div></article><article class="exercise exercise-like" id="exercise-464"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
+<div class="para" id="p-2903">Sketch the graph of a function <span class="process-math">\(f\)</span> where <span class="process-math">\(f\)</span> has a relative maximum at <span class="process-math">\(x=1\)</span> and <span class="process-math">\(\fp(1)\)</span> is undefined.</div></article><article class="exercise exercise-like" id="exercise-465"><h5 class="heading"><span class="codenumber">5<span class="period">.</span></span></h5>
+<div class="para" id="p-2905">
+<ul style="list-style:circle;">
+<li id="li-729"><div class="para" id="p-2907">True</div></li>
+<li id="li-730"><div class="para" id="p-2908">False</div></li>
+</ul> If <span class="process-math">\(c\)</span> is a critical value of a function <span class="process-math">\(f\text{,}\)</span> then <span class="process-math">\(f\)</span> has either a relative maximum or relative minimum at <span class="process-math">\(x=c\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-466"><h5 class="heading"><span class="codenumber">6<span class="period">.</span></span></h5>
+<div class="para" id="p-2910">Fill in the blanks: The critical points of a function <span class="process-math">\(f\)</span> are found where <span class="process-math">\(\fp(x)\)</span> is equal to <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> or where <span class="process-math">\(\fp(x)\)</span> is <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>.</div></article></article><article class="subexercises" id="subexercises-37"><h4 class="heading"><span class="title">Problems</span></h4>
+<div class="exercisegroup" id="exercisegroup-53">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-61"><div class="para" id="p-2913">Identify each of the marked points as being an absolute maximum or minimum, a relative maximum or minimum, or none of the above.</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-467"><h6 class="heading"><span class="codenumber">7<span class="period">.</span></span></h6>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-456-image-1.png" class="contained"></div></article><article class="exercise exercise-like" id="exercise-468"><h6 class="heading"><span class="codenumber">8<span class="period">.</span></span></h6>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-457-image-1.png" class="contained"></div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exercisegroup-54">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-62"><div class="para" id="p-2922">Evaluate <span class="process-math">\(\fp(x)\)</span> at the points indicated in the graph.</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-469"><h6 class="heading"><span class="codenumber">9<span class="period">.</span></span></h6>
+<div class="para" id="p-2923"><span class="process-math">\(f(x) = {\frac{2}{x^{2}+1}}\)</span></div>  <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-458-image-1.png" class="contained"></div></article><article class="exercise exercise-like" id="exercise-470"><h6 class="heading"><span class="codenumber">10<span class="period">.</span></span></h6>
+<div class="para" id="p-2925"><span class="process-math">\(f(x) = {x^{2}\sqrt{6-x^{2}}}\)</span></div>  <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-459-image-1.png" class="contained"></div></article><article class="exercise exercise-like" id="exercise-471"><h6 class="heading"><span class="codenumber">11<span class="period">.</span></span></h6>
+<div class="para" id="p-2928"><span class="process-math">\(f(x) = {\sin\!\left(x\right)}\)</span></div>  <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-460-image-1.png" class="contained"></div></article><article class="exercise exercise-like" id="exercise-472"><h6 class="heading"><span class="codenumber">12<span class="period">.</span></span></h6>
+<div class="para" id="p-2931"><span class="process-math">\(f(x) = {x^{2}\sqrt{4-x}}\)</span></div>  <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-461-image-1.png" class="contained"></div></article><article class="exercise exercise-like" id="exercise-473"><h6 class="heading"><span class="codenumber">13<span class="period">.</span></span></h6>
+<div class="para" id="p-2935"><span class="process-math">\(f(x) = {1+\frac{\left(x-2\right)^{\frac{2}{3}}}{x}}\)</span></div>  <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-462-image-1.png" class="contained"></div></article><article class="exercise exercise-like" id="exercise-474"><h6 class="heading"><span class="codenumber">14<span class="period">.</span></span></h6>
+<div class="para" id="p-2938"><span class="process-math">\(f(x) = {\sqrt[3]{x^{4}-2x^{2}+1}}\)</span></div>  <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-463-image-1.png" class="contained"></div></article><article class="exercise exercise-like" id="exercise-475"><h6 class="heading"><span class="codenumber">15<span class="period">.</span></span></h6>
+<div class="para" id="p-2941"><span class="process-math">\(f(x) = \begin{cases}x^2,\amp x\leq0\\x^5,\amp x\gt0\end{cases}\)</span></div>  <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-464-image-1.png" class="contained"></div></article><article class="exercise exercise-like" id="exercise-476"><h6 class="heading"><span class="codenumber">16<span class="period">.</span></span></h6>
+<div class="para" id="p-2943"><span class="process-math">\(f(x) = \begin{cases}x^2,\amp x\leq0\\x,\amp x\gt0\end{cases}\)</span></div>  <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-465-image-1.png" class="contained"></div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exercisegroup-55">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-63"><div class="para" id="p-2945">Find the extreme values of the function on the given interval.</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-477"><h6 class="heading"><span class="codenumber">17<span class="period">.</span></span></h6>
+<div class="para" id="p-2946">
+<span class="process-math">\(f(x) = {x^{2}+2x-8}\)</span> on <span class="process-math">\([-2,1]\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-478"><h6 class="heading"><span class="codenumber">18<span class="period">.</span></span></h6>
+<div class="para" id="p-2949">
+<span class="process-math">\(f(x) = {x^{3}-6x^{2}-63x-1}\)</span> on <span class="process-math">\([{0},9]\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-479"><h6 class="heading"><span class="codenumber">19<span class="period">.</span></span></h6>
+<div class="para" id="p-2952">
+<span class="process-math">\(f(x) = {4\sin\!\left(x\right)}\)</span> on <span class="process-math">\(\left[{\frac{\pi }{6}},{\frac{2\pi }{3}}\right]\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-480"><h6 class="heading"><span class="codenumber">20<span class="period">.</span></span></h6>
+<div class="para" id="p-2955">
+<span class="process-math">\(f(x) = {x^{6}\sqrt{1-x^{2}}}\)</span> on <span class="process-math">\([-1,1]\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-481"><h6 class="heading"><span class="codenumber">21<span class="period">.</span></span></h6>
+<div class="para" id="p-2958">
+<span class="process-math">\(f(x) = {x+\frac{2}{x}}\)</span> on <span class="process-math">\([1,6]\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-482"><h6 class="heading"><span class="codenumber">22<span class="period">.</span></span></h6>
+<div class="para" id="p-2961">
+<span class="process-math">\(f(x) = {\frac{x^{2}}{x^{2}+4}}\)</span> on <span class="process-math">\([-8,6]\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-483"><h6 class="heading"><span class="codenumber">23<span class="period">.</span></span></h6>
+<div class="para" id="p-2964">
+<span class="process-math">\(f(x) = {e^{x}\cos\!\left(x\right)}\)</span> on <span class="process-math">\([{0},{\pi }]\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-484"><h6 class="heading"><span class="codenumber">24<span class="period">.</span></span></h6>
+<div class="para" id="p-2967">
+<span class="process-math">\(f(x) = {e^{x}\sin\!\left(x\right)}\)</span> on <span class="process-math">\([{0},{\pi }]\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-485"><h6 class="heading"><span class="codenumber">25<span class="period">.</span></span></h6>
+<div class="para" id="p-2970">
+<span class="process-math">\(f(x) = {\frac{\ln\!\left(x\right)}{x^{2}}}\)</span> on <span class="process-math">\([{1},5]\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-486"><h6 class="heading"><span class="codenumber">26<span class="period">.</span></span></h6>
+<div class="para" id="p-2973">
+<span class="process-math">\(f(x) = {x^{\left({\frac{7}{4}}\right)}-x^{5}}\)</span> on <span class="process-math">\([{0},3]\)</span>
+</div></article>
+</div>
+</div></article><article class="subexercises" id="subexercises-38"><h4 class="heading"><span class="title">Review</span></h4>
+<article class="exercise exercise-like" id="exercise-487"><h5 class="heading"><span class="codenumber">27<span class="period">.</span></span></h5>
+<div class="para" id="p-2976">Find <span class="process-math">\(\lz{y}{x}\text{,}\)</span> where <span class="process-math">\({x^{2}y^{3}-y^{2}x}=1\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-488"><h5 class="heading"><span class="codenumber">28<span class="period">.</span></span></h5>
+<div class="para" id="p-2978">Find the equation of the line tangent to the graph of <span class="process-math">\({x^{4}+y^{4}+xy}={28}\)</span> at the point <span class="process-math">\((-2,2)\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-489"><h5 class="heading"><span class="codenumber">29<span class="period">.</span></span></h5>
+<div class="para" id="p-2980">Let <span class="process-math">\(f(x) = {x^{4}+2x}\text{.}\)</span> Find <span class="process-math">\(\lim\limits_{s\to 0} \frac{f(x+s)-f(x)}{s}\text{.}\)</span>
+</div></article></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="chapter_graphbehavior.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec_mvt.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
+<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+</div>
+</body>
+</html>

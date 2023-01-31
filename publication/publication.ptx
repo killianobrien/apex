@@ -8,7 +8,7 @@
         <version include="color video taypoly-late"/>
     </source>
 
-    <webwork server="https://webwork-dev.uleth.ca"/>
+    <!-- <webwork server="https://webwork-dev.uleth.ca"/> -->
 
     <common>
       <tableofcontents level="3"/>
@@ -23,7 +23,7 @@
         <baseurl href="https://opentext.uleth.ca/apex-video"/>
         <knowl example="no"/>
         <asymptote links="yes"/>
-        <webwork divisional="dynamic"/>
+        <webwork divisional="static"/>
         <css toc="crc" banner="crc" navbar="crc" shell="crc"/>
     </html>
     <!-- PDF-Specific Options -->

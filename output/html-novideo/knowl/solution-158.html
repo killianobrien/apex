@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">2.6.2.1</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">We start by taking the derivative of both sides (thus maintaining the equality.) We have:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lzoo{x}{\sin(y) + y^3}=\lzoo{x}{6-x^3}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para">The right hand side is easy; it returns <span class="process-math">\(-3x^2\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">The left hand side requires more consideration. We take the derivative term-by-term. Using the technique derived from <a href="" class="xref" data-knowl="./knowl/eq_implicit1.html" title="Equation 2.6.1">Equation (2.6.1)</a> above, we can see that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_implicit1.html">
+\begin{equation*}
+\lzoo{x}{\sin(y)} = \cos(y) \cdot y'\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">We apply the same process to the <span class="process-math">\(y^3\)</span> term.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lzoo{x}{y^3} = \lzoo{(y)^3} = 3(y)^2\cdot y'\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">Putting this together with the right hand side, we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cos(y)y'+3y^2y' = -3x^2\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">Now solve for <span class="process-math">\(y'\text{.}\)</span> It's important to treat <span class="process-math">\(y'\)</span> as an algebraically independent variable from <span class="process-math">\(y\)</span> and <span class="process-math">\(x\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\cos(y)y'+3y^2y'\amp = -3x^2\\
+\left(\cos(y) +3y^2\right)y' \amp =-3x^2\\
+y'\amp =\frac{-3x^2}{\cos(y) +3y^2}
+\end{align*}
+</div>
+</div> <div class="para">This equation for <span class="process-math">\(y'\)</span> probably seems unusual for it contains both <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> terms. How is it to be used? We'll address that next.</div>
+</div>
+<span class="incontext"><a href="sec_imp_deriv.html#solution-158" class="internal">in-context</a></span>
+</body>
+</html>

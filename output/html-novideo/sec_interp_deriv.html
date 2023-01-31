@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>APEX Interpretations of the Derivative</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://opentext.uleth.ca/apex-calculus/external/images/APEX.png">
+<meta property="book:title" content="APEX Calculus">
+<meta property="book:author" content="Gregory Hartman, Ph.D.">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="http://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.geogebra.org/apps/deployggb.js"></script><link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '5.0.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/runtime.6b31f4c5fa38d888.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/runestone.06446f602ba3689b.bundle.js"></script><link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.4.4/637.0fa6cababf056764.css">
+<link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.4.4/runestone.93e720e6c6581fb5.css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href="http://www.apexcalculus.com" target="_blank"><img src="external/images/APEX.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="apex-calculus.html"><span class="title">APEX Calculus</span></a></h1>
+<p class="byline">Gregory Hartman, Ph.D., Sean Fitzpatrick, Ph.D. (Editor), Alex Jordan, Ph.D. (Editor), Carly Vollet, M.S. (Editor)</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><button id="calculator-toggle" class="calculator-toggle button" title="Show calculator" aria-expanded="false" aria-controls="calculator-container"><span class="name">Calc</span></button><div id="calculator-container" class="calculator-container" style="display: none; z-index:100;"><div id="geogebra-calculator"></div></div>
+<script>
+var ggbApp = new GGBApplet({"appName": "graphing",
+    "width": 330,
+    "height": 600,
+    "showToolBar": true,
+    "showAlgebraInput": true,
+    "perspective": "G/A",
+    "algebraInputPosition": "bottom",
+    "scaleContainerClass": "calculator-container",
+    "allowUpscale": true,
+    "autoHeight": true,
+    "disableAutoScale": false},
+true);
+</script><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec_derivative.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="chapter_derivatives.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec_basic_diff_rules.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\highlight}[1]{{\color{blue}{#1}}}
+\newcommand{\apex}{\mbox{\hbox{A}\kern -1pt \lower -2pt\hbox{P}\kern -4pt \lower .7ex\hbox{E}\kern -1pt \hbox{X}}}
+\newcommand{\colorlinecolor}{blue!95!black!30}
+\newcommand{\bwlinecolor}{black!30}
+\newcommand{\thelinecolor}{\colorlinecolor}
+\newcommand{\colornamesuffix}{}
+\newcommand{\linestyle}{[thick, \thelinecolor]}
+\newcommand{\bmx}[1]{\left[\hskip -3pt\begin{array}{#1} }
+\newcommand{\emx}{\end{array}\hskip -3pt\right]}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\fp}{f'}
+\newcommand{\fpp}{f''}
+
+\newcommand{\lz}[2]{\frac{d#1}{d#2}}
+\newcommand{\lzn}[3]{\frac{d^{#1}#2}{d#3^{#1}}}
+\newcommand{\lzo}[1]{\frac{d}{d#1}}
+\newcommand{\lzoo}[2]{{\frac{d}{d#1}}{\left(#2\right)}}
+\newcommand{\lzon}[2]{\frac{d^{#1}}{d#2^{#1}}}
+\newcommand{\lzoa}[3]{\left.{\frac{d#1}{d#2}}\right|_{#3}}
+\newcommand{\plz}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\plzoa}[3]{\left.{\frac{\partial#1}{\partial#2}}\right|_{#3}}
+
+\newcommand{\inflim}[1][n]{\lim\limits_{#1 \to \infty}}
+
+\newcommand{\infser}[1][1]{\sum_{n=#1}^\infty}
+
+\newcommand{\Fp}{F\primeskip'}
+\newcommand{\Fpp}{F\primeskip''}
+\newcommand{\yp}{y\primeskip'}
+\newcommand{\gp}{g\primeskip'}
+\newcommand{\dx}{\Delta x}
+\newcommand{\dy}{\Delta y}
+\newcommand{\ddz}{\Delta z}
+\newcommand{\thet}{\theta}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\vnorm}[1]{\left\lVert\vec #1\right\rVert}
+\newcommand{\snorm}[1]{\left|\left|\,#1\,\right|\right|}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+\newcommand{\dotp}[2]{\vec #1 \cdot \vec #2}
+\newcommand{\proj}[2]{\text{proj}_{\,\vec #2}{\,\vec #1}}
+\newcommand{\crossp}[2]{\vec #1 \times \vec #2}
+\newcommand{\veci}{\vec i}
+\newcommand{\vecj}{\vec j}
+\newcommand{\veck}{\vec k}
+\newcommand{\vecu}{\vec u}
+\newcommand{\vecv}{\vec v}
+\newcommand{\vecw}{\vec w}
+\newcommand{\vecx}{\vec x}
+\newcommand{\vecy}{\vec y}
+\newcommand{\vrp}{\vec r\hskip0.75pt '}
+\newcommand{\vrpp}{\vec r\hskip0.75pt ''}
+\newcommand{\vsp}{\vec s\hskip0.75pt '}
+\newcommand{\vrt}{\vec r(t)}
+\newcommand{\vst}{\vec s(t)}
+\newcommand{\vvt}{\vec v(t)}
+\newcommand{\vat}{\vec a(t)}
+\newcommand{\px}{\partial x}
+\newcommand{\py}{\partial y}
+\newcommand{\pz}{\partial z}
+\newcommand{\pf}{\partial f}
+\newcommand{\unittangent}{\vec{{}T}}
+\newcommand{\unitnormal}{\vec{N}}
+\newcommand{\unittangentprime}{\vec{{}T}\hskip0.75pt '}
+\newcommand{\mathN}{\mathbb{N}}
+\newcommand{\surfaceS}{\mathcal{S}}
+\newcommand{\zerooverzero}{\ds \raisebox{8pt}{\text{``\ }}\frac{0}{0}\raisebox{8pt}{\textit{ ''}}}
+\newcommand{\deriv}[2]{\myds\frac{d}{dx}\left(#1\right)=#2}
+\newcommand{\myint}[2]{\myds\int #1\, dx= {\ds #2}}
+\newcommand{\primeskip}{\hskip.75pt}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\csch}{\operatorname{csch}}
+\newcommand{\curl}{\operatorname{curl}}
+\newcommand{\divv}{\operatorname{div}}
+\newcommand{\Hess}{\operatorname{Hess}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li>
+<div class="toc-item"><a href="frontmatter-1.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="acknowledgement.html" class="internal"><span class="title">Thanks</span></a></div></li>
+<li><div class="toc-item"><a href="apex-preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li><div class="toc-item"><a href="preface-history.html" class="internal"><span class="title">A Brief History of Calculus</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_limits.html" class="internal"><span class="codenumber">1</span> <span class="title">Limits</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_limit_intro.html" class="internal"><span class="codenumber">1.1</span> <span class="title">An Introduction To Limits</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_limit_intro.html#subsec_nolimit3" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Identifying When Limits Do Not Exist</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limit_intro.html#sec_diff_quot_intro" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Limits of Difference Quotients</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limit_intro.html#exercises-1" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limit_def.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Epsilon-Delta Definition of a Limit</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limit_def.html#exercises-2" class="internal"><span class="codenumber">1.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limit_analytically.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Finding Limits Analytically</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limit_analytically.html#exercises-3" class="internal"><span class="codenumber">1.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limits_one_sided.html" class="internal"><span class="codenumber">1.4</span> <span class="title">One-Sided Limits</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limits_one_sided.html#exercises-4" class="internal"><span class="codenumber">1.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_continuity.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuity</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_continuity.html#exercises-5" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limits_infty.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Limits Involving Infinity</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-3" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Vertical asymptotes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-4" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Indeterminate Forms</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-5" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Limits at Infinity and Horizontal Asymptotes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#exercises-6" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_derivatives.html" class="internal"><span class="codenumber">2</span> <span class="title">Derivatives</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_derivative.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Instantaneous Rates of Change: The Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_derivative.html#sec-deriv-intro" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Introduction</span></a></div></li>
+<li><div class="toc-item"><a href="sec_derivative.html#subsection-7" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Differentiability on Closed Intervals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_derivative.html#exercises-7" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="sec_interp_deriv.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Interpretations of the Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-8" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Interpretation of the Derivative as Instantaneous Rate of Change</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-9" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Units of the Derivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-10" class="internal"><span class="codenumber">2.2.3</span> <span class="title">The Derivative and Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-11" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Interpretation of the Derivative as the Slope of the Tangent Line</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#exercises-8" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_basic_diff_rules.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Basic Differentiation Rules</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#subsection-12" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Higher Order Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#subsection-13" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Interpreting Higher Order Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#exercises-9" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_prod_quot_rules.html" class="internal"><span class="codenumber">2.4</span> <span class="title">The Product and Quotient Rules</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_prod_quot_rules.html#exercises-10" class="internal"><span class="codenumber">2.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_chainrule.html" class="internal"><span class="codenumber">2.5</span> <span class="title">The Chain Rule</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_chainrule.html#exercises-11" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_imp_deriv.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Implicit Differentiation</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-14" class="internal"><span class="codenumber">2.6.1</span> <span class="title">The method of implicit differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-15" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Implicit Differentiation and the Second Derivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-16" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Logarithmic Differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#exercises-12" class="internal"><span class="codenumber">2.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_deriv_inverse_function.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Derivatives of Inverse Functions</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_deriv_inverse_function.html#exercises-13" class="internal"><span class="codenumber">2.7</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_graphbehavior.html" class="internal"><span class="codenumber">3</span> <span class="title">The Graphical Behavior of Functions</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_extreme_values.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Extreme Values</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_extreme_values.html#exercises-14" class="internal"><span class="codenumber">3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_mvt.html" class="internal"><span class="codenumber">3.2</span> <span class="title">The Mean Value Theorem</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_mvt.html#exercises-15" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_incr_decr.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Increasing and Decreasing Functions</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_incr_decr.html#exercises-16" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_concavity.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Concavity and the Second Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_concavity.html#subsection-17" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Concavity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_concavity.html#subsection-18" class="internal"><span class="codenumber">3.4.2</span> <span class="title">The Second Derivative Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_concavity.html#exercises-17" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_sketch.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Curve Sketching</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_sketch.html#exercises-18" class="internal"><span class="codenumber">3.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_deriv_apps.html" class="internal"><span class="codenumber">4</span> <span class="title">Applications of the Derivative</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_newton.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Newton's Method</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_newton.html#exercises-19" class="internal"><span class="codenumber">4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_related_rates.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Related Rates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_related_rates.html#exercises-20" class="internal"><span class="codenumber">4.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_optimization.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Optimization</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_optimization.html#exercises-21" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_differentials.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Differentials</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_differentials.html#exercises-22" class="internal"><span class="codenumber">4.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_integration.html" class="internal"><span class="codenumber">5</span> <span class="title">Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_antider.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Antiderivatives and Indefinite Integration</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_antider.html#exercises-23" class="internal"><span class="codenumber">5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_def_int.html" class="internal"><span class="codenumber">5.2</span> <span class="title">The Definite Integral</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_def_int.html#exercises-24" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_riemann.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Riemann Sums</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_riemann.html#fig_rie_notation" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Summation Notation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#subsection-20" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Riemann Sums</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#subsection-21" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Limits of Riemann Sums</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#exercises-25" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_FTC.html" class="internal"><span class="codenumber">5.4</span> <span class="title">The Fundamental Theorem of Calculus</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-22" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Fundamental Theorem of Calculus, Parts 1 and 2</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-23" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Understanding Motion with the Fundamental Theorem of Calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#sec-FTC-chain" class="internal"><span class="codenumber">5.4.3</span> <span class="title">The Fundamental Theorem of Calculus and the Chain Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#sec-FTC-ABC" class="internal"><span class="codenumber">5.4.4</span> <span class="title">Area Between Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-26" class="internal"><span class="codenumber">5.4.5</span> <span class="title">The Mean Value Theorem and Average Value</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#exercises-26" class="internal"><span class="codenumber">5.4.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_numerical_integration.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Numerical Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-27" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Left and Right Hand Rule Methods</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-28" class="internal"><span class="codenumber">5.5.2</span> <span class="title">The Trapezoidal Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-29" class="internal"><span class="codenumber">5.5.3</span> <span class="title">The Midpoint Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-30" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Simpson's Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-31" class="internal"><span class="codenumber">5.5.5</span> <span class="title">Summary and Error Analysis</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#exercises-27" class="internal"><span class="codenumber">5.5.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_anti_tech.html" class="internal"><span class="codenumber">6</span> <span class="title">Techniques of Antidifferentiation</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_substitution.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Substitution</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-32" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Integrals Involving Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-33" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Simplifying the Integrand</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-34" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Substitution and Inverse Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#sec-sub-def-int" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Substitution and Definite Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#exercises-28" class="internal"><span class="codenumber">6.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_IBP.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Integration by Parts</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_IBP.html#exercises-29" class="internal"><span class="codenumber">6.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_trigint.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Trigonometric Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-36" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Integrals of the form <span class="process-math">\(\int \sin^m(x) \cos^n(x) \, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-37" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Integrals of the form <span class="process-math">\(\int\sin(mx)\sin(nx)\, dx\text{,}\)</span> <span class="process-math">\(\int \cos(mx)\cos(nx)\, dx\text{,}\)</span> and <span class="process-math">\(\int \sin(mx)\cos(nx)\, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-38" class="internal"><span class="codenumber">6.3.3</span> <span class="title">Integrals of the form <span class="process-math">\(\int\tan^m(x) \sec^n(x) \, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#exercises-30" class="internal"><span class="codenumber">6.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_trig_sub.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Trigonometric Substitution</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_trig_sub.html#exercises-31" class="internal"><span class="codenumber">6.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_partial_fraction.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Partial Fraction Decomposition</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_partial_fraction.html#exercises-32" class="internal"><span class="codenumber">6.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_hyperbolic.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Hyperbolic Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_hyperbolic.html#sec-hyp-def" class="internal"><span class="codenumber">6.6.1</span> <span class="title">The Hyperbolic Functions and their Properties</span></a></div></li>
+<li><div class="toc-item"><a href="sec_hyperbolic.html#subsection-40" class="internal"><span class="codenumber">6.6.2</span> <span class="title">Inverse Hyperbolic Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_hyperbolic.html#exercises-33" class="internal"><span class="codenumber">6.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_lhopitals_rule.html" class="internal"><span class="codenumber">6.7</span> <span class="title">L'Hospital's Rule</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#sec_lhopital_statement" class="internal"><span class="codenumber">6.7.1</span> <span class="title">L'Hospital's Rule with indeterminate forms <span class="process-math">\(0/0\)</span> and <span class="process-math">\(\infty/\infty\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#subsection-42" class="internal"><span class="codenumber">6.7.2</span> <span class="title">Indeterminate Forms <span class="process-math">\(0\cdot\infty\)</span> and <span class="process-math">\(\infty-\infty\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#subsection-43" class="internal"><span class="codenumber">6.7.3</span> <span class="title">Indeterminate Forms  <span class="process-math">\(0^0\text{,}\)</span> <span class="process-math">\(1^\infty\)</span> and <span class="process-math">\(\infty^0\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#exercises-34" class="internal"><span class="codenumber">6.7.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_improper_integration.html" class="internal"><span class="codenumber">6.8</span> <span class="title">Improper Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-44" class="internal"><span class="codenumber">6.8.1</span> <span class="title">Improper Integrals with Infinite Bounds</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-45" class="internal"><span class="codenumber">6.8.2</span> <span class="title">Improper Integrals with Infinite Range</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-46" class="internal"><span class="codenumber">6.8.3</span> <span class="title">Understanding Convergence and Divergence</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#exercises-35" class="internal"><span class="codenumber">6.8.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_app_of_int.html" class="internal"><span class="codenumber">7</span> <span class="title">Applications of Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_ABC.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Area Between Curves</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_ABC.html#exercises-36" class="internal"><span class="codenumber">7.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_disk.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Volume by Cross-Sectional Area; Disk and Washer Methods</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_disk.html#exercises-37" class="internal"><span class="codenumber">7.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_shell_method.html" class="internal"><span class="codenumber">7.3</span> <span class="title">The Shell Method</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_shell_method.html#exercises-38" class="internal"><span class="codenumber">7.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_arc_length.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Arc Length and Surface Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_arc_length.html#subsec-arc-length" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_arc_length.html#sec_surface_area_revolution" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Surface Area of Solids of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_arc_length.html#exercises-39" class="internal"><span class="codenumber">7.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_work.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Work</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_work.html#sec_work_variable_force" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Work Done by a Variable Force</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#subsection-50" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Hooke's Law and Springs</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#subsection-51" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Pumping Fluids</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#exercises-40" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_fluid_force.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Fluid Forces</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_fluid_force.html#exercises-41" class="internal"><span class="codenumber">7.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_differential_equations.html" class="internal"><span class="codenumber">8</span> <span class="title">Differential Equations</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_Graphical_Numerical.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Graphical and Numerical Solutions to Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-52" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Introduction and Terminology</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-53" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Graphical Solutions to Differential Equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-54" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Numerical Solutions to Differential Equations: Euler's Method</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#exercises-42" class="internal"><span class="codenumber">8.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Separable.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Separable Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Separable.html#subsection-55" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Separation of Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Separable.html#exercises-43" class="internal"><span class="codenumber">8.2.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Linear.html" class="internal"><span class="codenumber">8.3</span> <span class="title">First Order Linear Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Linear.html#subsection-56" class="internal"><span class="codenumber">8.3.1</span> <span class="title">Solving First Order Linear Equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Linear.html#exercises-44" class="internal"><span class="codenumber">8.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Modeling.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Modeling with Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Modeling.html#subsection-57" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Models Involving Proportional Change</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Modeling.html#subsection-58" class="internal"><span class="codenumber">8.4.2</span> <span class="title">Rate-in Rate-out Problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Modeling.html#exercises-45" class="internal"><span class="codenumber">8.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_sequences_series.html" class="internal"><span class="codenumber">9</span> <span class="title">Sequences and Series</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_sequences.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Sequences</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_sequences.html#exercises-46" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_series.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Infinite Series</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_series.html#subsec-series-convergence" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Convergence of sequences</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#subsection-60" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Geometric Series</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#subsection-61" class="internal"><span class="codenumber">9.2.3</span> <span class="title"><span class="process-math">\(p\)</span>-Series</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#exercises-47" class="internal"><span class="codenumber">9.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_int_comp_tests.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integral and Comparison Tests</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-62" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Integral Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-63" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Direct Comparison Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-64" class="internal"><span class="codenumber">9.3.3</span> <span class="title">Limit Comparison Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#exercises-48" class="internal"><span class="codenumber">9.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_ratio_root_tests.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Ratio and Root Tests</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#subsection-65" class="internal"><span class="codenumber">9.4.1</span> <span class="title">Ratio Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#subsection-66" class="internal"><span class="codenumber">9.4.2</span> <span class="title">Root Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#exercises-49" class="internal"><span class="codenumber">9.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_alt_series.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Alternating Series and Absolute Convergence</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_alt_series.html#exercises-50" class="internal"><span class="codenumber">9.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_power_series.html" class="internal"><span class="codenumber">9.6</span> <span class="title">Power Series</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_power_series.html#exercises-51" class="internal"><span class="codenumber">9.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_taylor_poly.html" class="internal"><span class="codenumber">9.7</span> <span class="title">Taylor Polynomials</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_taylor_poly.html#exercises-52" class="internal"><span class="codenumber">9.7</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_taylor_series.html" class="internal"><span class="codenumber">9.8</span> <span class="title">Taylor Series</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_taylor_series.html#exercises-53" class="internal"><span class="codenumber">9.8</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_planar_curves.html" class="internal"><span class="codenumber">10</span> <span class="title">Curves in the Plane</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_conic_sections.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Conic Sections</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-parabola" class="internal"><span class="codenumber">10.1.1</span> <span class="title">Parabolas</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-ellipse" class="internal"><span class="codenumber">10.1.2</span> <span class="title">Ellipses</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-hyperbola" class="internal"><span class="codenumber">10.1.3</span> <span class="title">Hyperbolas</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#exercises-54" class="internal"><span class="codenumber">10.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_param_eqs.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Parametric Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsec-parametric-plot" class="internal"><span class="codenumber">10.2.1</span> <span class="title">Plotting parametric curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsection-71" class="internal"><span class="codenumber">10.2.2</span> <span class="title">Converting between rectangular and parametric equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsection-72" class="internal"><span class="codenumber">10.2.3</span> <span class="title">Special Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#exercises-55" class="internal"><span class="codenumber">10.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_par_calc.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Calculus and Parametric Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-73" class="internal"><span class="codenumber">10.3.1</span> <span class="title">Concavity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-74" class="internal"><span class="codenumber">10.3.2</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-75" class="internal"><span class="codenumber">10.3.3</span> <span class="title">Surface Area of a Solid of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#exercises-56" class="internal"><span class="codenumber">10.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_polar.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Introduction to Polar Coordinates</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_polar.html#subsection-76" class="internal"><span class="codenumber">10.4.1</span> <span class="title">Polar Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#subsection-77" class="internal"><span class="codenumber">10.4.2</span> <span class="title">Polar to Rectangular Conversion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#subsection-78" class="internal"><span class="codenumber">10.4.3</span> <span class="title">Polar Functions and Polar Graphs</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#exercises-57" class="internal"><span class="codenumber">10.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_polarcalc.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Calculus and Polar Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-79" class="internal"><span class="codenumber">10.5.1</span> <span class="title">Polar Functions and <span class="process-math">\(dy/dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-80" class="internal"><span class="codenumber">10.5.2</span> <span class="title">Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-81" class="internal"><span class="codenumber">10.5.3</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-82" class="internal"><span class="codenumber">10.5.4</span> <span class="title">Surface Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#exercises-58" class="internal"><span class="codenumber">10.5.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_vectors.html" class="internal"><span class="codenumber">11</span> <span class="title">Vectors</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_space_coord.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Introduction to Cartesian Coordinates in Space</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_space_coord.html#subsection-83" class="internal"><span class="codenumber">11.1.1</span> <span class="title">Measuring Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsection-84" class="internal"><span class="codenumber">11.1.2</span> <span class="title">Spheres</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#sec-planes-in-space" class="internal"><span class="codenumber">11.1.3</span> <span class="title">Introduction to Planes in Space</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-cylinders" class="internal"><span class="codenumber">11.1.4</span> <span class="title">Cylinders</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-surface-revolution" class="internal"><span class="codenumber">11.1.5</span> <span class="title">Surfaces of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-quadric" class="internal"><span class="codenumber">11.1.6</span> <span class="title">Quadric Surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#exercises-59" class="internal"><span class="codenumber">11.1.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vector_intro.html" class="internal"><span class="codenumber">11.2</span> <span class="title">An Introduction to Vectors</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_vector_intro.html#exercises-60" class="internal"><span class="codenumber">11.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_dot_product.html" class="internal"><span class="codenumber">11.3</span> <span class="title">The Dot Product</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_dot_product.html#subsection-89" class="internal"><span class="codenumber">11.3.1</span> <span class="title">Application to Work</span></a></div></li>
+<li><div class="toc-item"><a href="sec_dot_product.html#exercises-61" class="internal"><span class="codenumber">11.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_cross_product.html" class="internal"><span class="codenumber">11.4</span> <span class="title">The Cross Product</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_cross_product.html#subsection-90" class="internal"><span class="codenumber">11.4.1</span> <span class="title">Properties of the Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cross_product.html#subsection-91" class="internal"><span class="codenumber">11.4.2</span> <span class="title">Applications of the Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cross_product.html#exercises-62" class="internal"><span class="codenumber">11.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_lines.html" class="internal"><span class="codenumber">11.5</span> <span class="title">Lines</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_lines.html#subsec_lines_space_def" class="internal"><span class="codenumber">11.5.1</span> <span class="title">Lines in space</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#subsec-lines-compare" class="internal"><span class="codenumber">11.5.2</span> <span class="title">Parallel, Intersecting and Skew Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#subsection-94" class="internal"><span class="codenumber">11.5.3</span> <span class="title">Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#exercises-63" class="internal"><span class="codenumber">11.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_planes.html" class="internal"><span class="codenumber">11.6</span> <span class="title">Planes</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_planes.html#subsec_planes_distances" class="internal"><span class="codenumber">11.6.1</span> <span class="title">Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_planes.html#exercises-64" class="internal"><span class="codenumber">11.6.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap_vvf.html" class="internal"><span class="codenumber">12</span> <span class="title">Vector Valued Functions</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_vvf.html" class="internal"><span class="codenumber">12.1</span> <span class="title">Vector-Valued Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf.html#subsec-eval-vvf" class="internal"><span class="codenumber">12.1.1</span> <span class="title">Evaluating and Graphing Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#subsection-97" class="internal"><span class="codenumber">12.1.2</span> <span class="title">Algebra of Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#subsec_vvf_displacement" class="internal"><span class="codenumber">12.1.3</span> <span class="title">Displacement</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#exercises-65" class="internal"><span class="codenumber">12.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vvf_calc.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Calculus and Vector-Valued Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsec_vvf_limits" class="internal"><span class="codenumber">12.2.1</span> <span class="title">Limits of Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsec_vvf_continuity" class="internal"><span class="codenumber">12.2.2</span> <span class="title">Continuity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsection-101" class="internal"><span class="codenumber">12.2.3</span> <span class="title">Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsection-102" class="internal"><span class="codenumber">12.2.4</span> <span class="title">Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#exercises-66" class="internal"><span class="codenumber">12.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vvf_motion.html" class="internal"><span class="codenumber">12.3</span> <span class="title">The Calculus of Motion</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf_motion.html#subsec_vvf_projectile" class="internal"><span class="codenumber">12.3.1</span> <span class="title">Projectile Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_motion.html#subsection-104" class="internal"><span class="codenumber">12.3.2</span> <span class="title">Distance Traveled</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_motion.html#exercises-67" class="internal"><span class="codenumber">12.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_tan_norm.html" class="internal"><span class="codenumber">12.4</span> <span class="title">Unit Tangent and Normal Vectors</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-105" class="internal"><span class="codenumber">12.4.1</span> <span class="title">Unit Tangent Vector</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-106" class="internal"><span class="codenumber">12.4.2</span> <span class="title">Unit Normal Vector</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-107" class="internal"><span class="codenumber">12.4.3</span> <span class="title">Application to Acceleration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#exercises-68" class="internal"><span class="codenumber">12.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_curvature.html" class="internal"><span class="codenumber">12.5</span> <span class="title">The Arc Length Parameter and Curvature</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-108" class="internal"><span class="codenumber">12.5.1</span> <span class="title">The Arc Length Paramtrization</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-109" class="internal"><span class="codenumber">12.5.2</span> <span class="title">Curvature</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-110" class="internal"><span class="codenumber">12.5.3</span> <span class="title">Curvature and Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#exercises-69" class="internal"><span class="codenumber">12.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_multi.html" class="internal"><span class="codenumber">13</span> <span class="title">Functions of Several Variables</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_multi_intro.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Introduction to Multivariable Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-111" class="internal"><span class="codenumber">13.1.1</span> <span class="title">Graphing Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-112" class="internal"><span class="codenumber">13.1.2</span> <span class="title">Level Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-113" class="internal"><span class="codenumber">13.1.3</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-114" class="internal"><span class="codenumber">13.1.4</span> <span class="title">Level Surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#exercises-70" class="internal"><span class="codenumber">13.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_limit.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Limits and Continuity of Multivariable Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsec-multivariable-topology" class="internal"><span class="codenumber">13.2.1</span> <span class="title">Open and Closed Subsets in Higher Dimensions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-116" class="internal"><span class="codenumber">13.2.2</span> <span class="title">Limits</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-117" class="internal"><span class="codenumber">13.2.3</span> <span class="title">Continuity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-118" class="internal"><span class="codenumber">13.2.4</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#exercises-71" class="internal"><span class="codenumber">13.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_partial_derivatives.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Partial Derivatives</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-first-partial" class="internal"><span class="codenumber">13.3.1</span> <span class="title">First-order partial derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-tangent-plane" class="internal"><span class="codenumber">13.3.2</span> <span class="title">Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-second-partial" class="internal"><span class="codenumber">13.3.3</span> <span class="title">Second-order partial derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-122" class="internal"><span class="codenumber">13.3.4</span> <span class="title">Understanding Second Partial Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-123" class="internal"><span class="codenumber">13.3.5</span> <span class="title">Partial Derivatives and Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-124" class="internal"><span class="codenumber">13.3.6</span> <span class="title">Higher Order Partial Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#exercises-72" class="internal"><span class="codenumber">13.3.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_total_differential.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Differentiability and the Total Differential</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-total-differential-intro" class="internal"><span class="codenumber">13.4.1</span> <span class="title">The Total Differential</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-total-differential-approx" class="internal"><span class="codenumber">13.4.2</span> <span class="title">Approximating with the Total Differential</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-tangent-plane-approximation" class="internal"><span class="codenumber">13.4.3</span> <span class="title">Tangent Plane Approximation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-error-analysis-total-diff" class="internal"><span class="codenumber">13.4.4</span> <span class="title">Error/Sensitivity Analysis</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-differentiable-three-var" class="internal"><span class="codenumber">13.4.5</span> <span class="title">Differentiability of Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#exercises-73" class="internal"><span class="codenumber">13.4.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_chain.html" class="internal"><span class="codenumber">13.5</span> <span class="title">The Multivariable Chain Rule</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_chain.html#subsec-multi-chain-intro" class="internal"><span class="codenumber">13.5.1</span> <span class="title">Multivariable Chain Rule, Part I</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_chain.html#subsec-implicit-diff" class="internal"><span class="codenumber">13.5.2</span> <span class="title">Implicit Differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_chain.html#exercises-74" class="internal"><span class="codenumber">13.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_directional_derivative.html" class="internal"><span class="codenumber">13.6</span> <span class="title">Directional Derivatives</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_directional_derivative.html#subsection-132" class="internal"><span class="codenumber">13.6.1</span> <span class="title">Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_directional_derivative.html#subsection-133" class="internal"><span class="codenumber">13.6.2</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_directional_derivative.html#exercises-75" class="internal"><span class="codenumber">13.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_tangent.html" class="internal"><span class="codenumber">13.7</span> <span class="title">Tangent Lines, Normal Lines, and Tangent Planes</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsec-tangent-lines-surface" class="internal"><span class="codenumber">13.7.1</span> <span class="title">Tangent Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-135" class="internal"><span class="codenumber">13.7.2</span> <span class="title">Normal Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-136" class="internal"><span class="codenumber">13.7.3</span> <span class="title">Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-137" class="internal"><span class="codenumber">13.7.4</span> <span class="title">The Gradient and Normal Lines, Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#exercises-76" class="internal"><span class="codenumber">13.7.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_extreme_values.html" class="internal"><span class="codenumber">13.8</span> <span class="title">Extreme Values</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#subsec-multi-critical" class="internal"><span class="codenumber">13.8.1</span> <span class="title">Critical Points of Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#subsection-139" class="internal"><span class="codenumber">13.8.2</span> <span class="title">Constrained Optimization</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#exercises-77" class="internal"><span class="codenumber">13.8.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_mult_int.html" class="internal"><span class="codenumber">14</span> <span class="title">Multiple Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_iterated_integrals.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Iterated Integrals and Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsec-iterated" class="internal"><span class="codenumber">14.1.1</span> <span class="title">Iterated integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsection-141" class="internal"><span class="codenumber">14.1.2</span> <span class="title">Area of a plane region</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsec-changing-order" class="internal"><span class="codenumber">14.1.3</span> <span class="title">Changing Order of Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#exercises-78" class="internal"><span class="codenumber">14.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_double_int_volume.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Double Integration and Volume</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_double_int_volume.html#exercises-79" class="internal"><span class="codenumber">14.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_double_int_polar.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Double Integration with Polar Coordinates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_double_int_polar.html#exercises-80" class="internal"><span class="codenumber">14.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_center_of_mass.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Center of Mass</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_center_of_mass.html#subsection-143" class="internal"><span class="codenumber">14.4.1</span> <span class="title">Mass and Weight</span></a></div></li>
+<li><div class="toc-item"><a href="sec_center_of_mass.html#subsection-144" class="internal"><span class="codenumber">14.4.2</span> <span class="title">Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_center_of_mass.html#exercises-81" class="internal"><span class="codenumber">14.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_surface_area.html" class="internal"><span class="codenumber">14.5</span> <span class="title">Surface Area</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_surface_area.html#exercises-82" class="internal"><span class="codenumber">14.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_triple_int.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Volume Between Surfaces and Triple Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-145" class="internal"><span class="codenumber">14.6.1</span> <span class="title">Volume between surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-146" class="internal"><span class="codenumber">14.6.2</span> <span class="title">Triple Integration and Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-147" class="internal"><span class="codenumber">14.6.3</span> <span class="title">Mass and Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#exercises-83" class="internal"><span class="codenumber">14.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_cylindrical_spherical.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Triple Integration with Cylindrical and Spherical Coordinates</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#subsection-148" class="internal"><span class="codenumber">14.7.1</span> <span class="title">Cylindrical Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#subsection-149" class="internal"><span class="codenumber">14.7.2</span> <span class="title">Spherical Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#exercises-84" class="internal"><span class="codenumber">14.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_vector_calc.html" class="internal"><span class="codenumber">15</span> <span class="title">Vector Analysis</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_line_int_intro.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Introduction to Line Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsec-line-int-scalar" class="internal"><span class="codenumber">15.1.1</span> <span class="title">Line Integrals of Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsection-151" class="internal"><span class="codenumber">15.1.2</span> <span class="title">Properties of Line Integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsection-152" class="internal"><span class="codenumber">15.1.3</span> <span class="title">Mass and Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#exercises-85" class="internal"><span class="codenumber">15.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vector_fields.html" class="internal"><span class="codenumber">15.2</span> <span class="title">Vector Fields</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vector_fields.html#subsection-153" class="internal"><span class="codenumber">15.2.1</span> <span class="title">Vector Field Notation and Del Operator</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vector_fields.html#subsection-154" class="internal"><span class="codenumber">15.2.2</span> <span class="title">Divergence and Curl</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vector_fields.html#exercises-86" class="internal"><span class="codenumber">15.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_line_int_vf.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Line Integrals over Vector Fields</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsec-line-int-vector-eval" class="internal"><span class="codenumber">15.3.1</span> <span class="title">Evaluating Line Integrals over Vector Fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsection-156" class="internal"><span class="codenumber">15.3.2</span> <span class="title">Properties of Line Integrals Over Vector Fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsection-157" class="internal"><span class="codenumber">15.3.3</span> <span class="title">The Fundamental Theorem of Line Integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#exercises-87" class="internal"><span class="codenumber">15.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_greensthm.html" class="internal"><span class="codenumber">15.4</span> <span class="title">Flow, Flux, Green's Theorem and the Divergence Theorem</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-158" class="internal"><span class="codenumber">15.4.1</span> <span class="title">Flow and Flux</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-159" class="internal"><span class="codenumber">15.4.2</span> <span class="title">Green's Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-160" class="internal"><span class="codenumber">15.4.3</span> <span class="title">The Divergence Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#exercises-88" class="internal"><span class="codenumber">15.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_parametric_surfaces.html" class="internal"><span class="codenumber">15.5</span> <span class="title">Parametrized Surfaces and Surface Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#subsec-parametrized-surfaces" class="internal"><span class="codenumber">15.5.1</span> <span class="title">Parametrizing surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#subsection-162" class="internal"><span class="codenumber">15.5.2</span> <span class="title">Surface Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#exercises-89" class="internal"><span class="codenumber">15.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_surface_integral.html" class="internal"><span class="codenumber">15.6</span> <span class="title">Surface Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_surface_integral.html#subsec-surfint-scalar" class="internal"><span class="codenumber">15.6.1</span> <span class="title">Surface integrals of scalar fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_surface_integral.html#subsection-164" class="internal"><span class="codenumber">15.6.2</span> <span class="title">Flux</span></a></div></li>
+<li><div class="toc-item"><a href="sec_surface_integral.html#exercises-90" class="internal"><span class="codenumber">15.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_stokes_divergence.html" class="internal"><span class="codenumber">15.7</span> <span class="title">The Divergence Theorem and Stokes' Theorem</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-165" class="internal"><span class="codenumber">15.7.1</span> <span class="title">The Divergence Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-166" class="internal"><span class="codenumber">15.7.2</span> <span class="title">Stokes' Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-167" class="internal"><span class="codenumber">15.7.3</span> <span class="title">A Common Thread of Calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#exercises-91" class="internal"><span class="codenumber">15.7.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="backmatter-1.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="solutions-1.html" class="internal"><span class="codenumber">A</span> <span class="title">Answers to Odd Exercises</span></a></div></li>
+<li>
+<div class="toc-item"><a href="appendix-reference.html" class="internal"><span class="codenumber">B</span> <span class="title">Quick Reference</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="reference-derivatives.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Differentiation Formulas</span></a></div></li>
+<li><div class="toc-item"><a href="reference-integration.html" class="internal"><span class="codenumber">B.2</span> <span class="title">Integration Formulas</span></a></div></li>
+<li>
+<div class="toc-item"><a href="reference-trigonometry.html" class="internal"><span class="codenumber">B.3</span> <span class="title">Trigonometry Reference</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="reference-trigonometry.html#reference-trig-definitions" class="internal"><span class="codenumber">B.3.1</span> <span class="title">Definitions of the Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="reference-trigonometry.html#reference-trig-identities" class="internal"><span class="codenumber">B.3.2</span> <span class="title">Common Trigonometric Identities</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="reference-area-volume.html" class="internal"><span class="codenumber">B.4</span> <span class="title">Areas and Volumes</span></a></div></li>
+<li><div class="toc-item"><a href="reference-algebra.html" class="internal"><span class="codenumber">B.5</span> <span class="title">Algebra</span></a></div></li>
+<li><div class="toc-item"><a href="reference-formulas.html" class="internal"><span class="codenumber">B.6</span> <span class="title">Additional Formulas</span></a></div></li>
+<li><div class="toc-item"><a href="section-98.html" class="internal"><span class="codenumber">B.7</span> <span class="title">Summary of Tests for Series</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_interp_deriv"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">Interpretations of the Derivative</span>
+</h2>
+<section class="introduction" id="introduction-32"><div class="para" id="p-1780">
+<a href="sec_derivative.html" class="internal" title="Section 2.1: Instantaneous Rates of Change: The Derivative">Section 2.1</a> defined the derivative of a function and gave examples of how to compute it using its definition (i.e., using limits). The section also started with a brief motivation for this definition, that is, finding the instantaneous velocity of a falling object given its position function. <a href="sec_basic_diff_rules.html" class="internal" title="Section 2.3: Basic Differentiation Rules">Section 2.3</a> will give us more accessible tools for computing the derivative; tools that are easier to use than repeated use of limits.</div> <div class="para" id="p-1781">This section falls in between the “What is the definition of the derivative?” and “How do I compute the derivative?” sections. Here we are concerned with “What does the derivative mean?”, or perhaps, when read with the right emphasis, “What <em class="emphasis">is</em> the derivative?” We offer two interconnected interpretations of the derivative, hopefully explaining why we care about it and why it is worthy of study. </div></section><section class="subsection" id="subsection-8"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.2.1</span> <span class="title">Interpretation of the Derivative as Instantaneous Rate of Change</span>
+</h3>
+<div class="para" id="p-1782">
+<a href="sec_derivative.html" class="internal" title="Section 2.1: Instantaneous Rates of Change: The Derivative">Section 2.1</a> started with an example of using the position of an object (in this case, a falling amusement park rider) to find the object's velocity. This type of example is often used when introducing the derivative because we tend to readily recognize that velocity is the <em class="emphasis">instantaneous rate of change in position.</em> In general, if <span class="process-math">\(f\)</span> is a function of <span class="process-math">\(x\text{,}\)</span> then <span class="process-math">\(\fp(x)\)</span> measures the instantaneous rate of change of <span class="process-math">\(f\)</span> with respect to <span class="process-math">\(x\text{.}\)</span> Put another way, the derivative answers “When <span class="process-math">\(x\)</span> changes, at what rate does <span class="process-math">\(f\)</span> change?” Thinking back to the amusement park ride, we asked “When time changed, at what rate did the height change?” and found the answer to be “By <span class="process-math">\(-64\)</span> feet per second.”</div>
+<div class="para" id="p-1783">Now imagine driving a car and looking at the speedometer, which reads “<span class="quantity">60 mph</span>.” Five minutes later, you wonder how far you have traveled. Certainly, lots of things could have happened in those <span class="process-math">\(5\)</span> minutes; you could have intentionally sped up significantly, you might have come to a complete stop, you might have slowed to <span class="quantity">20 mph</span> as you passed through construction. But suppose that you know, as the driver, none of these things happened. You know you maintained a fairly consistent speed over those <span class="process-math">\(5\)</span> minutes. What is a good approximation of the distance traveled?</div>
+<div class="para" id="p-1784">One could argue the <em class="emphasis">only</em> good approximation, given the information provided, would be based on “<span class="process-math">\(\text{distance} = \text{rate}\times\text{time.}\)</span>” In this case, we assume a constant rate of <span class="quantity">60 mph</span> with a time of <span class="process-math">\(5\)</span> minutes or <span class="process-math">\(5/60\)</span> of an hour. Hence we would approximate the distance traveled as <span class="process-math">\(5\)</span> miles.</div>
+<div class="para" id="p-1785">Referring back to the falling amusement park ride, knowing that at <span class="process-math">\(t=2\)</span> the velocity was <span class="process-math">\(-64\)</span> ft/s, we could reasonably approximate that <span class="process-math">\(1\)</span> second later the riders' height would have dropped by about <span class="process-math">\(64\)</span> feet. Knowing that the riders were <em class="emphasis">accelerating</em> as they fell would inform us that this is an <em class="emphasis">under-approximation</em>. If all we knew was that <span class="process-math">\(f(2) = 86\)</span> and <span class="process-math">\(\fp(2) = -64\text{,}\)</span> we'd know that we'd have to stop the riders quickly otherwise they would hit the ground.</div>
+<div class="para" id="p-1786">In both of these cases, we are using the instantaneous rate of change to predict future values of the output.</div></section><section class="subsection" id="subsection-9"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.2.2</span> <span class="title">Units of the Derivative</span>
+</h3>
+<div class="para" id="p-1787">It is useful to recognize the <em class="emphasis">units</em> of the derivative function. If <span class="process-math">\(y\)</span> is a function of <span class="process-math">\(x\text{,}\)</span> i.e., <span class="process-math">\(y=f(x)\)</span> for some function <span class="process-math">\(f\text{,}\)</span> and <span class="process-math">\(y\)</span> is measured in feet and <span class="process-math">\(x\)</span> in seconds, then the units of <span class="process-math">\(y' = \fp\)</span> are “feet per second,” commonly written as “ft/s.” In general, if <span class="process-math">\(y\)</span> is measured in units <span class="process-math">\(P\)</span> and <span class="process-math">\(x\)</span> is measured in units <span class="process-math">\(Q\text{,}\)</span> then <span class="process-math">\(y'\)</span> will be measured in units “<span class="process-math">\(P\)</span> per <span class="process-math">\(Q\)</span>”, or “<span class="process-math">\(P/Q\text{.}\)</span>” Here we see the fraction-like behavior of the derivative in the notation: the units of <span class="process-math">\(\frac{dy}{dx}\)</span>are <span class="process-math">\(\frac{\text{units of }y}{\text{units of }x}\text{.}\)</span>
+</div>
+<article class="example example-like" id="ex_der_meaning1"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">The meaning of the derivative: World Population.</span>
+</h4>
+<div class="para" id="p-1788">Let <span class="process-math">\(P(t)\)</span> represent the world population <span class="process-math">\(t\)</span> minutes after 12:00 a.m., January 1, 2012. It is fairly accurate to say that <span class="process-math">\(P(0) = 7{,}028{,}734{,}178\)</span> (<a class="external" href="https://www.prb.org" target="_blank"><code class="code-inline tex2jax_ignore">www.prb.org</code></a>). It is also fairly accurate to state that <span class="process-math">\(P'(0) = 156\text{;}\)</span> that is, at midnight on January 1, 2012, the population of the world was growing by about 156 <em class="emphasis">people per minute</em> (note the units). Twenty days later (or <span class="process-math">\(28{,}800\)</span> minutes later) we could reasonably assume the population grew by about <span class="process-math">\(28{,}800\cdot156 = 4{,}492{,}800\)</span> people.</div></article><article class="example example-like" id="ex_der_meaning2"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">The meaning of the derivative: Manufacturing.</span>
+</h4>
+<div class="para" id="p-1789">The term <em class="emphasis">widget</em> is an economic term for a generic unit of manufacturing output. Suppose a company produces widgets and knows that the market supports a price of <span class="process-math">\(\$10\)</span> per widget. Let <span class="process-math">\(P(n)\)</span> give the profit, in dollars, earned by manufacturing and selling <span class="process-math">\(n\)</span> widgets. The company likely cannot make a (positive) profit making just one widget; the start-up costs will likely exceed <span class="process-math">\(\$10\text{.}\)</span> Mathematically, we would write this as <span class="process-math">\(P(1) \lt 0\text{.}\)</span>
+</div> <div class="para" id="p-1790">What do <span class="process-math">\(P(1000) = 500\)</span> and <span class="process-math">\(P'(1000)=0.25\)</span> mean? Approximate <span class="process-math">\(P(1100)\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-122" id="solution-122"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-122"><div class="solution solution-like">
+<div class="para logical" id="p-1791">
+<div class="para">The equation <span class="process-math">\(P(1000)=500\)</span> means that selling <span class="process-math">\(1000\)</span> widgets returns a profit of <span class="process-math">\(\$500\text{.}\)</span> We interpret <span class="process-math">\(P'(1000) = 0.25\)</span> as meaning that when we are selling <span class="process-math">\(1000\)</span> widgets, the profit is increasing at rate of <span class="process-math">\(\$0.25\)</span> per widget (the units are “dollars per widget.”) Since we have no other information to use, our best approximation for <span class="process-math">\(P(1100)\)</span> is:</div>
+<div class="displaymath process-math" id="md-52">
+\begin{align*}
+P(1100) \amp \approx P(1000) + P'(1000)\times100\\
+\amp= \$500 + (100\text{ widgets })\cdot \$0.25/\text{widget}\\
+\amp= \$525\text{.}
+\end{align*}
+</div>
+</div> <div class="para" id="p-1792">We approximate that selling <span class="process-math">\(1100\)</span> widgets returns a profit of <span class="process-math">\(\$525\text{.}\)</span>
+</div>
+</div></div>
+</div></article><div class="para logical" id="p-1793">
+<div class="para">The previous examples made use of an important approximation tool that we first used in our previous “driving a car at <span class="quantity">60 mph</span>” example at the beginning of this section. Five minutes after looking at the speedometer, our best approximation for distance traveled assumed the rate of change was constant. In <a href="" class="xref" data-knowl="./knowl/ex_der_meaning1.html" title="Example 2.2.1: The meaning of the derivative: World Population">Examples 2.2.1</a> and <a href="" class="xref" data-knowl="./knowl/ex_der_meaning2.html" title="Example 2.2.2: The meaning of the derivative: Manufacturing">Example 2.2.2</a> we made similar approximations. We were given rate of change information which we used to approximate total change. Notationally, we would say that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex_der_meaning1.html ./knowl/ex_der_meaning2.html">
+\begin{equation*}
+f(c+h) \approx f(c) + \fp(c)\cdot h\text{.}
+\end{equation*}
+</div>
+</div>
+<div class="para" id="p-1794">This approximation is best when <span class="process-math">\(h\)</span> is “small.” “Small” is a relative term; when dealing with the world population, <span class="process-math">\(h=22\text{ days} = 28{,}800\text{ minutes}\)</span> is small in comparison to years. When manufacturing widgets, <span class="process-math">\(100\)</span> widgets is small when one plans to manufacture thousands.</div></section><section class="subsection" id="subsection-10"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.2.3</span> <span class="title">The Derivative and Motion</span>
+</h3>
+<div class="para" id="p-1795">One of the most fundamental applications of the derivative is the study of motion. Let <span class="process-math">\(s(t)\)</span> be a position function, where <span class="process-math">\(t\)</span> is time and <span class="process-math">\(s(t)\)</span> is distance. For instance, <span class="process-math">\(s\)</span> could measure the height of a projectile or the distance an object has traveled.</div>
+<aside class="aside aside-like" id="aside-8"><h4 class="heading"><span class="title">Convention with <span class="process-math">\(s\)</span>.</span></h4>
+<div class="para" id="p-1796">Using <span class="process-math">\(s(t)\)</span> to represent position is a fairly common mathematical convention. It is also common to use <span class="process-math">\(s\)</span> to represent arc length.</div></aside><div class="para" id="p-1797">Let <span class="process-math">\(s(t)\)</span> measure the distance traveled, in feet, of an object after <span class="process-math">\(t\)</span> seconds of travel. Then <span class="process-math">\(s'(t)\)</span> has units “feet per second,” and <span class="process-math">\(s'(t)\)</span> measures the <em class="emphasis">instantaneous rate of distance change with respect to time</em> — it measures <em class="emphasis">velocity</em>. </div>
+<div class="para" id="p-1798">Now consider <span class="process-math">\(v(t)\text{,}\)</span> a velocity function. That is, at time <span class="process-math">\(t\text{,}\)</span> <span class="process-math">\(v(t)\)</span> gives the velocity of an object. The derivative of <span class="process-math">\(v\text{,}\)</span> <span class="process-math">\(v'(t)\text{,}\)</span> gives the <em class="emphasis">instantaneous rate of velocity change with respect to time</em> — <em class="emphasis">acceleration</em>. (We often think of acceleration in terms of cars: a car may “go from <span class="process-math">\(0\)</span> to <span class="process-math">\(60\)</span> in <span class="process-math">\(4.8\)</span> seconds.” This is an <em class="emphasis">average</em> acceleration, a measurement of how quickly the velocity changed.) If velocity is measured in feet per second, and time is measured in seconds, then the units of acceleration (i.e., the units of <span class="process-math">\(v'(t)\)</span>) are “feet per second per second,” or <span class="process-math">\((\)</span>ft/s<span class="process-math">\()\)</span>/s. We often shorten this to “feet per second squared,” or <span class="quantity"><sup>ft</sup>⁄<sub>s<sup>2</sup></sub></span>, but this tends to obscure the meaning of the units. </div>
+<div class="para" id="p-1799">Perhaps the most well known acceleration is that of gravity. In this text, we use <span class="process-math">\(g=32\,\text{ft}/\text{s}^2\)</span> or <span class="process-math">\(g=9.8\,\text{m}/\text{s}^2\text{.}\)</span> What do these numbers mean?</div>
+<div class="para" id="p-1800">A constant acceleration of <span class="process-math">\(32\,\frac{\text{ft}/\text{s}}{\text{s}}\)</span> means that the velocity changes by <span class="process-math">\(32\,\text{ft}/\text{s}\)</span> each second. For instance, let <span class="process-math">\(v(t)\)</span> measure the velocity of a ball thrown straight up into the air, where <span class="process-math">\(v\)</span> has units ft/s and <span class="process-math">\(t\)</span> is measured in seconds. The ball will have a positive velocity while traveling upwards and a negative velocity while falling down. The acceleration is thus <span class="process-math">\(-32\,\text{ft}/\text{s}^2\text{.}\)</span> If <span class="process-math">\(v(1) = 20\,\text{ft}/\text{s}\text{,}\)</span> then <span class="process-math">\(1\)</span> second later, the velocity will have decreased by <span class="process-math">\(32\,\text{ft}/\text{s}\text{;}\)</span> that is, <span class="process-math">\(v(2) = -12\,\text{ft/s}\text{.}\)</span> We can continue: <span class="process-math">\(v(3) = -44\,\text{ft/s}\text{.}\)</span> Working backward, we can also figure that <span class="process-math">\(v(0) = 52\,\text{ft}/\text{s}\text{.}\)</span>
+</div>
+<div class="para" id="p-1801">These ideas are so important we write them out as a Key Idea.</div>
+<article class="insight remark-like" id="idea_motion"><h4 class="heading">
+<span class="type">Key Idea</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">The Derivative and Motion.</span>
+</h4> <div class="para logical" id="p-1802"><ol class="decimal">
+<li id="li-504"><div class="para" id="p-1803">Let <span class="process-math">\(s(t)\)</span> be the position function of an object. Then <span class="process-math">\(s'(t)=v(t)\)</span> is the velocity function of the object.</div></li>
+<li id="li-505"><div class="para" id="p-1804">Let <span class="process-math">\(v(t)\)</span> be the velocity function of an object. Then <span class="process-math">\(v'(t)=a(t)\)</span> is the acceleration function of the object.</div></li>
+</ol></div></article></section><section class="subsection" id="subsection-11"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.2.4</span> <span class="title">Interpretation of the Derivative as the Slope of the Tangent Line</span>
+</h3>
+<div class="para" id="p-1805">We now consider the second interpretation of the derivative given in this section. This interpretation is not independent from the first by any means; many of the same concepts will be stressed, just from a slightly different perspective.</div>
+<div class="para" id="p-1806">Given a function <span class="process-math">\(y=f(x)\text{,}\)</span> the difference quotient <span class="process-math">\(\frac{f(c+h)-f(c)}{h}\)</span> gives a change in <span class="process-math">\(y\)</span> values divided by a change in <span class="process-math">\(x\)</span> values; i.e., it is a measure of the “rise over run,” or “slope,” of the secant line that goes through two points on the graph of <span class="process-math">\(f\text{:}\)</span> <span class="process-math">\((c, f(c))\)</span> and <span class="process-math">\((c+h,f(c+h))\text{.}\)</span> As <span class="process-math">\(h\)</span> shrinks to <span class="process-math">\(0\text{,}\)</span> these two points come close together; in the limit we find <span class="process-math">\(\fp(c)\text{,}\)</span> the slope of a special line called the tangent line that intersects <span class="process-math">\(f\)</span> only once near <span class="process-math">\(x=c\text{.}\)</span>
+</div>
+<div class="para" id="p-1807">Lines have a constant rate of change, their slope. Nonlinear functions do not have a constant rate of change, but we can measure their <em class="emphasis">instantaneous rate of change</em> at a given <span class="process-math">\(x\)</span> value <span class="process-math">\(c\)</span> by computing <span class="process-math">\(\fp(c)\text{.}\)</span> We can get an idea of how <span class="process-math">\(f\)</span> is behaving by looking at the slopes of its tangent lines. We explore this idea in the following example.</div>
+<article class="example example-like" id="ex_der_meaning3"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Understanding the derivative: the rate of change.</span>
+</h4>
+<div class="para" id="p-1808">Consider <span class="process-math">\(f(x) = x^2\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/fig_xsquared.html" title="Figure 2.2.5">Figure 2.2.5</a>. It is clear that at <span class="process-math">\(x=3\)</span> the function is growing faster than at <span class="process-math">\(x=1\text{,}\)</span> as it is steeper at <span class="process-math">\(x=3\text{.}\)</span> How much faster is it growing at <span class="process-math">\(3\)</span> compared to <span class="process-math">\(1\text{?}\)</span>
+</div> <figure class="figure figure-like" id="fig_xsquared"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_xsquared.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2.5<span class="period">.</span></span><span class="space"> </span>A graph of <span class="process-math">\(f(x)=x^2\)</span></figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-123" id="solution-123"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-123"><div class="solution solution-like">
+<div class="para" id="p-1809">We can answer this exactly (and quickly) after <a href="sec_basic_diff_rules.html" class="internal" title="Section 2.3: Basic Differentiation Rules">Section 2.3</a>, where we learn to quickly compute derivatives. For now, we will answer graphically, by considering the slopes of the respective tangent lines.</div> <figure class="figure figure-like" id="fig_xsquaredwithgrid"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_xsquaredwithgrid.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2.6<span class="period">.</span></span><span class="space"> </span>A graph of <span class="process-math">\(f(x)=x^2\)</span> and tangent lines at <span class="process-math">\(x=1\)</span> and <span class="process-math">\(x=3\)</span></figcaption></figure> <div class="para" id="p-1810">With practice, one can fairly effectively sketch tangent lines to a curve at a particular point. In <a href="" class="xref" data-knowl="./knowl/fig_xsquaredwithgrid.html" title="Figure 2.2.6">Figure 2.2.6</a>, we have sketched the tangent lines to <span class="process-math">\(f\)</span> at <span class="process-math">\(x=1\)</span> and <span class="process-math">\(x=3\text{,}\)</span> along with a grid to help us measure the slopes of these lines. At <span class="process-math">\(x=1\text{,}\)</span> the slope is <span class="process-math">\(2\text{;}\)</span> at <span class="process-math">\(x=3\text{,}\)</span> the slope is <span class="process-math">\(6\text{.}\)</span> Thus we can say not only is <span class="process-math">\(f\)</span> growing faster at <span class="process-math">\(x=3\)</span> than at <span class="process-math">\(x=1\text{,}\)</span> it is growing <em class="emphasis">three times as fast</em>.</div>
+</div></div>
+</div></article><article class="example example-like" id="ex_der_meaning4"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">Understanding the graph of the derivative.</span>
+</h4>
+<div class="para" id="p-1811">Consider the graph of <span class="process-math">\(f(x)\)</span> and its derivative, <span class="process-math">\(\fp(x)\text{,}\)</span> in <a href="" class="xref" data-knowl="./knowl/fig_fwithderiv.html" title="Figure 2.2.8">Figure 2.2.8</a>. Use these graphs to find the slopes of the tangent lines to the graph of <span class="process-math">\(f\)</span> at <span class="process-math">\(x=1\text{,}\)</span> <span class="process-math">\(x=2\text{,}\)</span> and <span class="process-math">\(x=3\text{.}\)</span>
+</div> <figure class="figure figure-like" id="fig_fwithderiv"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_fwithderiv.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2.8<span class="period">.</span></span><span class="space"> </span>Graphs of <span class="process-math">\(f\)</span> and <span class="process-math">\(\fp\)</span> in <a href="" class="xref" data-knowl="./knowl/ex_der_meaning4.html" title="Example 2.2.7: Understanding the graph of the derivative">Example 2.2.7</a></figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-124" id="solution-124"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-124"><div class="solution solution-like">
+<div class="para logical" id="p-1812">
+<div class="para">To find the appropriate slopes of tangent lines to the graph of <span class="process-math">\(f\text{,}\)</span> we need to look at the corresponding values of <span class="process-math">\(\fp\text{.}\)</span>
+</div>
+<ul class="disc">
+<li id="li-506"><div class="para" id="p-1813">The slope of the tangent line to <span class="process-math">\(f\)</span> at <span class="process-math">\(x=1\)</span> is <span class="process-math">\(\fp(1)\text{;}\)</span> this looks to be about <span class="process-math">\(-1\text{.}\)</span>
+</div></li>
+<li id="li-507"><div class="para" id="p-1814">The slope of the tangent line to <span class="process-math">\(f\)</span> at <span class="process-math">\(x=2\)</span> is <span class="process-math">\(\fp(2)\text{;}\)</span> this looks to be about <span class="process-math">\(4\text{.}\)</span>
+</div></li>
+<li id="li-508"><div class="para" id="p-1815">The slope of the tangent line to <span class="process-math">\(f\)</span> at <span class="process-math">\(x=3\)</span> is <span class="process-math">\(\fp(3)\text{;}\)</span> this looks to be about <span class="process-math">\(3\text{.}\)</span>
+</div></li>
+</ul>
+</div> <div class="para" id="p-1816">Using these slopes, tangent line segments to <span class="process-math">\(f\)</span> are sketched in <a href="" class="xref" data-knowl="./knowl/fig_fwithderivdots.html" title="Figure 2.2.9">Figure 2.2.9</a>. Included on the graph of <span class="process-math">\(\fp\)</span> in this figure are points where <span class="process-math">\(x=1\text{,}\)</span> <span class="process-math">\(x=2\)</span> and <span class="process-math">\(x=3\)</span> to help better visualize the <span class="process-math">\(y\)</span> value of <span class="process-math">\(\fp\)</span> at those points.</div> <figure class="figure figure-like" id="fig_fwithderivdots"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_fwithderivdots.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2.9<span class="period">.</span></span><span class="space"> </span>Graphs of <span class="process-math">\(f\)</span> and <span class="process-math">\(\fp\)</span> in <a href="" class="xref" data-knowl="./knowl/ex_der_meaning4.html" title="Example 2.2.7: Understanding the graph of the derivative">Example 2.2.7</a></figcaption></figure>
+</div></div>
+</div></article><article class="example example-like" id="ex_der_meaning5"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.10</span><span class="period">.</span><span class="space"> </span><span class="title">Approximation with the derivative.</span>
+</h4>
+<div class="para" id="p-1817">Consider again the graph of <span class="process-math">\(f(x)\)</span> and its derivative <span class="process-math">\(\fp(x)\)</span> in <a href="" class="xref" data-knowl="./knowl/ex_der_meaning4.html" title="Example 2.2.7: Understanding the graph of the derivative">Example 2.2.7</a>. Use the tangent line to <span class="process-math">\(f\)</span> at <span class="process-math">\(x=3\)</span> to approximate the value of <span class="process-math">\(f(3.1)\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-125" id="solution-125"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-125"><div class="solution solution-like">
+<div class="para" id="p-1818">
+<a href="" class="xref" data-knowl="./knowl/fig_fwithderivzoom3.html" title="Figure 2.2.11">Figure 2.2.11</a> shows the graph of <span class="process-math">\(f\)</span> along with its tangent line, zoomed in at <span class="process-math">\(x=3\text{.}\)</span> Notice that near <span class="process-math">\(x=3\text{,}\)</span> the tangent line makes an excellent approximation of <span class="process-math">\(f\text{.}\)</span> Since lines are easy to deal with, often it works well to approximate a function with its tangent line. (This is especially true when you don't actually know much about the function at hand, as we don't in this example.)</div> <figure class="figure figure-like" id="fig_fwithderivzoom3"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_fwithderivzoom3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2.11<span class="period">.</span></span><span class="space"> </span>Zooming in on <span class="process-math">\(f\)</span> and its tangent line at <span class="process-math">\(x=3\)</span> for the function given in <a href="" class="xref" data-knowl="./knowl/ex_der_meaning4.html" title="Example 2.2.7: Understanding the graph of the derivative">Examples 2.2.7</a> and <a href="" class="xref" data-knowl="./knowl/ex_der_meaning5.html" title="Example 2.2.10: Approximation with the derivative">Example 2.2.10</a></figcaption></figure> <div class="para" id="p-1819">While the tangent line to <span class="process-math">\(f\)</span> was drawn in <a href="" class="xref" data-knowl="./knowl/ex_der_meaning4.html" title="Example 2.2.7: Understanding the graph of the derivative">Example 2.2.7</a>, it was not explicitly computed. Recall that the tangent line to <span class="process-math">\(f\)</span> at <span class="process-math">\(x=c\)</span> is <span class="process-math">\(y = \fp(c)(x-c)+f(c)\text{.}\)</span> While <span class="process-math">\(f\)</span> is not explicitly given, by the graph it looks like <span class="process-math">\(f(3) = 4\text{.}\)</span> Recalling that <span class="process-math">\(\fp(3) = 3\text{,}\)</span> we can compute the tangent line to be approximately <span class="process-math">\(y = 3(x-3)+4\text{.}\)</span> It is often useful to leave the tangent line in point-slope form.</div> <div class="para logical" id="p-1820">
+<div class="para">To use the tangent line to approximate <span class="process-math">\(f(3.1)\text{,}\)</span> we simply evaluate <span class="process-math">\(y\)</span> at <span class="process-math">\(3.1\)</span> instead of <span class="process-math">\(f\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="md-53">
+\begin{align*}
+f(3.1) \amp \approx y(3.1)\\
+\amp= 3(3.1-3)+4\\
+\amp= 0.1\cdot3+4\\
+\amp = 4.3\text{.}
+\end{align*}
+</div>
+</div> <div class="para" id="p-1821">We approximate <span class="process-math">\(f(3.1) \approx 4.3\text{.}\)</span>
+</div>
+</div></div>
+</div></article><div class="para logical" id="p-1822">
+<div class="para">To demonstrate the accuracy of the tangent line approximation, we now state that in <a href="" class="xref" data-knowl="./knowl/ex_der_meaning5.html" title="Example 2.2.10: Approximation with the derivative">Example 2.2.10</a>, <span class="process-math">\(f(x) = -x^3+7x^2-12x+4\text{.}\)</span> We can evaluate <span class="process-math">\(f(3.1) = 4.279\text{.}\)</span> Had we known <span class="process-math">\(f\)</span> all along, certainly we could have just made this computation. In reality, we often only know two things:</div>
+<ol class="decimal">
+<li id="li-509"><div class="para" id="p-1823">what <span class="process-math">\(f(c)\)</span> is, for some value of <span class="process-math">\(c\text{,}\)</span> and</div></li>
+<li id="li-510"><div class="para" id="p-1824">what <span class="process-math">\(\fp(c)\)</span> is.</div></li>
+</ol>
+</div>
+<div class="para" id="p-1825">For instance, we can easily observe the location of an object and its instantaneous velocity at a particular point in time. We do not have a “function <span class="process-math">\(f\)</span>” for the location, just an observation. This is enough to create an approximating function for <span class="process-math">\(f\text{.}\)</span>
+</div>
+<div class="para logical" id="p-1826">
+<div class="para">This last example has a direct connection to our approximation method explained above after <a href="" class="xref" data-knowl="./knowl/ex_der_meaning2.html" title="Example 2.2.2: The meaning of the derivative: Manufacturing">Example 2.2.2</a>. We stated there that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex_der_meaning2.html">
+\begin{equation*}
+f(c+h) \approx f(c)+\fp(c)\cdot h\text{.}
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="p-1827">
+<div class="para">If we know <span class="process-math">\(f(c)\)</span> and <span class="process-math">\(\fp(c)\)</span> for some value <span class="process-math">\(x=c\text{,}\)</span> then computing the tangent line at <span class="process-math">\((c,f(c))\)</span> is easy: <span class="process-math">\(y(x) = \fp(c)(x-c)+f(c)\text{.}\)</span> In <a href="" class="xref" data-knowl="./knowl/ex_der_meaning5.html" title="Example 2.2.10: Approximation with the derivative">Example 2.2.10</a>, we used the tangent line to approximate a value of <span class="process-math">\(f\text{.}\)</span> Let's use the tangent line at <span class="process-math">\(x=c\)</span> to approximate a value of <span class="process-math">\(f\)</span> near <span class="process-math">\(x=c\text{;}\)</span> i.e., compute <span class="process-math">\(y(c+h)\)</span> to approximate <span class="process-math">\(f(c+h)\text{,}\)</span> assuming again that <span class="process-math">\(h\)</span> is “small.” Note:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex_der_meaning5.html" id="md-54">
+\begin{align*}
+y(c+h) \amp = \fp(c)\left((c+h)-c\right)+f(c)\\
+\amp = \fp(c)\cdot h + f(c)\text{.}
+\end{align*}
+</div>
+</div>
+<div class="para" id="p-1828">This is the exact same approximation method used above! Not only does it make intuitive sense, as explained above, it makes analytical sense, as this approximation method is simply using a tangent line to approximate a function's value.</div>
+<div class="para" id="p-1829">The importance of understanding the derivative cannot be understated. When <span class="process-math">\(f\)</span> is a function of <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(\fp(x)\)</span> measures the instantaneous rate of change of <span class="process-math">\(f\)</span> with respect to <span class="process-math">\(x\)</span> and gives the slope of the tangent line to <span class="process-math">\(f\)</span> at <span class="process-math">\(x\text{.}\)</span>
+</div></section><section class="exercises" id="exercises-8"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">2.2.5</span> <span class="title">Exercises</span>
+</h3>
+<article class="subexercises" id="subexercises-19"><h4 class="heading"><span class="title">Terms and Concepts</span></h4>
+<article class="exercise exercise-like" id="exercise-229"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
+<div id="webwork-224" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="224" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgpLT5zdHJpbmdzLT5hZGQoJ3ZlbG9jaXR5Jz0+e30pOwokdmVsb2NpdHkgPSBDb21wdXRlKCJ2ZWxvY2l0eSIpOwoKQkVHSU5fUEdNTApXaGF0IGlzIHRoZSBpbnN0YW50YW5lb3VzIHJhdGUgb2YgY2hhbmdlIG9mIHBvc2l0aW9uIGNhbGxlZD8KCltfXXskdmVsb2NpdHl9ezIwfQoKCkVORF9QR01MCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents"><div class="para" id="p-1830">What is the instantaneous rate of change of position called?</div></div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-224')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="exercise-230"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+<div id="webwork-225" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="225" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2Vzc2F5bWFjcm9zLnBsIiwiUEdjb3Vyc2UucGwiLCk7VEVYVChiZWdpbnByb2JsZW0oKSk7ClRFWFQoTU9ERVMoUFRYPT4nJyxIVE1MPT5xfDxkaXYgc3R5bGU9ImRpc3BsYXk6bm9uZTsiPlwoXG5ld2NvbW1hbmR7XGZwfXtmJ31cKTwvZGl2PnwpKTsKQ29udGV4dCgnTnVtZXJpYycpOwoKQkVHSU5fUEdNTApHaXZlbiBhIGZ1bmN0aW9uIFtgeT1mKHgpXHRleHR7LH1gXSBpbiB5b3VyIG93biB3b3JkcyBkZXNjcmliZSBob3cgdG8gZmluZCB0aGUgdW5pdHMgb2YgW2BcZnAoeClcdGV4dHsufWBdCgpbQEFOUyhlc3NheV9jbXAoKSk7ZXNzYXlfYm94KDYsNzYpQF0qIFtAZXNzYXlfaGVscCgpQF0qCgoKRU5EX1BHTUwKCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents"><div class="para" id="p-1832">Given a function <span class="process-math">\(y=f(x)\text{,}\)</span> in your own words describe how to find the units of <span class="process-math">\(\fp(x)\text{.}\)</span>
+</div></div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-225')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="exercise-231"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+<div id="webwork-226" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="226" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgpLT5zdHJpbmdzLT5hZGQoJ2xpbmVhciBmdW5jdGlvbnMnPT57fSk7CkNvbnRleHQoKS0+c3RyaW5ncy0+YWRkKAogICdsaW5lYXInPT57YWxpYXM9PidsaW5lYXIgZnVuY3Rpb25zJ30sCiAgJ2xpbmVhcnMnPT57YWxpYXM9PidsaW5lYXIgZnVuY3Rpb25zJ30sCiAgJ2xpbmVhciBmdW5jdGlvbic9PnthbGlhcz0+J2xpbmVhciBmdW5jdGlvbnMnfSwKICAnYSBsaW5lYXIgZnVuY3Rpb24nPT57YWxpYXM9PidsaW5lYXIgZnVuY3Rpb25zJ30sCiAgJ3RoZSBsaW5lYXIgZnVuY3Rpb25zJz0+e2FsaWFzPT4nbGluZWFyIGZ1bmN0aW9ucyd9LAopOwokYW5zID0gQ29tcHV0ZSgibGluZWFyIGZ1bmN0aW9ucyIpOwoKQkVHSU5fUEdNTApXaGF0IGZ1bmN0aW9ucyBoYXZlIGEgY29uc3RhbnQgcmF0ZSBvZiBjaGFuZ2U/CgpbX117JGFuc317MjB9CgoKRU5EX1BHTUwKCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents"><div class="para" id="p-1833">What functions have a constant rate of change?</div></div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-226')">Activate</button></div>
+</div></article></article><article class="subexercises" id="subexercises-20"><h4 class="heading"><span class="title">Problems</span></h4>
+<article class="exercise exercise-like" id="exercise-232"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
+<div id="webwork-227" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="227" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKVEVYVChNT0RFUyhQVFg9PicnLEhUTUw9PnF8PGRpdiBzdHlsZT0iZGlzcGxheTpub25lOyI+XChcbmV3Y29tbWFuZHtcZnB9e2YnfVwpPC9kaXY+fCkpOwpDb250ZXh0KCdOdW1lcmljJyk7JGE9cmFuZG9tKDEsOSwxKTsKJGZhPXJhbmRvbSgxMCwyMCwxKTsKJGZwYT1ub25femVyb19yYW5kb20oLTQsNCwxKTsKaWYoJGVudmlye3Byb2JsZW1TZWVkfT09MSl7JGE9NTskZmE9MTA7JGZwYT0yO307CiRiPSRhKzE7CiRhbnM9JGZhKyRmcGEqKCRiLSRhKTsKCkJFR0lOX1BHTUwKR2l2ZW4gW2BmKFskYV0pPVskZmFdYF0gYW5kIFtgXGZwKFskYV0pID0gWyRmcGFdXHRleHR7LH1gXSBhcHByb3hpbWF0ZSBbYGYoWyRiXSlcdGV4dHsufWBdCgpbX117JGFuc317MTB9CgoKRU5EX1BHTUwKCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents"><div class="para" id="p-1835">Given <span class="process-math">\(f(2)=12\)</span> and <span class="process-math">\(\fp(2) = -1\text{,}\)</span> approximate <span class="process-math">\(f(3)\text{.}\)</span>
+</div></div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-227')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="exercise-233"><h5 class="heading"><span class="codenumber">5<span class="period">.</span></span></h5>
+<div id="webwork-228" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="228" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOyRhPXJhbmRvbSg1MCwxNTAsMTApOwokZmE9bm9uX3plcm9fcmFuZG9tKC05OSw5OSwxKTsKJGZwYT1ub25femVyb19yYW5kb20oLTksOSwxKTsKJGI9JGErcmFuZG9tKDUsMTUsNSk7CmlmKCRlbnZpcntwcm9ibGVtU2VlZH09PTEpeyRhPTEwMDskZmE9LTY3OyRmcGE9NTskYj0xMDt9OwokYW5zPSRmYSskZnBhKigkYi0kYSk7CgpCRUdJTl9QR01MCkdpdmVuIFtgUChbJGFdKT1bJGZhXWBdIGFuZCBbYFAnKFskYV0pID0gWyRmcGFdXHRleHR7LH1gXSBhcHByb3hpbWF0ZSBbYFAoWyRiXSlcdGV4dHsufWBdCgpbX117JGFuc317MTB9CgoKRU5EX1BHTUwKCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents"><div class="para" id="p-1837">Given <span class="process-math">\(P(70)=68\)</span> and <span class="process-math">\(P'(70) = 6\text{,}\)</span> approximate <span class="process-math">\(P(75)\text{.}\)</span>
+</div></div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-228')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="exercise-234"><h5 class="heading"><span class="codenumber">6<span class="period">.</span></span></h5>
+<div id="webwork-229" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="229" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOyRhPXJhbmRvbSgxMCw5NSw1KTsKJGZhPXJhbmRvbSgxMDEsMTk5LDEpOwokZnBhPW5vbl96ZXJvX3JhbmRvbSgtMjAsMjAsMSk7CiRiPSRhLXJhbmRvbSg1LDE1LDUpOwppZigkZW52aXJ7cHJvYmxlbVNlZWR9PT0xKXskYT0yNTskZmE9MTg3OyRmcGE9MTc7JGI9MjA7fTsKJGFucz0kZmErJGZwYSooJGItJGEpOwoKQkVHSU5fUEdNTApHaXZlbiBbYHooWyRhXSk9WyRmYV1gXSBhbmQgW2B6JyhbJGFdKSA9IFskZnBhXVx0ZXh0eyx9YF0gYXBwcm94aW1hdGUgW2B6KFskYl0pXHRleHR7Ln1gXQoKW19deyRhbnN9ezEwfQoKCkVORF9QR01MCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents"><div class="para" id="p-1839">Given <span class="process-math">\(z(40)=150\)</span> and <span class="process-math">\(z'(40) = -11\text{,}\)</span> approximate <span class="process-math">\(z(25)\text{.}\)</span>
+</div></div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-229')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="exercise-235"><h5 class="heading"><span class="codenumber">7<span class="period">.</span></span></h5>
+<div id="webwork-230" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="230" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2Vzc2F5bWFjcm9zLnBsIiwicGFyc2VyUG9wVXAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKVEVYVChNT0RFUyhQVFg9PicnLEhUTUw9PnF8PGRpdiBzdHlsZT0iZGlzcGxheTpub25lOyI+XChcbmV3Y29tbWFuZHtcZnB9e2YnfVwpPC9kaXY+fCkpOwpDb250ZXh0KCdOdW1lcmljJyk7JHBvcHVwID0gUG9wVXAoWyc/JywnZigxMC4xKScsJ2YoMTEpJywnZigyMCknXSwxKTsKJHNob3d3b3JrID0gJ1tAIGV4cGxhbmF0aW9uX2JveChtZXNzYWdlID0+ICJFeHBsYWluIHlvdXIgcmVhc29uaW5nLiIpIEBdKic7CgpCRUdJTl9QR01MCktub3dpbmcgW2BmKDEwKT0yNWBdIGFuZCBbYFxmcCgxMCkgPSA1YF0gYW5kIHRoZSBtZXRob2RzIGRlc2NyaWJlZCBpbiB0aGlzIHNlY3Rpb24sIHdoaWNoIGFwcHJveGltYXRpb24gaXMgbGlrZWx5IHRvIGJlIG1vc3QgYWNjdXJhdGU/IFtfXXskcG9wdXB9ezV9CgpbJHNob3d3b3JrXSoqCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KW2BmKDEwLjEpYF0gaXMgbGlrZWx5IG1vc3QgYWNjdXJhdGUsIGFzIGFjY3VyYWN5IGlzIGxvc3QgdGhlIGZhcnRoZXIgZnJvbSBbYHg9MTBgXSB3ZSBnby4KCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<div class="para" id="p-1841">Knowing <span class="process-math">\(f(10)=25\)</span> and <span class="process-math">\(\fp(10) = 5\)</span> and the methods described in this section, which approximation is likely to be most accurate? <ul style="list-style:circle;">
+<li id="li-512"><div class="para" id="p-1843">f(10.1)</div></li>
+<li id="li-513"><div class="para" id="p-1844">f(11)</div></li>
+<li id="li-514"><div class="para" id="p-1845">f(20)</div></li>
+</ul>
+</div> <div class="para" id="p-1846">Explain your reasoning.</div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-230')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="exercise-236"><h5 class="heading"><span class="codenumber">8<span class="period">.</span></span></h5>
+<div id="webwork-231" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="231" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKVEVYVChNT0RFUyhQVFg9PicnLEhUTUw9PnF8PGRpdiBzdHlsZT0iZGlzcGxheTpub25lOyI+XChcbmV3Y29tbWFuZHtcZnB9e2YnfVwpPC9kaXY+fCkpOwpDb250ZXh0KCdOdW1lcmljJyk7JGE9cmFuZG9tKDEsOSwxKTsKJGZhPXJhbmRvbSgxMSw5OSwxKTsKJGZwYT1ub25femVyb19yYW5kb20oLTEwLDEwLDEpOwppZigkZW52aXJ7cHJvYmxlbVNlZWR9PT0xKXskYT03OyRmYT0yNjskZnBhPS00O307CiRiPSRhKzE7CiRmYj0kZmErJGZwYSooJGItJGEpOwoKQkVHSU5fUEdNTApHaXZlbiBbYGYoWyRhXSk9WyRmYV1gXSBhbmQgW2BmKFskYl0pID0gWyRmYl1cdGV4dHssfWBdIGFwcHJveGltYXRlIFtgXGZwKFskYV0pXHRleHR7Ln1gXQoKW19deyRmcGF9ezEwfQoKCkVORF9QR01MCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents"><div class="para" id="p-1849">Given <span class="process-math">\(f(6)=82\)</span> and <span class="process-math">\(f(7) = 73\text{,}\)</span> approximate <span class="process-math">\(\fp(6)\text{.}\)</span>
+</div></div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-231')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="exercise-237"><h5 class="heading"><span class="codenumber">9<span class="period">.</span></span></h5>
+<div id="webwork-232" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="232" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOyRhPXJhbmRvbSgtNSw1LDEpOwokZmE9cmFuZG9tKDExLDk5LDEpOwokZnBhPW5vbl96ZXJvX3JhbmRvbSgtMTAsMTAsMSk7CiRiPSRhK3JhbmRvbSgyLDYsMSk7CmlmKCRlbnZpcntwcm9ibGVtU2VlZH09PTEpeyRhPTA7JGZhPTE3OyRmcGE9NjskYj0yO307CiRmYj0kZmErJGZwYSooJGItJGEpOwoKQkVHSU5fUEdNTApHaXZlbiBbYEgoWyRhXSk9WyRmYV1gXSBhbmQgW2BIKFskYl0pID0gWyRmYl1cdGV4dHssfWBdIGFwcHJveGltYXRlIFtgSCcoWyRhXSlcdGV4dHsufWBdCgpbX117JGZwYX17MTB9CgoKRU5EX1BHTUwKCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents"><div class="para" id="p-1851">Given <span class="process-math">\(H(2)=51\)</span> and <span class="process-math">\(H(8) = 99\text{,}\)</span> approximate <span class="process-math">\(H'(2)\text{.}\)</span>
+</div></div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-232')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="exercise-238"><h5 class="heading"><span class="codenumber">10<span class="period">.</span></span></h5>
+<div id="webwork-233" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="233" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgpLT5zdHJpbmdzLT5hZGQoJ2RlY2liZWxzIHBlciBjdXN0b21lcic9Pnt9KTsKQ29udGV4dCgpLT5zdHJpbmdzLT5hZGQoCiAgJ2RlY2liZWwgcGVyIGN1c3RvbWVyJyA9PiB7YWxpYXM9PidkZWNpYmVscyBwZXIgY3VzdG9tZXInfSwKICAnZGIgcGVyIGN1c3RvbWVyJyA9PiB7YWxpYXM9PidkZWNpYmVscyBwZXIgY3VzdG9tZXInfSwKICAnZGVjaWJlbHMgLyBjdXN0b21lcicgPT4ge2FsaWFzPT4nZGVjaWJlbHMgcGVyIGN1c3RvbWVyJ30sCiAgJ2RlY2liZWwgLyBjdXN0b21lcicgPT4ge2FsaWFzPT4nZGVjaWJlbHMgcGVyIGN1c3RvbWVyJ30sCiAgJ2RiIC8gY3VzdG9tZXInID0+IHthbGlhcz0+J2RlY2liZWxzIHBlciBjdXN0b21lcid9LAogICdkZWNpYmVscy9jdXN0b21lcicgPT4ge2FsaWFzPT4nZGVjaWJlbHMgcGVyIGN1c3RvbWVyJ30sCiAgJ2RlY2liZWwvY3VzdG9tZXInID0+IHthbGlhcz0+J2RlY2liZWxzIHBlciBjdXN0b21lcid9LAogICdkYi9jdXN0b21lcicgPT4ge2FsaWFzPT4nZGVjaWJlbHMgcGVyIGN1c3RvbWVyJ30sCik7CiRhbnM9Q29tcHV0ZSgiZGVjaWJlbHMgcGVyIGN1c3RvbWVyIik7CgpCRUdJTl9QR01MCkxldCBbYFYoeClgXSBtZWFzdXJlIHRoZSB2b2x1bWUsIGluIGRlY2liZWxzLCBtZWFzdXJlZCBpbnNpZGUgYSByZXN0YXVyYW50IHdpdGggW2B4YF0gY3VzdG9tZXJzLiBXaGF0IGFyZSB0aGUgdW5pdHMgb2YgW2BWJyh4KVx0ZXh0ez99YF0KCltfXXskYW5zfXsyMH0KCgpFTkRfUEdNTAoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents"><div class="para" id="p-1853">Let <span class="process-math">\(V(x)\)</span> measure the volume, in decibels, measured inside a restaurant with <span class="process-math">\(x\)</span> customers. What are the units of <span class="process-math">\(V'(x)\text{?}\)</span>
+</div></div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-233')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="exercise-239"><h5 class="heading"><span class="codenumber">11<span class="period">.</span></span></h5>
+<div id="webwork-234" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="234" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgpLT5zdHJpbmdzLT5hZGQoJ2Zvb3QgcGVyIHNlY29uZCBzcXVhcmVkJz0+e30pOwpDb250ZXh0KCktPnN0cmluZ3MtPmFkZCgKICAnZm9vdCBwZXIgc3F1YXJlIHNlY29uZCcgPT4ge2FsaWFzPT4nZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQnfSwKICAnZm9vdCBwZXIgc2Vjb25kIHBlciBzZWNvbmQnID0+IHthbGlhcz0+J2Zvb3QgcGVyIHNlY29uZCBzcXVhcmVkJ30sCiAgJ2Z0IHBlciBzZWNvbmQgc3F1YXJlZCcgPT4ge2FsaWFzPT4nZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQnfSwKICAnZnQgcGVyIHNxdWFyZSBzZWNvbmQnID0+IHthbGlhcz0+J2Zvb3QgcGVyIHNlY29uZCBzcXVhcmVkJ30sCiAgJ2Z0IHBlciBzZWNvbmQgcGVyIHNlY29uZCcgPT4ge2FsaWFzPT4nZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQnfSwKICAnZm9vdCBwZXIgc14yJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmb290IHBlciBzIHBlciBzJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmdCBwZXIgc14yJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmdCBwZXIgcyBwZXIgcycgPT4ge2FsaWFzPT4nZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQnfSwKICAnZm9vdCAvIHNlY29uZCBzcXVhcmVkJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmb290IC8gc3F1YXJlIHNlY29uZCcgPT4ge2FsaWFzPT4nZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQnfSwKICAnZm9vdCAvIHNlY29uZCAvIHNlY29uZCcgPT4ge2FsaWFzPT4nZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQnfSwKICAnZnQgLyBzZWNvbmQgc3F1YXJlZCcgPT4ge2FsaWFzPT4nZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQnfSwKICAnZnQgLyBzcXVhcmUgc2Vjb25kJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmdCAvIHNlY29uZCAvIHNlY29uZCcgPT4ge2FsaWFzPT4nZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQnfSwKICAnZm9vdCAvIHNeMicgPT4ge2FsaWFzPT4nZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQnfSwKICAnZm9vdCAvIHMgLyBzJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmdCAvIHNeMicgPT4ge2FsaWFzPT4nZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQnfSwKICAnZnQgLyBzIC8gcycgPT4ge2FsaWFzPT4nZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQnfSwKICAnZm9vdC9zZWNvbmQgc3F1YXJlZCcgPT4ge2FsaWFzPT4nZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQnfSwKICAnZm9vdC9zcXVhcmUgc2Vjb25kJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmb290L3NlY29uZC9zZWNvbmQnID0+IHthbGlhcz0+J2Zvb3QgcGVyIHNlY29uZCBzcXVhcmVkJ30sCiAgJ2Z0L3NlY29uZCBzcXVhcmVkJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmdC9zcXVhcmUgc2Vjb25kJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmdC9zZWNvbmQvc2Vjb25kJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmb290L3NeMicgPT4ge2FsaWFzPT4nZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQnfSwKICAnZm9vdC9zL3MnID0+IHthbGlhcz0+J2Zvb3QgcGVyIHNlY29uZCBzcXVhcmVkJ30sCiAgJ2Z0L3NeMicgPT4ge2FsaWFzPT4nZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQnfSwKICAnZnQvcy9zJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmZWV0IHBlciBzcXVhcmUgc2Vjb25kJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmZWV0IHBlciBzZWNvbmQgcGVyIHNlY29uZCcgPT4ge2FsaWFzPT4nZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQnfSwKICAnZmVldCBwZXIgc14yJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmZWV0IHBlciBzIHBlciBzJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmZWV0IC8gc2Vjb25kIHNxdWFyZWQnID0+IHthbGlhcz0+J2Zvb3QgcGVyIHNlY29uZCBzcXVhcmVkJ30sCiAgJ2ZlZXQgLyBzcXVhcmUgc2Vjb25kJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmZWV0IC8gc2Vjb25kIC8gc2Vjb25kJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmZWV0IC8gc14yJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmZWV0IC8gcyAvIHMnID0+IHthbGlhcz0+J2Zvb3QgcGVyIHNlY29uZCBzcXVhcmVkJ30sCiAgJ2ZlZXQvc2Vjb25kIHNxdWFyZWQnID0+IHthbGlhcz0+J2Zvb3QgcGVyIHNlY29uZCBzcXVhcmVkJ30sCiAgJ2ZlZXQvc3F1YXJlIHNlY29uZCcgPT4ge2FsaWFzPT4nZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQnfSwKICAnZmVldC9zZWNvbmQvc2Vjb25kJyA9PiB7YWxpYXM9Pidmb290IHBlciBzZWNvbmQgc3F1YXJlZCd9LAogICdmZWV0L3NeMicgPT4ge2FsaWFzPT4nZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQnfSwKICAnZmVldC9zL3MnID0+IHthbGlhcz0+J2Zvb3QgcGVyIHNlY29uZCBzcXVhcmVkJ30sCik7CiRhbnM9Q29tcHV0ZSgiZm9vdCBwZXIgc2Vjb25kIHNxdWFyZWQiKTsKCkJFR0lOX1BHTUwKTGV0IFtgdih0KWBdIG1lYXN1cmUgdGhlIHZlbG9jaXR5LCBpbiBmdC9zLCBvZiBhIGNhciBtb3ZpbmcgaW4gYSBzdHJhaWdodCBsaW5lIFtgdGBdIHNlY29uZHMgYWZ0ZXIgc3RhcnRpbmcuIFdoYXQgYXJlIHRoZSB1bml0cyBvZiBbYHYnKHQpXHRleHR7P31gXQoKW19deyRhbnN9ezIwfQoKCkVORF9QR01MCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents"><div class="para" id="p-1855">Let <span class="process-math">\(v(t)\)</span> measure the velocity, in ft/s, of a car moving in a straight line <span class="process-math">\(t\)</span> seconds after starting. What are the units of <span class="process-math">\(v'(t)\text{?}\)</span>
+</div></div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-234')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="exercise-240"><h5 class="heading"><span class="codenumber">12<span class="period">.</span></span></h5>
+<div id="webwork-235" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="235" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgpLT5zdHJpbmdzLT5hZGQoJ2Zvb3QgcGVyIGhvdXInPT57fSk7CkNvbnRleHQoKS0+c3RyaW5ncy0+YWRkKAogICdmb290IHBlciBocicgPT4ge2FsaWFzPT4nZm9vdCBwZXIgaG91cid9LAogICdmb290IHBlciBoJyA9PiB7YWxpYXM9Pidmb290IHBlciBob3VyJ30sCiAgJ2Zvb3QgLyBob3VyJyA9PiB7YWxpYXM9Pidmb290IHBlciBob3VyJ30sCiAgJ2Zvb3QgLyBocicgPT4ge2FsaWFzPT4nZm9vdCBwZXIgaG91cid9LAogICdmb290IC8gaCcgPT4ge2FsaWFzPT4nZm9vdCBwZXIgaG91cid9LAogICdmb290L2hvdXInID0+IHthbGlhcz0+J2Zvb3QgcGVyIGhvdXInfSwKICAnZm9vdC9ocicgPT4ge2FsaWFzPT4nZm9vdCBwZXIgaG91cid9LAogICdmb290L2gnID0+IHthbGlhcz0+J2Zvb3QgcGVyIGhvdXInfSwKICAnZmVldCBwZXIgaG91cicgPT4ge2FsaWFzPT4nZm9vdCBwZXIgaG91cid9LAogICdmZWV0IHBlciBocicgPT4ge2FsaWFzPT4nZm9vdCBwZXIgaG91cid9LAogICdmZWV0IHBlciBoJyA9PiB7YWxpYXM9Pidmb290IHBlciBob3VyJ30sCiAgJ2ZlZXQgLyBob3VyJyA9PiB7YWxpYXM9Pidmb290IHBlciBob3VyJ30sCiAgJ2ZlZXQgLyBocicgPT4ge2FsaWFzPT4nZm9vdCBwZXIgaG91cid9LAogICdmZWV0IC8gaCcgPT4ge2FsaWFzPT4nZm9vdCBwZXIgaG91cid9LAogICdmZWV0L2hvdXInID0+IHthbGlhcz0+J2Zvb3QgcGVyIGhvdXInfSwKICAnZmVldC9ocicgPT4ge2FsaWFzPT4nZm9vdCBwZXIgaG91cid9LAogICdmZWV0L2gnID0+IHthbGlhcz0+J2Zvb3QgcGVyIGhvdXInfSwKICAnZnQgcGVyIGhvdXInID0+IHthbGlhcz0+J2Zvb3QgcGVyIGhvdXInfSwKICAnZnQgcGVyIGhyJyA9PiB7YWxpYXM9Pidmb290IHBlciBob3VyJ30sCiAgJ2Z0IHBlciBoJyA9PiB7YWxpYXM9Pidmb290IHBlciBob3VyJ30sCiAgJ2Z0IC8gaG91cicgPT4ge2FsaWFzPT4nZm9vdCBwZXIgaG91cid9LAogICdmdCAvIGhyJyA9PiB7YWxpYXM9Pidmb290IHBlciBob3VyJ30sCiAgJ2Z0IC8gaCcgPT4ge2FsaWFzPT4nZm9vdCBwZXIgaG91cid9LAogICdmdC9ob3VyJyA9PiB7YWxpYXM9Pidmb290IHBlciBob3VyJ30sCiAgJ2Z0L2hyJyA9PiB7YWxpYXM9Pidmb290IHBlciBob3VyJ30sCiAgJ2Z0L2gnID0+IHthbGlhcz0+J2Zvb3QgcGVyIGhvdXInfSwKKTsKJGFucz1Db21wdXRlKCJmb290IHBlciBob3VyIik7CgpCRUdJTl9QR01MClRoZSBoZWlnaHQgW2BIXHRleHR7LH1gXSBpbiBmZWV0LCBvZiBhIHJpdmVyIGlzIHJlY29yZGVkIFtgdGBdIGhvdXJzIGFmdGVyIG1pZG5pZ2h0LCBBcHJpbCAxLiBXaGF0IGFyZSB0aGUgdW5pdHMgb2YgW2BIJyh0KVx0ZXh0ez99YF0KCltfXXskYW5zfXsyMH0KCgpFTkRfUEdNTAoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents"><div class="para" id="p-1857">The height <span class="process-math">\(H\text{,}\)</span> in feet, of a river is recorded <span class="process-math">\(t\)</span> hours after midnight, April 1. What are the units of <span class="process-math">\(H'(t)\text{?}\)</span>
+</div></div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-235')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="exercise-241"><h5 class="heading"><span class="codenumber">13<span class="period">.</span></span></h5>
+<div id="webwork-236" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="236" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2Vzc2F5bWFjcm9zLnBsIiwiUEdjb3Vyc2UucGwiLCk7VEVYVChiZWdpbnByb2JsZW0oKSk7ClRFWFQoTU9ERVMoUFRYPT4nJyxIVE1MPT4nPGRpdiBzdHlsZT0iZGlzcGxheTpub25lOyI+XChcbmV3Y29tbWFuZHtcbHR9ezx9XCk8L2Rpdj4nKSk7CkNvbnRleHQoJ051bWVyaWMnKTsKCkJFR0lOX1BHTUwKW2BQYF0gaXMgdGhlIHByb2ZpdCwgaW4gdGhvdXNhbmRzIG9mIGRvbGxhcnMsIG9mIHByb2R1Y2luZyBhbmQgc2VsbGluZyBbYGNgXSBjYXJzLgoKYS4gIFdoYXQgYXJlIHRoZSB1bml0cyBvZiBbYFAnKGMpXHRleHR7P31gXQoKICAgIFtAQU5TKGVzc2F5X2NtcCgpKTtlc3NheV9ib3goNiw3NilAXSogW0Blc3NheV9oZWxwKClAXSoKCgphLiAgV2hhdCBpcyBsaWtlbHkgdHJ1ZSBvZiBbYFAoMClcdGV4dHs/fWBdCgogICAgW0BBTlMoZXNzYXlfY21wKCkpO2Vzc2F5X2JveCg2LDc2KUBdKiBbQGVzc2F5X2hlbHAoKUBdKgoKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgphLiAgdGhvdXNhbmRzIG9mIGRvbGxhcnMgcGVyIGNhcgoKCmEuICBJdCBpcyBsaWtlbHkgdGhhdCBbYFAoMClcbHQgMFx0ZXh0ey59YF0gVGhhdCBpcywgbmVnYXRpdmUgcHJvZml0IGZvciBub3QgcHJvZHVjaW5nIGFueSBjYXJzLgoKCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<div class="para" id="p-1859">
+<span class="process-math">\(P\)</span> is the profit, in thousands of dollars, of producing and selling <span class="process-math">\(c\)</span> cars.</div> <div class="para logical" id="p-1860"><ol class="lower-alpha">
+<li id="li-515"><div class="para" id="p-1861">What are the units of <span class="process-math">\(P'(c)\text{?}\)</span>
+</div></li>
+<li id="li-516"><div class="para" id="p-1862">What is likely true of <span class="process-math">\(P(0)\text{?}\)</span>
+</div></li>
+</ol></div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-236')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="exercise-242"><h5 class="heading"><span class="codenumber">14<span class="period">.</span></span></h5>
+<div id="webwork-237" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="237" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2Vzc2F5bWFjcm9zLnBsIiwiUEdjb3Vyc2UucGwiLCk7VEVYVChiZWdpbnByb2JsZW0oKSk7ClRFWFQoTU9ERVMoUFRYPT4nJyxIVE1MPT4nPGRpdiBzdHlsZT0iZGlzcGxheTpub25lOyI+XChcbmV3Y29tbWFuZHtcZ3R9ez59XCk8L2Rpdj4nKSk7CkNvbnRleHQoJ051bWVyaWMnKTsKCkJFR0lOX1BHTUwKW2BUYF0gaXMgdGhlIHRlbXBlcmF0dXJlIGluIGRlZ3JlZXMgRmFocmVuaGVpdCwgW2BoYF0gaG91cnMgYWZ0ZXIgbWlkbmlnaHQgb24gSnVseSA0IGluIFNpZG5leSwgTkUuCgphLiAgV2hhdCBhcmUgdGhlIHVuaXRzIG9mIFtgVCcoaClcdGV4dHs/fWBdCgogICAgW0BBTlMoZXNzYXlfY21wKCkpO2Vzc2F5X2JveCg2LDc2KUBdKiBbQGVzc2F5X2hlbHAoKUBdKgoKCmEuICBJcyBbYFQnKDgpYF0gbGlrZWx5IGdyZWF0ZXIgdGhhbiBvciBsZXNzIHRoYW4gMD8gV2h5PwoKICAgIFtAQU5TKGVzc2F5X2NtcCgpKTtlc3NheV9ib3goNiw3NilAXSogW0Blc3NheV9oZWxwKClAXSoKCgphLiAgSXMgW2BUKDgpYF0gbGlrZWx5IGdyZWF0ZXIgdGhhbiBvciBsZXNzIHRoYW4gMD8gV2h5PwoKICAgIFtAQU5TKGVzc2F5X2NtcCgpKTtlc3NheV9ib3goNiw3NilAXSogW0Blc3NheV9oZWxwKClAXSoKCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KYS4gIGRlZ3JlZXMgRmFocmVuaGVpdCBwZXIgaG91cgoKCmEuICBJdCBpcyBsaWtlbHkgdGhhdCBbYFQnKDgpIFxndCAwYF0gc2luY2UgYXQgOCBpbiB0aGUgbW9ybmluZywgdGhlIHRlbXBlcmF0dXJlIGlzIGxpa2VseSByaXNpbmcuCgoKYS4gIEl0IGlzIHZlcnkgbGlrZWx5IHRoYXQgW2BUKDgpIFxndCAwXHRleHR7LH1gXSBhcyBhdCA4IGluIHRoZSBtb3JuaW5nIG9uIEp1bHkgNCwgd2Ugd291bGQgZXhwZWN0IHRoZSB0ZW1wZXJhdHVyZSB0byBiZSB3ZWxsIGFib3ZlIDAuCgoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<div class="para" id="p-1866">
+<span class="process-math">\(T\)</span> is the temperature in degrees Fahrenheit, <span class="process-math">\(h\)</span> hours after midnight on July 4 in Sidney, NE.</div> <div class="para logical" id="p-1867"><ol class="lower-alpha">
+<li id="li-519"><div class="para" id="p-1868">What are the units of <span class="process-math">\(T'(h)\text{?}\)</span>
+</div></li>
+<li id="li-520"><div class="para" id="p-1869">Is <span class="process-math">\(T'(8)\)</span> likely greater than or less than 0? Why?</div></li>
+<li id="li-521"><div class="para" id="p-1870">Is <span class="process-math">\(T(8)\)</span> likely greater than or less than 0? Why?</div></li>
+</ol></div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-237')">Activate</button></div>
+</div></article><div class="exercisegroup" id="exercisegroup-28">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-33"><div class="para" id="p-1875">Graphs of functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are given. Identify which function is the derivative of the other.</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-243"><h6 class="heading"><span class="codenumber">15<span class="period">.</span></span></h6>
+<div id="webwork-238" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="238" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2dyYXBobWFjcm9zLnBsIiwicGFyc2VyUmFkaW9CdXR0b25zLnBsIiwiUEdjb3Vyc2UucGwiLCk7JHJlZnJlc2hDYWNoZWRJbWFnZXNJbmVydD0xO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCdOdW1lcmljJyk7JGg9bm9uX3plcm9fcmFuZG9tKC0yLDIsMSk7CiRrPW5vbl96ZXJvX3JhbmRvbSgtMiwyLDEpOwokYT1ub25femVyb19yYW5kb20oLTEsMSwwLjA1KTsKaWYoJGVudmlye3Byb2JsZW1TZWVkfT09MSl7JGE9MC4yNTskaD0xOyRrPTI7fTsKJGY9Rm9ybXVsYSgiJGEgKHgtJGgpXjIrJGsiKTsKJGZwPSRmLT5EKCd4Jyk7CmlmICgkYT4wKSB7CiAgJGZsZWZ0ICA9ICRoIC0gc3FydCg1LyRhIC0gJGspOwogICRmcmlnaHQgPSAkaCArIHNxcnQoNS8kYSAtICRrKTsKICBAZnBvcyA9ICgnY2VudGVyJywndG9wJyk7CiAgJGZwbGVmdCA9ICRoLTUvMi8kYTsKICAkZnByaWdodCA9ICRoKzUvMi8kYTsKICBAZnBwb3MgPSAoJ2xlZnQnLCd0b3AnKTsKfSBlbHNlIHsKICAkZmxlZnQgID0gJGggLSBzcXJ0KC01LyRhIC0gJGspOwogICRmcmlnaHQgPSAkaCArIHNxcnQoLTUvJGEgLSAkayk7CiAgQGZwb3MgPSAoJ2NlbnRlcicsJ2JvdHRvbScpOwogICRmcGxlZnQgPSAkaCs1LzIvJGE7CiAgJGZwcmlnaHQgPSAkaC01LzIvJGE7CiAgQGZwcG9zID0gKCdsZWZ0JywnYm90dG9tJyk7Cn07CiRmbGVmdD1tYXgoJGZsZWZ0LC00KTsKJGZyaWdodD1taW4oJGZyaWdodCw0KTsKJGZwbGVmdD1tYXgoJGZwbGVmdCwtNCk7CiRmcHJpZ2h0PW1pbigkZnByaWdodCw0KTsKJGdyPWluaXRfZ3JhcGgoLTQsLTUsNCw1LGF4ZXM9PlswLDBdLHNpemU9Pls0MDAsMjQwXSk7CiRnci0+bGIoJ3Jlc2V0Jyk7CmZvciBteSRpKC0zLC0yLC0xLDEsMiwzKXsKICAkZ3ItPm1vdmVUbygkaSwtMC4wNSk7CiAgJGdyLT5saW5lVG8oJGksMC4wNSxibGFjaywxKTsKICAkZ3ItPmxiKG5ldyBMYWJlbCgkaSwtMC4xLCRpLCdibGFjaycsJ2NlbnRlcicsJ3RvcCcsJ2xhcmdlJykpOwp9Owpmb3IgbXkkaSgtNC4uLTEsMS4uNCl7CiAgJGdyLT5tb3ZlVG8oLTAuMDUsJGkpOwogICRnci0+bGluZVRvKDAuMDUsJGksYmxhY2ssMSk7CiAgJGdyLT5sYihuZXcgTGFiZWwoLTAuMSwkaSwkaSwnYmxhY2snLCdyaWdodCcsJ21pZGRsZScsJ2xhcmdlJykpOwp9OwokZ3ItPm5ld19jb2xvcigibGlnaHRibHVlIiwgMTc0LDE4MCwyNDQpOwokZ3ItPm5ld19jb2xvcigiZGFya3JlZCIsIDE1OSw2NCwxNik7CmFkZF9mdW5jdGlvbnMoJGdyLCAiJGZwIGZvciB4IGluIDwkZnBsZWZ0LCRmcHJpZ2h0PiB1c2luZyBjb2xvcjpsaWdodGJsdWUgYW5kIHdlaWdodDozIik7CiRnci0+bGIobmV3IExhYmVsKCRmcHJpZ2h0LTEsJGZwLT5ldmFsKHg9PiRmcHJpZ2h0LTEpLCdmJywnbGlnaHRibHVlJyxAZnBwb3MsJ2xhcmdlJykpOwphZGRfZnVuY3Rpb25zKCRnciwgIiRmIGZvciB4IGluIDwkZmxlZnQsJGZyaWdodD4gdXNpbmcgY29sb3I6ZGFya3JlZCBhbmQgd2VpZ2h0OjIiKTsKJGdyLT5sYihuZXcgTGFiZWwoJGgsJGssJ2cnLCdkYXJrcmVkJyxAZnBvcywnbGFyZ2UnKSk7CiRyYWRpbz1SYWRpb0J1dHRvbnMoWwogIG1hdGhfZXYzKGYpLicgaXMgdGhlIGRlcml2YXRpdmUgb2YgJy5tYXRoX2V2MyhnKS4nLicsCiAgbWF0aF9ldjMoZykuJyBpcyB0aGUgZGVyaXZhdGl2ZSBvZiAnLm1hdGhfZXYzKGYpLicuJwpdLDApOwoKQkVHSU5fUEdNTAo+PiBbQGltYWdlKGluc2VydEdyYXBoKCRnciksIHdpZHRoPT42MDApQF0qICA8PAoKW19deyRyYWRpb317NX0KCgpFTkRfUEdNTAoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-238-image-1.png" class="contained"></div> <div class="para" id="p-1876"><ul style="list-style:circle;">
+<li id="li-525"><div class="para" id="p-1877">
+<span class="process-math">\(f\)</span> is the derivative of <span class="process-math">\(g\text{.}\)</span>
+</div></li>
+<li id="li-526"><div class="para" id="p-1878">
+<span class="process-math">\(g\)</span> is the derivative of <span class="process-math">\(f\text{.}\)</span>
+</div></li>
+</ul></div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-238')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="exercise-244"><h6 class="heading"><span class="codenumber">16<span class="period">.</span></span></h6>
+<div id="webwork-239" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="239" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2Nob2ljZW1hY3Jvcy5wbCIsIlBHZ3JhcGhtYWNyb3MucGwiLCJwYXJzZXJSYWRpb0J1dHRvbnMucGwiLCJQR2NvdXJzZS5wbCIsKTskcmVmcmVzaENhY2hlZEltYWdlc0luZXJ0PTE7VEVYVChiZWdpbnByb2JsZW0oKSk7CkNvbnRleHQoJ051bWVyaWMnKTsoJHIsJHMsJHQpPW51bV9zb3J0KCgtMy4uMylbTmNob29zZUsoNywzKV0pOwokYT1ub25femVyb19yYW5kb20oLTEsMSwwLjA1KTsKaWYoJGVudmlye3Byb2JsZW1TZWVkfT09MSl7JGE9MTskcj0wOyRzPTE7JHQ9Mjt9OwokZj1Gb3JtdWxhKCIkYSh4LSRyKSh4LSRzKSh4LSR0KSIpOwokZnA9JGYtPkQoJ3gnKTsKQGNwPSgKICAoJHIrJHMrJHQgLSBzcXJ0KCgkciskcyskdCkqKjIgLSAzKigkciokcyskciokdCskcyokdCkpKS8zLAogICgkciskcyskdCArIHNxcnQoKCRyKyRzKyR0KSoqMiAtIDMqKCRyKiRzKyRyKiR0KyRzKiR0KSkpLzMKKTsKQGN2Owpmb3IgJGkgKEBjcCkgewogIHB1c2goQGN2LCAkZi0+ZXZhbCh4PT4kaSkpOwp9OwokeG1pbj0kci0yOwokeG1heD0kdCsyOwokeW1pbj1taW4oLTUsbWFwe1JvdW5kKCRfKS0xfShAY3YpKTsKJHltYXg9bWF4KDUsbWFwe1JvdW5kKCRfKSsxfShAY3YpKTsKJGluZmw9KCRyKyRzKyR0KS8zOwokZ3I9aW5pdF9ncmFwaCgkeG1pbiwkeW1pbiwkeG1heCwkeW1heCxheGVzPT5bMCwwXSxzaXplPT5bNDAwLDI0MF0pOwokZ3ItPmxiKCdyZXNldCcpOwokZ3ItPm5ld19jb2xvcigibGlnaHRibHVlIiwgMTc0LDE4MCwyNDQpOwokZ3ItPm5ld19jb2xvcigiZGFya3JlZCIsIDE1OSw2NCwxNik7CmZvciBteSRpKCgkeG1pbisxKS4uLTEsMS4uKCR4bWF4LTEpKXsKICAkZ3ItPm1vdmVUbygkaSwtMC4wNSk7CiAgJGdyLT5saW5lVG8oJGksMC4wNSxibGFjaywxKTsKICAkZ3ItPmxiKG5ldyBMYWJlbCgkaSwwLCRpLCdibGFjaycsJ2NlbnRlcicsJ3RvcCcsJ2xhcmdlJykpOwp9Owpmb3IgbXkkaSgoJHltaW4rMSkuLi0xLDEuLigkeW1heC0xKSl7CiAgJGdyLT5tb3ZlVG8oLTAuMDUsJGkpOwogICRnci0+bGluZVRvKDAuMDUsJGksYmxhY2ssMSk7CiAgJGdyLT5sYihuZXcgTGFiZWwoLTAuMSwkaSwkaSwnYmxhY2snLCdyaWdodCcsJ21pZGRsZScsJ2xhcmdlJykpOwp9OwppZiAoJGE+MCkgewogIEBmcG9zPSgncmlnaHQnLCdib3R0b20nKTsKICBAZnBwb3M9KCdjZW50ZXInLCd0b3AnKTsKfSBlbHNlIHsKICBAZnBvcz0oJ2xlZnQnLCdib3R0b20nKTsKICBAZnBwb3M9KCdjZW50ZXInLCdib3R0b20nKTsKfQphZGRfZnVuY3Rpb25zKCRnciwgIiRmIGZvciB4IGluIDwkeG1pbiwkeG1heD4gdXNpbmcgY29sb3I6bGlnaHRibHVlIGFuZCB3ZWlnaHQ6MyIpOwokZ3ItPmxiKG5ldyBMYWJlbCgkdCwwLCdmJywnbGlnaHRibHVlJyxAZnBvcywnbGFyZ2UnKSk7CmFkZF9mdW5jdGlvbnMoJGdyLCAiJGZwIGZvciB4IGluIDwkeG1pbiwkeG1heD4gdXNpbmcgY29sb3I6ZGFya3JlZCBhbmQgd2VpZ2h0OjIiKTsKJGdyLT5sYihuZXcgTGFiZWwoJGluZmwsJGZwLT5ldmFsKHg9PiRpbmZsKSwnZycsJ2RhcmtyZWQnLEBmcHBvcywnbGFyZ2UnKSk7CiRyYWRpbz1SYWRpb0J1dHRvbnMoWwogIG1hdGhfZXYzKGYpLicgaXMgdGhlIGRlcml2YXRpdmUgb2YgJy5tYXRoX2V2MyhnKS4nLicsCiAgbWF0aF9ldjMoZykuJyBpcyB0aGUgZGVyaXZhdGl2ZSBvZiAnLm1hdGhfZXYzKGYpLicuJwpdLDEpOwoKQkVHSU5fUEdNTAo+PiBbQGltYWdlKGluc2VydEdyYXBoKCRnciksIHdpZHRoPT42MDApQF0qICA8PAoKW19deyRyYWRpb317NX0KCgpFTkRfUEdNTAoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-239-image-1.png" class="contained"></div> <div class="para" id="p-1880"><ul style="list-style:circle;">
+<li id="li-527"><div class="para" id="p-1881">
+<span class="process-math">\(f\)</span> is the derivative of <span class="process-math">\(g\text{.}\)</span>
+</div></li>
+<li id="li-528"><div class="para" id="p-1882">
+<span class="process-math">\(g\)</span> is the derivative of <span class="process-math">\(f\text{.}\)</span>
+</div></li>
+</ul></div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-239')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="exercise-245"><h6 class="heading"><span class="codenumber">17<span class="period">.</span></span></h6>
+<div id="webwork-240" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="240" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2dyYXBobWFjcm9zLnBsIiwicGFyc2VyUmFkaW9CdXR0b25zLnBsIiwiUEdjb3Vyc2UucGwiLCk7JHJlZnJlc2hDYWNoZWRJbWFnZXNJbmVydD0xO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCdOdW1lcmljJyk7JGdyPWluaXRfZ3JhcGgoLTUsLTUsNSw1LGF4ZXM9PlswLDBdLHNpemU9Pls0MDAsMjQwXSxncmlkPT5bMTAsMTBdKTsKJGdyLT5sYigncmVzZXQnKTsKJGdyLT5uZXdfY29sb3IoImxpZ2h0Ymx1ZSIsIDE3NCwxODAsMjQ0KTsKJGdyLT5uZXdfY29sb3IoImRhcmtyZWQiLCAxNTksNjQsMTYpOwpmb3IgbXkkaSgtNC4uLTEsMS4uNCl7JGdyLT5tb3ZlVG8oJGksLTAuMDUpOyRnci0+bGluZVRvKCRpLDAuMDUsYmxhY2ssMSk7JGdyLT5sYihuZXcgTGFiZWwoJGksLTAuMSwkaSwnYmxhY2snLCdjZW50ZXInLCd0b3AnLCdsYXJnZScpKTt9Owpmb3IgbXkkaSgtNC4uLTEsMS4uNCl7JGdyLT5tb3ZlVG8oLTAuMDUsJGkpOyRnci0+bGluZVRvKDAuMDUsJGksYmxhY2ssMSk7JGdyLT5sYihuZXcgTGFiZWwoLTAuMSwkaSwkaSwnYmxhY2snLCdyaWdodCcsJ21pZGRsZScsJ2xhcmdlJykpO307CmFkZF9mdW5jdGlvbnMoJGdyLCAiMS94IGZvciB4IGluIDwtNSwtMC4yPiB1c2luZyBjb2xvcjpsaWdodGJsdWUgYW5kIHdlaWdodDozIik7CmFkZF9mdW5jdGlvbnMoJGdyLCAiMS94IGZvciB4IGluIDwwLjIsNT4gdXNpbmcgY29sb3I6bGlnaHRibHVlIGFuZCB3ZWlnaHQ6MyIpOwokZ3ItPmxiKG5ldyBMYWJlbCgxLDEuMiwnZicsJ2xpZ2h0Ymx1ZScsJ2xlZnQnLCdib3R0b20nLCdsYXJnZScpKTsKYWRkX2Z1bmN0aW9ucygkZ3IsICItMS94XjIgZm9yIHggaW4gPC01LC0wLjQ1PiB1c2luZyBjb2xvcjpkYXJrcmVkIGFuZCB3ZWlnaHQ6MiIpOwphZGRfZnVuY3Rpb25zKCRnciwgIi0xL3heMiBmb3IgeCBpbiA8MC40NSw1PiB1c2luZyBjb2xvcjpkYXJrcmVkIGFuZCB3ZWlnaHQ6MiIpOwokZ3ItPmxiKG5ldyBMYWJlbCgxLC0xLjIsJ2cnLCdkYXJrcmVkJywnbGVmdCcsJ3RvcCcsJ2xhcmdlJykpOwokcmFkaW89UmFkaW9CdXR0b25zKFsKICBtYXRoX2V2MyhmKS4nIGlzIHRoZSBkZXJpdmF0aXZlIG9mICcubWF0aF9ldjMoZykuJy4nLAogIG1hdGhfZXYzKGcpLicgaXMgdGhlIGRlcml2YXRpdmUgb2YgJy5tYXRoX2V2MyhmKS4nLicKXSwxKTsKCkJFR0lOX1BHTUwKPj4gW0BpbWFnZShpbnNlcnRHcmFwaCgkZ3IpLCB3aWR0aD0+NjAwKUBdKiAgPDwKCltfXXskcmFkaW99ezV9CgoKRU5EX1BHTUwKCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-240-image-1.png" class="contained"></div> <div class="para" id="p-1884"><ul style="list-style:circle;">
+<li id="li-529"><div class="para" id="p-1885">
+<span class="process-math">\(f\)</span> is the derivative of <span class="process-math">\(g\text{.}\)</span>
+</div></li>
+<li id="li-530"><div class="para" id="p-1886">
+<span class="process-math">\(g\)</span> is the derivative of <span class="process-math">\(f\text{.}\)</span>
+</div></li>
+</ul></div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-240')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="exercise-246"><h6 class="heading"><span class="codenumber">18<span class="period">.</span></span></h6>
+<div id="webwork-241" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="241" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2dyYXBobWFjcm9zLnBsIiwicGFyc2VyUmFkaW9CdXR0b25zLnBsIiwiUEdjb3Vyc2UucGwiLCk7JHJlZnJlc2hDYWNoZWRJbWFnZXNJbmVydD0xO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCdOdW1lcmljJyk7JGg9cmFuZG9tKC0yLDIsMSk7CiRwPXJhbmRvbSgyLDQsMSk7CmlmKCRlbnZpcntwcm9ibGVtU2VlZH09PTEpeyRoPTE7JHA9Mjt9OwokZj1Gb3JtdWxhKCJjb3MocGkvJHAgKHgtJGgpKSIpOwokZnA9JGYtPkQoJ3gnKTsKJHltaW49LW1heChpbnQocGkvJHApLDEpLTE7CiR5bWF4PW1heChpbnQocGkvJHApLDEpKzE7CiRncj1pbml0X2dyYXBoKC00LCR5bWluLDQsJHltYXgsYXhlcz0+WzAsMF0sc2l6ZT0+WzQwMCwyNDBdKTsKJGdyLT5sYigncmVzZXQnKTsKJGdyLT5uZXdfY29sb3IoImxpZ2h0Ymx1ZSIsIDE3NCwxODAsMjQ0KTsKJGdyLT5uZXdfY29sb3IoImRhcmtyZWQiLCAxNTksNjQsMTYpOwpmb3IgbXkkaSgtMy4uLTEsMS4uMyl7CiAgJGdyLT5tb3ZlVG8oJGksLTAuMDUpOwogICRnci0+bGluZVRvKCRpLDAuMDUsYmxhY2ssMSk7CiAgJGdyLT5sYihuZXcgTGFiZWwoJGksLTAuMSwkaSwnYmxhY2snLCdjZW50ZXInLCd0b3AnLCdsYXJnZScpKTsKfTsKZm9yIG15JGkoJHltaW4rMS4uLTEsMS4uJHltYXgtMSl7CiAgJGdyLT5tb3ZlVG8oLTAuMDUsJGkpOwogICRnci0+bGluZVRvKDAuMDUsJGksYmxhY2ssMSk7CiAgJGdyLT5sYihuZXcgTGFiZWwoLTAuMSwkaSwkaSwnYmxhY2snLCdyaWdodCcsJ21pZGRsZScsJ2xhcmdlJykpOwp9OwphZGRfZnVuY3Rpb25zKCRnciwgIiRmIGZvciB4IGluIDwtNCw0PiB1c2luZyBjb2xvcjpsaWdodGJsdWUgYW5kIHdlaWdodDozIik7CiRnci0+bGIobmV3IExhYmVsKCRoLDEsJ2YnLCdsaWdodGJsdWUnLCdjZW50ZXInLCdib3R0b20nLCdsYXJnZScpKTsKYWRkX2Z1bmN0aW9ucygkZ3IsICIkZnAgZm9yIHggaW4gPC00LDQ+IHVzaW5nIGNvbG9yOmRhcmtyZWQgYW5kIHdlaWdodDoyIik7CiRnci0+bGIobmV3IExhYmVsKCRoLTMqJHAvMiwtcGkvJHAsJ2cnLCdkYXJrcmVkJywnY2VudGVyJywndG9wJywnbGFyZ2UnKSk7CiRyYWRpbz1SYWRpb0J1dHRvbnMoWwogIG1hdGhfZXYzKGYpLicgaXMgdGhlIGRlcml2YXRpdmUgb2YgJy5tYXRoX2V2MyhnKS4nLicsCiAgbWF0aF9ldjMoZykuJyBpcyB0aGUgZGVyaXZhdGl2ZSBvZiAnLm1hdGhfZXYzKGYpLicuJwpdLDEpOwoKQkVHSU5fUEdNTAo+PiBbQGltYWdlKGluc2VydEdyYXBoKCRnciksIHdpZHRoPT42MDApQF0qICA8PAoKW19deyRyYWRpb317NX0KCgpFTkRfUEdNTAoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-241-image-1.png" class="contained"></div> <div class="para" id="p-1888"><ul style="list-style:circle;">
+<li id="li-531"><div class="para" id="p-1889">
+<span class="process-math">\(f\)</span> is the derivative of <span class="process-math">\(g\text{.}\)</span>
+</div></li>
+<li id="li-532"><div class="para" id="p-1890">
+<span class="process-math">\(g\)</span> is the derivative of <span class="process-math">\(f\text{.}\)</span>
+</div></li>
+</ul></div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-241')">Activate</button></div>
+</div></article>
+</div>
+</div></article><article class="subexercises" id="subexercises-21"><h4 class="heading"><span class="title">Review</span></h4>
+<div class="exercisegroup" id="exercisegroup-29">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-34"><div class="para" id="p-1892">Use the definition of the derivative to compute the derivative of <span class="process-math">\(f\text{.}\)</span>
+</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-247"><h6 class="heading"><span class="codenumber">19<span class="period">.</span></span></h6>
+<div id="webwork-242" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="242" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2Vzc2F5bWFjcm9zLnBsIiwiUEdjb3Vyc2UucGwiLCk7VEVYVChiZWdpbnByb2JsZW0oKSk7CkNvbnRleHQoJ051bWVyaWMnKTskYW5zd2VyID0gRm9ybXVsYSgiMTB4Iik7CiRzaG93d29yayA9ICdbQCBleHBsYW5hdGlvbl9ib3gobWVzc2FnZSA9PiAiU2hvdyB5b3VyIHdvcmsgdXNpbmcgdGhlIGRlZmluaXRpb24gb2YgdGhlIGRlcml2YXRpdmUuIikgQF0qJzsKCkJFR0lOX1BHTUwKW2BmKHgpPTV4XjJgXQoKW19deyRhbnN3ZXJ9ezEwfQoKWyRzaG93d29ya10qKgoKCkVORF9QR01MCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<div class="para" id="p-1893"><span class="process-math">\(f(x)=5x^2\)</span></div> <div class="para" id="p-1894">Show your work using the definition of the derivative.</div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-242')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="exercise-248"><h6 class="heading"><span class="codenumber">20<span class="period">.</span></span></h6>
+<div id="webwork-243" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="243" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2Vzc2F5bWFjcm9zLnBsIiwiUEdjb3Vyc2UucGwiLCk7VEVYVChiZWdpbnByb2JsZW0oKSk7CkNvbnRleHQoJ051bWVyaWMnKTskYW5zd2VyID0gRm9ybXVsYSgiMyh4LTIpXjIiKTsKJHNob3d3b3JrID0gJ1tAIGV4cGxhbmF0aW9uX2JveChtZXNzYWdlID0+ICJTaG93IHlvdXIgd29yayB1c2luZyB0aGUgZGVmaW5pdGlvbiBvZiB0aGUgZGVyaXZhdGl2ZS4iKSBAXSonOwoKQkVHSU5fUEdNTApbYGYoeCk9KHgtMileM2BdCgpbX117JGFuc3dlcn17MTB9CgpbJHNob3d3b3JrXSoqCgoKRU5EX1BHTUwKCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<div class="para" id="p-1896"><span class="process-math">\(f(x)=(x-2)^3\)</span></div> <div class="para" id="p-1897">Show your work using the definition of the derivative.</div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-243')">Activate</button></div>
+</div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exercisegroup-30">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-35"><div class="para" id="p-1899">Numerically approximate the derivative.</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-249"><h6 class="heading"><span class="codenumber">21<span class="period">.</span></span></h6>
+<div id="webwork-244" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="244" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOyRhbnM9MDsKCkJFR0lOX1BHTUwKW2BmJyhccGkpYF0gd2hlcmUgW2BmKHgpID0gXGNvcyh4KWBdCgpbX117JGFuc317MTB9CgoKRU5EX1BHTUwKCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents"><div class="para" id="p-1900">
+<span class="process-math">\(f'(\pi)\)</span> where <span class="process-math">\(f(x) = \cos(x)\)</span>
+</div></div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-244')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="exercise-250"><h6 class="heading"><span class="codenumber">22<span class="period">.</span></span></h6>
+<div id="webwork-245" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="245" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0RnJhY3Rpb24ucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKJHI9bGlzdF9yYW5kb20oWzIsMl0sWzMsMl0sWzQsMl0sWzUsMl0sWzYsMl0sWzcsMl0sWzgsMl0sWzksMl0sWzIsM10sWzMsM10sWzQsM10sWzIsNV0sWzIsNl0pOwppZigkZW52aXJ7cHJvYmxlbVNlZWR9PT0xKXskcj1bMywyXTt9OwooJGIsJG4pPUB7JHJ9OwokYT0kYioqJG47CiRmID0gKCRuPT0yKSA/ICdcc3FydHt4fScgOiAiXFxzcXJ0WyRuXXt4fSI7CkNvbnRleHQoIkZyYWN0aW9uIik7CiRhbnM9RnJhY3Rpb24oMSwkbiooJGIpKiooJG4tMSkpOwoKQkVHSU5fUEdNTApbYGYnKFskYV0pYF0gd2hlcmUgW2BmKHgpID0gWyRmXWBdCgpbX117JGFuc317MTB9CgoKRU5EX1BHTUwKCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents"><div class="para" id="p-1902">
+<span class="process-math">\(f'(9)\)</span> where <span class="process-math">\(f(x) = \sqrt{x}\)</span>
+</div></div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-245')">Activate</button></div>
+</div></article>
+</div>
+</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec_derivative.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec_basic_diff_rules.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
+<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+</div>
+</body>
+</html>

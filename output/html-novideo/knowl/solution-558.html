@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">9.3.3.1</span><span class="period">.</span>
+</h4>
+<div class="para">
+<a href="" class="xref" data-knowl="./knowl/fig_itest1.html" title="Figure 9.3.4">Figure 9.3.4</a> implies that <span class="process-math">\(a(n) = (\ln(n) )/n^2\)</span> is positive and decreasing on <span class="process-math">\([2,\infty)\text{.}\)</span> We can determine this analytically, too. We know <span class="process-math">\(a(n)\)</span> is positive as both <span class="process-math">\(\ln(n)\)</span> and <span class="process-math">\(n^2\)</span> are positive on <span class="process-math">\([2,\infty)\text{.}\)</span> Treating <span class="process-math">\(a(n)\)</span> as a continuous function of <span class="process-math">\(n\)</span> defined on <span class="process-math">\([1, \infty)\text{,}\)</span> consider <span class="process-math">\(a'(n) = (1-2\ln(n) )/n^3\text{,}\)</span> which is negative for <span class="process-math">\(n\geq 2\text{.}\)</span> Since <span class="process-math">\(a'(n)\)</span> is negative, <span class="process-math">\(a(n)\)</span> is decreasing for <span class="process-math">\(n\geq 2\text{.}\)</span> We can still use the integral test since a finite number of terms will not affect convergence of the series.</div> <figure class="figure figure-like"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_itest1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.3.4<span class="period">.</span></span><span class="space"> </span>Plotting the sequence and series in <a href="" class="xref" data-knowl="./knowl/ex_itest1.html" title="Example 9.3.3: Using the Integral Test">Example 9.3.3</a></figcaption></figure> <div class="para logical">
+<div class="para">Applying the Integral Test, we test the convergence of <span class="process-math">\(\ds \int_1^\infty \frac{\ln(x) }{x^2}\, dx\text{.}\)</span> Integrating this improper integral requires the use of Integration by Parts, with <span class="process-math">\(u = \ln(x)\)</span> and <span class="process-math">\(dv = 1/x^2\, dx\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int_1^\infty \frac{\ln(x) }{x^2}\, dx \amp = \lim_{b\to\infty} \int_1^b \frac{\ln(x) }{x^2}\, dx\\
+\amp = \lim_{b\to\infty} -\frac1x\ln(x) \Big|_1^b + \int_1^b\frac1{x^2}\, dx\\
+\amp = \lim_{b\to\infty} -\frac1x\ln(x) -\frac 1x\Big|_1^b\\
+\amp = \lim_{b\to\infty}1-\frac1b-\frac{\ln(b) }{b}. \text{ Apply L'Hospital's Rule: }\\
+\amp = 1\text{.}
+\end{align*}
+</div>
+</div> <div class="para">Since <span class="process-math">\(\ds \int_1^\infty \frac{\ln(x) }{x^2}\, dx\)</span> converges, so does <span class="process-math">\(\ds \infser \frac{\ln(n) }{n^2}\text{.}\)</span>
+</div>
+</div>
+<span class="incontext"><a href="sec_int_comp_tests.html#solution-558" class="internal">in-context</a></span>
+</body>
+</html>

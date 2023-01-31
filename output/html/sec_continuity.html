@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>APEX Continuity</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://opentext.uleth.ca/apex-video/external/images/APEX.png">
+<meta property="book:title" content="APEX Calculus">
+<meta property="book:author" content="Gregory Hartman, Ph.D.">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="http://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<script type="application/json" class="js-hypothesis-config">{
+    "openSidebar": false,    "showHighlights": true,}</script><script src="https://hypothes.is/embed.js" async=""></script><script src="https://cdn.geogebra.org/apps/deployggb.js"></script><link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '5.0.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/runtime.6b31f4c5fa38d888.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/runestone.06446f602ba3689b.bundle.js"></script><link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.4.4/637.0fa6cababf056764.css">
+<link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.4.4/runestone.93e720e6c6581fb5.css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href="http://www.apexcalculus.com" target="_blank"><img src="external/images/APEX.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="apex-calculus.html"><span class="title">APEX Calculus</span></a></h1>
+<p class="byline">Gregory Hartman, Ph.D., Sean Fitzpatrick, Ph.D. (Editor), Alex Jordan, Ph.D. (Editor), Carly Vollet, M.S. (Editor)</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><button id="calculator-toggle" class="calculator-toggle button" title="Show calculator" aria-expanded="false" aria-controls="calculator-container"><span class="name">Calc</span></button><div id="calculator-container" class="calculator-container" style="display: none; z-index:100;"><div id="geogebra-calculator"></div></div>
+<script>
+var ggbApp = new GGBApplet({"appName": "graphing",
+    "width": 330,
+    "height": 600,
+    "showToolBar": true,
+    "showAlgebraInput": true,
+    "perspective": "G/A",
+    "algebraInputPosition": "bottom",
+    "scaleContainerClass": "calculator-container",
+    "allowUpscale": true,
+    "autoHeight": true,
+    "disableAutoScale": false},
+true);
+</script><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec_limits_one_sided.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="chapter_limits.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec_limits_infty.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\highlight}[1]{{\color{blue}{#1}}}
+\newcommand{\apex}{\mbox{\hbox{A}\kern -1pt \lower -2pt\hbox{P}\kern -4pt \lower .7ex\hbox{E}\kern -1pt \hbox{X}}}
+\newcommand{\colorlinecolor}{blue!95!black!30}
+\newcommand{\bwlinecolor}{black!30}
+\newcommand{\thelinecolor}{\colorlinecolor}
+\newcommand{\colornamesuffix}{}
+\newcommand{\linestyle}{[thick, \thelinecolor]}
+\newcommand{\bmx}[1]{\left[\hskip -3pt\begin{array}{#1} }
+\newcommand{\emx}{\end{array}\hskip -3pt\right]}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\fp}{f'}
+\newcommand{\fpp}{f''}
+
+\newcommand{\lz}[2]{\frac{d#1}{d#2}}
+\newcommand{\lzn}[3]{\frac{d^{#1}#2}{d#3^{#1}}}
+\newcommand{\lzo}[1]{\frac{d}{d#1}}
+\newcommand{\lzoo}[2]{{\frac{d}{d#1}}{\left(#2\right)}}
+\newcommand{\lzon}[2]{\frac{d^{#1}}{d#2^{#1}}}
+\newcommand{\lzoa}[3]{\left.{\frac{d#1}{d#2}}\right|_{#3}}
+\newcommand{\plz}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\plzoa}[3]{\left.{\frac{\partial#1}{\partial#2}}\right|_{#3}}
+
+\newcommand{\inflim}[1][n]{\lim\limits_{#1 \to \infty}}
+
+\newcommand{\infser}[1][1]{\sum_{n=#1}^\infty}
+
+\newcommand{\Fp}{F\primeskip'}
+\newcommand{\Fpp}{F\primeskip''}
+\newcommand{\yp}{y\primeskip'}
+\newcommand{\gp}{g\primeskip'}
+\newcommand{\dx}{\Delta x}
+\newcommand{\dy}{\Delta y}
+\newcommand{\ddz}{\Delta z}
+\newcommand{\thet}{\theta}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\vnorm}[1]{\left\lVert\vec #1\right\rVert}
+\newcommand{\snorm}[1]{\left|\left|\,#1\,\right|\right|}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+\newcommand{\dotp}[2]{\vec #1 \cdot \vec #2}
+\newcommand{\proj}[2]{\text{proj}_{\,\vec #2}{\,\vec #1}}
+\newcommand{\crossp}[2]{\vec #1 \times \vec #2}
+\newcommand{\veci}{\vec i}
+\newcommand{\vecj}{\vec j}
+\newcommand{\veck}{\vec k}
+\newcommand{\vecu}{\vec u}
+\newcommand{\vecv}{\vec v}
+\newcommand{\vecw}{\vec w}
+\newcommand{\vecx}{\vec x}
+\newcommand{\vecy}{\vec y}
+\newcommand{\vrp}{\vec r\hskip0.75pt '}
+\newcommand{\vrpp}{\vec r\hskip0.75pt ''}
+\newcommand{\vsp}{\vec s\hskip0.75pt '}
+\newcommand{\vrt}{\vec r(t)}
+\newcommand{\vst}{\vec s(t)}
+\newcommand{\vvt}{\vec v(t)}
+\newcommand{\vat}{\vec a(t)}
+\newcommand{\px}{\partial x}
+\newcommand{\py}{\partial y}
+\newcommand{\pz}{\partial z}
+\newcommand{\pf}{\partial f}
+\newcommand{\unittangent}{\vec{{}T}}
+\newcommand{\unitnormal}{\vec{N}}
+\newcommand{\unittangentprime}{\vec{{}T}\hskip0.75pt '}
+\newcommand{\mathN}{\mathbb{N}}
+\newcommand{\surfaceS}{\mathcal{S}}
+\newcommand{\zerooverzero}{\ds \raisebox{8pt}{\text{``\ }}\frac{0}{0}\raisebox{8pt}{\textit{ ''}}}
+\newcommand{\deriv}[2]{\myds\frac{d}{dx}\left(#1\right)=#2}
+\newcommand{\myint}[2]{\myds\int #1\, dx= {\ds #2}}
+\newcommand{\primeskip}{\hskip.75pt}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\csch}{\operatorname{csch}}
+\newcommand{\curl}{\operatorname{curl}}
+\newcommand{\divv}{\operatorname{div}}
+\newcommand{\Hess}{\operatorname{Hess}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li>
+<div class="toc-item"><a href="frontmatter-1.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="acknowledgement.html" class="internal"><span class="title">Thanks</span></a></div></li>
+<li><div class="toc-item"><a href="apex-preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li><div class="toc-item"><a href="preface-history.html" class="internal"><span class="title">A Brief History of Calculus</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_limits.html" class="internal"><span class="codenumber">1</span> <span class="title">Limits</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_limit_intro.html" class="internal"><span class="codenumber">1.1</span> <span class="title">An Introduction To Limits</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_limit_intro.html#subsec_nolimit3" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Identifying When Limits Do Not Exist</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limit_intro.html#sec_diff_quot_intro" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Limits of Difference Quotients</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limit_intro.html#exercises-1" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limit_def.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Epsilon-Delta Definition of a Limit</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limit_def.html#exercises-2" class="internal"><span class="codenumber">1.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limit_analytically.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Finding Limits Analytically</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limit_analytically.html#exercises-3" class="internal"><span class="codenumber">1.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limits_one_sided.html" class="internal"><span class="codenumber">1.4</span> <span class="title">One-Sided Limits</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limits_one_sided.html#exercises-4" class="internal"><span class="codenumber">1.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="sec_continuity.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuity</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_continuity.html#exercises-5" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limits_infty.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Limits Involving Infinity</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-3" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Vertical asymptotes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-4" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Indeterminate Forms</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-5" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Limits at Infinity and Horizontal Asymptotes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#exercises-6" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_derivatives.html" class="internal"><span class="codenumber">2</span> <span class="title">Derivatives</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_derivative.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Instantaneous Rates of Change: The Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_derivative.html#sec-deriv-intro" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Introduction</span></a></div></li>
+<li><div class="toc-item"><a href="sec_derivative.html#subsection-7" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Differentiability on Closed Intervals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_derivative.html#exercises-7" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_interp_deriv.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Interpretations of the Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-8" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Interpretation of the Derivative as Instantaneous Rate of Change</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-9" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Units of the Derivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-10" class="internal"><span class="codenumber">2.2.3</span> <span class="title">The Derivative and Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-11" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Interpretation of the Derivative as the Slope of the Tangent Line</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#exercises-8" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_basic_diff_rules.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Basic Differentiation Rules</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#subsection-12" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Higher Order Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#subsection-13" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Interpreting Higher Order Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#exercises-9" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_prod_quot_rules.html" class="internal"><span class="codenumber">2.4</span> <span class="title">The Product and Quotient Rules</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_prod_quot_rules.html#exercises-10" class="internal"><span class="codenumber">2.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_chainrule.html" class="internal"><span class="codenumber">2.5</span> <span class="title">The Chain Rule</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_chainrule.html#exercises-11" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_imp_deriv.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Implicit Differentiation</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-14" class="internal"><span class="codenumber">2.6.1</span> <span class="title">The method of implicit differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-15" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Implicit Differentiation and the Second Derivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-16" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Logarithmic Differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#exercises-12" class="internal"><span class="codenumber">2.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_deriv_inverse_function.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Derivatives of Inverse Functions</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_deriv_inverse_function.html#exercises-13" class="internal"><span class="codenumber">2.7</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_graphbehavior.html" class="internal"><span class="codenumber">3</span> <span class="title">The Graphical Behavior of Functions</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_extreme_values.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Extreme Values</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_extreme_values.html#exercises-14" class="internal"><span class="codenumber">3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_mvt.html" class="internal"><span class="codenumber">3.2</span> <span class="title">The Mean Value Theorem</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_mvt.html#exercises-15" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_incr_decr.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Increasing and Decreasing Functions</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_incr_decr.html#exercises-16" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_concavity.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Concavity and the Second Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_concavity.html#subsection-17" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Concavity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_concavity.html#subsection-18" class="internal"><span class="codenumber">3.4.2</span> <span class="title">The Second Derivative Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_concavity.html#exercises-17" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_sketch.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Curve Sketching</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_sketch.html#exercises-18" class="internal"><span class="codenumber">3.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_deriv_apps.html" class="internal"><span class="codenumber">4</span> <span class="title">Applications of the Derivative</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_newton.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Newton's Method</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_newton.html#exercises-19" class="internal"><span class="codenumber">4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_related_rates.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Related Rates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_related_rates.html#exercises-20" class="internal"><span class="codenumber">4.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_optimization.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Optimization</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_optimization.html#exercises-21" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_differentials.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Differentials</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_differentials.html#exercises-22" class="internal"><span class="codenumber">4.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_integration.html" class="internal"><span class="codenumber">5</span> <span class="title">Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_antider.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Antiderivatives and Indefinite Integration</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_antider.html#exercises-23" class="internal"><span class="codenumber">5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_def_int.html" class="internal"><span class="codenumber">5.2</span> <span class="title">The Definite Integral</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_def_int.html#exercises-24" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_riemann.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Riemann Sums</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_riemann.html#fig_rie_notation" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Summation Notation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#subsection-20" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Riemann Sums</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#subsection-21" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Limits of Riemann Sums</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#exercises-25" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_FTC.html" class="internal"><span class="codenumber">5.4</span> <span class="title">The Fundamental Theorem of Calculus</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-22" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Fundamental Theorem of Calculus, Parts 1 and 2</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-23" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Understanding Motion with the Fundamental Theorem of Calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#sec-FTC-chain" class="internal"><span class="codenumber">5.4.3</span> <span class="title">The Fundamental Theorem of Calculus and the Chain Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#sec-FTC-ABC" class="internal"><span class="codenumber">5.4.4</span> <span class="title">Area Between Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-26" class="internal"><span class="codenumber">5.4.5</span> <span class="title">The Mean Value Theorem and Average Value</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#exercises-26" class="internal"><span class="codenumber">5.4.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_numerical_integration.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Numerical Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-27" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Left and Right Hand Rule Methods</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-28" class="internal"><span class="codenumber">5.5.2</span> <span class="title">The Trapezoidal Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-29" class="internal"><span class="codenumber">5.5.3</span> <span class="title">The Midpoint Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-30" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Simpson's Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-31" class="internal"><span class="codenumber">5.5.5</span> <span class="title">Summary and Error Analysis</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#exercises-27" class="internal"><span class="codenumber">5.5.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_anti_tech.html" class="internal"><span class="codenumber">6</span> <span class="title">Techniques of Antidifferentiation</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_substitution.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Substitution</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-32" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Integrals Involving Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-33" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Simplifying the Integrand</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-34" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Substitution and Inverse Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#sec-sub-def-int" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Substitution and Definite Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#exercises-28" class="internal"><span class="codenumber">6.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_IBP.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Integration by Parts</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_IBP.html#exercises-29" class="internal"><span class="codenumber">6.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_trigint.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Trigonometric Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-36" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Integrals of the form <span class="process-math">\(\int \sin^m(x) \cos^n(x) \, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-37" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Integrals of the form <span class="process-math">\(\int\sin(mx)\sin(nx)\, dx\text{,}\)</span> <span class="process-math">\(\int \cos(mx)\cos(nx)\, dx\text{,}\)</span> and <span class="process-math">\(\int \sin(mx)\cos(nx)\, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-38" class="internal"><span class="codenumber">6.3.3</span> <span class="title">Integrals of the form <span class="process-math">\(\int\tan^m(x) \sec^n(x) \, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#exercises-30" class="internal"><span class="codenumber">6.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_trig_sub.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Trigonometric Substitution</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_trig_sub.html#exercises-31" class="internal"><span class="codenumber">6.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_partial_fraction.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Partial Fraction Decomposition</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_partial_fraction.html#exercises-32" class="internal"><span class="codenumber">6.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_hyperbolic.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Hyperbolic Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_hyperbolic.html#sec-hyp-def" class="internal"><span class="codenumber">6.6.1</span> <span class="title">The Hyperbolic Functions and their Properties</span></a></div></li>
+<li><div class="toc-item"><a href="sec_hyperbolic.html#subsection-40" class="internal"><span class="codenumber">6.6.2</span> <span class="title">Inverse Hyperbolic Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_hyperbolic.html#exercises-33" class="internal"><span class="codenumber">6.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_lhopitals_rule.html" class="internal"><span class="codenumber">6.7</span> <span class="title">L'Hospital's Rule</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#sec_lhopital_statement" class="internal"><span class="codenumber">6.7.1</span> <span class="title">L'Hospital's Rule with indeterminate forms <span class="process-math">\(0/0\)</span> and <span class="process-math">\(\infty/\infty\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#subsection-42" class="internal"><span class="codenumber">6.7.2</span> <span class="title">Indeterminate Forms <span class="process-math">\(0\cdot\infty\)</span> and <span class="process-math">\(\infty-\infty\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#subsection-43" class="internal"><span class="codenumber">6.7.3</span> <span class="title">Indeterminate Forms  <span class="process-math">\(0^0\text{,}\)</span> <span class="process-math">\(1^\infty\)</span> and <span class="process-math">\(\infty^0\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#exercises-34" class="internal"><span class="codenumber">6.7.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_improper_integration.html" class="internal"><span class="codenumber">6.8</span> <span class="title">Improper Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-44" class="internal"><span class="codenumber">6.8.1</span> <span class="title">Improper Integrals with Infinite Bounds</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-45" class="internal"><span class="codenumber">6.8.2</span> <span class="title">Improper Integrals with Infinite Range</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-46" class="internal"><span class="codenumber">6.8.3</span> <span class="title">Understanding Convergence and Divergence</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#exercises-35" class="internal"><span class="codenumber">6.8.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_app_of_int.html" class="internal"><span class="codenumber">7</span> <span class="title">Applications of Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_ABC.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Area Between Curves</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_ABC.html#exercises-36" class="internal"><span class="codenumber">7.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_disk.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Volume by Cross-Sectional Area; Disk and Washer Methods</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_disk.html#exercises-37" class="internal"><span class="codenumber">7.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_shell_method.html" class="internal"><span class="codenumber">7.3</span> <span class="title">The Shell Method</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_shell_method.html#exercises-38" class="internal"><span class="codenumber">7.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_arc_length.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Arc Length and Surface Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_arc_length.html#subsec-arc-length" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_arc_length.html#sec_surface_area_revolution" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Surface Area of Solids of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_arc_length.html#exercises-39" class="internal"><span class="codenumber">7.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_work.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Work</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_work.html#sec_work_variable_force" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Work Done by a Variable Force</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#subsection-50" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Hooke's Law and Springs</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#subsection-51" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Pumping Fluids</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#exercises-40" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_fluid_force.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Fluid Forces</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_fluid_force.html#exercises-41" class="internal"><span class="codenumber">7.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_differential_equations.html" class="internal"><span class="codenumber">8</span> <span class="title">Differential Equations</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_Graphical_Numerical.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Graphical and Numerical Solutions to Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-52" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Introduction and Terminology</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-53" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Graphical Solutions to Differential Equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-54" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Numerical Solutions to Differential Equations: Euler's Method</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#exercises-42" class="internal"><span class="codenumber">8.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Separable.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Separable Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Separable.html#subsection-55" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Separation of Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Separable.html#exercises-43" class="internal"><span class="codenumber">8.2.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Linear.html" class="internal"><span class="codenumber">8.3</span> <span class="title">First Order Linear Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Linear.html#subsection-56" class="internal"><span class="codenumber">8.3.1</span> <span class="title">Solving First Order Linear Equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Linear.html#exercises-44" class="internal"><span class="codenumber">8.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Modeling.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Modeling with Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Modeling.html#subsection-57" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Models Involving Proportional Change</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Modeling.html#subsection-58" class="internal"><span class="codenumber">8.4.2</span> <span class="title">Rate-in Rate-out Problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Modeling.html#exercises-45" class="internal"><span class="codenumber">8.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_sequences_series.html" class="internal"><span class="codenumber">9</span> <span class="title">Sequences and Series</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_sequences.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Sequences</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_sequences.html#exercises-46" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_series.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Infinite Series</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_series.html#subsec-series-convergence" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Convergence of sequences</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#subsection-60" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Geometric Series</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#subsection-61" class="internal"><span class="codenumber">9.2.3</span> <span class="title"><span class="process-math">\(p\)</span>-Series</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#exercises-47" class="internal"><span class="codenumber">9.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_int_comp_tests.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integral and Comparison Tests</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-62" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Integral Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-63" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Direct Comparison Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-64" class="internal"><span class="codenumber">9.3.3</span> <span class="title">Limit Comparison Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#exercises-48" class="internal"><span class="codenumber">9.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_ratio_root_tests.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Ratio and Root Tests</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#subsection-65" class="internal"><span class="codenumber">9.4.1</span> <span class="title">Ratio Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#subsection-66" class="internal"><span class="codenumber">9.4.2</span> <span class="title">Root Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#exercises-49" class="internal"><span class="codenumber">9.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_alt_series.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Alternating Series and Absolute Convergence</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_alt_series.html#exercises-50" class="internal"><span class="codenumber">9.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_power_series.html" class="internal"><span class="codenumber">9.6</span> <span class="title">Power Series</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_power_series.html#exercises-51" class="internal"><span class="codenumber">9.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_taylor_poly.html" class="internal"><span class="codenumber">9.7</span> <span class="title">Taylor Polynomials</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_taylor_poly.html#exercises-52" class="internal"><span class="codenumber">9.7</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_taylor_series.html" class="internal"><span class="codenumber">9.8</span> <span class="title">Taylor Series</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_taylor_series.html#exercises-53" class="internal"><span class="codenumber">9.8</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_planar_curves.html" class="internal"><span class="codenumber">10</span> <span class="title">Curves in the Plane</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_conic_sections.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Conic Sections</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-parabola" class="internal"><span class="codenumber">10.1.1</span> <span class="title">Parabolas</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-ellipse" class="internal"><span class="codenumber">10.1.2</span> <span class="title">Ellipses</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-hyperbola" class="internal"><span class="codenumber">10.1.3</span> <span class="title">Hyperbolas</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#exercises-54" class="internal"><span class="codenumber">10.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_param_eqs.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Parametric Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsec-parametric-plot" class="internal"><span class="codenumber">10.2.1</span> <span class="title">Plotting parametric curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsection-71" class="internal"><span class="codenumber">10.2.2</span> <span class="title">Converting between rectangular and parametric equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsection-72" class="internal"><span class="codenumber">10.2.3</span> <span class="title">Special Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#exercises-55" class="internal"><span class="codenumber">10.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_par_calc.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Calculus and Parametric Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-73" class="internal"><span class="codenumber">10.3.1</span> <span class="title">Concavity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-74" class="internal"><span class="codenumber">10.3.2</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-75" class="internal"><span class="codenumber">10.3.3</span> <span class="title">Surface Area of a Solid of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#exercises-56" class="internal"><span class="codenumber">10.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_polar.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Introduction to Polar Coordinates</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_polar.html#subsection-76" class="internal"><span class="codenumber">10.4.1</span> <span class="title">Polar Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#subsection-77" class="internal"><span class="codenumber">10.4.2</span> <span class="title">Polar to Rectangular Conversion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#subsection-78" class="internal"><span class="codenumber">10.4.3</span> <span class="title">Polar Functions and Polar Graphs</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#exercises-57" class="internal"><span class="codenumber">10.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_polarcalc.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Calculus and Polar Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-79" class="internal"><span class="codenumber">10.5.1</span> <span class="title">Polar Functions and <span class="process-math">\(dy/dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-80" class="internal"><span class="codenumber">10.5.2</span> <span class="title">Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-81" class="internal"><span class="codenumber">10.5.3</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-82" class="internal"><span class="codenumber">10.5.4</span> <span class="title">Surface Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#exercises-58" class="internal"><span class="codenumber">10.5.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_vectors.html" class="internal"><span class="codenumber">11</span> <span class="title">Vectors</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_space_coord.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Introduction to Cartesian Coordinates in Space</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_space_coord.html#subsection-83" class="internal"><span class="codenumber">11.1.1</span> <span class="title">Measuring Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsection-84" class="internal"><span class="codenumber">11.1.2</span> <span class="title">Spheres</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#sec-planes-in-space" class="internal"><span class="codenumber">11.1.3</span> <span class="title">Introduction to Planes in Space</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-cylinders" class="internal"><span class="codenumber">11.1.4</span> <span class="title">Cylinders</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-surface-revolution" class="internal"><span class="codenumber">11.1.5</span> <span class="title">Surfaces of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-quadric" class="internal"><span class="codenumber">11.1.6</span> <span class="title">Quadric Surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#exercises-59" class="internal"><span class="codenumber">11.1.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vector_intro.html" class="internal"><span class="codenumber">11.2</span> <span class="title">An Introduction to Vectors</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_vector_intro.html#exercises-60" class="internal"><span class="codenumber">11.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_dot_product.html" class="internal"><span class="codenumber">11.3</span> <span class="title">The Dot Product</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_dot_product.html#subsection-89" class="internal"><span class="codenumber">11.3.1</span> <span class="title">Application to Work</span></a></div></li>
+<li><div class="toc-item"><a href="sec_dot_product.html#exercises-61" class="internal"><span class="codenumber">11.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_cross_product.html" class="internal"><span class="codenumber">11.4</span> <span class="title">The Cross Product</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_cross_product.html#subsection-90" class="internal"><span class="codenumber">11.4.1</span> <span class="title">Properties of the Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cross_product.html#subsection-91" class="internal"><span class="codenumber">11.4.2</span> <span class="title">Applications of the Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cross_product.html#exercises-62" class="internal"><span class="codenumber">11.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_lines.html" class="internal"><span class="codenumber">11.5</span> <span class="title">Lines</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_lines.html#subsec_lines_space_def" class="internal"><span class="codenumber">11.5.1</span> <span class="title">Lines in space</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#subsec-lines-compare" class="internal"><span class="codenumber">11.5.2</span> <span class="title">Parallel, Intersecting and Skew Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#subsection-94" class="internal"><span class="codenumber">11.5.3</span> <span class="title">Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#exercises-63" class="internal"><span class="codenumber">11.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_planes.html" class="internal"><span class="codenumber">11.6</span> <span class="title">Planes</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_planes.html#subsec_planes_distances" class="internal"><span class="codenumber">11.6.1</span> <span class="title">Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_planes.html#exercises-64" class="internal"><span class="codenumber">11.6.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap_vvf.html" class="internal"><span class="codenumber">12</span> <span class="title">Vector Valued Functions</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_vvf.html" class="internal"><span class="codenumber">12.1</span> <span class="title">Vector-Valued Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf.html#subsec-eval-vvf" class="internal"><span class="codenumber">12.1.1</span> <span class="title">Evaluating and Graphing Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#subsection-97" class="internal"><span class="codenumber">12.1.2</span> <span class="title">Algebra of Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#subsec_vvf_displacement" class="internal"><span class="codenumber">12.1.3</span> <span class="title">Displacement</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#exercises-65" class="internal"><span class="codenumber">12.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vvf_calc.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Calculus and Vector-Valued Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsec_vvf_limits" class="internal"><span class="codenumber">12.2.1</span> <span class="title">Limits of Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsec_vvf_continuity" class="internal"><span class="codenumber">12.2.2</span> <span class="title">Continuity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsection-101" class="internal"><span class="codenumber">12.2.3</span> <span class="title">Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsection-102" class="internal"><span class="codenumber">12.2.4</span> <span class="title">Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#exercises-66" class="internal"><span class="codenumber">12.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vvf_motion.html" class="internal"><span class="codenumber">12.3</span> <span class="title">The Calculus of Motion</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf_motion.html#subsec_vvf_projectile" class="internal"><span class="codenumber">12.3.1</span> <span class="title">Projectile Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_motion.html#subsection-104" class="internal"><span class="codenumber">12.3.2</span> <span class="title">Distance Traveled</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_motion.html#exercises-67" class="internal"><span class="codenumber">12.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_tan_norm.html" class="internal"><span class="codenumber">12.4</span> <span class="title">Unit Tangent and Normal Vectors</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-105" class="internal"><span class="codenumber">12.4.1</span> <span class="title">Unit Tangent Vector</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-106" class="internal"><span class="codenumber">12.4.2</span> <span class="title">Unit Normal Vector</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-107" class="internal"><span class="codenumber">12.4.3</span> <span class="title">Application to Acceleration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#exercises-68" class="internal"><span class="codenumber">12.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_curvature.html" class="internal"><span class="codenumber">12.5</span> <span class="title">The Arc Length Parameter and Curvature</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-108" class="internal"><span class="codenumber">12.5.1</span> <span class="title">The Arc Length Paramtrization</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-109" class="internal"><span class="codenumber">12.5.2</span> <span class="title">Curvature</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-110" class="internal"><span class="codenumber">12.5.3</span> <span class="title">Curvature and Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#exercises-69" class="internal"><span class="codenumber">12.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_multi.html" class="internal"><span class="codenumber">13</span> <span class="title">Functions of Several Variables</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_multi_intro.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Introduction to Multivariable Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-111" class="internal"><span class="codenumber">13.1.1</span> <span class="title">Graphing Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-112" class="internal"><span class="codenumber">13.1.2</span> <span class="title">Level Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-113" class="internal"><span class="codenumber">13.1.3</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-114" class="internal"><span class="codenumber">13.1.4</span> <span class="title">Level Surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#exercises-70" class="internal"><span class="codenumber">13.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_limit.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Limits and Continuity of Multivariable Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsec-multivariable-topology" class="internal"><span class="codenumber">13.2.1</span> <span class="title">Open and Closed Subsets in Higher Dimensions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-116" class="internal"><span class="codenumber">13.2.2</span> <span class="title">Limits</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-117" class="internal"><span class="codenumber">13.2.3</span> <span class="title">Continuity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-118" class="internal"><span class="codenumber">13.2.4</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#exercises-71" class="internal"><span class="codenumber">13.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_partial_derivatives.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Partial Derivatives</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-first-partial" class="internal"><span class="codenumber">13.3.1</span> <span class="title">First-order partial derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-tangent-plane" class="internal"><span class="codenumber">13.3.2</span> <span class="title">Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-second-partial" class="internal"><span class="codenumber">13.3.3</span> <span class="title">Second-order partial derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-122" class="internal"><span class="codenumber">13.3.4</span> <span class="title">Understanding Second Partial Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-123" class="internal"><span class="codenumber">13.3.5</span> <span class="title">Partial Derivatives and Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-124" class="internal"><span class="codenumber">13.3.6</span> <span class="title">Higher Order Partial Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#exercises-72" class="internal"><span class="codenumber">13.3.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_total_differential.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Differentiability and the Total Differential</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-total-differential-intro" class="internal"><span class="codenumber">13.4.1</span> <span class="title">The Total Differential</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-total-differential-approx" class="internal"><span class="codenumber">13.4.2</span> <span class="title">Approximating with the Total Differential</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-tangent-plane-approximation" class="internal"><span class="codenumber">13.4.3</span> <span class="title">Tangent Plane Approximation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-error-analysis-total-diff" class="internal"><span class="codenumber">13.4.4</span> <span class="title">Error/Sensitivity Analysis</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-differentiable-three-var" class="internal"><span class="codenumber">13.4.5</span> <span class="title">Differentiability of Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#exercises-73" class="internal"><span class="codenumber">13.4.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_chain.html" class="internal"><span class="codenumber">13.5</span> <span class="title">The Multivariable Chain Rule</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_chain.html#subsec-multi-chain-intro" class="internal"><span class="codenumber">13.5.1</span> <span class="title">Multivariable Chain Rule, Part I</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_chain.html#subsec-implicit-diff" class="internal"><span class="codenumber">13.5.2</span> <span class="title">Implicit Differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_chain.html#exercises-74" class="internal"><span class="codenumber">13.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_directional_derivative.html" class="internal"><span class="codenumber">13.6</span> <span class="title">Directional Derivatives</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_directional_derivative.html#subsection-132" class="internal"><span class="codenumber">13.6.1</span> <span class="title">Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_directional_derivative.html#subsection-133" class="internal"><span class="codenumber">13.6.2</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_directional_derivative.html#exercises-75" class="internal"><span class="codenumber">13.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_tangent.html" class="internal"><span class="codenumber">13.7</span> <span class="title">Tangent Lines, Normal Lines, and Tangent Planes</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsec-tangent-lines-surface" class="internal"><span class="codenumber">13.7.1</span> <span class="title">Tangent Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-135" class="internal"><span class="codenumber">13.7.2</span> <span class="title">Normal Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-136" class="internal"><span class="codenumber">13.7.3</span> <span class="title">Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-137" class="internal"><span class="codenumber">13.7.4</span> <span class="title">The Gradient and Normal Lines, Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#exercises-76" class="internal"><span class="codenumber">13.7.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_extreme_values.html" class="internal"><span class="codenumber">13.8</span> <span class="title">Extreme Values</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#subsec-multi-critical" class="internal"><span class="codenumber">13.8.1</span> <span class="title">Critical Points of Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#subsection-139" class="internal"><span class="codenumber">13.8.2</span> <span class="title">Constrained Optimization</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#exercises-77" class="internal"><span class="codenumber">13.8.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_mult_int.html" class="internal"><span class="codenumber">14</span> <span class="title">Multiple Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_iterated_integrals.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Iterated Integrals and Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsec-iterated" class="internal"><span class="codenumber">14.1.1</span> <span class="title">Iterated integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsection-141" class="internal"><span class="codenumber">14.1.2</span> <span class="title">Area of a plane region</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsec-changing-order" class="internal"><span class="codenumber">14.1.3</span> <span class="title">Changing Order of Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#exercises-78" class="internal"><span class="codenumber">14.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_double_int_volume.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Double Integration and Volume</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_double_int_volume.html#exercises-79" class="internal"><span class="codenumber">14.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_double_int_polar.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Double Integration with Polar Coordinates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_double_int_polar.html#exercises-80" class="internal"><span class="codenumber">14.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_center_of_mass.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Center of Mass</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_center_of_mass.html#subsection-143" class="internal"><span class="codenumber">14.4.1</span> <span class="title">Mass and Weight</span></a></div></li>
+<li><div class="toc-item"><a href="sec_center_of_mass.html#subsection-144" class="internal"><span class="codenumber">14.4.2</span> <span class="title">Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_center_of_mass.html#exercises-81" class="internal"><span class="codenumber">14.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_surface_area.html" class="internal"><span class="codenumber">14.5</span> <span class="title">Surface Area</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_surface_area.html#exercises-82" class="internal"><span class="codenumber">14.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_triple_int.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Volume Between Surfaces and Triple Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-145" class="internal"><span class="codenumber">14.6.1</span> <span class="title">Volume between surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-146" class="internal"><span class="codenumber">14.6.2</span> <span class="title">Triple Integration and Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-147" class="internal"><span class="codenumber">14.6.3</span> <span class="title">Mass and Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#exercises-83" class="internal"><span class="codenumber">14.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_cylindrical_spherical.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Triple Integration with Cylindrical and Spherical Coordinates</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#subsection-148" class="internal"><span class="codenumber">14.7.1</span> <span class="title">Cylindrical Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#subsection-149" class="internal"><span class="codenumber">14.7.2</span> <span class="title">Spherical Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#exercises-84" class="internal"><span class="codenumber">14.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_vector_calc.html" class="internal"><span class="codenumber">15</span> <span class="title">Vector Analysis</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_line_int_intro.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Introduction to Line Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsec-line-int-scalar" class="internal"><span class="codenumber">15.1.1</span> <span class="title">Line Integrals of Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsection-151" class="internal"><span class="codenumber">15.1.2</span> <span class="title">Properties of Line Integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsection-152" class="internal"><span class="codenumber">15.1.3</span> <span class="title">Mass and Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#exercises-85" class="internal"><span class="codenumber">15.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vector_fields.html" class="internal"><span class="codenumber">15.2</span> <span class="title">Vector Fields</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vector_fields.html#subsection-153" class="internal"><span class="codenumber">15.2.1</span> <span class="title">Vector Field Notation and Del Operator</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vector_fields.html#subsection-154" class="internal"><span class="codenumber">15.2.2</span> <span class="title">Divergence and Curl</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vector_fields.html#exercises-86" class="internal"><span class="codenumber">15.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_line_int_vf.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Line Integrals over Vector Fields</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsec-line-int-vector-eval" class="internal"><span class="codenumber">15.3.1</span> <span class="title">Evaluating Line Integrals over Vector Fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsection-156" class="internal"><span class="codenumber">15.3.2</span> <span class="title">Properties of Line Integrals Over Vector Fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsection-157" class="internal"><span class="codenumber">15.3.3</span> <span class="title">The Fundamental Theorem of Line Integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#exercises-87" class="internal"><span class="codenumber">15.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_greensthm.html" class="internal"><span class="codenumber">15.4</span> <span class="title">Flow, Flux, Green's Theorem and the Divergence Theorem</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-158" class="internal"><span class="codenumber">15.4.1</span> <span class="title">Flow and Flux</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-159" class="internal"><span class="codenumber">15.4.2</span> <span class="title">Green's Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-160" class="internal"><span class="codenumber">15.4.3</span> <span class="title">The Divergence Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#exercises-88" class="internal"><span class="codenumber">15.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_parametric_surfaces.html" class="internal"><span class="codenumber">15.5</span> <span class="title">Parametrized Surfaces and Surface Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#subsec-parametrized-surfaces" class="internal"><span class="codenumber">15.5.1</span> <span class="title">Parametrizing surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#subsection-162" class="internal"><span class="codenumber">15.5.2</span> <span class="title">Surface Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#exercises-89" class="internal"><span class="codenumber">15.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_surface_integral.html" class="internal"><span class="codenumber">15.6</span> <span class="title">Surface Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_surface_integral.html#subsec-surfint-scalar" class="internal"><span class="codenumber">15.6.1</span> <span class="title">Surface integrals of scalar fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_surface_integral.html#subsection-164" class="internal"><span class="codenumber">15.6.2</span> <span class="title">Flux</span></a></div></li>
+<li><div class="toc-item"><a href="sec_surface_integral.html#exercises-90" class="internal"><span class="codenumber">15.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_stokes_divergence.html" class="internal"><span class="codenumber">15.7</span> <span class="title">The Divergence Theorem and Stokes' Theorem</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-165" class="internal"><span class="codenumber">15.7.1</span> <span class="title">The Divergence Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-166" class="internal"><span class="codenumber">15.7.2</span> <span class="title">Stokes' Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-167" class="internal"><span class="codenumber">15.7.3</span> <span class="title">A Common Thread of Calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#exercises-91" class="internal"><span class="codenumber">15.7.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="backmatter-1.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="solutions-1.html" class="internal"><span class="codenumber">A</span> <span class="title">Answers to Odd Exercises</span></a></div></li>
+<li>
+<div class="toc-item"><a href="appendix-reference.html" class="internal"><span class="codenumber">B</span> <span class="title">Quick Reference</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="reference-derivatives.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Differentiation Formulas</span></a></div></li>
+<li><div class="toc-item"><a href="reference-integration.html" class="internal"><span class="codenumber">B.2</span> <span class="title">Integration Formulas</span></a></div></li>
+<li>
+<div class="toc-item"><a href="reference-trigonometry.html" class="internal"><span class="codenumber">B.3</span> <span class="title">Trigonometry Reference</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="reference-trigonometry.html#reference-trig-definitions" class="internal"><span class="codenumber">B.3.1</span> <span class="title">Definitions of the Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="reference-trigonometry.html#reference-trig-identities" class="internal"><span class="codenumber">B.3.2</span> <span class="title">Common Trigonometric Identities</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="reference-area-volume.html" class="internal"><span class="codenumber">B.4</span> <span class="title">Areas and Volumes</span></a></div></li>
+<li><div class="toc-item"><a href="reference-algebra.html" class="internal"><span class="codenumber">B.5</span> <span class="title">Algebra</span></a></div></li>
+<li><div class="toc-item"><a href="reference-formulas.html" class="internal"><span class="codenumber">B.6</span> <span class="title">Additional Formulas</span></a></div></li>
+<li><div class="toc-item"><a href="section-98.html" class="internal"><span class="codenumber">B.7</span> <span class="title">Summary of Tests for Series</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_continuity"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.5</span> <span class="title">Continuity</span>
+</h2>
+<div class="para" id="p-872">As we have studied limits, we have gained the intuition that limits measure “where a function is heading.” That is, if <span class="process-math">\(\lim\limits_{x\to 1} f(x) = 3\text{,}\)</span> then as <span class="process-math">\(x\)</span> is close to <span class="process-math">\(1\text{,}\)</span> <span class="process-math">\(f(x)\)</span> is close to <span class="process-math">\(3\text{.}\)</span> We have seen, though, that this is not necessarily a good indicator of what <span class="process-math">\(f(1)\)</span> actually is. This can be problematic; functions can tend to one value but attain another. This section focuses on functions that <em class="emphasis">do not</em> exhibit such behavior.</div>
+<article class="definition definition-like" id="def_continuous"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Continuous Function.</span>
+</h3> <div class="para logical" id="p-873">
+<div class="para">Let <span class="process-math">\(f\)</span> be a function whose domain contains an open interval <span class="process-math">\(I\text{.}\)</span> </div>
+<ol class="decimal">
+<li id="li-228"><div class="para" id="p-874">
+<span class="process-math">\(f\)</span> is <dfn class="terminology">continuous at a point</dfn> <span class="process-math">\(c\)</span> in <span class="process-math">\(I\)</span> if <span class="process-math">\(\lim\limits_{x\to c}f(x) = f(c)\text{.}\)</span> </div></li>
+<li id="li-229"><div class="para" id="p-875">
+<span class="process-math">\(f\)</span> is <dfn class="terminology">continuous on the open interval</dfn> <span class="process-math">\(I\)</span> if <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(c\)</span> for all values of <span class="process-math">\(c\)</span> in <span class="process-math">\(I\text{.}\)</span>  If <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\((-\infty,\infty)\text{,}\)</span> we say <span class="process-math">\(f\)</span> is <dfn class="terminology">continuous everywhere</dfn> (or <dfn class="terminology">everywhere continuous</dfn>). </div></li>
+</ol>
+</div></article><div class="para" id="p-876">Note that in <a href="" class="xref" data-knowl="./knowl/def_continuous.html" title="Definition 1.5.1: Continuous Function">Definition 1.5.1</a>, a function <span class="process-math">\(f\)</span> can only be continuous at a point <span class="process-math">\(c\)</span> if <span class="process-math">\(c\)</span> is in the domain of <span class="process-math">\(f\text{.}\)</span>
+</div>
+<figure class="figure figure-like" id="vid_limit_con_defn"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-30" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/bKi6ReLchfw?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.5.2<span class="period">.</span></span><span class="space"> </span>Video presentation of <a href="" class="xref" data-knowl="./knowl/def_continuous.html" title="Definition 1.5.1: Continuous Function">Definition 1.5.1</a></figcaption></figure><div class="para logical" id="p-877">
+<div class="para">A useful way to establish whether or not a function <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(c\)</span> is to verify the following three things:</div>
+<ol class="decimal">
+<li id="li-230"><div class="para" id="p-878">
+<span class="process-math">\(\lim\limits_{x\to c} f(x)\)</span> exists,</div></li>
+<li id="li-231"><div class="para" id="p-879">
+<span class="process-math">\(f(c)\)</span> is defined, and</div></li>
+<li id="li-232"><div class="para" id="p-880"><span class="process-math">\(\lim\limits_{x\to c} f(x) = f(c)\text{.}\)</span></div></li>
+</ol>
+</div>
+<article class="example example-like" id="ex_contint1"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.3</span><span class="period">.</span><span class="space"> </span><span class="title">Finding intervals of continuity.</span>
+</h3>
+<div class="para" id="p-881">Let <span class="process-math">\(f\)</span> be defined as shown in <a href="" class="xref" data-knowl="./knowl/fig_continuous1.html" title="Figure 1.5.4">Figure 1.5.4</a>. Give the interval(s) on which <span class="process-math">\(f\)</span> is continuous.</div> <figure class="figure figure-like" id="fig_continuous1"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_continuous1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.5.4<span class="period">.</span></span><span class="space"> </span>A graph of <span class="process-math">\(f\)</span> in <a href="" class="xref" data-knowl="./knowl/ex_contint1.html" title="Example 1.5.3: Finding intervals of continuity">Example 1.5.3</a></figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-88" id="solution-88"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-88"><div class="solution solution-like">
+<div class="para logical" id="p-882">
+<div class="para">We proceed by examining the three criteria for continuity.</div>
+<ol class="decimal">
+<li id="li-233"><div class="para" id="p-883">The limits <span class="process-math">\(\lim\limits_{x\to c} f(x)\)</span> exists for all <span class="process-math">\(c\)</span> between <span class="process-math">\(0\)</span> and <span class="process-math">\(3\text{.}\)</span>
+</div></li>
+<li id="li-234"><div class="para" id="p-884">
+<span class="process-math">\(f(c)\)</span> is defined for all <span class="process-math">\(c\)</span> between <span class="process-math">\(0\)</span> and <span class="process-math">\(3\text{,}\)</span> <em class="emphasis">except for</em> <span class="process-math">\(c=1\text{.}\)</span> We know immediately that <span class="process-math">\(f\)</span> cannot be continuous at <span class="process-math">\(x=1\text{.}\)</span>
+</div></li>
+<li id="li-235"><div class="para" id="p-885">The limit <span class="process-math">\(\lim\limits_{x\to c} f(x) = f(c)\)</span> for all <span class="process-math">\(c\)</span> between <span class="process-math">\(0\)</span> and <span class="process-math">\(3\text{,}\)</span> except, of course, for <span class="process-math">\(c=1\text{.}\)</span>
+</div></li>
+</ol>
+</div> <div class="para" id="p-886">We conclude that <span class="process-math">\(f\)</span> is continuous at every point of the interval <span class="process-math">\((0,3)\)</span> except at <span class="process-math">\(x=1\text{.}\)</span> Therefore <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\((0,1)\)</span> and <span class="process-math">\((1,3)\text{.}\)</span>
+</div> <aside class="aside aside-like" id="aside-4"><div class="para" id="p-887">Our definition of continuity (currently) only applies to open intervals. After <a href="" class="xref" data-knowl="./knowl/def_closed_continuity.html" title="Definition 1.5.7: Continuity on Closed Intervals">Definition 1.5.7</a>, we'll be able to say that <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\([0,1)\)</span> and <span class="process-math">\((1,3]\text{.}\)</span>
+</div></aside>
+</div></div>
+</div></article><article class="example example-like" id="ex_contint2"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.5</span><span class="period">.</span><span class="space"> </span><span class="title">Finding intervals of continuity.</span>
+</h3>
+<div class="para" id="p-888">The <em class="emphasis">floor function</em>,  <span class="process-math">\(f(x) = \lfloor x \rfloor\text{,}\)</span> returns the largest integer smaller than, or equal to, the input <span class="process-math">\(x\text{.}\)</span> (For example, <span class="process-math">\(f(\pi) = \lfloor \pi \rfloor = 3\text{.}\)</span>) The graph of <span class="process-math">\(f\)</span> in <a href="" class="xref" data-knowl="./knowl/fig_continuous2.html" title="Figure 1.5.6">Figure 1.5.6</a> demonstrates why this is often called a “step function.”</div> <div class="para" id="p-889">Give the intervals on which <span class="process-math">\(f\)</span> is continuous.</div> <figure class="figure figure-like" id="fig_continuous2"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_continuous2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.5.6<span class="period">.</span></span><span class="space"> </span>A graph of the step function in <a href="" class="xref" data-knowl="./knowl/ex_contint2.html" title="Example 1.5.5: Finding intervals of continuity">Example 1.5.5</a></figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-89" id="solution-89"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-89"><div class="solution solution-like">
+<div class="para logical" id="p-890">
+<div class="para">We examine the three criteria for continuity.</div>
+<ol class="decimal">
+<li id="li-236"><div class="para" id="p-891">The limits <span class="process-math">\(\lim\limits_{x\to c} f(x)\)</span> do not exist at the jumps from one “step” to the next, which occur at all integer values of <span class="process-math">\(c\text{.}\)</span> Therefore the limits exist for all <span class="process-math">\(c\)</span> except when <span class="process-math">\(c\)</span> is an integer.</div></li>
+<li id="li-237"><div class="para" id="p-892">The function is defined for all values of <span class="process-math">\(c\text{.}\)</span>
+</div></li>
+<li id="li-238"><div class="para" id="p-893">The limit <span class="process-math">\(\lim\limits_{x\to c} f(x) = f(c)\)</span> for all values of <span class="process-math">\(c\)</span> where the limit exist, since each step consists of just a line.</div></li>
+</ol>
+</div> <div class="para logical" id="p-894">
+<div class="para">We conclude that <span class="process-math">\(f\)</span> is continuous everywhere except at integer values of <span class="process-math">\(c\text{.}\)</span> So the intervals on which <span class="process-math">\(f\)</span> is continuous are</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\ldots, (-2,-1), (-1,0), (0,1), (1,2), \ldots\text{.}
+\end{equation*}
+</div>
+<div class="para">We could also say that <span class="process-math">\(f\)</span> is continuous on all intervals of the form <span class="process-math">\((n,n+1)\)</span> where <span class="process-math">\(n\)</span> is an integer.</div>
+</div>
+</div></div>
+</div></article><div class="para" id="p-895">Our definition of continuity on an interval specifies the interval is an open interval. We can extend the definition of continuity to closed intervals of the form <span class="process-math">\([a,b]\)</span> by considering the appropriate one-sided limits at the endpoints.</div>
+<aside class="aside aside-like" id="aside-5"><div class="para" id="p-896">In this text, when we use the term “closed interval”, we mean an interval of the form <span class="process-math">\([a,b]\text{,}\)</span> where <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are real numbers. One may be surprised to learn that intervals of the form <span class="process-math">\([a,\infty)\text{,}\)</span> <span class="process-math">\((-\infty, b]\)</span> and even <span class="process-math">\((-\infty,\infty)\)</span> are all also considered closed in advanced calculus. While the mathematics supported by this definition of closed is fascinating and important, it is beyond the scope of our purposes here.</div>
+<div class="para" id="p-897">Some results, such as <a href="" class="xref" data-knowl="./knowl/thm_extreme_val.html" title="Theorem 3.1.4: The Extreme Value Theorem">The Extreme Value Theorem</a>, are valid for intervals of the form <span class="process-math">\([a,b]\text{,}\)</span> but not for intervals such as <span class="process-math">\([a,\infty)\text{.}\)</span> The latter interval is closed, but not <dfn class="terminology">bounded</dfn>. </div>
+<div class="para" id="p-898">A set of real numbers is bounded if there is a number that is greater than every element in the set (an upper bound), and a number that is less than every element in the set (a lower bound). When we do calculus in higher dimensions, we can no longer talk about intervals, but we can still talk about sets being closed and bounded. See <a href="sec_multi_extreme_values.html" class="internal" title="Section 13.8: Extreme Values">Section 13.8</a> for details.</div></aside><article class="definition definition-like" id="def_closed_continuity"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.7</span><span class="period">.</span><span class="space"> </span><span class="title">Continuity on Closed Intervals.</span>
+</h3> <div class="para" id="p-899">Let <span class="process-math">\(f\)</span> be defined on the closed interval <span class="process-math">\([a,b]\)</span> for some real numbers <span class="process-math">\(a\lt b\text{.}\)</span>
+</div> <div class="para logical" id="p-900">
+<div class="para">We say <span class="process-math">\(f\)</span> is <dfn class="terminology">continuous on the closed interval</dfn> <span class="process-math">\([a,b]\)</span> if:</div>
+<ol class="decimal">
+<li id="li-239"><div class="para" id="p-901">
+<span class="process-math">\(f\)</span> is continuous on <span class="process-math">\((a,b)\text{,}\)</span>
+</div></li>
+<li id="def_right_continuity"><div class="para" id="p-902">
+<span class="process-math">\(\lim\limits_{x\to a^+} f(x) = f(a)\)</span> and</div></li>
+<li id="def_left_continuity"><div class="para" id="p-903"><span class="process-math">\(\lim\limits_{x\to b^-} f(x) = f(b)\text{.}\)</span></div></li>
+</ol>
+</div></article><div class="para" id="p-904">We can make the appropriate adjustments to talk about continuity on half-open intervals such as <span class="process-math">\([a,b)\)</span> or <span class="process-math">\((a,b]\)</span> if necessary.</div>
+<div class="para" id="p-905">If the domain of <span class="process-math">\(f\)</span> includes values less than <span class="process-math">\(a\text{,}\)</span> we say that <a href="" class="xref" data-knowl="./knowl/def_right_continuity.html" title="Item 2">Item 2</a> in <a href="" class="xref" data-knowl="./knowl/def_closed_continuity.html" title="Definition 1.5.7: Continuity on Closed Intervals">Definition 1.5.7</a> indicates that <span class="process-math">\(f\)</span> is <dfn class="terminology">continuous from the right</dfn> at <span class="process-math">\(a\text{.}\)</span> But if <span class="process-math">\(f\)</span> is undefined for <span class="process-math">\(x\lt a\text{,}\)</span> we can say that <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(a\)</span> without ambiguity.</div>
+<div class="para" id="p-906">Similarly, <a href="" class="xref" data-knowl="./knowl/def_left_continuity.html" title="Item 3">Item 3</a> indcates that <span class="process-math">\(f\)</span> is <dfn class="terminology">continuous from the left</dfn> at <span class="process-math">\(b\text{,}\)</span> and if <span class="process-math">\(f\)</span> is not defined for <span class="process-math">\(x\gt b\text{,}\)</span> we can simply say that <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(b\text{.}\)</span>
+</div>
+<div class="para" id="p-907">For example, it makes sense to say that the function <span class="process-math">\(f(x)=\sqrt{1-x^2}\)</span> is continuous at <span class="process-math">\(1\)</span> and <span class="process-math">\(-1\text{,}\)</span> while the floor function in <a href="" class="xref" data-knowl="./knowl/ex_contint2.html" title="Example 1.5.5: Finding intervals of continuity">Example 1.5.5</a> is continuous from the left at <span class="process-math">\(1\)</span> and <span class="process-math">\(-1\text{,}\)</span> but is not continuous at these points.</div>
+<div class="para logical" id="p-908">
+<div class="para">Using this new definition, we can adjust our answer in <a href="" class="xref" data-knowl="./knowl/ex_contint1.html" title="Example 1.5.3: Finding intervals of continuity">Example 1.5.3</a> by stating that <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\([0,1)\)</span> and <span class="process-math">\((1,3]\text{,}\)</span> as mentioned in that example. We can also revisit <a href="" class="xref" data-knowl="./knowl/ex_contint2.html" title="Example 1.5.5: Finding intervals of continuity">Example 1.5.5</a> and state that the floor function is continuous on the following half-open intervals</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex_contint1.html ./knowl/ex_contint2.html">
+\begin{equation*}
+\ldots, [-2,-1), [-1,0), [0,1), [1,2), \ldots\text{.}
+\end{equation*}
+</div>
+</div>
+<figure class="figure figure-like" id="vid_limit_con_basic_ex"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-31" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/8z07z3yeChY?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.5.8<span class="period">.</span></span><span class="space"> </span>Two continuity examples</figcaption></figure><div class="para" id="p-909">This can tempt us to conclude that <span class="process-math">\(f\)</span> is continuous everywhere; after all, if <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\([0,1)\)</span> and <span class="process-math">\([1,2)\text{,}\)</span> isn't <span class="process-math">\(f\)</span> also continuous on <span class="process-math">\([0,2)\text{?}\)</span> Of course, the answer is <em class="emphasis">no</em>, and the graph of the floor function immediately confirms this.</div>
+<div class="para" id="p-910">Continuous functions are important as they behave in a predictable fashion: functions attain the value they approach. Because continuity is so important, most of the functions you have likely seen in the past are continuous on their domains. This is demonstrated in the following example where we examine the intervals of continuity of a variety of common functions.</div>
+<article class="example example-like" id="ex_cont_funct1"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.9</span><span class="period">.</span><span class="space"> </span><span class="title">Determining intervals on which a function is continuous.</span>
+</h3>
+<div class="para logical" id="p-911">
+<div class="para">For each of the following functions, give the domain of the function and the interval(s) on which it is continuous.</div>
+<ol class="decimal cols2">
+<li id="li-242"><div class="para" id="p-912"><span class="process-math">\(\displaystyle f(x) = 1/x\)</span></div></li>
+<li id="li-243"><div class="para" id="p-913"><span class="process-math">\(\displaystyle f(x) = \sin(x)\)</span></div></li>
+<li id="li-244"><div class="para" id="p-914"><span class="process-math">\(\displaystyle f(x) = \sqrt{x}\)</span></div></li>
+<li id="li-245"><div class="para" id="p-915"><span class="process-math">\(\displaystyle f(x) = \sqrt{1-x^2}\)</span></div></li>
+<li id="li-246"><div class="para" id="p-916"><span class="process-math">\(\displaystyle f(x) = \abs{x}\)</span></div></li>
+</ol>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-video" data-refid="hk-solution-90" id="solution-90"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span><span class="space"> </span><span class="title">Video solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-90"><div class="solution solution-like"> <div class="video-box" style="width: 98%;padding-top: 55.125%; margin-left: 1%; margin-right: 1%;"><iframe id="vid_limit_con_invertals_con" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/by3ioPN6KRM?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-91" id="solution-91"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-91"><div class="solution solution-like"><div class="para logical" id="p-917">
+<div class="para">We examine each in turn.</div>
+<ol class="decimal">
+<li id="li-247"><div class="para" id="p-918">The domain of <span class="process-math">\(f(x) = 1/x\)</span> is <span class="process-math">\((-\infty,0) \cup (0,\infty)\text{.}\)</span> As it is a rational function, we apply <a href="" class="xref" data-knowl="./knowl/thm_poly_rat.html" title="Theorem 1.3.4: Limits of Polynomial and Rational Functions">Theorem 1.3.4</a> to recognize that <span class="process-math">\(f\)</span> is continuous on all of its domain.</div></li>
+<li id="li-248"><div class="para" id="p-919">The domain of <span class="process-math">\(f(x) = \sin(x)\)</span> is all real numbers, or <span class="process-math">\((-\infty,\infty)\text{.}\)</span> Applying <a href="" class="xref" data-knowl="./knowl/thm_lim_continuous.html" title="Theorem 1.3.7: Limits of Common Functions">Theorem 1.3.7</a> shows that <span class="process-math">\(\sin(x)\)</span> is continuous everywhere.</div></li>
+<li id="li-249"><div class="para" id="p-920">The domain of <span class="process-math">\(f(x) = \sqrt{x}\)</span> is <span class="process-math">\([0,\infty)\text{.}\)</span> Applying <a href="" class="xref" data-knowl="./knowl/thm_lim_continuous.html" title="Theorem 1.3.7: Limits of Common Functions">Theorem 1.3.7</a> shows that <span class="process-math">\(f(x) = \sqrt{x}\)</span> is continuous on its domain of <span class="process-math">\([0,\infty)\text{.}\)</span>
+</div></li>
+<li id="li-250"><div class="para" id="p-921">The domain of <span class="process-math">\(f(x) = \sqrt{1-x^2}\)</span> is <span class="process-math">\([-1,1]\text{.}\)</span> Applying <a href="" class="xref" data-knowl="./knowl/thm_limit_algebra.html" title="Theorem 1.3.1: Basic Limit Properties">Theorems 1.3.1</a> and <a href="" class="xref" data-knowl="./knowl/thm_lim_continuous.html" title="Theorem 1.3.7: Limits of Common Functions">Theorem 1.3.7</a> shows that <span class="process-math">\(f\)</span> is continuous on all of its domain, <span class="process-math">\([-1,1]\text{.}\)</span>
+</div></li>
+<li id="li-251"><div class="para logical" id="p-922">
+<div class="para">The domain of <span class="process-math">\(f(x) = \abs{x}\)</span> is <span class="process-math">\((-\infty,\infty)\text{.}\)</span> We can define the absolute value function as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x) = \begin{cases}-x \amp x\lt 0 \\ x \amp x\geq 0\end{cases}\text{.}
+\end{equation*}
+</div>
+<div class="para">Each “piece” of this piecewise defined function is continuous on all of its domain, giving that <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\((-\infty,0)\)</span> and <span class="process-math">\([0,\infty)\text{.}\)</span> We cannot assume this implies that <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\((-\infty,\infty)\text{;}\)</span> we need to check that <span class="process-math">\(\lim\limits_{x\to 0}f(x) = f(0)\text{,}\)</span> as <span class="process-math">\(x=0\)</span> is the point where <span class="process-math">\(f\)</span> transitions from one “piece” of its definition to the other. It is easy to verify that this is indeed true, hence we conclude that <span class="process-math">\(f(x) = \abs{x}\)</span> is continuous everywhere.</div>
+</div></li>
+</ol>
+</div></div></div>
+</div></article><div class="para" id="p-923">Continuity is inherently tied to the properties of limits. Because of this, the properties of limits found in <a href="" class="xref" data-knowl="./knowl/thm_limit_algebra.html" title="Theorem 1.3.1: Basic Limit Properties">Theorems 1.3.1</a> and <a href="" class="xref" data-knowl="./knowl/thm_poly_rat.html" title="Theorem 1.3.4: Limits of Polynomial and Rational Functions">Theorem 1.3.4</a> apply to continuity as well. Further, now knowing the definition of continuity we can re-read <a href="" class="xref" data-knowl="./knowl/thm_lim_continuous.html" title="Theorem 1.3.7: Limits of Common Functions">Theorem 1.3.7</a> as giving a list of functions that are continuous on their domains. The following theorem states how continuous functions can be combined to form other continuous functions, followed by a theorem which formally lists functions that we know are continuous on their domains.</div>
+<article class="theorem theorem-like" id="thm_continuity_algebra"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.10</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of Continuous Functions.</span>
+</h3>
+<div class="para logical" id="p-924">
+<div class="para">Let <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> be continuous functions on an interval <span class="process-math">\(I\text{,}\)</span> let <span class="process-math">\(c\)</span> be a real number and let <span class="process-math">\(n\)</span> be a positive integer. The following functions are continuous on <span class="process-math">\(I\text{.}\)</span>
+</div>
+<dl class="description-list">
+<dt id="li-252">Sums/Difference</dt>
+<dd><div class="para" id="p-925"><span class="process-math">\(\displaystyle f\pm g\)</span></div></dd>
+<dt id="li-253">Constant Multiple</dt>
+<dd><div class="para" id="p-926"><span class="process-math">\(\displaystyle c\cdot f\)</span></div></dd>
+<dt id="li-254">Product</dt>
+<dd><div class="para" id="p-927"><span class="process-math">\(\displaystyle f\cdot g\)</span></div></dd>
+<dt id="li-255">Quotient</dt>
+<dd><div class="para" id="p-928">
+<span class="process-math">\(f/g\)</span> (as long as <span class="process-math">\(g\neq 0\)</span> on <span class="process-math">\(I\)</span>)</div></dd>
+<dt id="li-256">Power</dt>
+<dd><div class="para" id="p-929"><span class="process-math">\(\displaystyle f^n\)</span></div></dd>
+<dt id="li-257">Root</dt>
+<dd><div class="para" id="p-930">
+<span class="process-math">\(\sqrt[n]{f}\)</span> (If <span class="process-math">\(n\)</span> is even then require <span class="process-math">\(f(x)\geq 0\)</span> on <span class="process-math">\(I\text{.}\)</span>)</div></dd>
+<dt id="li-258">Compositions</dt>
+<dd><div class="para" id="p-931">Adjust the definitions of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> to: Let <span class="process-math">\(f\)</span> be continuous on <span class="process-math">\(I\text{,}\)</span> where the range of <span class="process-math">\(f\)</span> on <span class="process-math">\(I\)</span> is <span class="process-math">\(J\text{,}\)</span> and let <span class="process-math">\(g\)</span> be continuous on <span class="process-math">\(J\text{.}\)</span> Then <span class="process-math">\(g\circ f\text{,}\)</span> i.e., <span class="process-math">\(g(f(x))\text{,}\)</span> is continuous on <span class="process-math">\(I\text{.}\)</span>
+</div></dd>
+</dl>
+</div></article><figure class="figure figure-like" id="vid_limit_con_prop"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-33" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/GTiNiZT5ukg?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.5.11<span class="period">.</span></span><span class="space"> </span>Video presentation of <a href="" class="xref" data-knowl="./knowl/thm_continuity_algebra.html" title="Theorem 1.5.10: Properties of Continuous Functions">Theorem 1.5.10</a></figcaption></figure><aside class="aside aside-like" id="aside-6"><div class="para" id="p-932">We have defined what it means for a function to be continuous on an interval, but many functions, such as <span class="process-math">\(f(x)=\tan(x)\text{,}\)</span> have domains that are the union of more than one interval.</div>
+<div class="para" id="p-933">If the domain of a function is a union of intervals, saying that a function is continuous on its domain means that the function is continuous on each of those intervals. But be careful to note that the converse is not true. As we learned in <a href="" class="xref" data-knowl="./knowl/ex_contint2.html" title="Example 1.5.5: Finding intervals of continuity">Example 1.5.5</a>, a function can be continuous on a collection of intervals, but not on their union.</div></aside><article class="theorem theorem-like" id="thm_continuous_functions"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.12</span><span class="period">.</span><span class="space"> </span><span class="title">Continuous Functions.</span>
+</h3>
+<div class="para logical" id="p-934">
+<div class="para">Let <span class="process-math">\(n\)</span> be a positive integer. The following functions are continuous on their domains. </div>
+<ol class="decimal cols2">
+<li id="li-259"><div class="para" id="p-935"><span class="process-math">\(\displaystyle f(x) = \sin(x)\)</span></div></li>
+<li id="li-260"><div class="para" id="p-936"><span class="process-math">\(\displaystyle f(x) = \tan(x)\)</span></div></li>
+<li id="li-261"><div class="para" id="p-937"><span class="process-math">\(\displaystyle f(x) = \sec(x)\)</span></div></li>
+<li id="li-262"><div class="para" id="p-938"><span class="process-math">\(\displaystyle f(x) = \ln(x)\)</span></div></li>
+<li id="li-263"><div class="para" id="p-939">
+<span class="process-math">\(f(x) = a^x\)</span> (<span class="process-math">\(a\gt 0\)</span>)</div></li>
+<li id="li-264"><div class="para" id="p-940"><span class="process-math">\(\displaystyle f(x) = \cos(x)\)</span></div></li>
+<li id="li-265"><div class="para" id="p-941"><span class="process-math">\(\displaystyle f(x) = \cot(x)\)</span></div></li>
+<li id="li-266"><div class="para" id="p-942"><span class="process-math">\(\displaystyle f(x) = \csc(x)\)</span></div></li>
+<li id="li-267"><div class="para" id="p-943">
+<span class="process-math">\(f(x) = \sqrt[n]{x}\text{,}\)</span> where <span class="process-math">\(n\)</span> is a positive integer.</div></li>
+</ol>
+</div></article><div class="para" id="vidint_limit_con_using_prop">As the video example in <a href="" class="xref" data-knowl="./knowl/vid_limit_con_using_prop.html" title="Figure 1.5.13">Figure 1.5.13</a> illustrates, the above theorems allow us to quickly construct new continuous functions from old ones.</div>
+<figure class="figure figure-like" id="vid_limit_con_using_prop"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-34" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/ewUiuE9bQlo?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.5.13<span class="period">.</span></span><span class="space"> </span>Continuity of compositions</figcaption></figure><div class="para" id="p-945">We apply these theorems in the following Example.</div>
+<article class="example example-like" id="ex_cont_funct"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.14</span><span class="period">.</span><span class="space"> </span><span class="title">Determining intervals on which a function is continuous.</span>
+</h3>
+<div class="para logical" id="p-946">
+<div class="para">State the interval(s) on which each of the following functions is continuous.</div>
+<ol class="decimal cols2">
+<li id="it_cont_funct_sqrt"><div class="para" id="p-947"><span class="process-math">\(\displaystyle f(x) = \sqrt{x-1} + \sqrt{5-x}\)</span></div></li>
+<li id="li-269"><div class="para" id="p-948"><span class="process-math">\(\displaystyle f(x) = x\sin(x)\)</span></div></li>
+<li id="li-270"><div class="para" id="p-949"><span class="process-math">\(\displaystyle f(x) = \tan(x)\)</span></div></li>
+<li id="li-271"><div class="para" id="p-950"><span class="process-math">\(\displaystyle f(x) = \sqrt{\ln(x)}\)</span></div></li>
+</ol>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-video" data-refid="hk-solution-92" id="solution-92"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span><span class="space"> </span><span class="title">Video solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-92"><div class="solution solution-like"> <div class="video-box" style="width: 98%;padding-top: 55.125%; margin-left: 1%; margin-right: 1%;"><iframe id="vid_limit_con_internals_again" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/6Lm-0eBi-5E?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-93" id="solution-93"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-93"><div class="solution solution-like">
+<div class="para" id="p-951">We examine each in turn, applying <a href="" class="xref" data-knowl="./knowl/thm_continuity_algebra.html" title="Theorem 1.5.10: Properties of Continuous Functions">Theorems 1.5.10</a> and <a href="" class="xref" data-knowl="./knowl/thm_continuous_functions.html" title="Theorem 1.5.12: Continuous Functions">Theorem 1.5.12</a> as appropriate.</div> <figure class="figure figure-like" id="fig_continuous3"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_continuous3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.5.15<span class="period">.</span></span><span class="space"> </span>A graph of <span class="process-math">\(f(x)=\sqrt{x-1}+\sqrt{5-x}\)</span></figcaption></figure> <div class="para logical" id="p-952"><ol class="decimal">
+<li id="li-272"><div class="para" id="p-953">The square root terms are continuous on the intervals <span class="process-math">\([1,\infty)\)</span> and <span class="process-math">\((-\infty,5]\text{,}\)</span> respectively. As <span class="process-math">\(f\)</span> is continuous only where each term is continuous, <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\([1,5]\text{,}\)</span> the intersection of these two intervals. A graph of <span class="process-math">\(f\)</span> is given in <a href="" class="xref" data-knowl="./knowl/fig_continuous3.html" title="Figure 1.5.15">Figure 1.5.15</a>.</div></li>
+<li id="li-273"><div class="para" id="p-954">The functions <span class="process-math">\(y=x\)</span> and <span class="process-math">\(y=\sin(x)\)</span> are each continuous everywhere, hence their product is, too.</div></li>
+<li id="li-274"><div class="para logical" id="p-955">
+<div class="para">
+<a href="" class="xref" data-knowl="./knowl/thm_continuous_functions.html" title="Theorem 1.5.12: Continuous Functions">Theorem 1.5.12</a> states that <span class="process-math">\(f(x) = \tan(x)\)</span> is continuous <em class="emphasis">on its domain</em>. Its domain includes all real numbers except odd multiples of <span class="process-math">\(\pi/2\text{.}\)</span> Thus the intervals on which <span class="process-math">\(f(x) = \tan(x)\)</span> is continuous are</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_continuous_functions.html">
+\begin{equation*}
+\ldots \left(-\frac{3\pi}{2},-\frac{\pi}2\right),\ \left(-\frac{\pi}2,\frac{\pi}2\right),\ \left(\frac{\pi}2,\frac{3\pi}2\right),\ldots,\text{.}
+\end{equation*}
+</div>
+</div></li>
+<li id="li-275"><div class="para" id="p-956">Here, <span class="process-math">\(f(x)\)</span> is the composition <span class="process-math">\(g(h(x))\text{,}\)</span> where <span class="process-math">\(g(x) = \sqrt{x}\)</span> and <span class="process-math">\(h(x)=\ln(x)\text{.}\)</span> The domain of <span class="process-math">\(g\)</span> is <span class="process-math">\([0,\infty)\text{,}\)</span> while the range of <span class="process-math">\(h\)</span> is <span class="process-math">\((-\infty,\infty)\text{.}\)</span> If we restrict the domain to <span class="process-math">\([1,\infty)\text{,}\)</span> then the output from <span class="process-math">\(h(x)=\ln(x)\)</span> is restricted to <span class="process-math">\([0,\infty)\text{,}\)</span> on which <span class="process-math">\(g(x) = \sqrt{x}\)</span> is defined. Thus the domain of <span class="process-math">\(f(x) = \sqrt{\ln(x)}\)</span> is <span class="process-math">\([1,\infty)\text{.}\)</span>
+</div></li>
+</ol></div>
+</div></div>
+</div></article><section class="paragraphs" id="paragraphs-6"><h3 class="heading"><span class="title">Classification of discontinuities.</span></h3> <div class="para" id="p-957">We now know what it means for a function to be continuous, so of course we can easily say what it means for a function to be <em class="emphasis">discontinuous</em>; namely, not continuous. However, to better understand continuity, it is worth our time to discuss the different ways in which a function can fail to be discontinuous. By definition, a function <span class="process-math">\(f\)</span> is continuous at a point <span class="process-math">\(a\)</span> in its domain if <span class="process-math">\(\lim\limits_{x\to a}f(x) = f(a)\text{.}\)</span> If this equality fails to hold, then <span class="process-math">\(f\)</span> is not continuous. We note, however, that there are a number of different things that can go wrong with this equality.</div> <figure class="figure figure-like" id="vid_limit_con_types_discon"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-36" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/TevrD3qci0Q?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.5.16<span class="period">.</span></span><span class="space"> </span>Discussing classification of discontinuities</figcaption></figure> <div class="para logical" id="p-958"><ol class="decimal">
+<li id="li-276">
+<div class="para" id="p-959">
+<span class="process-math">\(\lim\limits_{x\to a}f(x)=L\)</span> exists, but <span class="process-math">\(L\neq f(a)\text{,}\)</span> or <span class="process-math">\(f(a)\)</span> is undefined. Such a discontinuity is called a <dfn class="terminology">removable discontinuity</dfn> .</div>
+<div class="para" id="p-960">A removable discontinuity can be pictured as a “hole” in the graph of <span class="process-math">\(f\text{.}\)</span> The term “removable” refers to the fact that by simply redefining <span class="process-math">\(f(a)\)</span> to equal <span class="process-math">\(L\)</span> (that is, changing the value of <span class="process-math">\(f\)</span> at a single point), we can create a new function that is continuous at <span class="process-math">\(x=a\text{,}\)</span> and agrees with <span class="process-math">\(f\)</span> at all <span class="process-math">\(x\neq a\text{.}\)</span>
+</div>
+</li>
+<li id="li-277">
+<div class="para" id="p-961">
+<span class="process-math">\(\lim\limits_{x\to a^+}f(x) = L\)</span> and <span class="process-math">\(\lim\limits_{x\to a^-}f(x)=M\)</span> exist, but <span class="process-math">\(L\neq M\text{.}\)</span> In this case the left and right hand limits both exist, but since they are not equal, the limit of <span class="process-math">\(f\)</span> as <span class="process-math">\(x\to a\)</span> does not exist. Such a discontinuity is called a <dfn class="terminology">jump discontinuity</dfn>. </div>
+<div class="para" id="p-962">The phrase “jump discontinuity” is meant to represent the fact that visually, the graph of <span class="process-math">\(f\)</span> “jumps” from one value to another as we cross the value <span class="process-math">\(x=a\text{.}\)</span>
+</div>
+</li>
+<li id="li-278">
+<div class="para" id="p-963">The function <span class="process-math">\(f\)</span> is <em class="emphasis">unbounded</em> near <span class="process-math">\(x=a\text{.}\)</span> This means that the value of <span class="process-math">\(f\)</span> becomes arbitrarily large (or large and negative) as <span class="process-math">\(x\)</span> approaches <span class="process-math">\(a\text{.}\)</span> Such a discontinuity is called an <dfn class="terminology">infinite discontinuity</dfn>. </div>
+<div class="para" id="p-964">Infinite discontinuities are most easily understood in terms of <em class="emphasis">infinite limits</em>, which are discussed in <a href="sec_limits_infty.html" class="internal" title="Section 1.6: Limits Involving Infinity">Section 1.6</a>.</div>
+</li>
+</ol></div> <figure class="figure figure-like" id="fig_discontinuities"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:31%;"><figure class="figure figure-like" id="fig_removable_disc"><img src="generated/latex-image/img_discontinuity_rem.svg" role="img" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span>The graph of a function with a removable discontinuity at <span class="process-math">\(x=2\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:31%;"><figure class="figure figure-like" id="fig_jump_disc"><img src="generated/latex-image/img_discontinuity_jump.svg" role="img" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span>The graph of a function with a jump discontinuity at <span class="process-math">\(x=2\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:31%;"><figure class="figure figure-like" id="fig_inf_disc"><img src="generated/latex-image/img_discontinuity_inf.svg" role="img" class="contained"><figcaption><span class="codenumber">(c)</span><span class="space"> </span>The graph of a function with an infinite discontinuity at <span class="process-math">\(x=2\)</span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.5.17<span class="period">.</span></span><span class="space"> </span>Illustrating three common types of discontinuity</figcaption></figure></section><section class="paragraphs" id="paragraphs-7"><h3 class="heading"><span class="title">Consequences of continuity.</span></h3> <div class="para" id="p-965">A common way of thinking of a continuous function is that “its graph can be sketched without lifting your pencil.” That is, its graph forms a “continuous” curve, without holes, breaks or jumps. This pseudo-definition glosses over some of the finer points of continuity. There are some very strange continuous functions that one would be hard pressed to actually sketch by hand.</div> <div class="para" id="p-966">However, this intuitive notion of continuity does help us understand another important concept as follows. Suppose <span class="process-math">\(f\)</span> is defined on <span class="process-math">\([1,2]\text{,}\)</span> and <span class="process-math">\(f(1) = -10\)</span> and <span class="process-math">\(f(2) = 5\text{.}\)</span> If <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\([1,2]\)</span> (i.e., its graph can be sketched as a continuous curve from <span class="process-math">\((1,-10)\)</span> to <span class="process-math">\((2,5)\)</span>) then we know intuitively that somewhere on the interval <span class="process-math">\([1,2]\)</span> <span class="process-math">\(f\)</span> must be equal to <span class="process-math">\(-9\text{,}\)</span> and <span class="process-math">\(-8\text{,}\)</span> and <span class="process-math">\(-7,-6,\ldots,0,1/2\text{,}\)</span> etc. In short, <span class="process-math">\(f\)</span> takes on all <em class="emphasis">intermediate</em> values between <span class="process-math">\(-10\)</span> and <span class="process-math">\(5\text{.}\)</span> It may take on more values; <span class="process-math">\(f\)</span> may actually equal <span class="process-math">\(6\)</span> at some time, for instance, but we are guaranteed all values between <span class="process-math">\(-10\)</span> and <span class="process-math">\(5\text{.}\)</span>
+</div> <figure class="figure figure-like" id="fig_intermediate_value"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_intermediate_value.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.5.18<span class="period">.</span></span><span class="space"> </span>Illustration of the Intermediate Value Theorem: the output <span class="process-math">\(3\)</span> is in between <span class="process-math">\(-10\)</span> and <span class="process-math">\(5\text{,}\)</span> and therefore any continuous function on <span class="process-math">\([1,2]\)</span> with <span class="process-math">\(f(1) = -10\)</span> and <span class="process-math">\(f(2) = 5\)</span> will achieve the output <span class="process-math">\(3\)</span> somewhere in <span class="process-math">\([1,2]\)</span></figcaption></figure> <div class="para" id="p-967">While this notion seems intuitive, it is not trivial to prove and its importance is profound. Therefore the concept is stated in the form of a theorem.</div> <article class="theorem theorem-like" id="thm_IVT"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.19</span><span class="period">.</span><span class="space"> </span><span class="title">Intermediate Value Theorem.</span>
+</h4>
+<div class="para" id="p-968">Let <span class="process-math">\(f\)</span> be a continuous function on <span class="process-math">\([a,b]\)</span> and, without loss of generality, let <span class="process-math">\(f(a) \lt f(b)\text{.}\)</span> Then for every value <span class="process-math">\(y\text{,}\)</span> where <span class="process-math">\(f(a) \lt y \lt f(b)\text{,}\)</span> there is at least one value <span class="process-math">\(c\)</span> in <span class="process-math">\((a,b)\)</span> such that <span class="process-math">\(f(c) = y\text{.}\)</span> </div></article> <figure class="figure figure-like" id="vid_limit_con_IVT_stmnt"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-37" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/Fx7Qu9tZlN4?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.5.20<span class="period">.</span></span><span class="space"> </span>Video presentation of <a href="" class="xref" data-knowl="./knowl/thm_IVT.html" title="Theorem 1.5.19: Intermediate Value Theorem">Theorem 1.5.19</a></figcaption></figure> <div class="para" id="p-969">One important application of the <a href="" class="xref" data-knowl="./knowl/thm_IVT.html" title="Theorem 1.5.19: Intermediate Value Theorem">Intermediate Value Theorem</a> is root finding. Given a function <span class="process-math">\(f\text{,}\)</span> we are often interested in finding values of <span class="process-math">\(x\)</span> where <span class="process-math">\(f(x) = 0\text{.}\)</span> These roots may be very difficult to find exactly. Good approximations can be found through successive applications of this theorem. Suppose through direct computation we find that <span class="process-math">\(f(a) \lt 0\)</span> and <span class="process-math">\(f(b)\gt 0\text{,}\)</span> where <span class="process-math">\(a\lt b\text{.}\)</span> The <a href="" class="xref" data-knowl="./knowl/thm_IVT.html" title="Theorem 1.5.19: Intermediate Value Theorem">Intermediate Value Theorem</a> states that there is at least one <span class="process-math">\(c\)</span> in <span class="process-math">\((a,b)\)</span> such that <span class="process-math">\(f(c) = 0\text{.}\)</span> The theorem does not give us any clue as to where to find such a value in the interval <span class="process-math">\((a,b)\text{,}\)</span> just that at least one such value exists.</div> <div class="para logical" id="p-970">
+<div class="para">There is a technique that produces a good approximation of <span class="process-math">\(c\text{.}\)</span> Let <span class="process-math">\(d\)</span> be the midpoint of the interval <span class="process-math">\([a,b]\text{,}\)</span> with <span class="process-math">\(f(a) \lt 0\)</span> and <span class="process-math">\(f(b) \gt 0\)</span> and consider <span class="process-math">\(f(d)\text{.}\)</span> There are three possibilities:</div>
+<ol class="decimal">
+<li id="li-279"><div class="para" id="p-971">
+<span class="process-math">\(f(d) = 0\text{:}\)</span> We got lucky and stumbled on the actual value. We stop as we found a root.</div></li>
+<li id="li-280"><div class="para" id="p-972">
+<span class="process-math">\(f(d) \lt 0\text{:}\)</span> Then we know there is a root of <span class="process-math">\(f\)</span> on the interval <span class="process-math">\([d,b]\)</span> — we have halved the size of our interval, hence are closer to a good approximation of the root.</div></li>
+<li id="li-281"><div class="para" id="p-973">
+<span class="process-math">\(f(d) \gt 0\text{:}\)</span> Then we know there is a root of <span class="process-math">\(f\)</span> on the interval <span class="process-math">\([a,d]\)</span> — again,we have halved the size of our interval, hence are closer to a good approximation of the root.</div></li>
+</ol>
+</div> <div class="para" id="p-974">Successively applying this technique is called the <dfn class="terminology">Bisection Method</dfn>  of root finding. We continue until the interval is sufficiently small. We demonstrate this in the following example.</div> <article class="example example-like" id="ex_bisect_method"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.21</span><span class="period">.</span><span class="space"> </span><span class="title">Using the Bisection Method.</span>
+</h4>
+<div class="para" id="p-975">Approximate the root of <span class="process-math">\(f(x) = x-\cos(x)\text{,}\)</span> accurate to three places after the decimal.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-video" data-refid="hk-solution-94" id="solution-94"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span><span class="space"> </span><span class="title">Video solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-94"><div class="solution solution-like"> <div class="video-box" style="width: 98%;padding-top: 55.125%; margin-left: 1%; margin-right: 1%;"><iframe id="vid_limit_con_IVT_bisec" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed?playlist=mwq447zC9R0,dx5reJRcQD0&amp;modestbranding=1&amp;rel=0"></iframe></div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image has-tabular" data-refid="hk-solution-95" id="solution-95"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-95"><div class="solution solution-like">
+<div class="para" id="p-976">Consider the graph of <span class="process-math">\(f(x) = x-\cos(x)\text{,}\)</span> shown in <a href="" class="xref" data-knowl="./knowl/fig_xminuscosx.html" title="Figure 1.5.22">Figure 1.5.22</a>. It is clear that the graph crosses the <span class="process-math">\(x\)</span>-axis somewhere near <span class="process-math">\(x=0.8\text{.}\)</span> To start the Bisection Method, pick an interval that contains <span class="process-math">\(0.8\text{.}\)</span> We choose <span class="process-math">\([0.7,0.9]\text{.}\)</span> Note that all we care about are signs of <span class="process-math">\(f(x)\text{,}\)</span> not their actual value, so this is all we display.</div> <figure class="figure figure-like" id="fig_xminuscosx"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_xminuscosx.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.5.22<span class="period">.</span></span><span class="space"> </span>Graphing a root of <span class="process-math">\(f(x) = x-\cos(x)\)</span></figcaption></figure> <div class="para logical" id="p-977"><dl class="description-list">
+<dt id="li-282">Iteration 1:</dt>
+<dd><div class="para" id="p-978">
+<span class="process-math">\(f(0.7) \lt 0\text{,}\)</span> <span class="process-math">\(f(0.9) \gt 0\text{,}\)</span> and <span class="process-math">\(f(0.8) \gt 0\text{.}\)</span> So replace <span class="process-math">\(0.9\)</span> with <span class="process-math">\(0.8\)</span> and repeat.</div></dd>
+<dt id="li-283">Iteration 2:</dt>
+<dd><div class="para" id="p-979">
+<span class="process-math">\(f(0.7)\lt 0\text{,}\)</span> <span class="process-math">\(f(0.8) \gt 0\text{,}\)</span> and at the midpoint, <span class="process-math">\(0.75\text{,}\)</span> we have <span class="process-math">\(f(0.75) \gt 0\text{.}\)</span> So replace <span class="process-math">\(0.8\)</span> with <span class="process-math">\(0.75\)</span> and repeat. Note that we don't need to continue to check the endpoints, just the midpoint. Thus we put the rest of the iterations in <a href="" class="xref" data-knowl="./knowl/table_rootfinding.html" title="Table 1.5.23: Iterations of the Bisection Method of Root Finding">Table 1.5.23</a>.</div></dd>
+</dl></div> <figure class="table table-like" id="table_rootfinding"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.5.23<span class="period">.</span></span><span class="space"> </span>Iterations of the Bisection Method of Root Finding</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Iteration #</td>
+<td class="l m b0 r0 l0 t0 lines">Interval</td>
+<td class="l m b0 r0 l0 t0 lines">Midpoint Sign</td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\([\highlight{0.7},0.9]\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(0.8) \gt 0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\([\highlight{0.7},0.8]\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(0.75) \gt 0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\([\highlight{0.7},\highlight{0.75}]\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(0.725)\lt 0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\([0.725,\highlight{0.75}]\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(0.7375)\lt 0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(5\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\([\highlight{0.7375},\highlight{0.75}]\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(0.7438)\gt \)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(6\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\([\highlight{0.7375},0.7438]\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(0.7407)\gt 0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(7\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\([\highlight{0.7375},0.7407]\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(0.7391)\gt 0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(8\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\([\highlight{0.7375},\highlight{0.7391}]\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(0.7383)\lt 0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(9\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\([0.7383,\highlight{0.7391}]\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(0.7387)\lt 0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(10\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\([0.7387,\highlight{0.7391}]\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(0.7389)\lt 0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(11\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\([0.7389,\highlight{0.7391}]\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(0.7390)\lt 0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(12\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\([0.7390,\highlight{0.7391}]\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr><td class="l m b0 r0 l0 t0 lines"></td></tr>
+</table></div></figure> <div class="para logical" id="p-980">
+<div class="para">Notice that in the 12th iteration we have the endpoints of the interval each starting with <span class="process-math">\(0.739\text{.}\)</span> Thus we have narrowed the zero down to an accuracy of the first three places after the decimal. Using a computer, we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(0.7390) = -0.00014,  f(0.7391) = 0.000024\text{.}
+\end{equation*}
+</div>
+</div> <div class="para" id="p-981">Either endpoint of the interval gives a good approximation of where <span class="process-math">\(f\)</span> is <span class="process-math">\(0\text{.}\)</span> The <a href="" class="xref" data-knowl="./knowl/thm_IVT.html" title="Theorem 1.5.19: Intermediate Value Theorem">Theorem 1.5.19</a> states that the actual zero is still within this interval. While we do not know its exact value, we know it starts with <span class="process-math">\(0.739\text{.}\)</span>
+</div> <div class="para" id="p-982">This type of exercise is rarely done by hand. Rather, it is simple to program a computer to run such an algorithm and stop when the endpoints differ by a preset small amount. One of the authors did write such a program and found the zero of <span class="process-math">\(f\)</span> to be <span class="process-math">\(0.7390851332\)</span> , accurate to <span class="process-math">\(10\)</span> places after the decimal. While it took a few minutes to write the program, it took less than a thousandth of a second for the program to run the necessary <span class="process-math">\(35\)</span> iterations. In less than <span class="process-math">\(8\)</span> hundredths of a second, the zero was calculated to <span class="process-math">\(100\)</span> decimal places (with less than <span class="process-math">\(200\)</span> iterations).</div>
+</div></div>
+</div></article>  <div class="para" id="p-983">It is a simple matter to extend the Bisection Method to solve problems similar to “Find <span class="process-math">\(x\text{,}\)</span> where <span class="process-math">\(f(x) = 0\text{.}\)</span>” For instance, we can find <span class="process-math">\(x\text{,}\)</span> where <span class="process-math">\(f(x) = 1\text{.}\)</span> It actually works very well to define a new function <span class="process-math">\(g\)</span> where <span class="process-math">\(g(x) = f(x) - 1\text{.}\)</span> Then use the Bisection Method to solve <span class="process-math">\(g(x)=0\text{.}\)</span>
+</div> <div class="para" id="p-984">Similarly, given two functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{,}\)</span> we can use the Bisection Method to solve <span class="process-math">\(f(x) = g(x)\text{.}\)</span> Once again, create a new function <span class="process-math">\(h\)</span> where <span class="process-math">\(h(x) = f(x)-g(x)\)</span> and solve <span class="process-math">\(h(x) = 0\text{.}\)</span>
+</div> <div class="para" id="p-985">In <a href="sec_newton.html" class="internal" title="Section 4.1: Newton's Method">Section 4.1</a> another equation solving method will be introduced, called Newton's Method. In many cases, Newton's Method is much faster. It relies on more advanced mathematics, though, so we will wait before introducing it.</div> <div class="para" id="p-986">This section formally defined what it means to be a continuous function. “Most” functions that we deal with are continuous, so often it feels odd to have to formally define this concept. Regardless, it is important, and forms the basis of the next chapter.</div></section><section class="exercises" id="exercises-5"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h3>
+<article class="subexercises" id="subexercises-10"><h4 class="heading"><span class="title">Terms and Concepts</span></h4>
+<article class="exercise exercise-like" id="exercise-112"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
+<div class="para" id="p-987">In your own words, describe what it means for a function to be continuous.</div></article><article class="exercise exercise-like" id="exercise-113"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+<div class="para" id="p-988">In your own words, describe what the Intermediate Value Theorem states.</div></article><article class="exercise exercise-like" id="exercise-114"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+<div class="para" id="p-989">What is a “root” of a function?</div></article><article class="exercise exercise-like" id="exercise-115"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
+<div class="para" id="p-991">Given functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> on an interval <span class="process-math">\(I\text{,}\)</span> how can the Bisection Method be used to find a value <span class="process-math">\(c\)</span> where <span class="process-math">\(f(c) = g(c)\text{?}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-116"><h5 class="heading"><span class="codenumber">5<span class="period">.</span></span></h5>
+<div class="para" id="p-993">
+<ul style="list-style:circle;">
+<li id="li-285"><div class="para" id="p-995">True</div></li>
+<li id="li-286"><div class="para" id="p-996">False</div></li>
+</ul> If <span class="process-math">\(f\)</span> is defined on an open interval containing <span class="process-math">\(c\text{,}\)</span> and <span class="process-math">\(\lim\limits_{x\to c}f(x)\)</span> exists, then <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(c\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-117"><h5 class="heading"><span class="codenumber">6<span class="period">.</span></span></h5>
+<div class="para" id="p-998">
+<ul style="list-style:circle;">
+<li id="li-288"><div class="para" id="p-1000">True</div></li>
+<li id="li-289"><div class="para" id="p-1001">False</div></li>
+</ul> If <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(c\text{,}\)</span> then <span class="process-math">\(\lim\limits_{x\to c}f(x)\)</span> exists.</div></article><article class="exercise exercise-like" id="exercise-118"><h5 class="heading"><span class="codenumber">7<span class="period">.</span></span></h5>
+<div class="para" id="p-1003">
+<ul style="list-style:circle;">
+<li id="li-291"><div class="para" id="p-1005">True</div></li>
+<li id="li-292"><div class="para" id="p-1006">False</div></li>
+</ul> If <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(c\text{,}\)</span> then <span class="process-math">\(\lim\limits_{x\to c^+}f(x) = f(c)\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-119"><h5 class="heading"><span class="codenumber">8<span class="period">.</span></span></h5>
+<div class="para" id="p-1008">
+<ul style="list-style:circle;">
+<li id="li-294"><div class="para" id="p-1010">True</div></li>
+<li id="li-295"><div class="para" id="p-1011">False</div></li>
+</ul> If <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\([a,b]\text{,}\)</span> then <span class="process-math">\(\lim\limits_{x\to a^-}f(x) = f(a)\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-120"><h5 class="heading"><span class="codenumber">9<span class="period">.</span></span></h5>
+<div class="para" id="p-1013">
+<ul style="list-style:circle;">
+<li id="li-297"><div class="para" id="p-1015">True</div></li>
+<li id="li-298"><div class="para" id="p-1016">False</div></li>
+</ul> If <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\([0,1)\)</span> and <span class="process-math">\([1,2)\text{,}\)</span> then <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\([0,2)\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-121"><h5 class="heading"><span class="codenumber">10<span class="period">.</span></span></h5>
+<div class="para" id="p-1018">
+<ul style="list-style:circle;">
+<li id="li-300"><div class="para" id="p-1020">True</div></li>
+<li id="li-301"><div class="para" id="p-1021">False</div></li>
+</ul> The sum of continuous functions is also continuous.</div></article></article><article class="subexercises" id="subexercises-11"><h4 class="heading"><span class="title">Problems</span></h4>
+<div class="exercisegroup" id="exercisegroup-13">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-15"><div class="para" id="p-1023">Use the graph to determine if the function is continuous at the given point.</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-122"><h6 class="heading"><span class="codenumber">11<span class="period">.</span></span></h6>
+<div class="para" id="p-1024">Is <span class="process-math">\(f\)</span> in the graph below continuous at <span class="process-math">\(1\text{?}\)</span>
+</div>  <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-121-image-1.svg" role="img" class="contained"></div> <div class="para" id="p-1025"><ul style="list-style:circle;">
+<li id="li-303"><div class="para" id="p-1027">Yes.</div></li>
+<li id="li-304"><div class="para" id="p-1028">No.</div></li>
+</ul></div> <div class="para" id="p-1029">If not, state why it is not.</div></article><article class="exercise exercise-like" id="exercise-123"><h6 class="heading"><span class="codenumber">12<span class="period">.</span></span></h6>
+<div class="para" id="p-1031">Is <span class="process-math">\(f\)</span> in the graph below continuous at <span class="process-math">\(1\text{?}\)</span>
+</div>  <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-122-image-1.svg" role="img" class="contained"></div> <div class="para" id="p-1032"><ul style="list-style:circle;">
+<li id="li-306"><div class="para" id="p-1034">Yes.</div></li>
+<li id="li-307"><div class="para" id="p-1035">No.</div></li>
+</ul></div> <div class="para" id="p-1036">If not, state why it is not.</div></article><article class="exercise exercise-like" id="exercise-124"><h6 class="heading"><span class="codenumber">13<span class="period">.</span></span></h6>
+<div class="para" id="p-1038">Is <span class="process-math">\(f\)</span> in the graph below continuous at <span class="process-math">\(1\text{?}\)</span>
+</div>  <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-123-image-1.svg" role="img" class="contained"></div> <div class="para" id="p-1039"><ul style="list-style:circle;">
+<li id="li-309"><div class="para" id="p-1041">Yes.</div></li>
+<li id="li-310"><div class="para" id="p-1042">No.</div></li>
+</ul></div> <div class="para" id="p-1043">If not, state why it is not.</div></article><article class="exercise exercise-like" id="exercise-125"><h6 class="heading"><span class="codenumber">14<span class="period">.</span></span></h6>
+<div class="para" id="p-1045">Is <span class="process-math">\(f\)</span> in the graph below continuous at <span class="process-math">\(0\text{?}\)</span>
+</div>  <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-124-image-1.svg" role="img" class="contained"></div> <div class="para" id="p-1046"><ul style="list-style:circle;">
+<li id="li-312"><div class="para" id="p-1048">Yes.</div></li>
+<li id="li-313"><div class="para" id="p-1049">No.</div></li>
+</ul></div> <div class="para" id="p-1050">If not, state why it is not.</div></article><article class="exercise exercise-like" id="exercise-126"><h6 class="heading"><span class="codenumber">15<span class="period">.</span></span></h6>
+<div class="para" id="p-1052">Is <span class="process-math">\(f\)</span> in the graph below continuous at <span class="process-math">\(1\text{?}\)</span>
+</div>  <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-125-image-1.svg" role="img" class="contained"></div> <div class="para" id="p-1053"><ul style="list-style:circle;">
+<li id="li-315"><div class="para" id="p-1055">Yes.</div></li>
+<li id="li-316"><div class="para" id="p-1056">No.</div></li>
+</ul></div> <div class="para" id="p-1057">If not, state why it is not.</div></article><article class="exercise exercise-like" id="exercise-127"><h6 class="heading"><span class="codenumber">16<span class="period">.</span></span></h6>
+<div class="para" id="p-1059">Is <span class="process-math">\(f\)</span> in the graph below continuous at <span class="process-math">\(4\text{?}\)</span>
+</div>  <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-126-image-1.svg" role="img" class="contained"></div> <div class="para" id="p-1060"><ul style="list-style:circle;">
+<li id="li-318"><div class="para" id="p-1062">Yes.</div></li>
+<li id="li-319"><div class="para" id="p-1063">No.</div></li>
+</ul></div> <div class="para" id="p-1064">If not, state why it is not.</div></article><article class="exercise exercise-like" id="exercise-128"><h6 class="heading"><span class="codenumber">17<span class="period">.</span></span></h6>
+<div class="para" id="p-1066">Is <span class="process-math">\(f\)</span> in the graph below continuous at <span class="process-math">\(-2\text{,}\)</span> <span class="process-math">\(0\text{,}\)</span> and <span class="process-math">\(2\text{?}\)</span>
+</div>  <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-127-image-1.svg" role="img" class="contained"></div> <div class="para" id="p-1067">At <span class="process-math">\(-2\text{:}\)</span> <ul style="list-style:circle;">
+<li id="li-321"><div class="para" id="p-1069">Yes.</div></li>
+<li id="li-322"><div class="para" id="p-1070">No.</div></li>
+</ul>
+</div> <div class="para" id="p-1071">If not, state why it is not.</div> <div class="para" id="p-1072">At <span class="process-math">\(0\text{:}\)</span> <ul style="list-style:circle;">
+<li id="li-324"><div class="para" id="p-1074">Yes.</div></li>
+<li id="li-325"><div class="para" id="p-1075">No.</div></li>
+</ul>
+</div> <div class="para" id="p-1076">If not, state why it is not.</div> <div class="para" id="p-1077">At <span class="process-math">\(2\text{:}\)</span> <ul style="list-style:circle;">
+<li id="li-327"><div class="para" id="p-1079">Yes.</div></li>
+<li id="li-328"><div class="para" id="p-1080">No.</div></li>
+</ul>
+</div> <div class="para" id="p-1081">If not, state why it is not.</div></article><article class="exercise exercise-like" id="exercise-129"><h6 class="heading"><span class="codenumber">18<span class="period">.</span></span></h6>
+<div class="para" id="p-1085">Is <span class="process-math">\(f\)</span> in the graph below continuous at <span class="process-math">\({\frac{3\pi }{2}}\text{?}\)</span>
+</div>  <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/webwork/images/webwork-128-image-1.svg" role="img" class="contained"></div> <div class="para" id="p-1086"><ul style="list-style:circle;">
+<li id="li-330"><div class="para" id="p-1088">Yes.</div></li>
+<li id="li-331"><div class="para" id="p-1089">No.</div></li>
+</ul></div> <div class="para" id="p-1090">If not, state why it is not.</div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exercisegroup-14">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-16"><div class="para" id="p-1092">Determine if <span class="process-math">\(f\)</span> is continuous at the indicated values.</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-130"><h6 class="heading"><span class="codenumber">19<span class="period">.</span></span></h6>
+<div class="para logical" id="p-1093">
+<div class="para"><span class="process-math">\(f(x)=\begin{cases}1\amp x=0\\\frac{\sin(x)}{x}\amp x\neq0\end{cases}\)</span></div>
+<ol class="lower-alpha">
+<li id="li-332">
+<div class="para" id="p-1094">Is <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(0\text{?}\)</span>
+</div>
+<div class="para" id="p-1095"><ul style="list-style:circle;">
+<li id="li-334"><div class="para" id="p-1097">Yes.</div></li>
+<li id="li-335"><div class="para" id="p-1098">No.</div></li>
+</ul></div>
+<div class="para" id="p-1099">If not, explain why not.</div>
+</li>
+<li id="li-336">
+<div class="para" id="p-1100">Is <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(\pi\text{?}\)</span>
+</div>
+<div class="para" id="p-1101"><ul style="list-style:circle;">
+<li id="li-338"><div class="para" id="p-1103">Yes.</div></li>
+<li id="li-339"><div class="para" id="p-1104">No.</div></li>
+</ul></div>
+<div class="para" id="p-1105">If not, explain why not.</div>
+</li>
+</ol>
+</div></article><article class="exercise exercise-like" id="exercise-131"><h6 class="heading"><span class="codenumber">20<span class="period">.</span></span></h6>
+<div class="para logical" id="p-1108">
+<div class="para"><span class="process-math">\(f(x)={\begin{cases}\displaystyle{x^{3}-x^{2}}\amp \text{if}\ x \lt  1\cr
+\displaystyle{x-2}\amp \text{if}\ x \ge 1\end{cases}}\)</span></div>
+<ol class="lower-alpha">
+<li id="li-340">
+<div class="para" id="p-1109">Is <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(0\text{?}\)</span>
+</div>
+<div class="para" id="p-1110"><ul style="list-style:circle;">
+<li id="li-342"><div class="para" id="p-1112">Yes.</div></li>
+<li id="li-343"><div class="para" id="p-1113">No.</div></li>
+</ul></div>
+<div class="para" id="p-1114">If not, explain why not.</div>
+</li>
+<li id="li-344">
+<div class="para" id="p-1115">Is <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(1\text{?}\)</span>
+</div>
+<div class="para" id="p-1116"><ul style="list-style:circle;">
+<li id="li-346"><div class="para" id="p-1118">Yes.</div></li>
+<li id="li-347"><div class="para" id="p-1119">No.</div></li>
+</ul></div>
+<div class="para" id="p-1120">If not, explain why not.</div>
+</li>
+</ol>
+</div></article><article class="exercise exercise-like" id="exercise-132"><h6 class="heading"><span class="codenumber">21<span class="period">.</span></span></h6>
+<div class="para logical" id="p-1123">
+<div class="para"><span class="process-math">\(f(x)={\begin{cases}\displaystyle{\frac{x^{2}+5x+4}{x^{2}+3x+2}}\amp \text{if}\ x \ne -1\cr
+\displaystyle{3}\amp \text{if}\ x = -1\end{cases}}\)</span></div>
+<ol class="lower-alpha">
+<li id="li-348">
+<div class="para" id="p-1124">Is <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(-1\text{?}\)</span>
+</div>
+<div class="para" id="p-1125"><ul style="list-style:circle;">
+<li id="li-350"><div class="para" id="p-1127">Yes.</div></li>
+<li id="li-351"><div class="para" id="p-1128">No.</div></li>
+</ul></div>
+<div class="para" id="p-1129">If not, explain why not.</div>
+</li>
+<li id="li-352">
+<div class="para" id="p-1130">Is <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(10\text{?}\)</span>
+</div>
+<div class="para" id="p-1131"><ul style="list-style:circle;">
+<li id="li-354"><div class="para" id="p-1133">Yes.</div></li>
+<li id="li-355"><div class="para" id="p-1134">No.</div></li>
+</ul></div>
+<div class="para" id="p-1135">If not, explain why not.</div>
+</li>
+</ol>
+</div></article><article class="exercise exercise-like" id="exercise-133"><h6 class="heading"><span class="codenumber">22<span class="period">.</span></span></h6>
+<div class="para logical" id="p-1138">
+<div class="para"><span class="process-math">\(f(x)={\begin{cases}\displaystyle{\frac{x^{2}-64}{x^{2}-11x+24}}\amp \text{if}\ x \ne 8\cr
+\displaystyle{5}\amp \text{if}\ x = 8\end{cases}}\)</span></div>
+<ol class="lower-alpha">
+<li id="li-356">
+<div class="para" id="p-1139">Is <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(0\text{?}\)</span>
+</div>
+<div class="para" id="p-1140"><ul style="list-style:circle;">
+<li id="li-358"><div class="para" id="p-1142">Yes.</div></li>
+<li id="li-359"><div class="para" id="p-1143">No.</div></li>
+</ul></div>
+<div class="para" id="p-1144">If not, explain why not.</div>
+</li>
+<li id="li-360">
+<div class="para" id="p-1145">Is <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(8\text{?}\)</span>
+</div>
+<div class="para" id="p-1146"><ul style="list-style:circle;">
+<li id="li-362"><div class="para" id="p-1148">Yes.</div></li>
+<li id="li-363"><div class="para" id="p-1149">No.</div></li>
+</ul></div>
+<div class="para" id="p-1150">If not, explain why not.</div>
+</li>
+</ol>
+</div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exercisegroup-15">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-17"><div class="para" id="p-1153">Give the intervals on which the function is continuous.</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-134"><h6 class="heading"><span class="codenumber">23<span class="period">.</span></span></h6>
+<div class="para" id="p-1154"><span class="process-math">\(f(x)={x^{2}+4x+7}\)</span></div></article><article class="exercise exercise-like" id="exercise-135"><h6 class="heading"><span class="codenumber">24<span class="period">.</span></span></h6>
+<div class="para" id="p-1157"><span class="process-math">\(f(x)={\sqrt{x^{2}-25}}\)</span></div></article><article class="exercise exercise-like" id="exercise-136"><h6 class="heading"><span class="codenumber">25<span class="period">.</span></span></h6>
+<div class="para" id="p-1160"><span class="process-math">\(f(x)={\sqrt{25-x^{2}}}\)</span></div></article><article class="exercise exercise-like" id="exercise-137"><h6 class="heading"><span class="codenumber">26<span class="period">.</span></span></h6>
+<div class="para" id="p-1163"><span class="process-math">\(f(x)={\sqrt{1-x}}+{\sqrt{x+5}}\)</span></div></article><article class="exercise exercise-like" id="exercise-138"><h6 class="heading"><span class="codenumber">27<span class="period">.</span></span></h6>
+<div class="para" id="p-1166"><span class="process-math">\(f(t)={\sqrt{2t^{2}-10}}\)</span></div></article><article class="exercise exercise-like" id="exercise-139"><h6 class="heading"><span class="codenumber">28<span class="period">.</span></span></h6>
+<div class="para" id="p-1168"><span class="process-math">\(g(t)={\frac{1}{\sqrt{9-t^{2}}}}\)</span></div></article><article class="exercise exercise-like" id="exercise-140"><h6 class="heading"><span class="codenumber">29<span class="period">.</span></span></h6>
+<div class="para" id="p-1170"><span class="process-math">\(g(t)={\frac{1}{4+8t^{2}}}\)</span></div></article><article class="exercise exercise-like" id="exercise-141"><h6 class="heading"><span class="codenumber">30<span class="period">.</span></span></h6>
+<div class="para" id="p-1172"><span class="process-math">\(f(x)={7^{x}}\)</span></div></article><article class="exercise exercise-like" id="exercise-142"><h6 class="heading"><span class="codenumber">31<span class="period">.</span></span></h6>
+<div class="para" id="p-1174"><span class="process-math">\(g(s)=\log_{8}(s)\)</span></div></article><article class="exercise exercise-like" id="exercise-143"><h6 class="heading"><span class="codenumber">32<span class="period">.</span></span></h6>
+<div class="para" id="p-1176"><span class="process-math">\(h(t)={\sin\!\left(t\right)}\)</span></div></article><article class="exercise exercise-like" id="exercise-144"><h6 class="heading"><span class="codenumber">33<span class="period">.</span></span></h6>
+<div class="para" id="p-1178"><span class="process-math">\(f(k)={\sqrt{8-e^{k}}}\)</span></div></article><article class="exercise exercise-like" id="exercise-145"><h6 class="heading"><span class="codenumber">34<span class="period">.</span></span></h6>
+<div class="para" id="p-1180"><span class="process-math">\(f(x)={\cos\!\left(2^{x}+x^{5}\right)}\)</span></div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exercisegroup-16">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-18"><div class="para" id="p-1182">Test your understanding of the Intermediate Value Theorem.</div></div>
+<div class="exercisegroup-exercises">
+<article class="exercise exercise-like" id="exercise-146"><h6 class="heading"><span class="codenumber">35<span class="period">.</span></span></h6>
+<div class="para" id="p-1183">Let <span class="process-math">\(f\)</span> be continuous on <span class="process-math">\([1,5]\)</span> where <span class="process-math">\(f(1) = -2\)</span> and <span class="process-math">\(f(5) = -10\text{.}\)</span> Does a value <span class="process-math">\(1\lt c\lt 5\)</span> exist such that <span class="process-math">\(f(c) = -9\text{?}\)</span> Why/why not?</div></article><article class="exercise exercise-like" id="exercise-147"><h6 class="heading"><span class="codenumber">36<span class="period">.</span></span></h6>
+<div class="para" id="p-1185">Let <span class="process-math">\(g\)</span> be continuous on <span class="process-math">\([-3,7]\)</span> where <span class="process-math">\(g(0) = 0\)</span> and <span class="process-math">\(g(2) = 25\text{.}\)</span> Does a value <span class="process-math">\(-3\lt c\lt 7\)</span> exist such that <span class="process-math">\(g(c) = 15\text{?}\)</span> Why/why not?</div></article><article class="exercise exercise-like" id="exercise-148"><h6 class="heading"><span class="codenumber">37<span class="period">.</span></span></h6>
+<div class="para" id="p-1187">Let <span class="process-math">\(f\)</span> be continuous on <span class="process-math">\([-1,1]\)</span> where <span class="process-math">\(f(-1) = -10\)</span> and <span class="process-math">\(f(1) = 10\text{.}\)</span> Does a value <span class="process-math">\(-1\lt c\lt 1\)</span> exist such that <span class="process-math">\(f(c) = 11\text{?}\)</span> Why/why not?</div></article><article class="exercise exercise-like" id="exercise-149"><h6 class="heading"><span class="codenumber">38<span class="period">.</span></span></h6>
+<div class="para" id="p-1189">Let <span class="process-math">\(h\)</span> be a function on <span class="process-math">\([-1,1]\)</span> where <span class="process-math">\(h(-1) = -10\)</span> and <span class="process-math">\(h(1) = 10\text{.}\)</span> Does a value <span class="process-math">\(-1\lt c\lt 1\)</span> exist such that <span class="process-math">\(h(c) = 0\text{?}\)</span> Why/why not?</div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exercisegroup-17">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-19"><div class="para" id="p-1191">Use the Bisection Method to approximate, accurate to two decimal places, the value of the root of the given function in the given interval.</div></div>
+<div class="exercisegroup-exercises">
+<article class="exercise exercise-like" id="exercise-150"><h6 class="heading"><span class="codenumber">39<span class="period">.</span></span></h6>
+<div class="para" id="p-1192">
+<span class="process-math">\(f(x)={x^{2}+2x-4}\)</span> on the interval <span class="process-math">\({\left[1,1.5\right]}\)</span>
+</div> <div class="para" id="p-1193">Show the steps you used applying the Bisection Method.</div></article><article class="exercise exercise-like" id="exercise-151"><h6 class="heading"><span class="codenumber">40<span class="period">.</span></span></h6>
+<div class="para" id="p-1195">
+<span class="process-math">\(f(x)={\sin\!\left(x\right)-\frac{1}{2}}\)</span> on the interval <span class="process-math">\({\left[0.5,0.55\right]}\)</span>
+</div> <div class="para" id="p-1196">Show the steps you used applying the Bisection Method.</div></article><article class="exercise exercise-like" id="exercise-152"><h6 class="heading"><span class="codenumber">41<span class="period">.</span></span></h6>
+<div class="para" id="p-1198">
+<span class="process-math">\(f(x)={e^{x}-2}\)</span> on the interval <span class="process-math">\({\left[0.65,0.7\right]}\)</span>
+</div> <div class="para" id="p-1199">Show the steps you used applying the Bisection Method.</div></article><article class="exercise exercise-like" id="exercise-153"><h6 class="heading"><span class="codenumber">42<span class="period">.</span></span></h6>
+<div class="para" id="p-1201">
+<span class="process-math">\(f(x)={\cos\!\left(x\right)-\sin\!\left(x\right)}\)</span> on the interval <span class="process-math">\({\left[0.7,0.8\right]}\)</span>
+</div> <div class="para" id="p-1202">Show the steps you used applying the Bisection Method.</div></article>
+</div>
+</div></article><article class="subexercises" id="subexercises-12"><h4 class="heading"><span class="title">Review</span></h4>
+<article class="exercise exercise-like" id="exercise-154"><h5 class="heading"><span class="codenumber">43<span class="period">.</span></span></h5>
+<div class="para" id="p-1204">Evaluate the given limits of the piecewise defined function.</div> <div class="para" id="p-1205"><span class="process-math">\(f(x) ={\begin{cases}\displaystyle{x^{2}+5}\amp \text{if}\ x \lt  10\cr
+\displaystyle{10x}\amp \text{if}\ x \ge 10\end{cases}}\)</span></div> <div class="para logical" id="p-1206"><ol class="lower-alpha">
+<li id="li-364"><div class="para" id="p-1207"><span class="process-math">\(\displaystyle \lim\limits_{x\to 10^-} f(x)\)</span></div></li>
+<li id="li-365"><div class="para" id="p-1208"><span class="process-math">\(\displaystyle \lim\limits_{x\to 10^+} f(x)\)</span></div></li>
+<li id="li-366"><div class="para" id="p-1209"><span class="process-math">\(\displaystyle \lim\limits_{x\to 10} f(x)\)</span></div></li>
+<li id="li-367"><div class="para" id="p-1210"><span class="process-math">\(\displaystyle f(10)\)</span></div></li>
+</ol></div></article><article class="exercise exercise-like" id="exercise-155"><h5 class="heading"><span class="codenumber">44<span class="period">.</span></span></h5>
+<div class="para" id="p-1215">Numerically approximate the following limits.</div> <div class="para logical" id="p-1216"><ol class="lower-alpha">
+<li id="li-368"><div class="para" id="p-1217"><span class="process-math">\(\displaystyle \lim\limits_{x\to 4.7^{+}}\left({\frac{x^{2}+3.3x-37.6}{x^{2}-5.7x+4.7}}\right)\)</span></div></li>
+<li id="li-369"><div class="para" id="p-1218"><span class="process-math">\(\displaystyle \lim\limits_{x\to 4.7^{-}}\left({\frac{x^{2}+3.3x-37.6}{x^{2}-5.7x+4.7}}\right)\)</span></div></li>
+</ol></div></article><article class="exercise exercise-like" id="exercise-156"><h5 class="heading"><span class="codenumber">45<span class="period">.</span></span></h5>
+<div class="para" id="p-1224">Give an example of a function <span class="process-math">\(f\)</span> for which <span class="process-math">\(\lim\limits_{x\to 0} f(x)\)</span> does not exist.</div></article></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec_limits_one_sided.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec_limits_infty.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
+<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+</div>
+</body>
+</html>

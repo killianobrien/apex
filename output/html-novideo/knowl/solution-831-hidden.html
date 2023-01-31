@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">We can see by the parametrizations of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> that when <span class="process-math">\(t=\pm 1\text{,}\)</span> <span class="process-math">\(x=0\)</span> and <span class="process-math">\(y=0\text{.}\)</span> This means we'll integrate from <span class="process-math">\(t=-1\)</span> to <span class="process-math">\(t=1\text{.}\)</span> Applying <a href="" class="xref" data-knowl="./knowl/thm_arc_length_parametric.html" title="Theorem 10.3.14: Arc Length of Parametric Curves">Theorem 10.3.14</a>, we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_arc_length_parametric.html">
+\begin{align*}
+L   \amp = \int_{-1}^1\sqrt{(3t^2-1)^2+(2t)^2}\, dt\\
+\amp =  \int_{-1}^1 \sqrt{9t^4-2t^2+1} \, dt\text{.}
+\end{align*}
+</div>
+</div> <div class="para">Unfortunately, the integrand does not have an antiderivative expressible by elementary functions. We turn to numerical integration to approximate its value. Using 4 subintervals, Simpson's Rule approximates the value of the integral as <span class="process-math">\(2.65051\text{.}\)</span> Using a computer, more subintervals are easy to employ, and <span class="process-math">\(n=20\)</span> gives a value of <span class="process-math">\(2.71559\text{.}\)</span> Increasing <span class="process-math">\(n\)</span> shows that this value is stable and a good approximation of the actual value.</div>
+</div></body>
+</html>

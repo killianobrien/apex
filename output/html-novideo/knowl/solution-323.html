@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h3 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">6.2.12.1</span><span class="period">.</span>
+</h3>
+<div class="para">One may have noticed that we have rules for integrating the familiar trigonometric functions and <span class="process-math">\(e^x\text{,}\)</span> but we have not yet given a rule for integrating <span class="process-math">\(\ln(x)\text{.}\)</span> That is because <span class="process-math">\(\ln(x)\)</span> can't easily be integrated with any of the rules we have learned up to this point. But we can find its antiderivative by a clever application of Integration by Parts. Set <span class="process-math">\(u=\ln(x)\)</span> and <span class="process-math">\(dv=dx\text{.}\)</span> This is a good, sneaky trick to learn as it can help in other situations. This determines <span class="process-math">\(du=(1/x)\,dx\)</span> and <span class="process-math">\(v=x\)</span> as shown below.</div> <figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:1.666666666666667%;margin-right:1.666666666666667%;">
+<div class="sbspanel middle" style="width:41.3793103448276%;"><div class="para logical"><div class="displaymath process-math">
+\begin{align*}
+u\amp = \ln(x) \amp  v\amp =\mathord{?}\\
+du\amp = \mathord{?}  \amp  dv\amp =1 \, dx
+\end{align*}
+</div></div></div>
+<div class="sbspanel middle" style="width:10.3448275862069%;"><div class="para"><span class="process-math">\(\implies\)</span></div></div>
+<div class="sbspanel middle" style="width:41.3793103448276%;"><div class="para logical"><div class="displaymath process-math">
+\begin{align*}
+u\amp = \ln(x) \amp  v\amp =x\\
+du\amp = 1/x\, dx  \amp  dv\amp =1 \, dx
+\end{align*}
+</div></div></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.2.13<span class="period">.</span></span><span class="space"> </span>Setting up Integration by Parts</figcaption></figure> <div class="para logical">
+<div class="para">Putting this all together in the Integration by Parts formula, things work out very nicely:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \ln(x)\,dx = x\ln(x) - \int x\,\frac1x\,dx\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">The new integral simplifies to <span class="process-math">\(\int 1\,dx\text{,}\)</span> which is about as simple as things get. Its integral is <span class="process-math">\(x+C\)</span> and our answer is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \ln(x) \, dx = x\ln(x) - x + C\text{.}
+\end{equation*}
+</div>
+</div>
+</div>
+<span class="incontext"><a href="sec_IBP.html#solution-323" class="internal">in-context</a></span>
+</body>
+</html>

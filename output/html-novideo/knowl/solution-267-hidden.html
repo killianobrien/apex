@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">It is straightforward to find the initial velocity; at time <span class="process-math">\(t=0\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+v(0) \amp =-32\cdot 0+48\\
+\amp = 48
+\end{align*}
+</div>
+<div class="para">The initial velocity was <span class="quantity">48 <sup>ft</sup>⁄<sub>s</sub></span>.</div>
+</div> <div class="para logical">
+<div class="para">To answer questions about the height of the object, we need to find the object's position function <span class="process-math">\(s(t)\text{.}\)</span> This is an initial value problem, which we studied in the previous section. We are told the initial height is <span class="process-math">\(0\text{,}\)</span> i.e., <span class="process-math">\(s(0) = 0\text{.}\)</span> We know <span class="process-math">\(s'(t) = v(t) = -32t+48\text{.}\)</span> To find <span class="process-math">\(s\text{,}\)</span> we find the indefinite integral of <span class="process-math">\(v(t)\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+s(t) \amp =\int v(t)\, dt\\
+\amp = \int (-32t+48)\, dt\\
+\amp = -16t^2+48t+C\text{.}
+\end{align*}
+</div>
+</div> <div class="para">Since <span class="process-math">\(s(0) = 0\text{,}\)</span> we conclude that <span class="process-math">\(C=0\)</span> and <span class="process-math">\(s(t) = -16t^2+48t\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">To find the maximum height of the object, we need to find the maximum of <span class="process-math">\(s\text{.}\)</span> Recalling our work finding extreme values, we find the critical points of <span class="process-math">\(s\)</span> by setting its derivative (the velocity function) equal to <span class="process-math">\(0\)</span> and solving for <span class="process-math">\(t\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+0 \amp = -32t+48\\
+t \amp =48/32\\
+\amp = 1.5\text{ s }\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">(Notice how we ended up just finding when the velocity was 0ft/s!) The first derivative test shows this is a maximum, so the maximum height of the object is found at</div>
+<div class="displaymath process-math">
+\begin{equation*}
+s(1.5) = -16(1.5)^2+48(1.5)=36\text{ ft }\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">The height at time <span class="process-math">\(t=2\)</span> is now straightforward to compute:</div>
+<div class="displaymath process-math">
+\begin{align*}
+s(2) \amp =-16(2)^2+48(2)\\
+\amp = 32\text{.}
+\end{align*}
+</div>
+<div class="para">The height is <span class="quantity">32 ft</span> after <span class="process-math">\(2\)</span> seconds.</div>
+</div> <div class="para">While we have answered all three questions (using derivatives and antiderivatives), let's look at them again graphically, using the concepts of area that we explored earlier.</div> <div class="para">
+<a href="" class="xref" data-knowl="./knowl/fig_defint3.html" title="Figure 5.2.4">Figure 5.2.4</a> shows a graph of <span class="process-math">\(v(t)\)</span> on axes from <span class="process-math">\(t=0\)</span> to <span class="process-math">\(t=3\text{.}\)</span> It is again straightforward to find <span class="process-math">\(v(0)\text{.}\)</span> How can we use the graph to find the maximum height of the object?</div> <figure class="figure figure-like"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_defint3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.2.4<span class="period">.</span></span><span class="space"> </span>A graph of <span class="process-math">\(v(t)=-32t+48\text{;}\)</span> the shaded areas help determine displacement</figcaption></figure> <div class="para logical">
+<div class="para">Recall how in our previous work that the displacement of the object (in this case, its height) was found as the area under the velocity curve, as shaded in the figure. Moreover, the area between the curve and the <span class="process-math">\(t\)</span>-axis that is below the <span class="process-math">\(t\)</span>-axis counted as “negative” area. That is, it represents the object coming back toward its starting position. So to find the maximum distance from the starting point — the maximum height — we find the area under the velocity line that is above the <span class="process-math">\(t\)</span>-axis, i.e., from <span class="process-math">\(t=0\)</span> to <span class="process-math">\(t=1.5\text{.}\)</span> This region is a triangle; its area is</div>
+<div class="displaymath process-math">
+\begin{align*}
+\text{ Area } \amp = \frac12\text{ Base }  \times \text{ Height }\\
+\amp =\frac12\times 1.5\text{ s } \times 48\text{ ft/s }\\
+\amp = 36\text{ ft }
+\end{align*}
+</div>
+<div class="para">which matches our previous calculation of the maximum height.</div>
+</div> <div class="para">Finally, to find the height of the object at time <span class="process-math">\(t=2\)</span> we calculate the total “signed area” (where some area is negative) under the velocity function from <span class="process-math">\(t=0\)</span> to <span class="process-math">\(t=2\text{.}\)</span> This signed area is equal to <span class="process-math">\(s(2)\text{,}\)</span> the displacement (i.e., signed distance) from the starting position at <span class="process-math">\(t=0\)</span> to the position at time <span class="process-math">\(t=2\text{.}\)</span> That is,</div> <div class="para">Displacement = Area above the <span class="process-math">\(t\)</span>-axis <span class="process-math">\(-\)</span> Area below <span class="process-math">\(t\)</span>-axis.</div> <div class="para logical">
+<div class="para">The regions are triangles, and we find</div>
+<div class="displaymath process-math">
+\begin{align*}
+\text{ Displacement } \amp = \frac12(1.5\text{s} )(48\text{ ft/s } ) - \frac12(0.5\text{s} )(16\text{ ft/s } )\\
+\amp = 32\text{ ft }\text{.}
+\end{align*}
+</div>
+</div> <div class="para">This also matches our previous calculation of the height at <span class="process-math">\(t=2\text{.}\)</span>
+</div> <div class="para">Notice how we answered each question in this example in two ways. Our first method was to manipulate equations using our understanding of antiderivatives and derivatives. Our second method was geometric: we answered questions looking at a graph and finding the areas of certain regions of this graph.</div>
+</div></body>
+</html>

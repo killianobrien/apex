@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>APEX Sequences</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://opentext.uleth.ca/apex-video/external/images/APEX.png">
+<meta property="book:title" content="APEX Calculus">
+<meta property="book:author" content="Gregory Hartman, Ph.D.">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="http://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<script type="application/json" class="js-hypothesis-config">{
+    "openSidebar": false,    "showHighlights": true,}</script><script src="https://hypothes.is/embed.js" async=""></script><script src="https://cdn.geogebra.org/apps/deployggb.js"></script><link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_crc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '5.0.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/runtime.6b31f4c5fa38d888.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.4.4/runestone.06446f602ba3689b.bundle.js"></script><link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.4.4/637.0fa6cababf056764.css">
+<link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.4.4/runestone.93e720e6c6581fb5.css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href="http://www.apexcalculus.com" target="_blank"><img src="external/images/APEX.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="apex-calculus.html"><span class="title">APEX Calculus</span></a></h1>
+<p class="byline">Gregory Hartman, Ph.D., Sean Fitzpatrick, Ph.D. (Editor), Alex Jordan, Ph.D. (Editor), Carly Vollet, M.S. (Editor)</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><button id="calculator-toggle" class="calculator-toggle button" title="Show calculator" aria-expanded="false" aria-controls="calculator-container"><span class="name">Calc</span></button><div id="calculator-container" class="calculator-container" style="display: none; z-index:100;"><div id="geogebra-calculator"></div></div>
+<script>
+var ggbApp = new GGBApplet({"appName": "graphing",
+    "width": 330,
+    "height": 600,
+    "showToolBar": true,
+    "showAlgebraInput": true,
+    "perspective": "G/A",
+    "algebraInputPosition": "bottom",
+    "scaleContainerClass": "calculator-container",
+    "allowUpscale": true,
+    "autoHeight": true,
+    "disableAutoScale": false},
+true);
+</script><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="chapter_sequences_series.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="chapter_sequences_series.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec_series.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\highlight}[1]{{\color{blue}{#1}}}
+\newcommand{\apex}{\mbox{\hbox{A}\kern -1pt \lower -2pt\hbox{P}\kern -4pt \lower .7ex\hbox{E}\kern -1pt \hbox{X}}}
+\newcommand{\colorlinecolor}{blue!95!black!30}
+\newcommand{\bwlinecolor}{black!30}
+\newcommand{\thelinecolor}{\colorlinecolor}
+\newcommand{\colornamesuffix}{}
+\newcommand{\linestyle}{[thick, \thelinecolor]}
+\newcommand{\bmx}[1]{\left[\hskip -3pt\begin{array}{#1} }
+\newcommand{\emx}{\end{array}\hskip -3pt\right]}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\fp}{f'}
+\newcommand{\fpp}{f''}
+
+\newcommand{\lz}[2]{\frac{d#1}{d#2}}
+\newcommand{\lzn}[3]{\frac{d^{#1}#2}{d#3^{#1}}}
+\newcommand{\lzo}[1]{\frac{d}{d#1}}
+\newcommand{\lzoo}[2]{{\frac{d}{d#1}}{\left(#2\right)}}
+\newcommand{\lzon}[2]{\frac{d^{#1}}{d#2^{#1}}}
+\newcommand{\lzoa}[3]{\left.{\frac{d#1}{d#2}}\right|_{#3}}
+\newcommand{\plz}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\plzoa}[3]{\left.{\frac{\partial#1}{\partial#2}}\right|_{#3}}
+
+\newcommand{\inflim}[1][n]{\lim\limits_{#1 \to \infty}}
+
+\newcommand{\infser}[1][1]{\sum_{n=#1}^\infty}
+
+\newcommand{\Fp}{F\primeskip'}
+\newcommand{\Fpp}{F\primeskip''}
+\newcommand{\yp}{y\primeskip'}
+\newcommand{\gp}{g\primeskip'}
+\newcommand{\dx}{\Delta x}
+\newcommand{\dy}{\Delta y}
+\newcommand{\ddz}{\Delta z}
+\newcommand{\thet}{\theta}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\vnorm}[1]{\left\lVert\vec #1\right\rVert}
+\newcommand{\snorm}[1]{\left|\left|\,#1\,\right|\right|}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+\newcommand{\dotp}[2]{\vec #1 \cdot \vec #2}
+\newcommand{\proj}[2]{\text{proj}_{\,\vec #2}{\,\vec #1}}
+\newcommand{\crossp}[2]{\vec #1 \times \vec #2}
+\newcommand{\veci}{\vec i}
+\newcommand{\vecj}{\vec j}
+\newcommand{\veck}{\vec k}
+\newcommand{\vecu}{\vec u}
+\newcommand{\vecv}{\vec v}
+\newcommand{\vecw}{\vec w}
+\newcommand{\vecx}{\vec x}
+\newcommand{\vecy}{\vec y}
+\newcommand{\vrp}{\vec r\hskip0.75pt '}
+\newcommand{\vrpp}{\vec r\hskip0.75pt ''}
+\newcommand{\vsp}{\vec s\hskip0.75pt '}
+\newcommand{\vrt}{\vec r(t)}
+\newcommand{\vst}{\vec s(t)}
+\newcommand{\vvt}{\vec v(t)}
+\newcommand{\vat}{\vec a(t)}
+\newcommand{\px}{\partial x}
+\newcommand{\py}{\partial y}
+\newcommand{\pz}{\partial z}
+\newcommand{\pf}{\partial f}
+\newcommand{\unittangent}{\vec{{}T}}
+\newcommand{\unitnormal}{\vec{N}}
+\newcommand{\unittangentprime}{\vec{{}T}\hskip0.75pt '}
+\newcommand{\mathN}{\mathbb{N}}
+\newcommand{\surfaceS}{\mathcal{S}}
+\newcommand{\zerooverzero}{\ds \raisebox{8pt}{\text{``\ }}\frac{0}{0}\raisebox{8pt}{\textit{ ''}}}
+\newcommand{\deriv}[2]{\myds\frac{d}{dx}\left(#1\right)=#2}
+\newcommand{\myint}[2]{\myds\int #1\, dx= {\ds #2}}
+\newcommand{\primeskip}{\hskip.75pt}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\csch}{\operatorname{csch}}
+\newcommand{\curl}{\operatorname{curl}}
+\newcommand{\divv}{\operatorname{div}}
+\newcommand{\Hess}{\operatorname{Hess}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li>
+<div class="toc-item"><a href="frontmatter-1.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="acknowledgement.html" class="internal"><span class="title">Thanks</span></a></div></li>
+<li><div class="toc-item"><a href="apex-preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li><div class="toc-item"><a href="preface-history.html" class="internal"><span class="title">A Brief History of Calculus</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_limits.html" class="internal"><span class="codenumber">1</span> <span class="title">Limits</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_limit_intro.html" class="internal"><span class="codenumber">1.1</span> <span class="title">An Introduction To Limits</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_limit_intro.html#subsec_nolimit3" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Identifying When Limits Do Not Exist</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limit_intro.html#sec_diff_quot_intro" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Limits of Difference Quotients</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limit_intro.html#exercises-1" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limit_def.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Epsilon-Delta Definition of a Limit</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limit_def.html#exercises-2" class="internal"><span class="codenumber">1.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limit_analytically.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Finding Limits Analytically</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limit_analytically.html#exercises-3" class="internal"><span class="codenumber">1.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limits_one_sided.html" class="internal"><span class="codenumber">1.4</span> <span class="title">One-Sided Limits</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_limits_one_sided.html#exercises-4" class="internal"><span class="codenumber">1.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_continuity.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuity</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_continuity.html#exercises-5" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_limits_infty.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Limits Involving Infinity</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-3" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Vertical asymptotes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-4" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Indeterminate Forms</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#subsection-5" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Limits at Infinity and Horizontal Asymptotes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_limits_infty.html#exercises-6" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_derivatives.html" class="internal"><span class="codenumber">2</span> <span class="title">Derivatives</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_derivative.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Instantaneous Rates of Change: The Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_derivative.html#sec-deriv-intro" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Introduction</span></a></div></li>
+<li><div class="toc-item"><a href="sec_derivative.html#subsection-7" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Differentiability on Closed Intervals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_derivative.html#exercises-7" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_interp_deriv.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Interpretations of the Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-8" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Interpretation of the Derivative as Instantaneous Rate of Change</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-9" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Units of the Derivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-10" class="internal"><span class="codenumber">2.2.3</span> <span class="title">The Derivative and Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#subsection-11" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Interpretation of the Derivative as the Slope of the Tangent Line</span></a></div></li>
+<li><div class="toc-item"><a href="sec_interp_deriv.html#exercises-8" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_basic_diff_rules.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Basic Differentiation Rules</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#subsection-12" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Higher Order Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#subsection-13" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Interpreting Higher Order Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_basic_diff_rules.html#exercises-9" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_prod_quot_rules.html" class="internal"><span class="codenumber">2.4</span> <span class="title">The Product and Quotient Rules</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_prod_quot_rules.html#exercises-10" class="internal"><span class="codenumber">2.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_chainrule.html" class="internal"><span class="codenumber">2.5</span> <span class="title">The Chain Rule</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_chainrule.html#exercises-11" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_imp_deriv.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Implicit Differentiation</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-14" class="internal"><span class="codenumber">2.6.1</span> <span class="title">The method of implicit differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-15" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Implicit Differentiation and the Second Derivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#subsection-16" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Logarithmic Differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_imp_deriv.html#exercises-12" class="internal"><span class="codenumber">2.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_deriv_inverse_function.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Derivatives of Inverse Functions</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_deriv_inverse_function.html#exercises-13" class="internal"><span class="codenumber">2.7</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_graphbehavior.html" class="internal"><span class="codenumber">3</span> <span class="title">The Graphical Behavior of Functions</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_extreme_values.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Extreme Values</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_extreme_values.html#exercises-14" class="internal"><span class="codenumber">3.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_mvt.html" class="internal"><span class="codenumber">3.2</span> <span class="title">The Mean Value Theorem</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_mvt.html#exercises-15" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_incr_decr.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Increasing and Decreasing Functions</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_incr_decr.html#exercises-16" class="internal"><span class="codenumber">3.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_concavity.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Concavity and the Second Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_concavity.html#subsection-17" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Concavity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_concavity.html#subsection-18" class="internal"><span class="codenumber">3.4.2</span> <span class="title">The Second Derivative Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_concavity.html#exercises-17" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_sketch.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Curve Sketching</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_sketch.html#exercises-18" class="internal"><span class="codenumber">3.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_deriv_apps.html" class="internal"><span class="codenumber">4</span> <span class="title">Applications of the Derivative</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_newton.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Newton's Method</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_newton.html#exercises-19" class="internal"><span class="codenumber">4.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_related_rates.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Related Rates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_related_rates.html#exercises-20" class="internal"><span class="codenumber">4.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_optimization.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Optimization</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_optimization.html#exercises-21" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_differentials.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Differentials</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_differentials.html#exercises-22" class="internal"><span class="codenumber">4.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_integration.html" class="internal"><span class="codenumber">5</span> <span class="title">Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_antider.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Antiderivatives and Indefinite Integration</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_antider.html#exercises-23" class="internal"><span class="codenumber">5.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_def_int.html" class="internal"><span class="codenumber">5.2</span> <span class="title">The Definite Integral</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_def_int.html#exercises-24" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_riemann.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Riemann Sums</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_riemann.html#fig_rie_notation" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Summation Notation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#subsection-20" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Riemann Sums</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#subsection-21" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Limits of Riemann Sums</span></a></div></li>
+<li><div class="toc-item"><a href="sec_riemann.html#exercises-25" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_FTC.html" class="internal"><span class="codenumber">5.4</span> <span class="title">The Fundamental Theorem of Calculus</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-22" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Fundamental Theorem of Calculus, Parts 1 and 2</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-23" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Understanding Motion with the Fundamental Theorem of Calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#sec-FTC-chain" class="internal"><span class="codenumber">5.4.3</span> <span class="title">The Fundamental Theorem of Calculus and the Chain Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#sec-FTC-ABC" class="internal"><span class="codenumber">5.4.4</span> <span class="title">Area Between Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#subsection-26" class="internal"><span class="codenumber">5.4.5</span> <span class="title">The Mean Value Theorem and Average Value</span></a></div></li>
+<li><div class="toc-item"><a href="sec_FTC.html#exercises-26" class="internal"><span class="codenumber">5.4.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_numerical_integration.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Numerical Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-27" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Left and Right Hand Rule Methods</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-28" class="internal"><span class="codenumber">5.5.2</span> <span class="title">The Trapezoidal Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-29" class="internal"><span class="codenumber">5.5.3</span> <span class="title">The Midpoint Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-30" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Simpson's Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#subsection-31" class="internal"><span class="codenumber">5.5.5</span> <span class="title">Summary and Error Analysis</span></a></div></li>
+<li><div class="toc-item"><a href="sec_numerical_integration.html#exercises-27" class="internal"><span class="codenumber">5.5.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_anti_tech.html" class="internal"><span class="codenumber">6</span> <span class="title">Techniques of Antidifferentiation</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_substitution.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Substitution</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-32" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Integrals Involving Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-33" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Simplifying the Integrand</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#subsection-34" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Substitution and Inverse Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#sec-sub-def-int" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Substitution and Definite Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_substitution.html#exercises-28" class="internal"><span class="codenumber">6.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_IBP.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Integration by Parts</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_IBP.html#exercises-29" class="internal"><span class="codenumber">6.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_trigint.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Trigonometric Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-36" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Integrals of the form <span class="process-math">\(\int \sin^m(x) \cos^n(x) \, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-37" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Integrals of the form <span class="process-math">\(\int\sin(mx)\sin(nx)\, dx\text{,}\)</span> <span class="process-math">\(\int \cos(mx)\cos(nx)\, dx\text{,}\)</span> and <span class="process-math">\(\int \sin(mx)\cos(nx)\, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#subsection-38" class="internal"><span class="codenumber">6.3.3</span> <span class="title">Integrals of the form <span class="process-math">\(\int\tan^m(x) \sec^n(x) \, dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_trigint.html#exercises-30" class="internal"><span class="codenumber">6.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_trig_sub.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Trigonometric Substitution</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_trig_sub.html#exercises-31" class="internal"><span class="codenumber">6.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_partial_fraction.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Partial Fraction Decomposition</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_partial_fraction.html#exercises-32" class="internal"><span class="codenumber">6.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_hyperbolic.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Hyperbolic Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_hyperbolic.html#sec-hyp-def" class="internal"><span class="codenumber">6.6.1</span> <span class="title">The Hyperbolic Functions and their Properties</span></a></div></li>
+<li><div class="toc-item"><a href="sec_hyperbolic.html#subsection-40" class="internal"><span class="codenumber">6.6.2</span> <span class="title">Inverse Hyperbolic Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_hyperbolic.html#exercises-33" class="internal"><span class="codenumber">6.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_lhopitals_rule.html" class="internal"><span class="codenumber">6.7</span> <span class="title">L'Hospital's Rule</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#sec_lhopital_statement" class="internal"><span class="codenumber">6.7.1</span> <span class="title">L'Hospital's Rule with indeterminate forms <span class="process-math">\(0/0\)</span> and <span class="process-math">\(\infty/\infty\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#subsection-42" class="internal"><span class="codenumber">6.7.2</span> <span class="title">Indeterminate Forms <span class="process-math">\(0\cdot\infty\)</span> and <span class="process-math">\(\infty-\infty\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#subsection-43" class="internal"><span class="codenumber">6.7.3</span> <span class="title">Indeterminate Forms  <span class="process-math">\(0^0\text{,}\)</span> <span class="process-math">\(1^\infty\)</span> and <span class="process-math">\(\infty^0\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_lhopitals_rule.html#exercises-34" class="internal"><span class="codenumber">6.7.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_improper_integration.html" class="internal"><span class="codenumber">6.8</span> <span class="title">Improper Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-44" class="internal"><span class="codenumber">6.8.1</span> <span class="title">Improper Integrals with Infinite Bounds</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-45" class="internal"><span class="codenumber">6.8.2</span> <span class="title">Improper Integrals with Infinite Range</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#subsection-46" class="internal"><span class="codenumber">6.8.3</span> <span class="title">Understanding Convergence and Divergence</span></a></div></li>
+<li><div class="toc-item"><a href="sec_improper_integration.html#exercises-35" class="internal"><span class="codenumber">6.8.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_app_of_int.html" class="internal"><span class="codenumber">7</span> <span class="title">Applications of Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_ABC.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Area Between Curves</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_ABC.html#exercises-36" class="internal"><span class="codenumber">7.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_disk.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Volume by Cross-Sectional Area; Disk and Washer Methods</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_disk.html#exercises-37" class="internal"><span class="codenumber">7.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_shell_method.html" class="internal"><span class="codenumber">7.3</span> <span class="title">The Shell Method</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_shell_method.html#exercises-38" class="internal"><span class="codenumber">7.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_arc_length.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Arc Length and Surface Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_arc_length.html#subsec-arc-length" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_arc_length.html#sec_surface_area_revolution" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Surface Area of Solids of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_arc_length.html#exercises-39" class="internal"><span class="codenumber">7.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_work.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Work</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_work.html#sec_work_variable_force" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Work Done by a Variable Force</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#subsection-50" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Hooke's Law and Springs</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#subsection-51" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Pumping Fluids</span></a></div></li>
+<li><div class="toc-item"><a href="sec_work.html#exercises-40" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_fluid_force.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Fluid Forces</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_fluid_force.html#exercises-41" class="internal"><span class="codenumber">7.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_differential_equations.html" class="internal"><span class="codenumber">8</span> <span class="title">Differential Equations</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_Graphical_Numerical.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Graphical and Numerical Solutions to Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-52" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Introduction and Terminology</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-53" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Graphical Solutions to Differential Equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#subsection-54" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Numerical Solutions to Differential Equations: Euler's Method</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Graphical_Numerical.html#exercises-42" class="internal"><span class="codenumber">8.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Separable.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Separable Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Separable.html#subsection-55" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Separation of Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Separable.html#exercises-43" class="internal"><span class="codenumber">8.2.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Linear.html" class="internal"><span class="codenumber">8.3</span> <span class="title">First Order Linear Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Linear.html#subsection-56" class="internal"><span class="codenumber">8.3.1</span> <span class="title">Solving First Order Linear Equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Linear.html#exercises-44" class="internal"><span class="codenumber">8.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_Modeling.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Modeling with Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_Modeling.html#subsection-57" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Models Involving Proportional Change</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Modeling.html#subsection-58" class="internal"><span class="codenumber">8.4.2</span> <span class="title">Rate-in Rate-out Problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec_Modeling.html#exercises-45" class="internal"><span class="codenumber">8.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_sequences_series.html" class="internal"><span class="codenumber">9</span> <span class="title">Sequences and Series</span></a></div>
+<ul class="structural">
+<li class="active">
+<div class="toc-item"><a href="sec_sequences.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Sequences</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_sequences.html#exercises-46" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_series.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Infinite Series</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_series.html#subsec-series-convergence" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Convergence of sequences</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#subsection-60" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Geometric Series</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#subsection-61" class="internal"><span class="codenumber">9.2.3</span> <span class="title"><span class="process-math">\(p\)</span>-Series</span></a></div></li>
+<li><div class="toc-item"><a href="sec_series.html#exercises-47" class="internal"><span class="codenumber">9.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_int_comp_tests.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integral and Comparison Tests</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-62" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Integral Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-63" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Direct Comparison Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#subsection-64" class="internal"><span class="codenumber">9.3.3</span> <span class="title">Limit Comparison Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_int_comp_tests.html#exercises-48" class="internal"><span class="codenumber">9.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_ratio_root_tests.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Ratio and Root Tests</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#subsection-65" class="internal"><span class="codenumber">9.4.1</span> <span class="title">Ratio Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#subsection-66" class="internal"><span class="codenumber">9.4.2</span> <span class="title">Root Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec_ratio_root_tests.html#exercises-49" class="internal"><span class="codenumber">9.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_alt_series.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Alternating Series and Absolute Convergence</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_alt_series.html#exercises-50" class="internal"><span class="codenumber">9.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_power_series.html" class="internal"><span class="codenumber">9.6</span> <span class="title">Power Series</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_power_series.html#exercises-51" class="internal"><span class="codenumber">9.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_taylor_poly.html" class="internal"><span class="codenumber">9.7</span> <span class="title">Taylor Polynomials</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_taylor_poly.html#exercises-52" class="internal"><span class="codenumber">9.7</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_taylor_series.html" class="internal"><span class="codenumber">9.8</span> <span class="title">Taylor Series</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_taylor_series.html#exercises-53" class="internal"><span class="codenumber">9.8</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_planar_curves.html" class="internal"><span class="codenumber">10</span> <span class="title">Curves in the Plane</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_conic_sections.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Conic Sections</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-parabola" class="internal"><span class="codenumber">10.1.1</span> <span class="title">Parabolas</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-ellipse" class="internal"><span class="codenumber">10.1.2</span> <span class="title">Ellipses</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#subsec-conic-hyperbola" class="internal"><span class="codenumber">10.1.3</span> <span class="title">Hyperbolas</span></a></div></li>
+<li><div class="toc-item"><a href="sec_conic_sections.html#exercises-54" class="internal"><span class="codenumber">10.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_param_eqs.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Parametric Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsec-parametric-plot" class="internal"><span class="codenumber">10.2.1</span> <span class="title">Plotting parametric curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsection-71" class="internal"><span class="codenumber">10.2.2</span> <span class="title">Converting between rectangular and parametric equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#subsection-72" class="internal"><span class="codenumber">10.2.3</span> <span class="title">Special Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_param_eqs.html#exercises-55" class="internal"><span class="codenumber">10.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_par_calc.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Calculus and Parametric Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-73" class="internal"><span class="codenumber">10.3.1</span> <span class="title">Concavity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-74" class="internal"><span class="codenumber">10.3.2</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#subsection-75" class="internal"><span class="codenumber">10.3.3</span> <span class="title">Surface Area of a Solid of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_par_calc.html#exercises-56" class="internal"><span class="codenumber">10.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_polar.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Introduction to Polar Coordinates</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_polar.html#subsection-76" class="internal"><span class="codenumber">10.4.1</span> <span class="title">Polar Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#subsection-77" class="internal"><span class="codenumber">10.4.2</span> <span class="title">Polar to Rectangular Conversion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#subsection-78" class="internal"><span class="codenumber">10.4.3</span> <span class="title">Polar Functions and Polar Graphs</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polar.html#exercises-57" class="internal"><span class="codenumber">10.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_polarcalc.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Calculus and Polar Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-79" class="internal"><span class="codenumber">10.5.1</span> <span class="title">Polar Functions and <span class="process-math">\(dy/dx\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-80" class="internal"><span class="codenumber">10.5.2</span> <span class="title">Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-81" class="internal"><span class="codenumber">10.5.3</span> <span class="title">Arc Length</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#subsection-82" class="internal"><span class="codenumber">10.5.4</span> <span class="title">Surface Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_polarcalc.html#exercises-58" class="internal"><span class="codenumber">10.5.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_vectors.html" class="internal"><span class="codenumber">11</span> <span class="title">Vectors</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_space_coord.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Introduction to Cartesian Coordinates in Space</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_space_coord.html#subsection-83" class="internal"><span class="codenumber">11.1.1</span> <span class="title">Measuring Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsection-84" class="internal"><span class="codenumber">11.1.2</span> <span class="title">Spheres</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#sec-planes-in-space" class="internal"><span class="codenumber">11.1.3</span> <span class="title">Introduction to Planes in Space</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-cylinders" class="internal"><span class="codenumber">11.1.4</span> <span class="title">Cylinders</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-surface-revolution" class="internal"><span class="codenumber">11.1.5</span> <span class="title">Surfaces of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#subsec-space-quadric" class="internal"><span class="codenumber">11.1.6</span> <span class="title">Quadric Surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_space_coord.html#exercises-59" class="internal"><span class="codenumber">11.1.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vector_intro.html" class="internal"><span class="codenumber">11.2</span> <span class="title">An Introduction to Vectors</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_vector_intro.html#exercises-60" class="internal"><span class="codenumber">11.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_dot_product.html" class="internal"><span class="codenumber">11.3</span> <span class="title">The Dot Product</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_dot_product.html#subsection-89" class="internal"><span class="codenumber">11.3.1</span> <span class="title">Application to Work</span></a></div></li>
+<li><div class="toc-item"><a href="sec_dot_product.html#exercises-61" class="internal"><span class="codenumber">11.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_cross_product.html" class="internal"><span class="codenumber">11.4</span> <span class="title">The Cross Product</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_cross_product.html#subsection-90" class="internal"><span class="codenumber">11.4.1</span> <span class="title">Properties of the Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cross_product.html#subsection-91" class="internal"><span class="codenumber">11.4.2</span> <span class="title">Applications of the Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cross_product.html#exercises-62" class="internal"><span class="codenumber">11.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_lines.html" class="internal"><span class="codenumber">11.5</span> <span class="title">Lines</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_lines.html#subsec_lines_space_def" class="internal"><span class="codenumber">11.5.1</span> <span class="title">Lines in space</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#subsec-lines-compare" class="internal"><span class="codenumber">11.5.2</span> <span class="title">Parallel, Intersecting and Skew Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#subsection-94" class="internal"><span class="codenumber">11.5.3</span> <span class="title">Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines.html#exercises-63" class="internal"><span class="codenumber">11.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_planes.html" class="internal"><span class="codenumber">11.6</span> <span class="title">Planes</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_planes.html#subsec_planes_distances" class="internal"><span class="codenumber">11.6.1</span> <span class="title">Distances</span></a></div></li>
+<li><div class="toc-item"><a href="sec_planes.html#exercises-64" class="internal"><span class="codenumber">11.6.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chap_vvf.html" class="internal"><span class="codenumber">12</span> <span class="title">Vector Valued Functions</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_vvf.html" class="internal"><span class="codenumber">12.1</span> <span class="title">Vector-Valued Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf.html#subsec-eval-vvf" class="internal"><span class="codenumber">12.1.1</span> <span class="title">Evaluating and Graphing Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#subsection-97" class="internal"><span class="codenumber">12.1.2</span> <span class="title">Algebra of Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#subsec_vvf_displacement" class="internal"><span class="codenumber">12.1.3</span> <span class="title">Displacement</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf.html#exercises-65" class="internal"><span class="codenumber">12.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vvf_calc.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Calculus and Vector-Valued Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsec_vvf_limits" class="internal"><span class="codenumber">12.2.1</span> <span class="title">Limits of Vector-Valued Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsec_vvf_continuity" class="internal"><span class="codenumber">12.2.2</span> <span class="title">Continuity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsection-101" class="internal"><span class="codenumber">12.2.3</span> <span class="title">Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#subsection-102" class="internal"><span class="codenumber">12.2.4</span> <span class="title">Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_calc.html#exercises-66" class="internal"><span class="codenumber">12.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vvf_motion.html" class="internal"><span class="codenumber">12.3</span> <span class="title">The Calculus of Motion</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vvf_motion.html#subsec_vvf_projectile" class="internal"><span class="codenumber">12.3.1</span> <span class="title">Projectile Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_motion.html#subsection-104" class="internal"><span class="codenumber">12.3.2</span> <span class="title">Distance Traveled</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vvf_motion.html#exercises-67" class="internal"><span class="codenumber">12.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_tan_norm.html" class="internal"><span class="codenumber">12.4</span> <span class="title">Unit Tangent and Normal Vectors</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-105" class="internal"><span class="codenumber">12.4.1</span> <span class="title">Unit Tangent Vector</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-106" class="internal"><span class="codenumber">12.4.2</span> <span class="title">Unit Normal Vector</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#subsection-107" class="internal"><span class="codenumber">12.4.3</span> <span class="title">Application to Acceleration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_tan_norm.html#exercises-68" class="internal"><span class="codenumber">12.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_curvature.html" class="internal"><span class="codenumber">12.5</span> <span class="title">The Arc Length Parameter and Curvature</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-108" class="internal"><span class="codenumber">12.5.1</span> <span class="title">The Arc Length Paramtrization</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-109" class="internal"><span class="codenumber">12.5.2</span> <span class="title">Curvature</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#subsection-110" class="internal"><span class="codenumber">12.5.3</span> <span class="title">Curvature and Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_curvature.html#exercises-69" class="internal"><span class="codenumber">12.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_multi.html" class="internal"><span class="codenumber">13</span> <span class="title">Functions of Several Variables</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_multi_intro.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Introduction to Multivariable Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-111" class="internal"><span class="codenumber">13.1.1</span> <span class="title">Graphing Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-112" class="internal"><span class="codenumber">13.1.2</span> <span class="title">Level Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-113" class="internal"><span class="codenumber">13.1.3</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#subsection-114" class="internal"><span class="codenumber">13.1.4</span> <span class="title">Level Surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_intro.html#exercises-70" class="internal"><span class="codenumber">13.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_limit.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Limits and Continuity of Multivariable Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsec-multivariable-topology" class="internal"><span class="codenumber">13.2.1</span> <span class="title">Open and Closed Subsets in Higher Dimensions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-116" class="internal"><span class="codenumber">13.2.2</span> <span class="title">Limits</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-117" class="internal"><span class="codenumber">13.2.3</span> <span class="title">Continuity</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#subsection-118" class="internal"><span class="codenumber">13.2.4</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_limit.html#exercises-71" class="internal"><span class="codenumber">13.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_partial_derivatives.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Partial Derivatives</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-first-partial" class="internal"><span class="codenumber">13.3.1</span> <span class="title">First-order partial derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-tangent-plane" class="internal"><span class="codenumber">13.3.2</span> <span class="title">Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsec-second-partial" class="internal"><span class="codenumber">13.3.3</span> <span class="title">Second-order partial derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-122" class="internal"><span class="codenumber">13.3.4</span> <span class="title">Understanding Second Partial Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-123" class="internal"><span class="codenumber">13.3.5</span> <span class="title">Partial Derivatives and Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#subsection-124" class="internal"><span class="codenumber">13.3.6</span> <span class="title">Higher Order Partial Derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec_partial_derivatives.html#exercises-72" class="internal"><span class="codenumber">13.3.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_total_differential.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Differentiability and the Total Differential</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-total-differential-intro" class="internal"><span class="codenumber">13.4.1</span> <span class="title">The Total Differential</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-total-differential-approx" class="internal"><span class="codenumber">13.4.2</span> <span class="title">Approximating with the Total Differential</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-tangent-plane-approximation" class="internal"><span class="codenumber">13.4.3</span> <span class="title">Tangent Plane Approximation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-error-analysis-total-diff" class="internal"><span class="codenumber">13.4.4</span> <span class="title">Error/Sensitivity Analysis</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#subsec-differentiable-three-var" class="internal"><span class="codenumber">13.4.5</span> <span class="title">Differentiability of Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_total_differential.html#exercises-73" class="internal"><span class="codenumber">13.4.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_chain.html" class="internal"><span class="codenumber">13.5</span> <span class="title">The Multivariable Chain Rule</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_chain.html#subsec-multi-chain-intro" class="internal"><span class="codenumber">13.5.1</span> <span class="title">Multivariable Chain Rule, Part I</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_chain.html#subsec-implicit-diff" class="internal"><span class="codenumber">13.5.2</span> <span class="title">Implicit Differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_chain.html#exercises-74" class="internal"><span class="codenumber">13.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_directional_derivative.html" class="internal"><span class="codenumber">13.6</span> <span class="title">Directional Derivatives</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_directional_derivative.html#subsection-132" class="internal"><span class="codenumber">13.6.1</span> <span class="title">Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_directional_derivative.html#subsection-133" class="internal"><span class="codenumber">13.6.2</span> <span class="title">Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_directional_derivative.html#exercises-75" class="internal"><span class="codenumber">13.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_tangent.html" class="internal"><span class="codenumber">13.7</span> <span class="title">Tangent Lines, Normal Lines, and Tangent Planes</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsec-tangent-lines-surface" class="internal"><span class="codenumber">13.7.1</span> <span class="title">Tangent Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-135" class="internal"><span class="codenumber">13.7.2</span> <span class="title">Normal Lines</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-136" class="internal"><span class="codenumber">13.7.3</span> <span class="title">Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#subsection-137" class="internal"><span class="codenumber">13.7.4</span> <span class="title">The Gradient and Normal Lines, Tangent Planes</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_tangent.html#exercises-76" class="internal"><span class="codenumber">13.7.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_multi_extreme_values.html" class="internal"><span class="codenumber">13.8</span> <span class="title">Extreme Values</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#subsec-multi-critical" class="internal"><span class="codenumber">13.8.1</span> <span class="title">Critical Points of Functions of Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#subsection-139" class="internal"><span class="codenumber">13.8.2</span> <span class="title">Constrained Optimization</span></a></div></li>
+<li><div class="toc-item"><a href="sec_multi_extreme_values.html#exercises-77" class="internal"><span class="codenumber">13.8.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_mult_int.html" class="internal"><span class="codenumber">14</span> <span class="title">Multiple Integration</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_iterated_integrals.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Iterated Integrals and Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsec-iterated" class="internal"><span class="codenumber">14.1.1</span> <span class="title">Iterated integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsection-141" class="internal"><span class="codenumber">14.1.2</span> <span class="title">Area of a plane region</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#subsec-changing-order" class="internal"><span class="codenumber">14.1.3</span> <span class="title">Changing Order of Integration</span></a></div></li>
+<li><div class="toc-item"><a href="sec_iterated_integrals.html#exercises-78" class="internal"><span class="codenumber">14.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_double_int_volume.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Double Integration and Volume</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_double_int_volume.html#exercises-79" class="internal"><span class="codenumber">14.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_double_int_polar.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Double Integration with Polar Coordinates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_double_int_polar.html#exercises-80" class="internal"><span class="codenumber">14.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_center_of_mass.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Center of Mass</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_center_of_mass.html#subsection-143" class="internal"><span class="codenumber">14.4.1</span> <span class="title">Mass and Weight</span></a></div></li>
+<li><div class="toc-item"><a href="sec_center_of_mass.html#subsection-144" class="internal"><span class="codenumber">14.4.2</span> <span class="title">Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_center_of_mass.html#exercises-81" class="internal"><span class="codenumber">14.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_surface_area.html" class="internal"><span class="codenumber">14.5</span> <span class="title">Surface Area</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec_surface_area.html#exercises-82" class="internal"><span class="codenumber">14.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_triple_int.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Volume Between Surfaces and Triple Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-145" class="internal"><span class="codenumber">14.6.1</span> <span class="title">Volume between surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-146" class="internal"><span class="codenumber">14.6.2</span> <span class="title">Triple Integration and Functions of Three Variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#subsection-147" class="internal"><span class="codenumber">14.6.3</span> <span class="title">Mass and Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_triple_int.html#exercises-83" class="internal"><span class="codenumber">14.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_cylindrical_spherical.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Triple Integration with Cylindrical and Spherical Coordinates</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#subsection-148" class="internal"><span class="codenumber">14.7.1</span> <span class="title">Cylindrical Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#subsection-149" class="internal"><span class="codenumber">14.7.2</span> <span class="title">Spherical Coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="sec_cylindrical_spherical.html#exercises-84" class="internal"><span class="codenumber">14.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter_vector_calc.html" class="internal"><span class="codenumber">15</span> <span class="title">Vector Analysis</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec_line_int_intro.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Introduction to Line Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsec-line-int-scalar" class="internal"><span class="codenumber">15.1.1</span> <span class="title">Line Integrals of Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsection-151" class="internal"><span class="codenumber">15.1.2</span> <span class="title">Properties of Line Integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#subsection-152" class="internal"><span class="codenumber">15.1.3</span> <span class="title">Mass and Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_intro.html#exercises-85" class="internal"><span class="codenumber">15.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_vector_fields.html" class="internal"><span class="codenumber">15.2</span> <span class="title">Vector Fields</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vector_fields.html#subsection-153" class="internal"><span class="codenumber">15.2.1</span> <span class="title">Vector Field Notation and Del Operator</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vector_fields.html#subsection-154" class="internal"><span class="codenumber">15.2.2</span> <span class="title">Divergence and Curl</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vector_fields.html#exercises-86" class="internal"><span class="codenumber">15.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_line_int_vf.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Line Integrals over Vector Fields</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsec-line-int-vector-eval" class="internal"><span class="codenumber">15.3.1</span> <span class="title">Evaluating Line Integrals over Vector Fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsection-156" class="internal"><span class="codenumber">15.3.2</span> <span class="title">Properties of Line Integrals Over Vector Fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#subsection-157" class="internal"><span class="codenumber">15.3.3</span> <span class="title">The Fundamental Theorem of Line Integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec_line_int_vf.html#exercises-87" class="internal"><span class="codenumber">15.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_greensthm.html" class="internal"><span class="codenumber">15.4</span> <span class="title">Flow, Flux, Green's Theorem and the Divergence Theorem</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-158" class="internal"><span class="codenumber">15.4.1</span> <span class="title">Flow and Flux</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-159" class="internal"><span class="codenumber">15.4.2</span> <span class="title">Green's Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#subsection-160" class="internal"><span class="codenumber">15.4.3</span> <span class="title">The Divergence Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_greensthm.html#exercises-88" class="internal"><span class="codenumber">15.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_parametric_surfaces.html" class="internal"><span class="codenumber">15.5</span> <span class="title">Parametrized Surfaces and Surface Area</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#subsec-parametrized-surfaces" class="internal"><span class="codenumber">15.5.1</span> <span class="title">Parametrizing surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#subsection-162" class="internal"><span class="codenumber">15.5.2</span> <span class="title">Surface Area</span></a></div></li>
+<li><div class="toc-item"><a href="sec_parametric_surfaces.html#exercises-89" class="internal"><span class="codenumber">15.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_surface_integral.html" class="internal"><span class="codenumber">15.6</span> <span class="title">Surface Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_surface_integral.html#subsec-surfint-scalar" class="internal"><span class="codenumber">15.6.1</span> <span class="title">Surface integrals of scalar fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec_surface_integral.html#subsection-164" class="internal"><span class="codenumber">15.6.2</span> <span class="title">Flux</span></a></div></li>
+<li><div class="toc-item"><a href="sec_surface_integral.html#exercises-90" class="internal"><span class="codenumber">15.6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec_stokes_divergence.html" class="internal"><span class="codenumber">15.7</span> <span class="title">The Divergence Theorem and Stokes' Theorem</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-165" class="internal"><span class="codenumber">15.7.1</span> <span class="title">The Divergence Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-166" class="internal"><span class="codenumber">15.7.2</span> <span class="title">Stokes' Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#subsection-167" class="internal"><span class="codenumber">15.7.3</span> <span class="title">A Common Thread of Calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec_stokes_divergence.html#exercises-91" class="internal"><span class="codenumber">15.7.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="backmatter-1.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="solutions-1.html" class="internal"><span class="codenumber">A</span> <span class="title">Answers to Odd Exercises</span></a></div></li>
+<li>
+<div class="toc-item"><a href="appendix-reference.html" class="internal"><span class="codenumber">B</span> <span class="title">Quick Reference</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="reference-derivatives.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Differentiation Formulas</span></a></div></li>
+<li><div class="toc-item"><a href="reference-integration.html" class="internal"><span class="codenumber">B.2</span> <span class="title">Integration Formulas</span></a></div></li>
+<li>
+<div class="toc-item"><a href="reference-trigonometry.html" class="internal"><span class="codenumber">B.3</span> <span class="title">Trigonometry Reference</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="reference-trigonometry.html#reference-trig-definitions" class="internal"><span class="codenumber">B.3.1</span> <span class="title">Definitions of the Trigonometric Functions</span></a></div></li>
+<li><div class="toc-item"><a href="reference-trigonometry.html#reference-trig-identities" class="internal"><span class="codenumber">B.3.2</span> <span class="title">Common Trigonometric Identities</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="reference-area-volume.html" class="internal"><span class="codenumber">B.4</span> <span class="title">Areas and Volumes</span></a></div></li>
+<li><div class="toc-item"><a href="reference-algebra.html" class="internal"><span class="codenumber">B.5</span> <span class="title">Algebra</span></a></div></li>
+<li><div class="toc-item"><a href="reference-formulas.html" class="internal"><span class="codenumber">B.6</span> <span class="title">Additional Formulas</span></a></div></li>
+<li><div class="toc-item"><a href="section-98.html" class="internal"><span class="codenumber">B.7</span> <span class="title">Summary of Tests for Series</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_sequences"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">9.1</span> <span class="title">Sequences</span>
+</h2>
+<div class="para" id="p-8168">We commonly refer to a set of events that occur one after the other as a <em class="emphasis">sequence</em> of events. In mathematics, we use the word <em class="emphasis">sequence</em> to refer to an ordered set of numbers, i.e., a set of numbers that “occur one after the other.”</div>
+<figure class="figure figure-like" id="vid-seqseries-sequences-intro"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-298" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/jW6PMyekBtU?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.1<span class="period">.</span></span><span class="space"> </span>Video introduction to <a href="sec_sequences.html" class="internal" title="Section 9.1: Sequences">Section 9.1</a></figcaption></figure><div class="para" id="p-8169">For instance, the numbers 2, 4, 6, 8, …, form a sequence. The order is important; the first number is 2, the second is 4, etc. It seems natural to seek a formula that describes a given sequence, and often this can be done. For instance, the sequence above could be described by the function <span class="process-math">\(a(n) = 2n\text{,}\)</span> for the values of <span class="process-math">\(n = 1, 2, \ldots\)</span> To find the <span class="process-math">\(10\)</span>th term in the sequence, we would compute <span class="process-math">\(a(10)\text{.}\)</span> This leads us to the following, formal definition of a sequence.</div>
+<article class="definition definition-like" id="def_sequence"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Sequence.</span>
+</h3> <div class="para" id="p-8170">A <dfn class="terminology">sequence</dfn> is a function <span class="process-math">\(a(n)\)</span> whose domain is <span class="process-math">\(\mathbb{N}\text{.}\)</span> The <dfn class="terminology">range</dfn> of a sequence is the set of all distinct values of <span class="process-math">\(a(n)\text{.}\)</span> </div> <div class="para" id="p-8171">The <dfn class="terminology">terms</dfn> of a sequence are the values <span class="process-math">\(a(1)\text{,}\)</span> <span class="process-math">\(a(2)\text{,}\)</span> …, which are usually denoted with subscripts as <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(a_2\text{,}\)</span> ….</div> <div class="para" id="p-8172">A sequence <span class="process-math">\(a(n)\)</span> is often denoted as <span class="process-math">\(\{a_n\}\text{.}\)</span>
+</div></article><aside class="aside aside-like" id="aside-53"><div class="para" id="p-8173">
+<em class="emphasis">Notation:</em> We use <span class="process-math">\(\mathN\)</span> to describe the set of natural numbers, that is, the positive integers <span class="process-math">\(1, 2, 3, \dots\)</span>
+</div></aside><article class="definition definition-like" id="def_factorial"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.1.3</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-8174">A <dfn class="terminology">factorial</dfn> refers to the product of a descending sequence of natural numbers. For example, the expression <span class="process-math">\(4!\)</span> (read as <span class="process-math">\(4\)</span> factorial) refers to the number <span class="process-math">\(4\cdot 3\cdot2\cdot1 = 24\text{.}\)</span> </div> <div class="para" id="p-8175">In general, <span class="process-math">\(n! = n\cdot (n-1)\cdot(n-2)\cdots 2\cdot1\text{,}\)</span> where <span class="process-math">\(n\)</span> is a natural number.</div> <div class="para" id="p-8176">We define <span class="process-math">\(0! = 1\text{.}\)</span> While this does not immediately make sense, it makes many mathematical formulas work properly.</div></article><article class="example example-like" id="ex_seq1"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Listing terms of a sequence.</span>
+</h3>
+<div class="para" id="p-8177">List the first four terms of the following sequences.</div> <div class="para logical" id="p-8178"><ol class="decimal">
+<li id="item_ex_seq1_1"><div class="para" id="p-derived-item_ex_seq1_1"><span class="process-math">\(\displaystyle \{a_n\} = \left\{\frac{3^n}{n!}\right\}\)</span></div></li>
+<li id="item_ex_seq1_2"><div class="para" id="p-derived-item_ex_seq1_2"><span class="process-math">\(\displaystyle \{a_n\} = \{4+(-1)^n\}\)</span></div></li>
+<li id="item_ex_seq1_3"><div class="para" id="p-derived-item_ex_seq1_3"><span class="process-math">\(\displaystyle \{a_n\} = \left\{\frac{(-1)^{n(n+1)/2}}{n^2}\right\}\)</span></div></li>
+</ol></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-video" data-refid="hk-solution-663" id="solution-663"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span><span class="space"> </span><span class="title">Video solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-663"><div class="solution solution-like"> <div class="video-box" style="width: 98%;padding-top: 55.125%; margin-left: 1%; margin-right: 1%;"><iframe id="vid-seqseries-sequences-example1" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/j-iqXR_bANY?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-664" id="solution-664"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-664"><div class="solution solution-like"><div class="para logical" id="p-8179"><ol class="decimal">
+<li id="li-1613">
+<div class="para" id="p-8180">
+<span class="process-math">\(\ds a_1=\frac{3^1}{1!} = 3;\quad\)</span>	<span class="process-math">\(\ds a_2= \frac{3^2}{2!} = \frac92;\quad\)</span> <span class="process-math">\(\ds a_3 = \frac{3^3}{3!} = \frac92;\quad\)</span> <span class="process-math">\(\ds a_4 = \frac{3^4}{4!} = \frac{27}8\quad\)</span>
+</div>
+<div class="para" id="p-8181">We can plot the terms of a sequence with a scatter plot. The horizontal axis is used for the values of <span class="process-math">\(n\text{,}\)</span> and the values of the terms are plotted on the vertical axis. To visualize this sequence, see <a href="" class="xref" data-knowl="./knowl/fig_seq1a.html" title="Figure 9.1.5">Figure 9.1.5</a>.</div>
+<figure class="figure figure-like" id="fig_seq1a"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_seq1a.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.5<span class="period">.</span></span><span class="space"> </span>Plotting the sequence in <a href="" class="xref" data-knowl="./knowl/item_ex_seq1_1.html" title="Item 1">Item 1</a></figcaption></figure>
+</li>
+<li id="li-1614">
+<div class="para" id="p-8182">
+<span class="process-math">\(a_1= 4+(-1)^1 = 3;\quad\)</span> <span class="process-math">\(a_2 = 4+(-1)^2 = 5;\quad\)</span> <span class="process-math">\(a_3=4+(-1)^3 = 3;\quad\)</span> <span class="process-math">\(a_4 = 4+(-1)^4 = 5\quad\text{.}\)</span>
+</div>
+<div class="para" id="p-8183">Note that the range of this sequence is finite, consisting of only the values 3 and 5. This sequence is plotted in <a href="" class="xref" data-knowl="./knowl/fig_seq1b.html" title="Figure 9.1.6">Figure 9.1.6</a>.</div>
+<figure class="figure figure-like" id="fig_seq1b"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_seq1b.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.6<span class="period">.</span></span><span class="space"> </span>Plotting the sequence in <a href="" class="xref" data-knowl="./knowl/item_ex_seq1_2.html" title="Item 2">Item 2</a></figcaption></figure>
+</li>
+<li id="li-1615">
+<div class="para" id="p-8184">
+<span class="process-math">\(\ds a_1= \frac{(-1)^{1(2)/2}}{1^2} = -1;\quad\)</span> <span class="process-math">\(\ds a_2 = \frac{(-1)^{2(3)/2}}{2^2} =-\frac14 ;\quad\)</span> <span class="process-math">\(\ds a_3 = \frac{(-1)^{3(4)/2}}{3^2} = \frac19;\quad\)</span> <span class="process-math">\(\ds a_4 = \frac{(-1)^{4(5)/2}}{4^2} = \frac1{16};\quad\text{;}\)</span> <span class="process-math">\(\ds a_5 = \frac{(-1)^{5(6)/2}}{5^2}=-\frac1{25}\quad\text{.}\)</span>
+</div>
+<div class="para" id="p-8185">We gave one extra term to begin to show the pattern of signs is “<span class="process-math">\(-\text{,}\)</span> <span class="process-math">\(-\text{,}\)</span> <span class="process-math">\(+\text{,}\)</span> <span class="process-math">\(+\text{,}\)</span> <span class="process-math">\(-\text{,}\)</span> <span class="process-math">\(-\text{,}\)</span> <span class="process-math">\(\ldots\)</span>”, due to the fact that the exponent of <span class="process-math">\(-1\)</span> is a special quadratic. This sequence is plotted in <a href="" class="xref" data-knowl="./knowl/fig_seq1c.html" title="Figure 9.1.7">Figure 9.1.7</a>.</div>
+<figure class="figure figure-like" id="fig_seq1c"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_seq1c.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.7<span class="period">.</span></span><span class="space"> </span>Plotting the sequence in <a href="" class="xref" data-knowl="./knowl/item_ex_seq1_3.html" title="Item 3">Item 3</a></figcaption></figure>
+</li>
+</ol></div></div></div>
+</div></article><article class="example example-like" id="ex_seq2"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Determining a formula for a sequence.</span>
+</h3>
+<div class="para" id="p-8186">Find the <span class="process-math">\(n\)</span>th term of the following sequences, i.e., find a function that describes each of the given sequences.</div> <div class="para logical" id="p-8187"><ol class="decimal">
+<li id="li-1616"><div class="para" id="p-8188"><span class="process-math">\(\displaystyle \{a_n\}=\{2, 5, 8, 11, 14, \ldots\}\)</span></div></li>
+<li id="li-1617"><div class="para" id="p-8189"><span class="process-math">\(\displaystyle \{b_n\}=\{2,-5, 10, -17, 26, -37,\ldots\}\)</span></div></li>
+<li id="li-1618"><div class="para" id="p-8190"><span class="process-math">\(\displaystyle \{c_n\}=\{1, 1, 2, 6, 24, 120, 720, \ldots\}\)</span></div></li>
+<li id="li-1619"><div class="para" id="p-8191"><span class="process-math">\(\displaystyle \{d_n\}=\{\frac52, \frac52, \frac{15}8, \frac54,\frac{25}{32},\ldots\}\)</span></div></li>
+</ol></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-video" data-refid="hk-solution-665" id="solution-665"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span><span class="space"> </span><span class="title">Video solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-665"><div class="solution solution-like"> <div class="video-box" style="width: 98%;padding-top: 55.125%; margin-left: 1%; margin-right: 1%;"><iframe id="vid-seqseries-sequences-example2" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/-Tu12lkQtTs?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-666" id="solution-666"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-666"><div class="solution solution-like">
+<div class="para" id="p-8192">We should first note that there is never exactly one function that describes a finite set of numbers as a sequence. There are many sequences that start with 2, then 5, as our first example does. We are looking for a simple formula that describes the terms given, knowing there is possibly more than one answer.</div> <div class="para logical" id="p-8193"><ol class="decimal">
+<li id="li-1620"><div class="para" id="p-8194">Note how each term is 3 more than the previous one. This implies a linear function would be appropriate: <span class="process-math">\(a(n) = a_n = 3n + b\)</span> for some appropriate value of <span class="process-math">\(b\text{.}\)</span> If we were to think in terms of ordered pairs, they would be of the form <span class="process-math">\((n,a(n))\text{.}\)</span> So one such ordered pair would be <span class="process-math">\((1,2)\text{.}\)</span> As we want <span class="process-math">\(a_1=2\text{,}\)</span> we set <span class="process-math">\(b=-1\text{.}\)</span> Thus <span class="process-math">\(a_n = 3n-1\text{.}\)</span>
+</div></li>
+<li id="li-1621">
+<div class="para" id="p-8195">First notice how the sign changes from term to term. This is most commonly accomplished by multiplying the terms by either <span class="process-math">\((-1)^n\)</span> or <span class="process-math">\((-1)^{n+1}\text{.}\)</span> Using <span class="process-math">\((-1)^n\)</span> multiplies the odd indexed terms by <span class="process-math">\((-1)\text{.}\)</span> Thus the first term would be negative and the second term would be positive. Multiplying by <span class="process-math">\((-1)^{n+1}\)</span> multiplies the even indexed terms by <span class="process-math">\((-1)\text{.}\)</span> Thus the second term would be negative and the first term would be positive. As this sequence has negative even indexed terms, we will multiply by <span class="process-math">\((-1)^{n+1}\text{.}\)</span>
+</div>
+<div class="para" id="p-8196">After this, we might feel a bit stuck as to how to proceed. At this point, we are just looking for a pattern of some sort: what do the numbers 2, 5, 10, 17, etc., have in common? There are many correct answers, but the one that we'll use here is that each is one more than a perfect square. That is, <span class="process-math">\(2=1^2+1\text{,}\)</span> <span class="process-math">\(5=2^2+1\text{,}\)</span> <span class="process-math">\(10=3^2+1\text{,}\)</span> etc. Thus our formula is <span class="process-math">\(b_n= (-1)^{n+1}(n^2+1)\text{.}\)</span>
+</div>
+</li>
+<li id="li-1622"><div class="para" id="p-8197">One who is familiar with the factorial function will readily recognize these numbers. They are <span class="process-math">\(0!\text{,}\)</span> <span class="process-math">\(1!\text{,}\)</span> <span class="process-math">\(2!\text{,}\)</span> <span class="process-math">\(3!\text{,}\)</span> etc. Since our sequences start with <span class="process-math">\(n=1\text{,}\)</span> we cannot write <span class="process-math">\(c_n = n!\text{,}\)</span> for this misses the <span class="process-math">\(0!\)</span> term. Instead, we shift by 1, and write <span class="process-math">\(c_n = (n-1)!\text{.}\)</span>
+</div></li>
+<li id="li-1623">
+<div class="para" id="p-8198">This one may appear difficult, especially as the first two terms are the same, but a little “sleuthing” will help. Notice how the terms in the numerator are always multiples of 5, and the terms in the denominator are always powers of 2. Does something as simple as <span class="process-math">\(d_n = \frac{5n}{2^n}\)</span> work?</div>
+<div class="para" id="p-8199">When <span class="process-math">\(n=1\text{,}\)</span> we see that we indeed get <span class="process-math">\(5/2\)</span> as desired. When <span class="process-math">\(n=2\text{,}\)</span> we get <span class="process-math">\(10/4 = 5/2\text{.}\)</span> Further checking shows that this formula indeed matches the other terms of the sequence.</div>
+</li>
+</ol></div>
+</div></div>
+</div></article><div class="para" id="p-8200">A common mathematical endeavor is to create a new mathematical object (for instance, a sequence) and then apply previously known mathematics to the new object. We do so here. The fundamental concept of calculus is the limit, so we will investigate what it means to find the limit of a sequence.</div>
+<article class="definition definition-like" id="def_seq_limit"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.1.9</span><span class="period">.</span><span class="space"> </span><span class="title">Limit of a Sequence, Convergent, Divergent.</span>
+</h3> <div class="para logical" id="p-8201">
+<div class="para">Let <span class="process-math">\(\{a_n\}\)</span> be a sequence and let <span class="process-math">\(L\)</span> be a real number. Given any <span class="process-math">\(\varepsilon \gt 0\text{,}\)</span> if an <span class="process-math">\(N\)</span> can be found such that <span class="process-math">\(\abs{a_n-L}\lt \varepsilon\)</span> for all <span class="process-math">\(n\gt N\text{,}\)</span> then we say the <dfn class="terminology">limit</dfn> of <span class="process-math">\(\{a_n\}\text{,}\)</span> as <span class="process-math">\(n\)</span> <dfn class="terminology">approaches infinity</dfn>, is <span class="process-math">\(L\text{,}\)</span> denoted</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{n\to\infty}a_n = L\text{.}
+\end{equation*}
+</div>
+</div> <div class="para" id="p-8202">If <span class="process-math">\(\lim\limits_{n\to\infty} a_n\)</span> exists, we say the sequence <dfn class="terminology">converges</dfn>; otherwise, the sequence <dfn class="terminology">diverges</dfn>. </div></article><div class="para" id="p-8203">This definition states, informally, that if the limit of a sequence is <span class="process-math">\(L\text{,}\)</span> then if you go far enough out along the sequence, all subsequent terms will be <em class="emphasis">really close</em> to <span class="process-math">\(L\text{.}\)</span> Of course, the terms “far enough” and “really close” are subjective terms, but hopefully the intent is clear.</div>
+<figure class="figure figure-like" id="vid-seqseries-sequences-limit"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-301" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/kt6A8Fgg22o?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.10<span class="period">.</span></span><span class="space"> </span>Video presentation of <a href="" class="xref" data-knowl="./knowl/def_seq_limit.html" title="Definition 9.1.9: Limit of a Sequence, Convergent, Divergent">Definition 9.1.9</a></figcaption></figure><div class="para" id="p-8204">This definition is reminiscent of the <span class="process-math">\(\varepsilon\)</span>-<span class="process-math">\(\delta\)</span> proofs of <a href="chapter_limits.html" class="internal" title="Chapter 1: Limits">Chapter 1</a>. In that chapter we developed other tools to evaluate limits apart from the formal definition; we do so here as well.</div>
+<article class="definition definition-like" id="def_seq_limit_infinity"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.1.11</span><span class="period">.</span><span class="space"> </span><span class="title">Limit of Infinity, Divergent Sequence.</span>
+</h3> <div class="para" id="p-8205">Let <span class="process-math">\(\{a_n\}\)</span> be a sequence. We say <span class="process-math">\(\lim\limits_{n\to\infty} a_n=\infty\)</span> if for all <span class="process-math">\(M \gt 0\text{,}\)</span> there exists a number <span class="process-math">\(N\)</span> such that if <span class="process-math">\(n\ge N\text{,}\)</span> then <span class="process-math">\(a_n \gt M\text{.}\)</span> In this case, we say the sequence diverges to <span class="process-math">\(\infty\text{.}\)</span>
+</div></article><div class="para" id="p-8206">This definition states, informally, that if the limit of <span class="process-math">\(a_n\)</span> is <span class="process-math">\(\infty\text{,}\)</span> then you can guarantee that the terms of <span class="process-math">\(a_n\)</span> will get arbitrarily large (larger than any value of <span class="process-math">\(M\)</span> that you think of), by going out far enough in the sequence.</div>
+<article class="theorem theorem-like" id="thm_seq_limit"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.1.12</span><span class="period">.</span><span class="space"> </span><span class="title">Limit of a Sequence.</span>
+</h3>
+<div class="para" id="p-8207">Let <span class="process-math">\(\{a_n\}\)</span> be a sequence, let <span class="process-math">\(L\)</span> be a real number, and let <span class="process-math">\(f(x)\)</span> be a function whose domain contains the positive real numbers where <span class="process-math">\(f(n) = a_n\)</span> for all <span class="process-math">\(n\)</span> in <span class="process-math">\(\mathbb{N}\text{.}\)</span>
+</div> <div class="para logical" id="p-8208"><ol class="decimal">
+<li id="li-1624"><div class="para" id="p-8209">If <span class="process-math">\(\lim\limits_{x\to\infty} f(x) = L\text{,}\)</span> then <span class="process-math">\(\lim\limits_{n\to\infty} a_n = L\text{.}\)</span>
+</div></li>
+<li id="li-1625"><div class="para" id="p-8210">If <span class="process-math">\(\lim\limits_{x\to\infty} f(x) = \infty\text{,}\)</span> then <span class="process-math">\(\lim\limits_{n\to\infty} a_n = \infty\text{.}\)</span>
+</div></li>
+</ol></div></article><div class="para" id="p-8211">
+<a href="" class="xref" data-knowl="./knowl/thm_seq_limit.html" title="Theorem 9.1.12: Limit of a Sequence">Theorem 9.1.12</a> allows us, in certain cases, to apply the tools developed in <a href="chapter_limits.html" class="internal" title="Chapter 1: Limits">Chapter 1</a> to limits of sequences. Note two things <em class="emphasis">not</em> stated by the theorem:</div>
+<div class="para logical" id="p-8212"><ol class="decimal">
+<li id="li-1626"><div class="para" id="p-8213">If <span class="process-math">\(\lim\limits_{x\to\infty}f(x)\)</span> does not exist, we cannot conclude that <span class="process-math">\(\lim\limits_{n\to\infty} a_n\)</span> does not exist. It may, or may not, exist. For instance, we can define a sequence <span class="process-math">\(\{a_n\} = \{\cos(2\pi n)\}\text{.}\)</span> Let <span class="process-math">\(f(x) = \cos(2\pi x)\text{.}\)</span> Since the cosine function oscillates over the real numbers, the limit <span class="process-math">\(\lim\limits_{x\to\infty}f(x)\)</span> does not exist. However, for every positive integer <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(\cos(2\pi n) = 1\text{,}\)</span> so <span class="process-math">\(\lim\limits_{n\to\infty} a_n = 1\text{.}\)</span>
+</div></li>
+<li id="li-1627"><div class="para" id="p-8214">If we cannot find a function <span class="process-math">\(f(x)\)</span> whose domain contains the positive real numbers where <span class="process-math">\(f(n) = a_n\)</span> for all <span class="process-math">\(n\)</span> in <span class="process-math">\(\mathbb{N}\text{,}\)</span> we cannot conclude <span class="process-math">\(\lim\limits_{n\to\infty} a_n\)</span> does not exist. It may, or may not, exist.</div></li>
+</ol></div>
+<article class="example example-like" id="ex_seq4"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.1.13</span><span class="period">.</span><span class="space"> </span><span class="title">Determining convergence/divergence of a sequence.</span>
+</h3>
+<div class="para" id="p-8215">Determine the convergence or divergence of the following sequences.</div> <div class="para logical" id="p-8216"><ol class="decimal">
+<li id="item_ex_seq4_1"><div class="para" id="p-derived-item_ex_seq4_1"><span class="process-math">\(\displaystyle \ds\{a_n\} = \left\{\frac{3n^2-2n+1}{n^2-1000}\right\}\)</span></div></li>
+<li id="item_ex_seq4_2"><div class="para" id="p-derived-item_ex_seq4_2"><span class="process-math">\(\displaystyle \{b_n\} = \{\cos(n) \}\)</span></div></li>
+<li id="item_ex_seq4_3"><div class="para" id="p-derived-item_ex_seq4_3"><span class="process-math">\(\displaystyle \ds\{c_n\} = \left\{\frac{(-1)^n}{n}\right\}\)</span></div></li>
+</ol></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-video" data-refid="hk-solution-667" id="solution-667"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span><span class="space"> </span><span class="title">Video solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-667"><div class="solution solution-like"> <div class="video-box" style="width: 98%;padding-top: 55.125%; margin-left: 1%; margin-right: 1%;"><iframe id="vid-seqseries-sequences-example3" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/8xE6Sc8U_gU?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-668" id="solution-668"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-668"><div class="solution solution-like"><div class="para logical" id="p-8217"><ol class="decimal">
+<li id="li-1631">
+<div class="para" id="p-8218">Using <a href="" class="xref" data-knowl="./knowl/thm_lim_rational_fn_at_infty.html" title="Theorem 1.6.21: Limits of Rational Functions at Infinity">Theorem 1.6.21</a>, we can state that <span class="process-math">\(\lim\limits_{x\to\infty} \frac{3x^2-2x+1}{x^2-1000} = 3\text{.}\)</span> (We could have also directly applied L'Hospital's Rule.) Thus the sequence <span class="process-math">\(\{a_n\}\)</span> converges, and its limit is 3. A scatter plot of every 5 values of <span class="process-math">\(a_n\)</span> is given in <a href="" class="xref" data-knowl="./knowl/fig_seq4a.html" title="Figure 9.1.14">Figure 9.1.14</a>. The values of <span class="process-math">\(a_n\)</span> vary widely near <span class="process-math">\(n=30\text{,}\)</span> ranging from about <span class="process-math">\(-73\)</span> to <span class="process-math">\(125\text{,}\)</span> but as <span class="process-math">\(n\)</span> grows, the values approach 3.</div>
+<figure class="figure figure-like" id="fig_seq4a"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_seq4a.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.14<span class="period">.</span></span><span class="space"> </span>Scatter plot for the sequence in <a href="" class="xref" data-knowl="./knowl/item_ex_seq4_1.html" title="Item 1">Item 1</a></figcaption></figure>
+</li>
+<li id="li-1632">
+<div class="para" id="p-8219">The limit <span class="process-math">\(\lim\limits_{x\to\infty}\cos(x)\)</span> does not exist, as <span class="process-math">\(\cos(x)\)</span> oscillates (and takes on every value in <span class="process-math">\([-1,1]\)</span> infinitely many times). Thus we cannot apply <a href="" class="xref" data-knowl="./knowl/thm_seq_limit.html" title="Theorem 9.1.12: Limit of a Sequence">Theorem 9.1.12</a>. The fact that the cosine function oscillates strongly hints that <span class="process-math">\(\cos(n)\text{,}\)</span> when <span class="process-math">\(n\)</span> is restricted to <span class="process-math">\(\mathbb{N}\text{,}\)</span> will also oscillate. <a href="" class="xref" data-knowl="./knowl/fig_seq4b.html" title="Figure 9.1.15">Figure 9.1.15</a>, where the sequence is plotted, shows that this is true. Because only discrete values of cosine are plotted, it does not bear strong resemblance to the familiar cosine wave. The proof of the following statement is beyond the scope of this text, but it is true: there are infinitely many integers <span class="process-math">\(n\)</span> that are arbitrarily (i.e., <em class="emphasis">very</em>) close to an even multiple of <span class="process-math">\(\pi\text{,}\)</span> so that <span class="process-math">\(\cos n \approx 1\text{.}\)</span> Similarly, there are infinitely many integers <span class="process-math">\(m\)</span> that are arbitrarily close to an odd multiple of <span class="process-math">\(\pi\text{,}\)</span> so that <span class="process-math">\(\cos m \approx -1\text{.}\)</span> As the sequence takes on values near 1 and <span class="process-math">\(-1\)</span> infinitely many times, we conclude that <span class="process-math">\(\lim\limits_{n\to\infty}a_n\)</span> does not exist.</div>
+<figure class="figure figure-like" id="fig_seq4b"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_seq4b.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.15<span class="period">.</span></span><span class="space"> </span>Scatter plot for the sequence in <a href="" class="xref" data-knowl="./knowl/item_ex_seq4_2.html" title="Item 2">Item 2</a></figcaption></figure>
+</li>
+<li id="li-1633">
+<div class="para logical" id="p-8220">
+<div class="para">We cannot actually apply <a href="" class="xref" data-knowl="./knowl/thm_seq_limit.html" title="Theorem 9.1.12: Limit of a Sequence">Theorem 9.1.12</a> here, as the function <span class="process-math">\(f(x) = (-1)^x/x\)</span> is not well defined. (What does <span class="process-math">\((-1)^{\sqrt{2}}\)</span> mean? In actuality, there is an answer, but it involves <em class="emphasis">complex analysis</em>, beyond the scope of this text.)  Instead, we invoke the definition of the limit of a sequence. By looking at the plot in <a href="" class="xref" data-knowl="./knowl/fig_seq4c.html" title="Figure 9.1.16">Figure 9.1.16</a>, we would like to conclude that the sequence converges to <span class="process-math">\(L=0\text{.}\)</span> Let <span class="process-math">\(\epsilon&gt;0\)</span> be given. We can find a natural number <span class="process-math">\(m\)</span> such that <span class="process-math">\(1/m \lt  \varepsilon\text{.}\)</span> Let <span class="process-math">\(n&gt;m\text{,}\)</span> and consider <span class="process-math">\(\abs{a_n - L}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_seq_limit.html ./knowl/fig_seq4c.html" id="md-367">
+\begin{align*}
+\abs{a_n - L} \amp = \left\lvert\frac{(-1)^n}{n} - 0\right\rvert\\
+\amp = \frac1n\\
+\amp \lt  \frac1m \text{ (since \(n&gt;m\)) }\\
+\amp \lt  \varepsilon\text{.}
+\end{align*}
+</div>
+<div class="para">We have shown that by picking <span class="process-math">\(m\)</span> large enough, we can ensure that <span class="process-math">\(a_n\)</span> is arbitrarily close to our limit, <span class="process-math">\(L=0\text{,}\)</span> hence by the definition of the limit of a sequence, we can say <span class="process-math">\(\lim\limits_{n\to\infty}a_n = 0\text{.}\)</span>
+</div>
+</div>
+<figure class="figure figure-like" id="fig_seq4c"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_seq4c.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.16<span class="period">.</span></span><span class="space"> </span>Scatter plot for the sequence in <a href="" class="xref" data-knowl="./knowl/item_ex_seq4_3.html" title="Item 3">Item 3</a></figcaption></figure>
+</li>
+</ol></div></div></div>
+</div></article><div class="para" id="p-8221">In the previous example we used the definition of the limit of a sequence to determine the convergence of a sequence as we could not apply <a href="" class="xref" data-knowl="./knowl/thm_seq_limit.html" title="Theorem 9.1.12: Limit of a Sequence">Theorem 9.1.12</a>. In general, we like to avoid invoking the definition of a limit, and the following theorem gives us tool that we could use in that example instead.</div>
+<article class="theorem theorem-like" id="thm_abs_val_seq"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.1.17</span><span class="period">.</span><span class="space"> </span><span class="title">Absolute Value Theorem.</span>
+</h3>
+<div class="para" id="p-8222">Let <span class="process-math">\(\{a_n\}\)</span> be a sequence. If <span class="process-math">\(\lim\limits_{n\to\infty} \abs{a_n} = 0\text{,}\)</span> then <span class="process-math">\(\lim\limits_{n\to\infty} a_n = 0\)</span> </div></article><article class="hiddenproof" id="proof-4"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof"><div class="para logical" id="p-8223">
+<div class="para">Let <span class="process-math">\(\lim\limits_{n\to\infty} \abs{a_n} = 0\text{.}\)</span> We start by noting that <span class="process-math">\(-\abs{a_n}\leq a_n \leq \abs{a_n}\text{.}\)</span> If we apply limits to this inequality:</div>
+<div class="displaymath process-math" id="md-368">
+\begin{gather*}
+\lim\limits_{n \to \infty}\left(-\abs{a_n}\right) \leq \lim\limits_{n \to \infty} a_n \leq \lim\limits_{n \to \infty} \abs{a_n}\\
+-\lim\limits_{n \to \infty}\abs{a_n} \leq \lim\limits_{n \to \infty} a_n \leq \lim\limits_{n \to \infty} \abs{a_n}\\
+\end{gather*}
+<p class="intertext">Using the fact that <span class="process-math">\(\lim\limits_{n\to\infty} \abs{a_n} = 0\text{:}\)</span></p>
+\begin{gather*}
+0 \leq \lim\limits_{n \to \infty} a_n \leq 0
+\end{gather*}
+</div>
+<div class="para">We conclude that the only possible answer for <span class="process-math">\(\lim\limits_{n \to \infty} a_n\)</span> is <span class="process-math">\(0\text{.}\)</span>
+</div>
+</div></article></div>
+<article class="example example-like" id="ex_seq5"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.1.18</span><span class="period">.</span><span class="space"> </span><span class="title">Determining the convergence/divergence of a sequence.</span>
+</h3>
+<div class="para" id="p-8224">Determine the convergence or divergence of the following sequences.</div> <div class="para logical" id="p-8225"><ol class="decimal cols2">
+<li id="li-1634"><div class="para" id="p-derived-li-1634"><span class="process-math">\(\displaystyle \ds \{a_n\} = \left\{\frac{(-1)^n}{n}\right\}\)</span></div></li>
+<li id="li-1635"><div class="para" id="p-derived-li-1635"><span class="process-math">\(\displaystyle \ds \{a_n\} = \left\{\frac{(-1)^n(n+1)}{n}\right\}\)</span></div></li>
+</ol></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-669" id="solution-669"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-669"><div class="solution solution-like"><div class="para logical" id="p-8226"><ol class="decimal">
+<li id="li-1636"><div class="para logical" id="p-8227">
+<div class="para">This appeared in <a href="" class="xref" data-knowl="./knowl/ex_seq4.html" title="Example 9.1.13: Determining convergence/divergence of a sequence">Example 9.1.13</a>. We want to apply <a href="" class="xref" data-knowl="./knowl/thm_abs_val_seq.html" title="Theorem 9.1.17: Absolute Value Theorem">Theorem 9.1.17</a>, so consider the limit of <span class="process-math">\(\{\abs{a_n}\}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex_seq4.html ./knowl/thm_abs_val_seq.html ./knowl/thm_abs_val_seq.html" id="md-369">
+\begin{align*}
+\lim_{n\to\infty} \abs{a_n} \amp = \lim_{n\to\infty} \abs{\frac{(-1)^n}{n}}\\
+\amp = \lim_{n\to\infty} \frac{1}{n}\\
+\amp = 0\text{.}
+\end{align*}
+</div>
+<div class="para">Since this limit is 0, we can apply <a href="" class="xref" data-knowl="./knowl/thm_abs_val_seq.html" title="Theorem 9.1.17: Absolute Value Theorem">Theorem 9.1.17</a> and state that <span class="process-math">\(\lim\limits_{n\to\infty} a_n=0\text{.}\)</span>
+</div>
+</div></li>
+<li id="li-1637">
+<div class="para logical" id="p-8228">
+<div class="para">Because of the alternating nature of this sequence (i.e., every other term is multiplied by <span class="process-math">\(-1\)</span>), we cannot simply look at the limit <span class="process-math">\(\lim\limits_{x\to\infty} \frac{(-1)^x(x+1)}{x}\text{.}\)</span> We can try to apply the techniques of <a href="" class="xref" data-knowl="./knowl/thm_abs_val_seq.html" title="Theorem 9.1.17: Absolute Value Theorem">Theorem 9.1.17</a>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_abs_val_seq.html ./knowl/thm_abs_val_seq.html" id="md-370">
+\begin{align*}
+\lim_{n\to\infty} \abs{a_n} \amp = \lim_{n\to\infty} \abs{\frac{(-1)^n(n+1)}{n}}\\
+\amp = \lim_{n\to\infty} \frac{n+1}{n}\\
+\amp = 1\text{.}
+\end{align*}
+</div>
+<div class="para">We have concluded that when we ignore the alternating sign, the sequence approaches 1. This means we cannot apply <a href="" class="xref" data-knowl="./knowl/thm_abs_val_seq.html" title="Theorem 9.1.17: Absolute Value Theorem">Theorem 9.1.17</a>; it states the the limit must be 0 in order to conclude anything.</div>
+</div>
+<figure class="figure figure-like" id="fig_seq5"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_seq5.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.19<span class="period">.</span></span><span class="space"> </span>A plot of a sequence in <a href="" class="xref" data-knowl="./knowl/ex_seq5.html" title="Example 9.1.18: Determining the convergence/divergence of a sequence">Example 9.1.18</a>, part 2</figcaption></figure><div class="para" id="p-8229">Since we know that the signs of the terms alternate <em class="emphasis">and</em> we know that the limit of <span class="process-math">\(\abs{a_n}\)</span> is 1, we know that as <span class="process-math">\(n\)</span> approaches infinity, the terms will alternate between values close to 1 and <span class="process-math">\(-1\text{,}\)</span> meaning the sequence diverges. A plot of this sequence is given in <a href="" class="xref" data-knowl="./knowl/fig_seq5.html" title="Figure 9.1.19">Figure 9.1.19</a>.</div>
+</li>
+</ol></div></div></div>
+</div></article><div class="para" id="p-8230">We continue our study of the limits of sequences by considering some of the properties of these limits.</div>
+<article class="theorem theorem-like" id="thm_seq_properties"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.1.20</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of the Limits of Sequences.</span>
+</h3>
+<div class="para" id="p-8231">Let <span class="process-math">\(\{a_n\}\)</span> and <span class="process-math">\(\{b_n\}\)</span> be sequences such that <span class="process-math">\(\lim\limits_{n\to\infty} a_n = L\text{,}\)</span> <span class="process-math">\(\lim\limits_{n\to\infty} b_n = K\text{,}\)</span> and let <span class="process-math">\(c\)</span> be a real number.</div> <div class="para logical" id="p-8232"><ol class="decimal cols2">
+<li id="li-1638"><div class="para" id="p-8233">
+<span class="process-math">\(\lim\limits_{n\to\infty} (a_n\pm b_n) = L\pm K\)</span> </div></li>
+<li id="li-1639"><div class="para" id="p-8234"><span class="process-math">\(\displaystyle \lim\limits_{n\to\infty} (a_n\cdot b_n) = L\cdot K\)</span></div></li>
+<li id="li-1640"><div class="para" id="p-8235">
+<span class="process-math">\(\lim\limits_{n\to\infty} (a_n/b_n) = L/K\text{,}\)</span> <span class="process-math">\(K\neq 0\)</span>
+</div></li>
+<li id="li-1641"><div class="para" id="p-8236"><span class="process-math">\(\displaystyle \lim\limits_{n\to\infty} c\cdot a_n = c\cdot L\)</span></div></li>
+</ol></div></article><figure class="figure figure-like" id="vid-seqseries-sequences-limit-properties"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-303" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/93lWvxKvFRw?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.21<span class="period">.</span></span><span class="space"> </span>Video presentation of <a href="" class="xref" data-knowl="./knowl/thm_abs_val_seq.html" title="Theorem 9.1.17: Absolute Value Theorem">Theorem 9.1.17</a> and <a href="" class="xref" data-knowl="./knowl/thm_seq_properties.html" title="Theorem 9.1.20: Properties of the Limits of Sequences">Theorem 9.1.20</a></figcaption></figure><article class="example example-like" id="ex_seq6"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.1.22</span><span class="period">.</span><span class="space"> </span><span class="title">Applying properties of limits of sequences.</span>
+</h3>
+<div class="para" id="p-8237">Let the following sequences, and their limits, be given:</div> <div class="para logical" id="p-8238"><ul class="disc">
+<li id="li-1642"><div class="para" id="p-8239">
+<span class="process-math">\(\ds \{a_n\} = \left\{\frac{n+1}{n^2}\right\}\text{,}\)</span> and <span class="process-math">\(\lim\limits_{n\to\infty} a_n = 0\text{;}\)</span>
+</div></li>
+<li id="li-1643"><div class="para" id="p-8240">
+<span class="process-math">\(\ds \{b_n\} = \left\{\left(1+\frac1n\right)^{n}\right\}\text{,}\)</span> and <span class="process-math">\(\lim\limits_{n\to\infty} b_n = e\text{;}\)</span> and</div></li>
+<li id="li-1644"><div class="para" id="p-8241">
+<span class="process-math">\(\ds \{c_n\} = \big\{n\cdot \sin(5/n)\big\}\text{,}\)</span> and <span class="process-math">\(\lim\limits_{n\to\infty} c_n = 5\text{.}\)</span>
+</div></li>
+</ul></div> <div class="para" id="p-8242">Evaluate the following limits.</div> <div class="para logical" id="p-8243"><ol class="decimal cols3">
+<li id="li-1645"><div class="para" id="p-derived-li-1645"><span class="process-math">\(\displaystyle \lim\limits_{n\to\infty} (a_n+b_n)\)</span></div></li>
+<li id="li-1646"><div class="para" id="p-derived-li-1646"><span class="process-math">\(\displaystyle \lim\limits_{n\to\infty} (b_n\cdot c_n)\)</span></div></li>
+<li id="li-1647"><div class="para" id="p-derived-li-1647"><span class="process-math">\(\displaystyle \lim\limits_{n\to\infty} (1000\cdot a_n)\)</span></div></li>
+</ol></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-video" data-refid="hk-solution-670" id="solution-670"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span><span class="space"> </span><span class="title">Video solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-670"><div class="solution solution-like"> <div class="video-box" style="width: 98%;padding-top: 55.125%; margin-left: 1%; margin-right: 1%;"><iframe id="vid-seqseries-sequences-example5" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/2PVI6iUVYcI?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-671" id="solution-671"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-671"><div class="solution solution-like">
+<div class="para" id="p-8244">We will use <a href="" class="xref" data-knowl="./knowl/thm_seq_properties.html" title="Theorem 9.1.20: Properties of the Limits of Sequences">Theorem 9.1.20</a> to answer each of these.</div> <div class="para logical" id="p-8245"><ol class="decimal">
+<li id="li-1648"><div class="para" id="p-8246">Since <span class="process-math">\(\lim\limits_{n\to\infty} a_n = 0\)</span> and <span class="process-math">\(\lim\limits_{n\to\infty} b_n = e\text{,}\)</span> we conclude that <span class="process-math">\(\lim\limits_{n\to\infty} (a_n+b_n) = 0+e = e\text{.}\)</span> So even though we are adding something to each term of the sequence <span class="process-math">\(b_n\text{,}\)</span> we are adding something so small that the final limit is the same as before.</div></li>
+<li id="li-1649"><div class="para" id="p-8247">Since <span class="process-math">\(\lim\limits_{n\to\infty} b_n = e\)</span> and <span class="process-math">\(\lim\limits_{n\to\infty} c_n = 5\text{,}\)</span> we conclude that <span class="process-math">\(\lim\limits_{n\to\infty} (b_n\cdot c_n) = e\cdot 5 = 5e\text{.}\)</span>
+</div></li>
+<li id="li-1650"><div class="para" id="p-8248">Since <span class="process-math">\(\lim\limits_{n\to\infty} a_n = 0\text{,}\)</span> we have <span class="process-math">\(\lim\limits_{n\to\infty} 1000a_n =1000\cdot 0 = 0\text{.}\)</span> It does not matter that we multiply each term by 1000; the sequence still approaches 0. (It just takes longer to get close to 0.)</div></li>
+</ol></div>
+</div></div>
+</div></article><div class="para" id="p-8249">There is more to learn about sequences than just their limits. We will also study their range and the relationships terms have with the terms that follow. We start with some definitions describing properties of the range.</div>
+<article class="definition definition-like" id="def_bounded"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.1.23</span><span class="period">.</span><span class="space"> </span><span class="title">Bounded and Unbounded Sequences.</span>
+</h3> <div class="para" id="p-8250">A sequence <span class="process-math">\(\{a_n\}\)</span> is said to be <dfn class="terminology">bounded</dfn> if there exist real numbers <span class="process-math">\(m\)</span> and <span class="process-math">\(M\)</span> such that <span class="process-math">\(m \leq a_n \leq M\)</span> for all <span class="process-math">\(n\)</span> in <span class="process-math">\(\mathbb{N}\text{.}\)</span> The number <span class="process-math">\(m\)</span> is called a <dfn class="terminology">lower bound</dfn> for the sequence, and the number <span class="process-math">\(M\)</span> is called an <dfn class="terminology">upper bound</dfn> for the sequence.</div> <div class="para" id="p-8251">A sequence <span class="process-math">\(\{a_n\}\)</span> is said to be <dfn class="terminology">unbounded</dfn> if it is not bounded.</div> <div class="para" id="p-8252">A sequence <span class="process-math">\(\{a_n\}\)</span> is said to be <dfn class="terminology">bounded above</dfn> if there exists an <span class="process-math">\(M\)</span> such that <span class="process-math">\(a_n \lt M\)</span> for all <span class="process-math">\(n\)</span> in <span class="process-math">\(\mathbb{N}\text{;}\)</span> it is <dfn class="terminology">bounded below</dfn> if there exists an <span class="process-math">\(m\)</span> such that <span class="process-math">\(m\lt a_n\)</span> for all <span class="process-math">\(n\)</span> in <span class="process-math">\(\mathbb{N}\text{.}\)</span> </div></article><div class="para" id="p-8253">It follows from this definition that an unbounded sequence may be bounded above or bounded below; a sequence that is both bounded above and below is simply a bounded sequence.</div>
+<article class="example example-like" id="ex_seq3"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.1.24</span><span class="period">.</span><span class="space"> </span><span class="title">Determining boundedness of sequences.</span>
+</h3>
+<div class="para" id="p-8254">Determine the boundedness of the following sequences.</div> <div class="para logical" id="p-8255"><ol class="decimal cols2">
+<li id="li-1651"><div class="para" id="p-derived-li-1651"><span class="process-math">\(\displaystyle \ds\{a_n\} = \left\{\frac1n\right\}\)</span></div></li>
+<li id="li-1652"><div class="para" id="p-derived-li-1652"><span class="process-math">\(\displaystyle \{a_n\} = \{2^n\}\)</span></div></li>
+</ol></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-video" data-refid="hk-solution-672" id="solution-672"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span><span class="space"> </span><span class="title">Video solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-672"><div class="solution solution-like"> <div class="video-box" style="width: 98%;padding-top: 55.125%; margin-left: 1%; margin-right: 1%;"><iframe id="vid-seqseries-sequences-example-bounded" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/d_C_rw2LXwk?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-673" id="solution-673"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-673"><div class="solution solution-like">
+<div class="para logical" id="p-8256"><ol class="decimal">
+<li id="li-1653"><div class="para" id="p-8257">The terms of this sequence are always positive but are decreasing, so we have <span class="process-math">\(0\lt a_n\lt 2\)</span> for all <span class="process-math">\(n\text{.}\)</span> Thus this sequence is bounded. <a href="" class="xref" data-knowl="./knowl/fig_seq3a.html" title="Figure 9.1.25.(a)">Figure 9.1.25.(a)</a>illustrates this.</div></li>
+<li id="li-1654"><div class="para" id="p-8258">The terms of this sequence obviously grow without bound. However, it is also true that these terms are all positive, meaning <span class="process-math">\(0\lt a_n\text{.}\)</span> Thus we can say the sequence is unbounded, but also bounded below. <a href="" class="xref" data-knowl="./knowl/fig_seq3b.html" title="Figure 9.1.25.(b)">Figure 9.1.25.(b)</a> illustrates this.</div></li>
+</ol></div> <figure class="figure figure-like" id="fig_seq3"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel bottom" style="width:47%;"><figure class="figure figure-like" id="fig_seq3a"><img src="generated/latex-image/img_seq3a.svg" role="img" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span></figcaption></figure></div>
+<div class="sbspanel bottom" style="width:47%;"><figure class="figure figure-like" id="fig_seq3b"><img src="generated/latex-image/img_seq3b.svg" role="img" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.25<span class="period">.</span></span><span class="space"> </span>A plot of <span class="process-math">\(\{a_n\} = \{1/n\}\)</span> and <span class="process-math">\(\{a_n\} = \{2^n\}\)</span> from <a href="" class="xref" data-knowl="./knowl/ex_seq3.html" title="Example 9.1.24: Determining boundedness of sequences">Example 9.1.24</a></figcaption></figure>
+</div></div>
+</div></article><div class="para" id="p-8259">The previous example produces some interesting concepts. First, we can recognize that the sequence <span class="process-math">\(\ds\left\{1/n\right\}\)</span> converges to 0. This says, informally, that “most” of the terms of the sequence are “really close” to 0. This implies that the sequence is bounded, using the following logic. First, “most” terms are near 0, so we could find some sort of bound on these terms (using <a href="" class="xref" data-knowl="./knowl/def_seq_limit.html" title="Definition 9.1.9: Limit of a Sequence, Convergent, Divergent">Definition 9.1.9</a>, the bound is <span class="process-math">\(\varepsilon\)</span>). That leaves a “few” terms that are not near 0 (i.e., a <em class="emphasis">finite</em> number of terms). A finite list of numbers is always bounded.</div>
+<div class="para" id="p-8260">This logic implies that if a sequence converges, it must be bounded. This is indeed true, as stated by the following theorem.</div>
+<article class="theorem theorem-like" id="thm_converge_bounded"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.1.26</span><span class="period">.</span><span class="space"> </span><span class="title">Convergent Sequences are Bounded.</span>
+</h3>
+<div class="para" id="p-8261">Let <span class="process-math">\(\ds \left\{a_n\right\}\)</span> be a convergent sequence. Then <span class="process-math">\(\{a_n\}\)</span> is bounded. </div></article><aside class="aside aside-like" id="aside-54"><div class="para" id="p-8262">Keep in mind what <a href="" class="xref" data-knowl="./knowl/thm_converge_bounded.html" title="Theorem 9.1.26: Convergent Sequences are Bounded">Theorem 9.1.26</a> does <em class="emphasis">not</em> say. It does not say that bounded sequences must converge, nor does it say that if a sequence does not converge, it is not bounded.</div></aside><figure class="figure figure-like" id="vid-seqseries-sequences-convergent-bounded"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-306" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/Ljrqs5azcCI?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.27<span class="period">.</span></span><span class="space"> </span>Video presentation of <a href="" class="xref" data-knowl="./knowl/thm_converge_bounded.html" title="Theorem 9.1.26: Convergent Sequences are Bounded">Theorem 9.1.26</a></figcaption></figure><div class="para" id="p-8263">In <a href="" class="xref" data-knowl="./knowl/ex_seq6.html" title="Example 9.1.22: Applying properties of limits of sequences">Example 9.1.22</a> we saw the sequence <span class="process-math">\(\ds \{b_n\} = \left\{\left(1+1/n\right)^{n}\right\}\text{,}\)</span> where it was stated that <span class="process-math">\(\lim\limits_{n\to\infty} b_n = e\text{.}\)</span> (Note that this is simply restating part of <a href="" class="xref" data-knowl="./knowl/thm_special_limits.html" title="Theorem 1.3.17: Special Limits">Theorem 1.3.17</a>. The limit can also be found using logarithms and L'Hospital's rule.) Even though it may be difficult to intuitively grasp the behavior of this sequence, we know immediately that it is bounded.</div>
+<div class="para" id="p-8264">Another interesting concept to come out of <a href="" class="xref" data-knowl="./knowl/ex_seq3.html" title="Example 9.1.24: Determining boundedness of sequences">Example 9.1.24</a> again involves the sequence <span class="process-math">\(\{1/n\}\text{.}\)</span> We stated, without proof, that the terms of the sequence were decreasing. That is, that <span class="process-math">\(a_{n+1} \lt a_n\)</span> for all <span class="process-math">\(n\text{.}\)</span> (This is easy to show. Clearly <span class="process-math">\(n \lt n+1\text{.}\)</span> Taking reciprocals flips the inequality: <span class="process-math">\(1/n  \gt  1/(n+1)\text{.}\)</span> This is the same as <span class="process-math">\(a_n  \gt  a_{n+1}\text{.}\)</span>) Sequences that either steadily increase or decrease are important, so we give this property a name.</div>
+<article class="definition definition-like" id="def_monotonic"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.1.28</span><span class="period">.</span><span class="space"> </span><span class="title">Monotonic Sequences.</span>
+</h3> <div class="para logical" id="p-8265"><ol class="decimal">
+<li id="li-1655"><div class="para logical" id="p-8266">
+<div class="para">A sequence <span class="process-math">\(\{a_n\}\)</span> is <em class="emphasis">monotonically increasing</em> if <span class="process-math">\(a_n \leq a_{n+1}\)</span> for all <span class="process-math">\(n\text{,}\)</span> i.e.,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a_1 \leq a_2 \leq a_3 \leq \cdots a_n \leq a_{n+1} \cdots
+\end{equation*}
+</div>
+</div></li>
+<li id="li-1656"><div class="para logical" id="p-8267">
+<div class="para">A sequence <span class="process-math">\(\{a_n\}\)</span> is <em class="emphasis">monotonically decreasing</em> if <span class="process-math">\(a_n \geq a_{n+1}\)</span> for all <span class="process-math">\(n\text{,}\)</span> i.e.,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a_1 \geq a_2 \geq a_3 \geq \cdots a_n \geq a_{n+1} \cdots
+\end{equation*}
+</div>
+</div></li>
+<li id="li-1657"><div class="para" id="p-8268">A sequence is <em class="emphasis">monotonic</em> if it is monotonically increasing or monotonically decreasing. </div></li>
+</ol></div></article><aside class="aside aside-like" id="aside-55"><div class="para" id="p-8269">It is sometimes useful to call a monotonically increasing sequence <em class="emphasis">strictly increasing</em> if <span class="process-math">\(a_n \lt a_{n+1}\)</span> for all <span class="process-math">\(n\text{;}\)</span> i.e, we remove the possibility that subsequent terms are equal.</div>
+<div class="para" id="p-8270">A similar statement holds for <em class="emphasis">strictly decreasing.</em>
+</div></aside><figure class="figure figure-like" id="vid-seqseries-sequences-monotone-bounded"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-307" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/ZxaUovyGMBI?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.29<span class="period">.</span></span><span class="space"> </span>Video presentation of <a href="" class="xref" data-knowl="./knowl/def_monotonic.html" title="Definition 9.1.28: Monotonic Sequences">Definition 9.1.28</a> and <a href="" class="xref" data-knowl="./knowl/thm_monotonic_converge.html" title="Theorem 9.1.32: Bounded Monotonic Sequences are Convergent">Theorem 9.1.32</a></figcaption></figure><article class="example example-like" id="ex_seq7"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.1.30</span><span class="period">.</span><span class="space"> </span><span class="title">Determining monotonicity.</span>
+</h3>
+<div class="para" id="p-8271">Determine the monotonicity of the following sequences.</div> <div class="para logical" id="p-8272"><ol class="decimal cols2">
+<li id="li-1658"><div class="para" id="p-8273"><span class="process-math">\(\displaystyle \ds \{a_n\} = \left\{\frac{n+1}n\right\}\)</span></div></li>
+<li id="li-1659"><div class="para" id="p-8274"><span class="process-math">\(\displaystyle \ds \{a_n\} = \left\{\frac{n^2+1}{n+1}\right\}\)</span></div></li>
+<li id="li-1660"><div class="para" id="p-8275"><span class="process-math">\(\displaystyle \ds \{a_n\} = \left\{\frac{n^2-9}{n^2-10n+26}\right\}\)</span></div></li>
+<li id="li-1661"><div class="para" id="p-8276"><span class="process-math">\(\displaystyle \ds \{a_n\} = \left\{\frac{n^2}{n!}\right\}\)</span></div></li>
+</ol></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-video" data-refid="hk-solution-674" id="solution-674"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span><span class="space"> </span><span class="title">Video solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-674"><div class="solution solution-like"> <div class="video-box" style="width: 98%;padding-top: 55.125%; margin-left: 1%; margin-right: 1%;"><iframe id="vid-seqseries-sequences-monotone-example" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/F8mDR0ZnMCM?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-675" id="solution-675"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-675"><div class="solution solution-like">
+<div class="para" id="p-8277">In each of the following, we will examine <span class="process-math">\(a_{n+1}-a_n\text{.}\)</span> If <span class="process-math">\(a_{n+1}-a_n \geq 0\text{,}\)</span> we conclude that <span class="process-math">\(a_n\leq a_{n+1}\)</span> and hence the sequence is increasing. If <span class="process-math">\(a_{n+1}-a_n\leq 0\text{,}\)</span> we conclude that <span class="process-math">\(a_n\geq a_{n+1}\)</span> and the sequence is decreasing. Of course, a sequence need not be monotonic and perhaps neither of the above will apply.</div> <div class="para" id="p-8278">We also give a scatter plot of each sequence. These are useful as they suggest a pattern of monotonicity, but analytic work should be done to confirm a graphical trend.</div> <div class="para logical" id="p-8279"><ol class="decimal">
+<li id="li-1662"><div class="para logical" id="p-8280">
+<div class="displaymath process-math" id="md-371">
+\begin{align*}
+a_{n+1}-a_n \amp = \frac{n+2}{n+1} - \frac{n+1}{n}\\
+\amp = \frac{(n+2)(n)-(n+1)^2}{(n+1)n}\\
+\amp = \frac{-1}{n(n+1)}\\
+\amp \lt 0 \text{ for all \(n\). }
+\end{align*}
+</div>
+<div class="para">Since <span class="process-math">\(a_{n+1}-a_n\lt 0\)</span> for all <span class="process-math">\(n\text{,}\)</span> we conclude that the sequence is decreasing.</div>
+</div></li>
+<li id="li-1663"><div class="para logical" id="p-8281">
+<div class="displaymath process-math" id="md-372">
+\begin{align*}
+a_{n+1}-a_n \amp = \frac{(n+1)^2+1}{n+2} - \frac{n^2+1}{n+1}\\
+\amp = \frac{\big((n+1)^2+1\big)(n+1)- (n^2+1)(n+2)}{(n+1)(n+2)}\\
+\amp =  \frac{n^2+4n+1}{(n+1)(n+2)}\\
+\amp \gt 0  \text{ for all \(n\). }
+\end{align*}
+</div>
+<div class="para">Since <span class="process-math">\(a_{n+1}-a_n\gt 0\)</span> for all <span class="process-math">\(n\text{,}\)</span> we conclude the sequence is increasing.</div>
+</div></li>
+<li id="li-1664">
+<div class="para logical" id="p-8282">
+<div class="para">We can clearly see in <a href="" class="xref" data-knowl="./knowl/fig_seq7c.html" title="Figure 9.1.(c)">Figure 9.1.(c)</a>, where the sequence is plotted, that it is not monotonic. However, it does seem that after the first 4 terms it is decreasing. To understand why, perform the same analysis as done before:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig_seq7c.html" id="md-373">
+\begin{align*}
+a_{n+1}-a_n \amp = \frac{(n+1)^2-9}{(n+1)^2-10(n+1)+26} - \frac{n^2-9}{n^2-10n+26}\\
+\amp = \frac{n^2+2n-8}{n^2-8n+17}-\frac{n^2-9}{n^2-10n+26}\\
+\amp = \frac{(n^2+2n-8)(n^2-10n+26)-(n^2-9)(n^2-8n+17)}{(n^2-8n+17)(n^2-10n+26)}\\
+\amp = \frac{-10n^2+60n-55}{(n^2-8n+17)(n^2-10n+26)}\text{.}
+\end{align*}
+</div>
+</div>
+<div class="para" id="p-8283">We want to know when this is greater than, or less than, 0. The denominator is always positive, therefore we are only concerned with the numerator. For small values of <span class="process-math">\(n\text{,}\)</span> the numerator is positive. As <span class="process-math">\(n\)</span> grows large, the numerator is dominated by <span class="process-math">\(-10n^2\text{,}\)</span> meaning the entire fraction will be negative; i.e., for large enough <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(a_{n+1}-a_n \lt 0\text{.}\)</span> Using the quadratic formula we can determine that the numerator is negative for <span class="process-math">\(n\geq 5\text{.}\)</span> In short, the sequence is simply not monotonic, though it is useful to note that for <span class="process-math">\(n\geq 5\text{,}\)</span> the sequence is monotonically decreasing.</div>
+</li>
+<li id="ex_seq7_4"><div class="para logical" id="p-8284">
+<div class="para">Again, the plot in <a href="" class="xref" data-knowl="./knowl/fig_seq7d.html" title="Figure 9.1.(d)">Figure 9.1.(d)</a> shows that the sequence is not monotonic, but it suggests that it is monotonically decreasing after the first term. We perform the usual analysis to confirm this.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig_seq7d.html" id="md-374">
+\begin{align*}
+a_{n+1}-a_n \amp = \frac{(n+1)^2}{(n+1)!} - \frac{n^2}{n!}\\
+\amp = \frac{(n+1)^2-n^2(n+1)}{(n+1)!}\\
+\amp =  \frac{-n^3+2n+1}{(n+1)!}
+\end{align*}
+</div>
+<div class="para">When <span class="process-math">\(n=1\text{,}\)</span> the above expression is <span class="process-math">\(\gt 0\text{;}\)</span> for <span class="process-math">\(n\geq 2\text{,}\)</span> the above expression is <span class="process-math">\(\lt 0\text{.}\)</span> Thus this sequence is not monotonic, but it is monotonically decreasing after the first term.</div>
+</div></li>
+</ol></div> <figure class="figure figure-like" id="fig_seq7"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel bottom" style="width:47%;"><figure class="figure figure-like" id="fig_seq7a"><img src="generated/latex-image/img_seq7a.svg" role="img" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span></figcaption></figure></div>
+<div class="sbspanel bottom" style="width:47%;"><figure class="figure figure-like" id="fig_seq7b"><img src="generated/latex-image/img_seq7b.svg" role="img" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span></figcaption></figure></div>
+</div></div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel bottom" style="width:47%;"><figure class="figure figure-like" id="fig_seq7c"><img src="generated/latex-image/img_seq7c.svg" role="img" class="contained"><figcaption><span class="codenumber">(c)</span><span class="space"> </span></figcaption></figure></div>
+<div class="sbspanel bottom" style="width:47%;"><figure class="figure figure-like" id="fig_seq7d"><img src="generated/latex-image/img_seq7d.svg" role="img" class="contained"><figcaption><span class="codenumber">(d)</span><span class="space"> </span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.31<span class="period">.</span></span><span class="space"> </span>Plots of sequences in <a href="" class="xref" data-knowl="./knowl/ex_seq7.html" title="Example 9.1.30: Determining monotonicity">Example 9.1.30</a></figcaption></figure>
+</div></div>
+</div></article><div class="para" id="p-8285">Knowing that a sequence is monotonic can be useful. Consider, for example, a sequence that is monotonically decreasing and is bounded below. We know the sequence is always getting smaller, but that there is a bound to how small it can become. This is enough to prove that the sequence will converge, as stated in the following theorem.</div>
+<article class="theorem theorem-like" id="thm_monotonic_converge"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.1.32</span><span class="period">.</span><span class="space"> </span><span class="title">Bounded Monotonic Sequences are Convergent.</span>
+</h3>
+<div class="para logical" id="p-8286"><ol class="decimal">
+<li id="li-1666"><div class="para" id="p-8287">Let <span class="process-math">\(\{a_n\}\)</span> be a monotonically increasing sequence that is bounded above. Then <span class="process-math">\(\{a_n\}\)</span> converges.</div></li>
+<li id="li-1667"><div class="para" id="p-8288">Let <span class="process-math">\(\{a_n\}\)</span> be a monotonically decreasing sequence that is bounded below. Then <span class="process-math">\(\{a_n\}\)</span> converges. </div></li>
+</ol></div></article><div class="para" id="p-8289">Consider once again the sequence <span class="process-math">\(\{a_n\} = \{1/n\}\text{.}\)</span> It is easy to show it is monotonically decreasing and that it is always positive (i.e., bounded below by 0). Therefore we can conclude by <a href="" class="xref" data-knowl="./knowl/thm_monotonic_converge.html" title="Theorem 9.1.32: Bounded Monotonic Sequences are Convergent">Theorem 9.1.32</a> that the sequence converges. We already knew this by other means, but in the following section this theorem will become very useful.</div>
+<div class="para" id="p-8290">We can replace <a href="" class="xref" data-knowl="./knowl/thm_monotonic_converge.html" title="Theorem 9.1.32: Bounded Monotonic Sequences are Convergent">Theorem 9.1.32</a> with the statement “Let <span class="process-math">\(\{a_n\}\)</span> be a bounded, monotonic sequence. Then <span class="process-math">\(\{a_n\}\)</span> converges; i.e., <span class="process-math">\(\ds \lim_{n \to\infty}a_n\)</span> exists.” We leave it to the reader in the exercises to show the theorem and the above statement are equivalent.</div>
+<figure class="figure figure-like" id="vid-seqseries-sequences-monotone-limit"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-309" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/fRMKbUCIb_4?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.33<span class="period">.</span></span><span class="space"> </span>Finding the limit of a bounded, monotonic sequence</figcaption></figure><div class="para" id="p-8291">Sequences are a great source of mathematical inquiry. The On-Line Encyclopedia of Integer Sequences (<a class="external" href="https://oeis.org" target="_blank"><code class="code-inline tex2jax_ignore">oeis.org</code></a>) contains thousands of sequences and their formulae. (As of this writing, there are 328,977 sequences in the database.) Perusing this database quickly demonstrates that a single sequence can represent several different “real life” phenomena.</div>
+<div class="para" id="p-8292">Interesting as this is, our interest actually lies elsewhere. We are more interested in the <em class="emphasis">sum</em> of a sequence. That is, given a sequence <span class="process-math">\(\{a_n\}\text{,}\)</span> we are very interested in <span class="process-math">\(a_1+a_2+a_3+\cdots\text{.}\)</span> Of course, one might immediately counter with “Doesn't this just add up to ‘infinity’?” Many times, yes, but there are many important cases where the answer is no. This is the topic of <em class="emphasis">series</em>, which we begin to investigate in <a href="sec_series.html" class="internal" title="Section 9.2: Infinite Series">Section 9.2</a>.</div>
+<section class="exercises" id="exercises-46"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h3>
+<article class="subexercises" id="subexercises-102"><h4 class="heading"><span class="title">Terms and Concepts</span></h4>
+<article class="exercise exercise-like" id="exercise-1528"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
+<div class="para" id="p-8293">Use your own words to define a <em class="emphasis">sequence.</em>
+</div></article><article class="exercise exercise-like" id="exercise-1529"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+<div class="para" id="p-8295">The domain of a sequence is the <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> numbers.</div></article><article class="exercise exercise-like" id="exercise-1530"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+<div class="para" id="p-8297">Use your own words to describe the <em class="emphasis">range</em> of a sequence.</div></article><article class="exercise exercise-like" id="exercise-1531"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
+<div class="para" id="p-8299">Describe what it means for a sequence to be <em class="emphasis">bounded</em>.</div></article></article><article class="subexercises" id="subexercises-103"><h4 class="heading"><span class="title">Problems</span></h4>
+<div class="exercisegroup" id="exercisegroup-159">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-208"><div class="para" id="p-8301">In the following exercises, give the first five terms of the given sequence.</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-1532"><h6 class="heading"><span class="codenumber">5<span class="period">.</span></span></h6>
+<div class="para" id="p-8302"><span class="process-math">\(\ds \{a_n\} = \left\{\frac{4^n}{(n+1)!}\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1533"><h6 class="heading"><span class="codenumber">6<span class="period">.</span></span></h6>
+<div class="para" id="p-8304"><span class="process-math">\(\ds \{b_n\} = \left\{\left(-\frac32\right)^n\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1534"><h6 class="heading"><span class="codenumber">7<span class="period">.</span></span></h6>
+<div class="para" id="p-8306"><span class="process-math">\(\ds \{c_n\} = \left\{-\frac{n^{n+1}}{n+2}\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1535"><h6 class="heading"><span class="codenumber">8<span class="period">.</span></span></h6>
+<div class="para" id="p-8308"><span class="process-math">\(\ds \{d_n\} = \left\{\frac{1}{\sqrt{5}}\left(\left(\frac{1+\sqrt{5}}{2}\right)^n-\left(\frac{1-\sqrt{5}}{2}\right)^n\right)\right\}\)</span></div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exercisegroup-160">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-209"><div class="para" id="p-8310">In the following exercises, determine the <span class="process-math">\(n\)</span>th term of the given sequence.</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-1536"><h6 class="heading"><span class="codenumber">9<span class="period">.</span></span></h6>
+<div class="para" id="p-8311">4, 7, 10, 13, 16, <span class="process-math">\(\ldots\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-1537"><h6 class="heading"><span class="codenumber">10<span class="period">.</span></span></h6>
+<div class="para" id="p-8313"><span class="process-math">\(\ds 3,\, -\frac32,\, \frac34,\, -\frac38,\, \ldots\)</span></div></article><article class="exercise exercise-like" id="exercise-1538"><h6 class="heading"><span class="codenumber">11<span class="period">.</span></span></h6>
+<div class="para" id="p-8315"><span class="process-math">\(10,\, 20,\, 40,\, 80,\, 160,\, \ldots\)</span></div></article><article class="exercise exercise-like" id="exercise-1539"><h6 class="heading"><span class="codenumber">12<span class="period">.</span></span></h6>
+<div class="para" id="p-8317"><span class="process-math">\(\ds 1, 1,\, \frac12,\, \frac16,\, \frac1{24},\, \frac1{120},\, \ldots\)</span></div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exercisegroup-161">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-210">
+<div class="para" id="p-8319">In the following exercises, use the following information to determine the limit of the given sequences.</div> <div class="para logical" id="p-8320"><ul class="disc">
+<li id="li-1668"><div class="para" id="p-8321">
+<span class="process-math">\(\ds \{a_n\} = \left\{\frac{2^n-20}{2^n}\right\}\text{;}\)</span> <span class="process-math">\(\lim\limits_{n\to\infty} a_n = 1\)</span>
+</div></li>
+<li id="li-1669"><div class="para" id="p-8322">
+<span class="process-math">\(\ds \{b_n\} = \left\{\left(1+\frac{2}{n}\right)^n\right\}\text{;}\)</span> <span class="process-math">\(\lim\limits_{n\to\infty} b_n = e^2\)</span>
+</div></li>
+<li id="li-1670"><div class="para" id="p-8323">
+<span class="process-math">\(\ds \{c_n\} = \left\{\sin(3/n)\right\}\text{;}\)</span> <span class="process-math">\(\lim\limits_{n\to\infty} c_n = 0\)</span>
+</div></li>
+</ul></div>
+</div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-1540"><h6 class="heading"><span class="codenumber">13<span class="period">.</span></span></h6>
+<div class="para" id="p-8324"><span class="process-math">\(\ds\{a_n\} = \left\{ \frac{2^n-20}{7\cdot2^n} \right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1541"><h6 class="heading"><span class="codenumber">14<span class="period">.</span></span></h6>
+<div class="para" id="p-8326"><span class="process-math">\(\ds\{a_n\} = \left\{ 3b_n-a_n \right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1542"><h6 class="heading"><span class="codenumber">15<span class="period">.</span></span></h6>
+<div class="para" id="p-8328"><span class="process-math">\(\ds\{a_n\} = \left\{ \sin(3/n)\left(1+\frac2n\right)^n \right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1543"><h6 class="heading"><span class="codenumber">16<span class="period">.</span></span></h6>
+<div class="para" id="p-8330"><span class="process-math">\(\ds\{a_n\} = \left\{ \left(1+\frac2n\right)^{2n} \right\}\)</span></div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exercisegroup-162">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-211"><div class="para" id="p-8332">In the following exercises, determine whether the sequence converges or diverges. If convergent, give the limit of the sequence.</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-1544"><h6 class="heading"><span class="codenumber">17<span class="period">.</span></span></h6>
+<div class="para" id="p-8333"><span class="process-math">\(\ds\{a_n\} = \left\{(-1)^n\frac{n}{n+1}\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1545"><h6 class="heading"><span class="codenumber">18<span class="period">.</span></span></h6>
+<div class="para" id="p-8335"><span class="process-math">\(\ds\{a_n\} = \left\{\frac{4n^2-n+5}{3n^2+1}\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1546"><h6 class="heading"><span class="codenumber">19<span class="period">.</span></span></h6>
+<div class="para" id="p-8337"><span class="process-math">\(\ds\{a_n\} = \left\{\frac{4^n}{5^n}\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1547"><h6 class="heading"><span class="codenumber">20<span class="period">.</span></span></h6>
+<div class="para" id="p-8339">
+<span class="process-math">\(\ds\{a_n\} = \left\{\frac{n-1}{n}-\frac{n}{n-1}\right\}\text{,}\)</span> <span class="process-math">\(n\geq 2\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-1548"><h6 class="heading"><span class="codenumber">21<span class="period">.</span></span></h6>
+<div class="para" id="p-8341"><span class="process-math">\(\ds\{a_n\} = \left\{\ln(n)\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1549"><h6 class="heading"><span class="codenumber">22<span class="period">.</span></span></h6>
+<div class="para" id="p-8343"><span class="process-math">\(\ds\{a_n\} = \left\{\frac{3n}{\sqrt{n^2+1}}\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1550"><h6 class="heading"><span class="codenumber">23<span class="period">.</span></span></h6>
+<div class="para" id="p-8345"><span class="process-math">\(\ds\{a_n\} = \left\{\left(1+\frac1n\right)^n\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1551"><h6 class="heading"><span class="codenumber">24<span class="period">.</span></span></h6>
+<div class="para" id="p-8347"><span class="process-math">\(\ds\{a_n\} = \left\{5-\frac1n\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1552"><h6 class="heading"><span class="codenumber">25<span class="period">.</span></span></h6>
+<div class="para" id="p-8349"><span class="process-math">\(\ds\{a_n\} = \left\{\frac{(-1)^{n+1}}{n}\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1553"><h6 class="heading"><span class="codenumber">26<span class="period">.</span></span></h6>
+<div class="para" id="p-8351"><span class="process-math">\(\ds\{a_n\} = \left\{\frac{1.1^n}{n}\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1554"><h6 class="heading"><span class="codenumber">27<span class="period">.</span></span></h6>
+<div class="para" id="p-8353"><span class="process-math">\(\ds\{a_n\} = \left\{\frac{2n}{n+1}\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1555"><h6 class="heading"><span class="codenumber">28<span class="period">.</span></span></h6>
+<div class="para" id="p-8355"><span class="process-math">\(\ds\{a_n\} = \left\{(-1)^n\frac{n^2}{2^n-1}\right\}\)</span></div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exercisegroup-163">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-212"><div class="para" id="p-8357">In the following exercises, determine whether the sequence is bounded, bounded above, bounded below, or none of the above.</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-1556"><h6 class="heading"><span class="codenumber">29<span class="period">.</span></span></h6>
+<div class="para" id="p-8358"><span class="process-math">\(\ds\{a_n\} = \left\{\sin(n) \right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1557"><h6 class="heading"><span class="codenumber">30<span class="period">.</span></span></h6>
+<div class="para" id="p-8360"><span class="process-math">\(\ds\{a_n\} = \left\{\tan(n) \right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1558"><h6 class="heading"><span class="codenumber">31<span class="period">.</span></span></h6>
+<div class="para" id="p-8362"><span class="process-math">\(\ds\{a_n\} = \left\{(-1)^n\frac{3n-1}{n}\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1559"><h6 class="heading"><span class="codenumber">32<span class="period">.</span></span></h6>
+<div class="para" id="p-8364"><span class="process-math">\(\ds\{a_n\} = \left\{\frac{3n^2-1}{n}\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1560"><h6 class="heading"><span class="codenumber">33<span class="period">.</span></span></h6>
+<div class="para" id="p-8366"><span class="process-math">\(\ds\{a_n\} = \left\{n\cos(n) \right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1561"><h6 class="heading"><span class="codenumber">34<span class="period">.</span></span></h6>
+<div class="para" id="p-8368"><span class="process-math">\(\ds\{a_n\} = \left\{2^n-n!\right\}\)</span></div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exercisegroup-164">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-213"><div class="para" id="p-8370">In the following exercises, determine whether the sequence is monotonically increasing or decreasing. If it is not, determine if there is an <span class="process-math">\(m\)</span> such that it is monotonic for all <span class="process-math">\(n\geq m\text{.}\)</span>
+</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-1562"><h6 class="heading"><span class="codenumber">35<span class="period">.</span></span></h6>
+<div class="para" id="p-8371"><span class="process-math">\(\ds\{a_n\} = \left\{\frac{n}{n+2}\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1563"><h6 class="heading"><span class="codenumber">36<span class="period">.</span></span></h6>
+<div class="para" id="p-8373"><span class="process-math">\(\ds\{a_n\} = \left\{\frac{n^2-6n+9}{n}\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1564"><h6 class="heading"><span class="codenumber">37<span class="period">.</span></span></h6>
+<div class="para" id="p-8375"><span class="process-math">\(\ds\{a_n\} = \left\{(-1)^n\frac{1}{n^3}\right\}\)</span></div></article><article class="exercise exercise-like" id="exercise-1565"><h6 class="heading"><span class="codenumber">38<span class="period">.</span></span></h6>
+<div class="para" id="p-8377"><span class="process-math">\(\ds\{a_n\} = \left\{\frac{n^2}{2^n}\right\}\)</span></div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exercisegroup-165">
+<h5 class="heading"><span class="title">Exercise Group.</span></h5>
+<div class="introduction" id="introduction-214"><div class="para" id="p-8379">The following exercises explore further the theory of sequences.</div></div>
+<div class="exercisegroup-exercises cols2">
+<article class="exercise exercise-like" id="exercise-1566"><h6 class="heading"><span class="codenumber">39<span class="period">.</span></span></h6>
+<div class="para" id="p-8380">Prove <a href="" class="xref" data-knowl="./knowl/thm_abs_val_seq.html" title="Theorem 9.1.17: Absolute Value Theorem">Theorem 9.1.17</a>; that is, use the definition of the limit of a sequence to show that if <span class="process-math">\(\lim\limits_{n\to\infty} \abs{a_n} = 0\text{,}\)</span> then <span class="process-math">\(\lim\limits_{n\to\infty} a_n = 0\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-1567"><h6 class="heading"><span class="codenumber">40<span class="period">.</span></span></h6>
+<div class="para" id="p-8382">Let <span class="process-math">\(\{a_n\}\)</span> and <span class="process-math">\(\{b_n\}\)</span> be sequences such that <span class="process-math">\(\lim\limits_{n\to\infty} a_n = L\)</span> and <span class="process-math">\(\lim\limits_{n\to\infty} b_n = K\text{.}\)</span>
+</div> <div class="para logical" id="p-8383"><ol class="lower-alpha">
+<li id="li-1671"><div class="para" id="p-8384">Show that if <span class="process-math">\(a_n\lt b_n\)</span> for all <span class="process-math">\(n\text{,}\)</span> then <span class="process-math">\(L\leq K\text{.}\)</span>
+</div></li>
+<li id="li-1672"><div class="para" id="p-8385">Give an example where <span class="process-math">\(L = K\text{.}\)</span>
+</div></li>
+</ol></div></article><article class="exercise exercise-like" id="exercise-1568"><h6 class="heading"><span class="codenumber">41<span class="period">.</span></span></h6>
+<div class="para" id="p-8389">Prove the Squeeze Theorem for sequences: Let <span class="process-math">\(\{a_n\}\)</span> and <span class="process-math">\(\{b_n\}\)</span> be such that <span class="process-math">\(\lim\limits_{n\to\infty} a_n = L\)</span> and <span class="process-math">\(\lim\limits_{n\to\infty} b_n = L\text{,}\)</span> and let <span class="process-math">\(\{c_n\}\)</span> be such that <span class="process-math">\(a_n\leq c_n\leq b_n\)</span> for all <span class="process-math">\(n\text{.}\)</span> Then <span class="process-math">\(\lim\limits_{n\to\infty} c_n = L\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-1569"><h6 class="heading"><span class="codenumber">42<span class="period">.</span></span></h6>
+<div class="para logical" id="p-8392">
+<div class="para">Prove the statement “Let <span class="process-math">\(\{a_n\}\)</span> be a bounded, monotonic sequence. Then <span class="process-math">\(\{a_n\}\)</span> converges; i.e., <span class="process-math">\(\ds \lim_{n \to\infty}a_n\)</span> exists.” is equivalent to <a href="" class="xref" data-knowl="./knowl/thm_monotonic_converge.html" title="Theorem 9.1.32: Bounded Monotonic Sequences are Convergent">Theorem 9.1.32</a>. That is,</div>
+<ol class="lower-alpha">
+<li id="li-1675"><div class="para" id="p-8393">Show that if <a href="" class="xref" data-knowl="./knowl/thm_monotonic_converge.html" title="Theorem 9.1.32: Bounded Monotonic Sequences are Convergent">Theorem 9.1.32</a> is true, then above statement is true, and</div></li>
+<li id="li-1676"><div class="para" id="p-8394">Show that if the above statement is true, then <a href="" class="xref" data-knowl="./knowl/thm_monotonic_converge.html" title="Theorem 9.1.32: Bounded Monotonic Sequences are Convergent">Theorem 9.1.32</a> is true.</div></li>
+</ol>
+</div></article>
+</div>
+</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="chapter_sequences_series.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec_series.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
+<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+</div>
+</body>
+</html>

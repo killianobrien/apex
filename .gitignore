@@ -2,8 +2,8 @@
 #
 #
 ## Output directories
-output/
-generated-assets/
+#output/
+#generated-assets/
 #
 # Macro file for WeBWorK
 APEX.pl

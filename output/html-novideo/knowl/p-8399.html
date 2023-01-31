@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">Now, examining the partial sums, we consider five cases to determine when <span class="process-math">\(S_n\)</span> converges:</div>
+<ol class="decimal">
+<li><div class="para">If <span class="process-math">\(\abs{r}\lt 1\text{,}\)</span> then <span class="process-math">\(r^n \to 0\)</span> as <span class="process-math">\(n \to \infty\text{,}\)</span> so we have <span class="process-math">\(\inflim S_n=\frac{1-0}{1-r}=\frac{1}{1-r}\text{,}\)</span> a convergent sequence of partial sums.</div></li>
+<li><div class="para logical">
+<div class="para">If <span class="process-math">\(r \gt 1\text{,}\)</span> then <span class="process-math">\(r^n \to \infty\)</span> as <span class="process-math">\(n \to \infty\text{,}\)</span> so</div>
+<div class="displaymath process-math">
+\begin{equation*}
+S_n = \frac{1-r^n}{1-r}=\frac{r^n}{r-1}-\frac{1}{r-1}
+\end{equation*}
+</div>
+<div class="para">diverges to infinity. (Note that <span class="process-math">\(r-1\)</span> is a positive constant.)</div>
+</div></li>
+<li><div class="para">If <span class="process-math">\(r \lt -1\text{,}\)</span> then <span class="process-math">\(r^n\)</span> will oscillate between large positive and large negative values as <span class="process-math">\(n\)</span> increases. The same will be true of <span class="process-math">\(S_n\text{,}\)</span> so <span class="process-math">\(\inflim S_n\)</span> does not exist.</div></li>
+<li><div class="para">If <span class="process-math">\(r=1\text{,}\)</span> then <span class="process-math">\(S_n = \frac{1-1^{n+1}}{1-1}\)</span> is undefined. However, examining <span class="process-math">\(S_n = 1+r+r^2+\dots+r^n\)</span> for <span class="process-math">\(r=1\text{,}\)</span> we can see that the partial sums simplify to <span class="process-math">\(S_n=n\text{,}\)</span> and this sequence diverges to <span class="process-math">\(\infty\text{.}\)</span>
+</div></li>
+<li><div class="para">If <span class="process-math">\(r=-1\text{,}\)</span> then <span class="process-math">\(S_n = \frac{1-(-1)^{n}}{2}\text{.}\)</span> For even values of <span class="process-math">\(n\text{,}\)</span> the partial sums are always <span class="process-math">\(0\text{.}\)</span> For odd values of <span class="process-math">\(n\text{,}\)</span> the partial sums are always <span class="process-math">\(1\text{.}\)</span> So the sequence of partial sums diverges.</div></li>
+</ol>
+<div class="para">Therefore, a geometric series converges if and only if <span class="process-math">\(\abs{r} \lt 1\text{.}\)</span>
+</div>
+</div>
+<span class="incontext"><a href="sec_series.html#p-8399" class="internal">in-context</a></span>
+</body>
+</html>

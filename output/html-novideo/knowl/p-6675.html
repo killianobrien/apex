@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical"><ol class="decimal">
+<li>
+<div class="para">The function <span class="process-math">\(f(x) = e^{-x^2}\)</span> does not have an antiderivative expressible in terms of elementary functions, so we cannot integrate directly. It is comparable to <span class="process-math">\(g(x)=1/x^2\text{,}\)</span> and as demonstrated in <a href="" class="xref" data-knowl="./knowl/fig_impint5.html" title="Figure 6.8.19">Figure 6.8.19</a>, <span class="process-math">\(e^{-x^2} \lt 1/x^2\)</span> on <span class="process-math">\([1,\infty)\text{.}\)</span> We know from <a href="" class="xref" data-knowl="./knowl/idea_impint1.html" title="Key Idea 6.8.16: Convergence of Improper Integrals involving 1/x^p">Key Idea 6.8.16</a> that <span class="process-math">\(\ds \int_1^\infty \frac{1}{x^2}\, dx\)</span> converges, hence <span class="process-math">\(\ds\int_1^\infty e^{-x^2}\, dx\)</span> also converges.</div>
+<figure class="figure figure-like"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_impint5.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.8.19<span class="period">.</span></span><span class="space"> </span>Graphs of <span class="process-math">\(f(x) = e^{-x^2}\)</span> and <span class="process-math">\(f(x)= 1/x^2\)</span> in <a href="" class="xref" data-knowl="./knowl/ex_impint5.html" title="Example 6.8.18: Determining convergence of improper integrals">Example 6.8.18</a></figcaption></figure>
+</li>
+<li>
+<div class="para logical">
+<div class="para">Note that for large values of <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(\ds \frac{1}{\sqrt{x^2-x}} \approx \frac{1}{\sqrt{x^2}} =\frac{1}{x}\text{.}\)</span> We know from <a href="" class="xref" data-knowl="./knowl/idea_impint1.html" title="Key Idea 6.8.16: Convergence of Improper Integrals involving 1/x^p">Key Idea 6.8.16</a> and the subsequent note that  <span class="process-math">\(\ds \int_3^\infty \frac1x\, dx\)</span> diverges, so we seek to compare the original integrand to <span class="process-math">\(1/x\text{.}\)</span> It is easy to see that when <span class="process-math">\(x \gt 0\text{,}\)</span> we have <span class="process-math">\(x = \sqrt{x^2}  \gt  \sqrt{x^2-x}\text{.}\)</span> Taking reciprocals reverses the inequality, giving</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/idea_impint1.html ./knowl/thm_impint_comparison.html ./knowl/fig_impint5b.html">
+\begin{equation*}
+\frac1x \lt  \frac1{\sqrt{x^2-x}}\text{.}
+\end{equation*}
+</div>
+<div class="para">Using <a href="" class="xref" data-knowl="./knowl/thm_impint_comparison.html" title="Theorem 6.8.17: Direct Comparison Test for Improper Integrals">Theorem 6.8.17</a>, we conclude that since <span class="process-math">\(\ds\int_3^\infty\frac1x\, dx\)</span> diverges, <span class="process-math">\(\ds\int_3^\infty\frac1{\sqrt{x^2-x}}\, dx\)</span> diverges as well. <a href="" class="xref" data-knowl="./knowl/fig_impint5b.html" title="Figure 6.8.20">Figure 6.8.20</a> illustrates this.</div>
+</div>
+<figure class="figure figure-like"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_impint5b.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.8.20<span class="period">.</span></span><span class="space"> </span>Graphs of <span class="process-math">\(f(x) = 1/\sqrt{x^2-x}\)</span> and <span class="process-math">\(f(x)= 1/x\)</span> in <a href="" class="xref" data-knowl="./knowl/ex_impint5.html" title="Example 6.8.18: Determining convergence of improper integrals">Example 6.8.18</a></figcaption></figure>
+</li>
+</ol></div>
+<span class="incontext"><a href="sec_improper_integration.html#p-6675" class="internal">in-context</a></span>
+</body>
+</html>

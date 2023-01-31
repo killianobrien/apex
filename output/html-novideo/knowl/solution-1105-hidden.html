@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">In <a href="" class="xref" data-knowl="./knowl/ex_tannorm2.html" title="Example 12.4.4: Computing the unit tangent vector">Example 12.4.4</a>, we found</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex_tannorm2.html">
+\begin{equation*}
+\unittangent(t) = \la \frac{2t-1}{\sqrt{8t^2+2}},\frac{2t+1}{\sqrt{8t^2+2}}\ra\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">Finding <span class="process-math">\(\unittangentprime(t)\)</span> requires two applications of the Quotient Rule:</div>
+<div class="displaymath process-math">
+\begin{align*}
+T\,'(t) \amp = \la \frac{\sqrt{8t^2+2}(2)-(2t-1)\left(\frac12(8t^2+2)^{-1/2}(16t)\right)}{8t^2+2},\right.\\
+\amp  \left.\frac{\sqrt{8t^2+2}(2)-(2t+1)\left(\frac12(8t^2+2)^{-1/2}(16t)\right)}{8t^2+2} \ra\\
+\amp = \la \frac{4 (2 t+1)}{\left(8 t^2+2\right)^{3/2}},\frac{4
+(1-2 t)}{\left(8 t^2+2\right)^{3/2}}\ra
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">This is not a unit vector; to find <span class="process-math">\(\unitnormal(t)\text{,}\)</span> we need to divide <span class="process-math">\(\unittangentprime(t)\)</span> by its magnitude.</div>
+<div class="displaymath process-math">
+\begin{align*}
+\norm{\unittangentprime(t)} \amp = \sqrt{\frac{16(2t+1)^2}{(8t^2+2)^3}+\frac{16(1-2t)^2}{(8t^2+2)^3}}\\
+\amp = \sqrt{\frac{16(8t^2+2)}{(8t^2+2)^3}}\\
+\amp = \frac{4}{8t^2+2}\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">Finally,</div>
+<div class="displaymath process-math">
+\begin{align*}
+\unitnormal(t) \amp = \frac1{4/(8t^2+2)}\la \frac{4 (2 t+1)}{\left(8 t^2+2\right)^{3/2}},\frac{4
+(1-2 t)}{\left(8 t^2+2\right)^{3/2}}\ra\\
+\amp = \la \frac{2t+1}{\sqrt{8t^2+2}},-\frac{2t-1}{\sqrt{8t^2+2}}\ra\text{.}
+\end{align*}
+</div>
+</div> <div class="para">Using this formula for <span class="process-math">\(\unitnormal(t)\text{,}\)</span> we compute the unit tangent and normal vectors for <span class="process-math">\(t=-1,0\)</span> and 1 and sketch them in <a href="" class="xref" data-knowl="./knowl/fig_tannorm4.html" title="Figure 12.4.11">Figure 12.4.11</a>.</div> <figure class="figure figure-like"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="generated/latex-image/img_tannorm4.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">12.4.11<span class="period">.</span></span><span class="space"> </span>Plotting unit tangent and normal vectors in <a href="" class="xref" data-knowl="./knowl/ex_tannorm4.html" title="Example 12.4.10: Computing the unit normal vector">Example 12.4.10</a></figcaption></figure>
+</div></body>
+</html>

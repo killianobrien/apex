@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">We begin by finding <span class="process-math">\(f(x+dx,y+dy)\text{,}\)</span> <span class="process-math">\(\ddz\text{,}\)</span> <span class="process-math">\(f_x\)</span> and <span class="process-math">\(f_y\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+f(x+dx,y+dy) \amp = (x+dx)(y+dy) + 3(y+dy)^2\\
+\amp = xy + xdy+ydx+dxdy + 3y^2+6ydy+3dy^2\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">
+<span class="process-math">\(\ddz = f(x+dx,y+dy) - f(x,y)\text{,}\)</span> so</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\ddz = xdy + ydx + dxdy + 6ydy+3dy^2\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">It is straightforward to compute <span class="process-math">\(f_x = y\)</span> and <span class="process-math">\(f_y = x+6y\text{.}\)</span> Consider once more <span class="process-math">\(\ddz\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\ddz \amp = xdy + ydx + dxdy + 6ydy+3dy^2 \qquad \text{ (now reorder) }\\
+\amp = ydx + xdy+6ydy+ dxdy + 3dy^2\\
+\amp = \underbrace{(y)}_{f_x}dx + \underbrace{(x+6y)}_{f_y}dy + \underbrace{(dy)}_{E_x}dx+\underbrace{(3dy)}_{E_y}dy\\
+\amp = f_xdx + f_ydy + E_xdx+E_ydy\text{.}
+\end{align*}
+</div>
+</div> <div class="para">With <span class="process-math">\(E_x = dy\)</span> and <span class="process-math">\(E_y = 3dy\text{,}\)</span> it is clear that as <span class="process-math">\(dx\)</span> and <span class="process-math">\(dy\)</span> go to 0, <span class="process-math">\(E_x\)</span> and <span class="process-math">\(E_y\)</span> also go to 0. Since this did not depend on a specific point <span class="process-math">\((x_0,y_0)\text{,}\)</span> we can say that <span class="process-math">\(f(x,y)\)</span> is differentiable for all pairs <span class="process-math">\((x,y)\)</span> in <span class="process-math">\(\mathbb{R}^2\text{,}\)</span> or, equivalently, that <span class="process-math">\(f\)</span> is differentiable everywhere.</div>
+</div></body>
+</html>

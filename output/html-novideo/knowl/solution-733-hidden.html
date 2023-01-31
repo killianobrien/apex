@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">Given a value <span class="process-math">\(x\text{,}\)</span> the magnitude of the error term <span class="process-math">\(R_n(x)\)</span> is bounded by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{R_n(x)} \leq \frac{\max\abs{\,f^{(n+1)}(z)}}{(n+1)!}\abs{x^{(n+1)}}\text{,}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(z\)</span> is between <span class="process-math">\(0\)</span> and <span class="process-math">\(x\text{.}\)</span>
+</div>
+</div> <div class="para">Note that <span class="process-math">\(\abs{f^{(n+1)}(x)} = \frac{(n+1)!}{(1-x)^{n+2}}\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">If <span class="process-math">\(-1\lt x\lt 0\text{,}\)</span> then <span class="process-math">\(x\lt z\lt 0\)</span> and <span class="process-math">\(f^{(n+1)}(z) =\frac{(n+1)!}{(1-z)^{n+2}}\lt \frac{(n+1)!}{(1-x)^{n+2}}\text{.}\)</span> Thus</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{R_n(x)} \leq \frac{(n+1)!}{(1-x)^{n+2}}\frac{1}{(n+1)!}\abs{x^{n+1}}= \frac{(x-1)^{n+1}}{n+1}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">For a fixed <span class="process-math">\(x\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{n\to\infty} \frac{(x-1)^{n+1}}{n+1}=0
+\end{equation*}
+</div>
+<div class="para">since <span class="process-math">\(\abs{x}\lt 1\text{,}\)</span> hence</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{1-x} = \infser[0] x^n \text{ on }  (-1,0)\text{.}
+\end{equation*}
+</div>
+</div>
+</div></body>
+</html>

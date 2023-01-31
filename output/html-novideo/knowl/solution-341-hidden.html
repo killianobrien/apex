@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">We use <a href="" class="xref" data-knowl="./knowl/idea_trigsub.html" title="Key Idea 6.4.2: Trigonometric Substitution">Key Idea 6.4.2</a>(a) with <span class="process-math">\(a=2\text{,}\)</span> <span class="process-math">\(x=2\sin(\theta)\text{,}\)</span> <span class="process-math">\(dx = 2\cos(\theta)\)</span> and hence <span class="process-math">\(\sqrt{4-x^2} = 2\cos(\theta)\text{.}\)</span> This gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/idea_trigsub.html">
+\begin{align*}
+\int \frac{\sqrt{4-x^2}}{x^2}\, dx \amp = \int \frac{2\cos(\theta) }{4\sin^2(\theta) }(2\cos(\theta) )\, d\theta\\
+\amp = \int \cot^2(\theta) \, d\theta\\
+\amp =	\int (\csc^2(\theta) -1)\, d\theta\\
+\amp = -\cot(\theta) -\theta + C\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">We need to rewrite our answer in terms of <span class="process-math">\(x\text{.}\)</span> Using the reference triangle found in <a href="" class="xref" data-knowl="./knowl/idea_trigsub.html" title="Key Idea 6.4.2: Trigonometric Substitution">Key Idea 6.4.2</a>(a), we have <span class="process-math">\(\cot(\theta) = \sqrt{4-x^2}/x\)</span> and <span class="process-math">\(\theta = \sin^{-1}(x/2)\text{.}\)</span> Thus</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/idea_trigsub.html">
+\begin{equation*}
+\int \frac{\sqrt{4-x^2}}{x^2}\, dx = -\frac{\sqrt{4-x^2}}x-\sin^{-1}\left(\frac x2\right) + C\text{.}
+\end{equation*}
+</div>
+</div>
+</div></body>
+</html>
